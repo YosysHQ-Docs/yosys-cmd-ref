@@ -1,0 +1,14 @@
+# .readthedocs.yaml
+# See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
+
+version: 2
+
+formats:
+  - pdf
+
+sphinx:
+  configuration: source/conf.py
+
+python:
+  install:
+    - requirements: source/requirements.txt
