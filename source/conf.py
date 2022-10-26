@@ -16,7 +16,7 @@ html_sidebars = {'**': ['util/searchbox.html', 'util/sidetoc.html']}
 # These folders are copied to the documentation's HTML output
 html_static_path = ['../static', "../images"]
 
-# code blocks style 
+# code blocks style
 pygments_style = 'colorful'
 highlight_language = 'none'
 
@@ -54,7 +54,7 @@ latex_elements = {
 }
 
 def setup(sphinx):
-	sys.path.insert(0, os.path.abspath('./util'))
+	sys.path += [os.path.dirname(__file__) + "/../util"]
 	from RtlilLexer import RtlilLexer
 	sphinx.add_lexer("RTLIL", RtlilLexer)
 
