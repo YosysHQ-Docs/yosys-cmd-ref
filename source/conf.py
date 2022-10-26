@@ -49,7 +49,6 @@ latex_elements = {
         'preamble': r'''
 \usepackage[T1]{fontenc}   % required for luximono!
 \usepackage{lmodern}
-\usepackage[scaled=0.8]{luximono}  % typewriter font with bold face
 '''
 }
 
