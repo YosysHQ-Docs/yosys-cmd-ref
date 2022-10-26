@@ -1,0 +1,95 @@
+================================================
+fsm - extract and optimize finite state machines
+================================================
+
+.. only:: html
+
+    :code:`yosys> help fsm`
+    ----------------------------------------------------------------------------
+
+
+    :code:`fsm [options] [selection]` ::
+
+        This pass calls all the other fsm_* passes in a useful order. This performs
+        FSM extraction and optimization. It also calls opt_clean as needed:
+
+            fsm_detect          unless got option -nodetect
+            fsm_extract
+
+            fsm_opt
+            opt_clean
+            fsm_opt
+
+            fsm_expand          if got option -expand
+            opt_clean           if got option -expand
+            fsm_opt             if got option -expand
+
+            fsm_recode          unless got option -norecode
+
+            fsm_info
+
+            fsm_export          if got option -export
+            fsm_map             unless got option -nomap
+
+        Options:
+
+
+    :code:`-expand, -norecode, -export, -nomap` ::
+
+            enable or disable passes as indicated above
+
+
+    :code:`-fullexpand` ::
+
+            call expand with -full option
+
+
+    :code:`-encoding type`
+
+    :code:`-fm_set_fsm_file file`
+
+    :code:`-encfile file` ::
+
+            passed through to fsm_recode pass
+
+.. only:: latex
+
+    ::
+
+        
+            fsm [options] [selection]
+        
+        This pass calls all the other fsm_* passes in a useful order. This performs
+        FSM extraction and optimization. It also calls opt_clean as needed:
+        
+            fsm_detect          unless got option -nodetect
+            fsm_extract
+        
+            fsm_opt
+            opt_clean
+            fsm_opt
+        
+            fsm_expand          if got option -expand
+            opt_clean           if got option -expand
+            fsm_opt             if got option -expand
+        
+            fsm_recode          unless got option -norecode
+        
+            fsm_info
+        
+            fsm_export          if got option -export
+            fsm_map             unless got option -nomap
+        
+        Options:
+        
+            -expand, -norecode, -export, -nomap
+                enable or disable passes as indicated above
+        
+            -fullexpand
+                call expand with -full option
+        
+            -encoding type
+            -fm_set_fsm_file file
+            -encfile file
+                passed through to fsm_recode pass
+        
