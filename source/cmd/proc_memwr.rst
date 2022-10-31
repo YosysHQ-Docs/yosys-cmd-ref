@@ -2,15 +2,27 @@
 proc_memwr - extract memory writes from processes
 =================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help proc_memwr`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help proc_memwr`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`proc_memwr [selection]` ::
+    .. code:: yoscrypt
+
+        proc_memwr [selection]
+
+    ::
 
         This pass converts memory writes in processes into $memwr cells.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

@@ -2,15 +2,27 @@
 opt_mem - optimize memories
 ===========================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help opt_mem`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help opt_mem`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`opt_mem [options] [selection]` ::
+    .. code:: yoscrypt
+
+        opt_mem [options] [selection]
+
+    ::
 
         This pass performs various optimizations on memories in the design.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

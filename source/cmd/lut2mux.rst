@@ -2,15 +2,27 @@
 lut2mux - convert $lut to $_MUX_
 ================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help lut2mux`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help lut2mux`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`lut2mux [options] [selection]` ::
+    .. code:: yoscrypt
+
+        lut2mux [options] [selection]
+
+    ::
 
         This pass converts $lut cells to $_MUX_ gates.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

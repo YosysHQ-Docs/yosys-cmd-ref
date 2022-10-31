@@ -2,21 +2,36 @@
 equiv_add - add a $equiv cell
 =============================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help equiv_add`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help equiv_add`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`equiv_add [-try] gold_sig gate_sig` ::
+    .. code:: yoscrypt
+
+        equiv_add [-try] gold_sig gate_sig
+
+    ::
 
         This command adds an $equiv cell for the specified signals.
 
 
+    .. code:: yoscrypt
 
-    :code:`equiv_add [-try] -cell gold_cell gate_cell` ::
+        equiv_add [-try] -cell gold_cell gate_cell
+
+    ::
 
         This command adds $equiv cells for the ports of the specified cells.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

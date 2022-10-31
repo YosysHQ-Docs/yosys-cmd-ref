@@ -2,26 +2,46 @@
 equiv_remove - remove $equiv cells
 ==================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help equiv_remove`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help equiv_remove`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`equiv_remove [options] [selection]` ::
+    .. code:: yoscrypt
+
+        equiv_remove [options] [selection]
+
+    ::
 
         This command removes the selected $equiv cells. If neither -gold nor -gate is
         used then only proven cells are removed.
 
 
-    :code:`-gold` ::
+    .. code:: yoscrypt
+
+        -gold
+
+    ::
 
             keep gold circuit
 
 
-    :code:`-gate` ::
+    .. code:: yoscrypt
+
+        -gate
+
+    ::
 
             keep gate circuit
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

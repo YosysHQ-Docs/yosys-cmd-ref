@@ -2,40 +2,72 @@
 write_btor - write design to BTOR file
 ======================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help write_btor`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help write_btor`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`write_btor [options] [filename]` ::
+    .. code:: yoscrypt
+
+        write_btor [options] [filename]
+
+    ::
 
         Write a BTOR description of the current design.
 
 
-    :code:`-v` ::
+    .. code:: yoscrypt
+
+        -v
+
+    ::
 
           Add comments and indentation to BTOR output file
 
 
-    :code:`-s` ::
+    .. code:: yoscrypt
+
+        -s
+
+    ::
 
           Output only a single bad property for all asserts
 
 
-    :code:`-c` ::
+    .. code:: yoscrypt
+
+        -c
+
+    ::
 
           Output cover properties using 'bad' statements instead of asserts
 
 
-    :code:`-i <filename>` ::
+    .. code:: yoscrypt
+
+        -i <filename>
+
+    ::
 
           Create additional info file with auxiliary information
 
 
-    :code:`-x` ::
+    .. code:: yoscrypt
+
+        -x
+
+    ::
 
           Output symbols for internal netnames (starting with '$')
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

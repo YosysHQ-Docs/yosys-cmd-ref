@@ -2,37 +2,65 @@
 eval - evaluate the circuit given an input
 ==========================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help eval`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help eval`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`eval [options] [selection]` ::
+    .. code:: yoscrypt
+
+        eval [options] [selection]
+
+    ::
 
         This command evaluates the value of a signal given the value of all required
         inputs.
 
 
-    :code:`-set <signal> <value>` ::
+    .. code:: yoscrypt
+
+        -set <signal> <value>
+
+    ::
 
             set the specified signal to the specified value.
 
 
-    :code:`-set-undef` ::
+    .. code:: yoscrypt
+
+        -set-undef
+
+    ::
 
             set all unspecified source signals to undef (x)
 
 
-    :code:`-table <signal>` ::
+    .. code:: yoscrypt
+
+        -table <signal>
+
+    ::
 
             create a truth table using the specified input signals
 
 
-    :code:`-show <signal>` ::
+    .. code:: yoscrypt
+
+        -show <signal>
+
+    ::
 
             show the value for the specified signal. if no -show option is passed
             then all output ports of the current module are used.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

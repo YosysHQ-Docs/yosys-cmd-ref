@@ -2,15 +2,27 @@
 peepopt - collection of peephole optimizers
 ===========================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help peepopt`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help peepopt`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`peepopt [options] [selection]` ::
+    .. code:: yoscrypt
+
+        peepopt [options] [selection]
+
+    ::
 
         This pass applies a collection of peephole optimizers to the current design.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

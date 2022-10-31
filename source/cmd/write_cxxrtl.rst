@@ -2,13 +2,21 @@
 write_cxxrtl - convert design to C++ RTL simulation
 ===================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help write_cxxrtl`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help write_cxxrtl`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`write_cxxrtl [options] [filename]` ::
+    .. code:: yoscrypt
+
+        write_cxxrtl [options] [filename]
+
+    ::
 
         Write C++ code that simulates the design. The generated code requires a driver
         that instantiates the design, toggles its clock, and interacts with its ports.
@@ -163,12 +171,20 @@ write_cxxrtl - convert design to C++ RTL simulation
         The following options are supported by this backend:
 
 
-    :code:`-print-wire-types, -print-debug-wire-types` ::
+    .. code:: yoscrypt
+
+        -print-wire-types, -print-debug-wire-types
+
+    ::
 
             enable additional debug logging, for pass developers.
 
 
-    :code:`-header` ::
+    .. code:: yoscrypt
+
+        -header
+
+    ::
 
             generate separate interface (.h) and implementation (.cc) files.
             if specified, the backend must be called with a filename, and filename
@@ -176,20 +192,32 @@ write_cxxrtl - convert design to C++ RTL simulation
             otherwise, interface and implementation are generated together.
 
 
-    :code:`-namespace <ns-name>` ::
+    .. code:: yoscrypt
+
+        -namespace <ns-name>
+
+    ::
 
             place the generated code into namespace <ns-name>. if not specified,
             "cxxrtl_design" is used.
 
 
-    :code:`-nohierarchy` ::
+    .. code:: yoscrypt
+
+        -nohierarchy
+
+    ::
 
             use design hierarchy as-is. in most designs, a top module should be
             present as it is exposed through the C API and has unbuffered outputs
             for improved performance; it will be determined automatically if absent.
 
 
-    :code:`-noflatten` ::
+    .. code:: yoscrypt
+
+        -noflatten
+
+    ::
 
             don't flatten the design. fully flattened designs can evaluate within
             one delta cycle if they have no combinatorial feedback.
@@ -197,88 +225,152 @@ write_cxxrtl - convert design to C++ RTL simulation
             names for all wires even in flattened designs.
 
 
-    :code:`-noproc` ::
+    .. code:: yoscrypt
+
+        -noproc
+
+    ::
 
             don't convert processes to netlists. in most designs, converting
             processes significantly improves evaluation performance at the cost of
             slight increase in compilation time.
 
 
-    :code:`-O <level>` ::
+    .. code:: yoscrypt
+
+        -O <level>
+
+    ::
 
             set the optimization level. the default is -O6. higher optimization
             levels dramatically decrease compile and run time, and highest level
             possible for a design should be used.
 
 
-    :code:`-O0` ::
+    .. code:: yoscrypt
+
+        -O0
+
+    ::
 
             no optimization.
 
 
-    :code:`-O1` ::
+    .. code:: yoscrypt
+
+        -O1
+
+    ::
 
             unbuffer internal wires if possible.
 
 
-    :code:`-O2` ::
+    .. code:: yoscrypt
+
+        -O2
+
+    ::
 
             like -O1, and localize internal wires if possible.
 
 
-    :code:`-O3` ::
+    .. code:: yoscrypt
+
+        -O3
+
+    ::
 
             like -O2, and inline internal wires if possible.
 
 
-    :code:`-O4` ::
+    .. code:: yoscrypt
+
+        -O4
+
+    ::
 
             like -O3, and unbuffer public wires not marked (*keep*) if possible.
 
 
-    :code:`-O5` ::
+    .. code:: yoscrypt
+
+        -O5
+
+    ::
 
             like -O4, and localize public wires not marked (*keep*) if possible.
 
 
-    :code:`-O6` ::
+    .. code:: yoscrypt
+
+        -O6
+
+    ::
 
             like -O5, and inline public wires not marked (*keep*) if possible.
 
 
-    :code:`-g <level>` ::
+    .. code:: yoscrypt
+
+        -g <level>
+
+    ::
 
             set the debug level. the default is -g4. higher debug levels provide
             more visibility and generate more code, but do not pessimize evaluation.
 
 
-    :code:`-g0` ::
+    .. code:: yoscrypt
+
+        -g0
+
+    ::
 
             no debug information. the C API is disabled.
 
 
-    :code:`-g1` ::
+    .. code:: yoscrypt
+
+        -g1
+
+    ::
 
             include bare minimum of debug information necessary to access all design
             state. the C API is enabled.
 
 
-    :code:`-g2` ::
+    .. code:: yoscrypt
+
+        -g2
+
+    ::
 
             like -g1, but include debug information for all public wires that are
             directly accessible through the C++ interface.
 
 
-    :code:`-g3` ::
+    .. code:: yoscrypt
+
+        -g3
+
+    ::
 
             like -g2, and include debug information for public wires that are tied
             to a constant or another public wire.
 
 
-    :code:`-g4` ::
+    .. code:: yoscrypt
+
+        -g4
+
+    ::
 
             like -g3, and compute debug information on demand for all public wires
             that were optimized out.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

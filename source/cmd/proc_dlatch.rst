@@ -2,16 +2,28 @@
 proc_dlatch - extract latches from processes
 ============================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help proc_dlatch`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help proc_dlatch`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`proc_dlatch [selection]` ::
+    .. code:: yoscrypt
+
+        proc_dlatch [selection]
+
+    ::
 
         This pass identifies latches in the processes and converts them to
         d-type latches.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

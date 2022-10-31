@@ -2,13 +2,21 @@
 extractinv - extract explicit inverter cells for invertible cell pins
 =====================================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help extractinv`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help extractinv`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`extractinv [options] [selection]` ::
+    .. code:: yoscrypt
+
+        extractinv [options] [selection]
+
+    ::
 
         Searches the design for all cells with invertible pins controlled by a cell
         parameter (eg. IS_CLK_INVERTED on many Xilinx cells) and removes the parameter.
@@ -21,10 +29,18 @@ extractinv - extract explicit inverter cells for invertible cell pins
         the same width as the port, and will be effectively XORed with it.
 
 
-    :code:`-inv <celltype> <portname_out>:<portname_in>` ::
+    .. code:: yoscrypt
+
+        -inv <celltype> <portname_out>:<portname_in>
+
+    ::
 
             Specifies the cell type to use for the inverters and its port names.
             This option is required.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

@@ -2,33 +2,57 @@
 jny - write design and metadata
 ===============================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help jny`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help jny`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`jny [options] [selection]` ::
+    .. code:: yoscrypt
+
+        jny [options] [selection]
+
+    ::
 
         Write JSON netlist metadata for the current design
 
 
-    :code:`-o <filename>` ::
+    .. code:: yoscrypt
+
+        -o <filename>
+
+    ::
 
             write to the specified file.
 
 
-    :code:`-no-connections` ::
+    .. code:: yoscrypt
+
+        -no-connections
+
+    ::
 
             Don't include connection information in the netlist output.
 
 
-    :code:`-no-attributes` ::
+    .. code:: yoscrypt
+
+        -no-attributes
+
+    ::
 
             Don't include attributed information in the netlist output.
 
 
-    :code:`-no-properties` ::
+    .. code:: yoscrypt
+
+        -no-properties
+
+    ::
 
             Don't include property information in the netlist output.
 
@@ -36,6 +60,10 @@ jny - write design and metadata
     ::
 
         See 'help write_jny' for a description of the JSON format used.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

@@ -2,71 +2,123 @@
 logger - set logger properties
 ==============================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help logger`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help logger`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`logger [options]` ::
+    .. code:: yoscrypt
+
+        logger [options]
+
+    ::
 
         This command sets global logger properties, also available using command line
         options.
 
 
-    :code:`-[no]time` ::
+    .. code:: yoscrypt
+
+        -[no]time
+
+    ::
 
             enable/disable display of timestamp in log output.
 
 
-    :code:`-[no]stderr` ::
+    .. code:: yoscrypt
+
+        -[no]stderr
+
+    ::
 
             enable/disable logging errors to stderr.
 
 
-    :code:`-warn regex` ::
+    .. code:: yoscrypt
+
+        -warn regex
+
+    ::
 
             print a warning for all log messages matching the regex.
 
 
-    :code:`-nowarn regex` ::
+    .. code:: yoscrypt
+
+        -nowarn regex
+
+    ::
 
             if a warning message matches the regex, it is printed as regular
             message instead.
 
 
-    :code:`-werror regex` ::
+    .. code:: yoscrypt
+
+        -werror regex
+
+    ::
 
             if a warning message matches the regex, it is printed as error
             message instead and the tool terminates with a nonzero return code.
 
 
-    :code:`-[no]debug` ::
+    .. code:: yoscrypt
+
+        -[no]debug
+
+    ::
 
             globally enable/disable debug log messages.
 
 
-    :code:`-experimental <feature>` ::
+    .. code:: yoscrypt
+
+        -experimental <feature>
+
+    ::
 
             do not print warnings for the specified experimental feature
 
 
-    :code:`-expect <type> <regex> <expected_count>` ::
+    .. code:: yoscrypt
+
+        -expect <type> <regex> <expected_count>
+
+    ::
 
             expect log, warning or error to appear. matched errors will terminate
             with exit code 0.
 
 
-    :code:`-expect-no-warnings` ::
+    .. code:: yoscrypt
+
+        -expect-no-warnings
+
+    ::
 
             gives error in case there is at least one warning that is not expected.
 
 
-    :code:`-check-expected` ::
+    .. code:: yoscrypt
+
+        -check-expected
+
+    ::
 
             verifies that the patterns previously set up by -expect have actually
             been met, then clears the expected log list.  If this is not called
             manually, the check will happen at yosys exist time instead.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

@@ -2,16 +2,28 @@
 sta - perform static timing analysis
 ====================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help sta`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help sta`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`sta [options] [selection]` ::
+    .. code:: yoscrypt
+
+        sta [options] [selection]
+
+    ::
 
         This command performs static timing analysis on the design. (Only considers
         paths within a single module, so the design must be flattened.)
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

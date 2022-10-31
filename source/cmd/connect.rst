@@ -2,13 +2,21 @@
 connect - create or remove connections
 ======================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help connect`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help connect`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`connect [-nomap] [-nounset] -set <lhs-expr> <rhs-expr>` ::
+    .. code:: yoscrypt
+
+        connect [-nomap] [-nounset] -set <lhs-expr> <rhs-expr>
+
+    ::
 
         Create a connection. This is equivalent to adding the statement 'assign
         <lhs-expr> = <rhs-expr>;' to the Verilog input. Per default, all existing
@@ -16,14 +24,20 @@ connect - create or remove connections
         the -nounset option.
 
 
+    .. code:: yoscrypt
 
-    :code:`connect [-nomap] -unset <expr>` ::
+        connect [-nomap] -unset <expr>
+
+    ::
 
         Unconnect all existing drivers for the specified expression.
 
 
+    .. code:: yoscrypt
 
-    :code:`connect [-nomap] [-assert] -port <cell> <port> <expr>` ::
+        connect [-nomap] [-assert] -port <cell> <port> <expr>
+
+    ::
 
         Connect the specified cell port to the specified cell port.
 
@@ -39,6 +53,10 @@ connect - create or remove connections
         making it.
 
         This command does not operate on module with processes.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

@@ -2,15 +2,27 @@
 proc_rom - convert switches to ROMs
 ===================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help proc_rom`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help proc_rom`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`proc_rom [selection]` ::
+    .. code:: yoscrypt
+
+        proc_rom [selection]
+
+    ::
 
         This pass converts switches into read-only memories when appropriate.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

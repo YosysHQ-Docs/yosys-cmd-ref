@@ -2,13 +2,21 @@
 fsm_detect - finding FSMs in design
 ===================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help fsm_detect`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help fsm_detect`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`fsm_detect [selection]` ::
+    .. code:: yoscrypt
+
+        fsm_detect [selection]
+
+    ::
 
         This pass detects finite state machines by identifying the state signal.
         The state signal is then marked by setting the attribute 'fsm_encoding'
@@ -18,6 +26,10 @@ fsm_detect - finding FSMs in design
 
         Signals can be protected from being detected by this pass by setting the
         'fsm_encoding' attribute to "none".
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

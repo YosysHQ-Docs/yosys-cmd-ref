@@ -2,16 +2,28 @@
 blackbox - convert modules into blackbox modules
 ================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help blackbox`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help blackbox`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`blackbox [options] [selection]` ::
+    .. code:: yoscrypt
+
+        blackbox [options] [selection]
+
+    ::
 
         Convert modules into blackbox modules (remove contents and set the blackbox
         module attribute).
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

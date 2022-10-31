@@ -2,20 +2,36 @@
 onehot - optimize $eq cells for onehot signals
 ==============================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help onehot`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help onehot`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`onehot [options] [selection]` ::
+    .. code:: yoscrypt
+
+        onehot [options] [selection]
+
+    ::
 
         This pass optimizes $eq cells that compare one-hot signals against constants
 
 
-    :code:`-v, -vv` ::
+    .. code:: yoscrypt
+
+        -v, -vv
+
+    ::
 
             verbose output
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

@@ -2,15 +2,27 @@
 proc_rmdead - eliminate dead trees in decision trees
 ====================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help proc_rmdead`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help proc_rmdead`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`proc_rmdead [selection]` ::
+    .. code:: yoscrypt
+
+        proc_rmdead [selection]
+
+    ::
 
         This pass identifies unreachable branches in decision trees and removes them.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

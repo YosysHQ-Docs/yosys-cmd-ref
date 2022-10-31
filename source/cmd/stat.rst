@@ -2,46 +2,78 @@
 stat - print some statistics
 ============================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help stat`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help stat`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`stat [options] [selection]` ::
+    .. code:: yoscrypt
+
+        stat [options] [selection]
+
+    ::
 
         Print some statistics (number of objects) on the selected portion of the
         design.
 
 
-    :code:`-top <module>` ::
+    .. code:: yoscrypt
+
+        -top <module>
+
+    ::
 
             print design hierarchy with this module as top. if the design is fully
             selected and a module has the 'top' attribute set, this module is used
             default value for this option.
 
 
-    :code:`-liberty <liberty_file>` ::
+    .. code:: yoscrypt
+
+        -liberty <liberty_file>
+
+    ::
 
             use cell area information from the provided liberty file
 
 
-    :code:`-tech <technology>` ::
+    .. code:: yoscrypt
+
+        -tech <technology>
+
+    ::
 
             print area estemate for the specified technology. Currently supported
             values for <technology>: xilinx, cmos
 
 
-    :code:`-width` ::
+    .. code:: yoscrypt
+
+        -width
+
+    ::
 
             annotate internal cell types with their word width.
             e.g. $add_8 for an 8 bit wide $add cell.
 
 
-    :code:`-json` ::
+    .. code:: yoscrypt
+
+        -json
+
+    ::
 
             output the statistics in a machine-readable JSON format.
             this is output to the console; use "tee" to output to a file.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

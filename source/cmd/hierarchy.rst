@@ -2,15 +2,26 @@
 hierarchy - check, expand and clean up design hierarchy
 =======================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help hierarchy`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help hierarchy`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`hierarchy [-check] [-top <module>]`
+    .. code:: yoscrypt
 
-    :code:`hierarchy -generate <cell-types> <port-decls>` ::
+        hierarchy [-check] [-top <module>]
+
+   
+    .. code:: yoscrypt
+
+        hierarchy -generate <cell-types> <port-decls>
+
+    ::
 
         In parametric designs, a module might exists in several variations with
         different parameter values. This pass looks at all modules in the current
@@ -19,62 +30,102 @@ hierarchy - check, expand and clean up design hierarchy
         resolves positional module parameters, unrolls array instances, and more.
 
 
-    :code:`-check` ::
+    .. code:: yoscrypt
+
+        -check
+
+    ::
 
             also check the design hierarchy. this generates an error when
             an unknown module is used as cell type.
 
 
-    :code:`-simcheck` ::
+    .. code:: yoscrypt
+
+        -simcheck
+
+    ::
 
             like -check, but also throw an error if blackbox modules are
             instantiated, and throw an error if the design has no top module.
 
 
-    :code:`-smtcheck` ::
+    .. code:: yoscrypt
+
+        -smtcheck
+
+    ::
 
             like -simcheck, but allow smtlib2_module modules.
 
 
-    :code:`-purge_lib` ::
+    .. code:: yoscrypt
+
+        -purge_lib
+
+    ::
 
             by default the hierarchy command will not remove library (blackbox)
             modules. use this option to also remove unused blackbox modules.
 
 
-    :code:`-libdir <directory>` ::
+    .. code:: yoscrypt
+
+        -libdir <directory>
+
+    ::
 
             search for files named <module_name>.v in the specified directory
             for unknown modules and automatically run read_verilog for each
             unknown module.
 
 
-    :code:`-keep_positionals` ::
+    .. code:: yoscrypt
+
+        -keep_positionals
+
+    ::
 
             per default this pass also converts positional arguments in cells
             to arguments using port names. This option disables this behavior.
 
 
-    :code:`-keep_portwidths` ::
+    .. code:: yoscrypt
+
+        -keep_portwidths
+
+    ::
 
             per default this pass adjusts the port width on cells that are
             module instances when the width does not match the module port. This
             option disables this behavior.
 
 
-    :code:`-nodefaults` ::
+    .. code:: yoscrypt
+
+        -nodefaults
+
+    ::
 
             do not resolve input port default values
 
 
-    :code:`-nokeep_asserts` ::
+    .. code:: yoscrypt
+
+        -nokeep_asserts
+
+    ::
 
             per default this pass sets the "keep" attribute on all modules
             that directly or indirectly contain one or more formal properties.
             This option disables this behavior.
 
 
-    :code:`-top <module>` ::
+    .. code:: yoscrypt
+
+        -top <module>
+
+    ::
 
             use the specified top module to build the design hierarchy. Modules
             outside this tree (unused modules) are removed.
@@ -84,12 +135,20 @@ hierarchy - check, expand and clean up design hierarchy
             will implicitly be used as top module, if such a module exists.
 
 
-    :code:`-auto-top` ::
+    .. code:: yoscrypt
+
+        -auto-top
+
+    ::
 
             automatically determine the top of the design hierarchy and mark it.
 
 
-    :code:`-chparam name value` ::
+    .. code:: yoscrypt
+
+        -chparam name value
+
+    ::
 
            elaborate the top module using this parameter value. Modules on which
            this parameter does not exist may cause a warning message to be output.
@@ -114,6 +173,10 @@ hierarchy - check, expand and clean up design hierarchy
 
         This pass ignores the current selection and always operates on all modules
         in the current design.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

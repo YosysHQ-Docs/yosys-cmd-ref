@@ -2,23 +2,39 @@
 synth_intel_alm - synthesis for ALM-based Intel (Altera) FPGAs.
 ===============================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help synth_intel_alm`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help synth_intel_alm`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`synth_intel_alm [options]` ::
+    .. code:: yoscrypt
+
+        synth_intel_alm [options]
+
+    ::
 
         This command runs synthesis for ALM-based Intel FPGAs.
 
 
-    :code:`-top <module>` ::
+    .. code:: yoscrypt
+
+        -top <module>
+
+    ::
 
             use the specified module as top module
 
 
-    :code:`-family <family>` ::
+    .. code:: yoscrypt
+
+        -family <family>
+
+    ::
 
             target one of:
             "cyclonev"    - Cyclone V (default)
@@ -26,58 +42,98 @@ synth_intel_alm - synthesis for ALM-based Intel (Altera) FPGAs.
             "cyclone10gx" - Cyclone 10GX
 
 
-    :code:`-vqm <file>` ::
+    .. code:: yoscrypt
+
+        -vqm <file>
+
+    ::
 
             write the design to the specified Verilog Quartus Mapping File. Writing
             of an output file is omitted if this parameter is not specified. Implies
             -quartus.
 
 
-    :code:`-noflatten` ::
+    .. code:: yoscrypt
+
+        -noflatten
+
+    ::
 
             do not flatten design before synthesis; useful for per-module area
             statistics
 
 
-    :code:`-quartus` ::
+    .. code:: yoscrypt
+
+        -quartus
+
+    ::
 
             output a netlist using Quartus cells instead of MISTRAL_* cells
 
 
-    :code:`-dff` ::
+    .. code:: yoscrypt
+
+        -dff
+
+    ::
 
             pass DFFs to ABC to perform sequential logic optimisations
             (EXPERIMENTAL)
 
 
-    :code:`-run <from_label>:<to_label>` ::
+    .. code:: yoscrypt
+
+        -run <from_label>:<to_label>
+
+    ::
 
             only run the commands between the labels (see below). an empty
             from label is synonymous to 'begin', and empty to label is
             synonymous to the end of the command list.
 
 
-    :code:`-nolutram` ::
+    .. code:: yoscrypt
+
+        -nolutram
+
+    ::
 
             do not use LUT RAM cells in output netlist
 
 
-    :code:`-nobram` ::
+    .. code:: yoscrypt
+
+        -nobram
+
+    ::
 
             do not use block RAM cells in output netlist
 
 
-    :code:`-nodsp` ::
+    .. code:: yoscrypt
+
+        -nodsp
+
+    ::
 
             do not map multipliers to MISTRAL_MUL cells
 
 
-    :code:`-noiopad` ::
+    .. code:: yoscrypt
+
+        -noiopad
+
+    ::
 
             do not instantiate IO buffers
 
 
-    :code:`-noclkbuf` ::
+    .. code:: yoscrypt
+
+        -noclkbuf
+
+    ::
 
             do not insert global clock buffers
 
@@ -165,6 +221,10 @@ synth_intel_alm - synthesis for ALM-based Intel (Altera) FPGAs.
 
             vqm:
                 write_verilog -attr2comment -defparam -nohex -decimal <file-name>
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

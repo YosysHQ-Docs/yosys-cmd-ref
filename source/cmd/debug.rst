@@ -2,15 +2,27 @@
 debug - run command with debug log messages enabled
 ===================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help debug`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help debug`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`debug cmd` ::
+    .. code:: yoscrypt
+
+        debug cmd
+
+    ::
 
         Execute the specified command with debug log messages enabled
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

@@ -2,20 +2,32 @@
 techmap - generic technology mapper
 ===================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help techmap`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help techmap`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`techmap [-map filename] [selection]` ::
+    .. code:: yoscrypt
+
+        techmap [-map filename] [selection]
+
+    ::
 
         This pass implements a very simple technology mapper that replaces cells in
         the design with implementations given in form of a Verilog or RTLIL source
         file.
 
 
-    :code:`-map filename` ::
+    .. code:: yoscrypt
+
+        -map filename
+
+    ::
 
             the library of cell implementations to be used.
             without this parameter a builtin library is used that
@@ -23,48 +35,80 @@ techmap - generic technology mapper
             library.
 
 
-    :code:`-map %<design-name>` ::
+    .. code:: yoscrypt
+
+        -map %<design-name>
+
+    ::
 
             like -map above, but with an in-memory design instead of a file.
 
 
-    :code:`-extern` ::
+    .. code:: yoscrypt
+
+        -extern
+
+    ::
 
             load the cell implementations as separate modules into the design
             instead of inlining them.
 
 
-    :code:`-max_iter <number>` ::
+    .. code:: yoscrypt
+
+        -max_iter <number>
+
+    ::
 
             only run the specified number of iterations on each module.
             default: unlimited
 
 
-    :code:`-recursive` ::
+    .. code:: yoscrypt
+
+        -recursive
+
+    ::
 
             instead of the iterative breadth-first algorithm use a recursive
             depth-first algorithm. both methods should yield equivalent results,
             but may differ in performance.
 
 
-    :code:`-autoproc` ::
+    .. code:: yoscrypt
+
+        -autoproc
+
+    ::
 
             Automatically call "proc" on implementations that contain processes.
 
 
-    :code:`-wb` ::
+    .. code:: yoscrypt
+
+        -wb
+
+    ::
 
             Ignore the 'whitebox' attribute on cell implementations.
 
 
-    :code:`-assert` ::
+    .. code:: yoscrypt
+
+        -assert
+
+    ::
 
             this option will cause techmap to exit with an error if it can't map
             a selected cell. only cell types that end on an underscore are accepted
             as final cell types by this mode.
 
 
-    :code:`-D <define>, -I <incdir>` ::
+    .. code:: yoscrypt
+
+        -D <define>, -I <incdir>
+
+    ::
 
             this options are passed as-is to the Verilog frontend for loading the
             map file. Note that the Verilog frontend is also called with the
@@ -189,6 +233,10 @@ techmap - generic technology mapper
 
         See 'help flatten' for a pass that does flatten the design (which is
         essentially techmap but using the design itself as map library).
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

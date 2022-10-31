@@ -2,13 +2,21 @@
 ice40_opt - iCE40: perform simple optimizations
 ===============================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help ice40_opt`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help ice40_opt`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`ice40_opt [options] [selection]` ::
+    .. code:: yoscrypt
+
+        ice40_opt [options] [selection]
+
+    ::
 
         This command executes the following script:
 
@@ -19,6 +27,10 @@ ice40_opt - iCE40: perform simple optimizations
                 opt_dff
                 opt_clean
             while <changed design>
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

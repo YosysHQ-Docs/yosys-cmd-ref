@@ -2,13 +2,21 @@
 check - check for obvious problems in the design
 ================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help check`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help check`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`check [options] [selection]` ::
+    .. code:: yoscrypt
+
+        check [options] [selection]
+
+    ::
 
         This pass identifies the following problems in the current design:
 
@@ -19,31 +27,55 @@ check - check for obvious problems in the design
         Options:
 
 
-    :code:`-noinit` ::
+    .. code:: yoscrypt
+
+        -noinit
+
+    ::
 
             also check for wires which have the 'init' attribute set
 
 
-    :code:`-initdrv` ::
+    .. code:: yoscrypt
+
+        -initdrv
+
+    ::
 
             also check for wires that have the 'init' attribute set and are not
             driven by an FF cell type
 
 
-    :code:`-mapped` ::
+    .. code:: yoscrypt
+
+        -mapped
+
+    ::
 
             also check for internal cells that have not been mapped to cells of the
             target architecture
 
 
-    :code:`-allow-tbuf` ::
+    .. code:: yoscrypt
+
+        -allow-tbuf
+
+    ::
 
             modify the -mapped behavior to still allow $_TBUF_ cells
 
 
-    :code:`-assert` ::
+    .. code:: yoscrypt
+
+        -assert
+
+    ::
 
             produce a runtime error if any problems are found in the current design
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

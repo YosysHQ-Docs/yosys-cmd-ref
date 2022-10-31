@@ -2,16 +2,28 @@
 memory_collect - creating multi-port memory cells
 =================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help memory_collect`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help memory_collect`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`memory_collect [selection]` ::
+    .. code:: yoscrypt
+
+        memory_collect [selection]
+
+    ::
 
         This pass collects memories and memory ports and creates generic multiport
         memory cells.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

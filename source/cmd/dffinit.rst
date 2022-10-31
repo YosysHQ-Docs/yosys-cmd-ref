@@ -2,43 +2,71 @@
 dffinit - set INIT param on FF cells
 ====================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help dffinit`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help dffinit`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`dffinit [options] [selection]` ::
+    .. code:: yoscrypt
+
+        dffinit [options] [selection]
+
+    ::
 
         This pass sets an FF cell parameter to the the initial value of the net it
         drives. (This is primarily used in FPGA flows.)
 
 
-    :code:`-ff <cell_name> <output_port> <init_param>` ::
+    .. code:: yoscrypt
+
+        -ff <cell_name> <output_port> <init_param>
+
+    ::
 
             operate on the specified cell type. this option can be used
             multiple times.
 
 
-    :code:`-highlow` ::
+    .. code:: yoscrypt
+
+        -highlow
+
+    ::
 
             use the string values "high" and "low" to represent a single-bit
             initial value of 1 or 0. (multi-bit values are not supported in this
             mode.)
 
 
-    :code:`-strinit <string for high> <string for low>` ::
+    .. code:: yoscrypt
+
+        -strinit <string for high> <string for low>
+
+    ::
 
             use string values in the command line to represent a single-bit
             initial value of 1 or 0. (multi-bit values are not supported in this
             mode.)
 
 
-    :code:`-noreinit` ::
+    .. code:: yoscrypt
+
+        -noreinit
+
+    ::
 
             fail if the FF cell has already a defined initial value set in other
             passes and the initial value of the net it drives is not equal to
             the already defined initial value.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

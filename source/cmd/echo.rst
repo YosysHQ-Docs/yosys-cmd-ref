@@ -2,21 +2,36 @@
 echo - turning echoing back of commands on and off
 ==================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help echo`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help echo`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`echo on` ::
+    .. code:: yoscrypt
+
+        echo on
+
+    ::
 
         Print all commands to log before executing them.
 
 
+    .. code:: yoscrypt
 
-    :code:`echo off` ::
+        echo off
+
+    ::
 
         Do not print all commands to log before executing them. (default)
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

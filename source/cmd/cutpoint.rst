@@ -2,21 +2,37 @@
 cutpoint - adds formal cut points to the design
 ===============================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help cutpoint`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help cutpoint`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`cutpoint [options] [selection]` ::
+    .. code:: yoscrypt
+
+        cutpoint [options] [selection]
+
+    ::
 
         This command adds formal cut points to the design.
 
 
-    :code:`-undef` ::
+    .. code:: yoscrypt
+
+        -undef
+
+    ::
 
             set cupoint nets to undef (x). the default behavior is to create a
             $anyseq cell and drive the cutpoint net from that
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

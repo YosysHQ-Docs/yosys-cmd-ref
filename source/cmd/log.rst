@@ -2,40 +2,68 @@
 log - print text and log files
 ==============================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help log`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help log`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`log string` ::
+    .. code:: yoscrypt
+
+        log string
+
+    ::
 
         Print the given string to the screen and/or the log file. This is useful for TCL
         scripts, because the TCL command "puts" only goes to stdout but not to
         logfiles.
 
 
-    :code:`-stdout` ::
+    .. code:: yoscrypt
+
+        -stdout
+
+    ::
 
             Print the output to stdout too. This is useful when all Yosys is
             executed with a script and the -q (quiet operation) argument to notify
             the user.
 
 
-    :code:`-stderr` ::
+    .. code:: yoscrypt
+
+        -stderr
+
+    ::
 
             Print the output to stderr too.
 
 
-    :code:`-nolog` ::
+    .. code:: yoscrypt
+
+        -nolog
+
+    ::
 
             Don't use the internal log() command. Use either -stdout or -stderr,
             otherwise no output will be generated at all.
 
 
-    :code:`-n` ::
+    .. code:: yoscrypt
+
+        -n
+
+    ::
 
             do not append a newline
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

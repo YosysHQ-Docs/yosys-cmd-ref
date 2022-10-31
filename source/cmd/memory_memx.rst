@@ -2,16 +2,28 @@
 memory_memx - emulate vlog sim behavior for mem ports
 =====================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help memory_memx`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help memory_memx`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`memory_memx [selection]` ::
+    .. code:: yoscrypt
+
+        memory_memx [selection]
+
+    ::
 
         This pass adds additional circuitry that emulates the Verilog simulation
         behavior for out-of-bounds memory reads and writes.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

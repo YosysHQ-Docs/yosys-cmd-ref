@@ -2,30 +2,51 @@
 verilog_defaults - set default options for read_verilog
 =======================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help verilog_defaults`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help verilog_defaults`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`verilog_defaults -add [options]` ::
+    .. code:: yoscrypt
+
+        verilog_defaults -add [options]
+
+    ::
 
         Add the specified options to the list of default options to read_verilog.
 
 
+    .. code:: yoscrypt
 
-    :code:`verilog_defaults -clear` ::
+        verilog_defaults -clear
+
+    ::
 
         Clear the list of Verilog default options.
 
 
+    .. code:: yoscrypt
 
-    :code:`verilog_defaults -push`
+        verilog_defaults -push
 
-    :code:`verilog_defaults -pop` ::
+   
+    .. code:: yoscrypt
+
+        verilog_defaults -pop
+
+    ::
 
         Push or pop the list of default options to a stack. Note that -push does
         not imply -clear.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

@@ -2,23 +2,38 @@
 delete - delete objects in the design
 =====================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help delete`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help delete`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`delete [selection]` ::
+    .. code:: yoscrypt
+
+        delete [selection]
+
+    ::
 
         Deletes the selected objects. This will also remove entire modules, if the
         whole module is selected.
 
 
+    .. code:: yoscrypt
 
-    :code:`delete {-input|-output|-port} [selection]` ::
+        delete {-input|-output|-port} [selection]
+
+    ::
 
         Does not delete any object but removes the input and/or output flag on the
         selected wires, thus 'deleting' module ports.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

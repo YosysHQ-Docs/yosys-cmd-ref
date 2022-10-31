@@ -2,30 +2,54 @@
 plugin - load and list loaded plugins
 =====================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help plugin`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help plugin`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`plugin [options]` ::
+    .. code:: yoscrypt
+
+        plugin [options]
+
+    ::
 
         Load and list loaded plugins.
 
 
-    :code:`-i <plugin_filename>` ::
+    .. code:: yoscrypt
+
+        -i <plugin_filename>
+
+    ::
 
             Load (install) the specified plugin.
 
 
-    :code:`-a <alias_name>` ::
+    .. code:: yoscrypt
+
+        -a <alias_name>
+
+    ::
 
             Register the specified alias name for the loaded plugin
 
 
-    :code:`-l` ::
+    .. code:: yoscrypt
+
+        -l
+
+    ::
 
             List loaded plugins
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

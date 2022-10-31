@@ -2,66 +2,118 @@
 setundef - replace undef values with defined constants
 ======================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help setundef`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help setundef`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`setundef [options] [selection]` ::
+    .. code:: yoscrypt
+
+        setundef [options] [selection]
+
+    ::
 
         This command replaces undef (x) constants with defined (0/1) constants.
 
 
-    :code:`-undriven` ::
+    .. code:: yoscrypt
+
+        -undriven
+
+    ::
 
             also set undriven nets to constant values
 
 
-    :code:`-expose` ::
+    .. code:: yoscrypt
+
+        -expose
+
+    ::
 
             also expose undriven nets as inputs (use with -undriven)
 
 
-    :code:`-zero` ::
+    .. code:: yoscrypt
+
+        -zero
+
+    ::
 
             replace with bits cleared (0)
 
 
-    :code:`-one` ::
+    .. code:: yoscrypt
+
+        -one
+
+    ::
 
             replace with bits set (1)
 
 
-    :code:`-undef` ::
+    .. code:: yoscrypt
+
+        -undef
+
+    ::
 
             replace with undef (x) bits, may be used with -undriven
 
 
-    :code:`-anyseq` ::
+    .. code:: yoscrypt
+
+        -anyseq
+
+    ::
 
             replace with $anyseq drivers (for formal)
 
 
-    :code:`-anyconst` ::
+    .. code:: yoscrypt
+
+        -anyconst
+
+    ::
 
             replace with $anyconst drivers (for formal)
 
 
-    :code:`-random <seed>` ::
+    .. code:: yoscrypt
+
+        -random <seed>
+
+    ::
 
             replace with random bits using the specified integer as seed
             value for the random number generator.
 
 
-    :code:`-init` ::
+    .. code:: yoscrypt
+
+        -init
+
+    ::
 
             also create/update init values for flip-flops
 
 
-    :code:`-params` ::
+    .. code:: yoscrypt
+
+        -params
+
+    ::
 
             replace undef in cell parameters
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

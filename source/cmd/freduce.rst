@@ -2,36 +2,60 @@
 freduce - perform functional reduction
 ======================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help freduce`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help freduce`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`freduce [options] [selection]` ::
+    .. code:: yoscrypt
+
+        freduce [options] [selection]
+
+    ::
 
         This pass performs functional reduction in the circuit. I.e. if two nodes are
         equivalent, they are merged to one node and one of the redundant drivers is
         disconnected. A subsequent call to 'clean' will remove the redundant drivers.
 
 
-    :code:`-v, -vv` ::
+    .. code:: yoscrypt
+
+        -v, -vv
+
+    ::
 
             enable verbose or very verbose output
 
 
-    :code:`-inv` ::
+    .. code:: yoscrypt
+
+        -inv
+
+    ::
 
             enable explicit handling of inverted signals
 
 
-    :code:`-stop <n>` ::
+    .. code:: yoscrypt
+
+        -stop <n>
+
+    ::
 
             stop after <n> reduction operations. this is mostly used for
             debugging the freduce command itself.
 
 
-    :code:`-dump <prefix>` ::
+    .. code:: yoscrypt
+
+        -dump <prefix>
+
+    ::
 
             dump the design to <prefix>_<module>_<num>.il after each reduction
             operation. this is mostly used for debugging the freduce command.
@@ -44,6 +68,10 @@ freduce - perform functional reduction
 
         All selected wires are considered for rewiring. The selected cells cover the
         circuit that is analyzed.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

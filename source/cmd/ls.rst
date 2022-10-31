@@ -2,17 +2,29 @@
 ls - list modules or objects in modules
 =======================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help ls`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help ls`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`ls [selection]` ::
+    .. code:: yoscrypt
+
+        ls [selection]
+
+    ::
 
         When no active module is selected, this prints a list of modules.
 
         When an active module is selected, this prints a list of objects in the module.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

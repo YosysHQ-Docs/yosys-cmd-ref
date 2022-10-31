@@ -2,13 +2,21 @@
 simplemap - mapping simple coarse-grain cells
 =============================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help simplemap`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help simplemap`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`simplemap [selection]` ::
+    .. code:: yoscrypt
+
+        simplemap [selection]
+
+    ::
 
         This pass maps a small selection of simple coarse-grain cells to yosys gate
         primitives. The following internal cell types are mapped by this pass:
@@ -18,6 +26,10 @@ simplemap - mapping simple coarse-grain cells
           $logic_not, $logic_and, $logic_or, $mux, $tribuf
           $sr, $ff, $dff, $dffe, $dffsr, $dffsre, $adff, $adffe, $aldff, $aldffe, $sdff,
           $sdffe, $sdffce, $dlatch, $adlatch, $dlatchsr
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

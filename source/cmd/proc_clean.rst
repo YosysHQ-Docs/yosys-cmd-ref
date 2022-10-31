@@ -2,15 +2,27 @@
 proc_clean - remove empty parts of processes
 ============================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help proc_clean`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help proc_clean`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`proc_clean [options] [selection]`
+    .. code:: yoscrypt
 
-    :code:`-quiet` ::
+        proc_clean [options] [selection]
+
+   
+
+    .. code:: yoscrypt
+
+        -quiet
+
+    ::
 
             do not print any messages.
 
@@ -19,6 +31,10 @@ proc_clean - remove empty parts of processes
 
         This pass removes empty parts of processes and ultimately removes a process
         if it contains only empty structures.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

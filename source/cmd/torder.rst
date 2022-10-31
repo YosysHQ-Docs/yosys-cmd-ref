@@ -2,26 +2,46 @@
 torder - print cells in topological order
 =========================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help torder`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help torder`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`torder [options] [selection]` ::
+    .. code:: yoscrypt
+
+        torder [options] [selection]
+
+    ::
 
         This command prints the selected cells in topological order.
 
 
-    :code:`-stop <cell_type> <cell_port>` ::
+    .. code:: yoscrypt
+
+        -stop <cell_type> <cell_port>
+
+    ::
 
             do not use the specified cell port in topological sorting
 
 
-    :code:`-noautostop` ::
+    .. code:: yoscrypt
+
+        -noautostop
+
+    ::
 
             by default Q outputs of internal FF cells and memory read port outputs
             are not used in topological sorting. this option deactivates that.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

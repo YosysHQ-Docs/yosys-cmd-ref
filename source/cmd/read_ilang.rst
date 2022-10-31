@@ -2,14 +2,22 @@
 read_ilang - (deprecated) alias of read_rtlil
 =============================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help read_ilang`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help read_ilang`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
     See `help read_rtlil`.
 
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

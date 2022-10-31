@@ -2,126 +2,218 @@
 synth_ice40 - synthesis for iCE40 FPGAs
 =======================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help synth_ice40`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help synth_ice40`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`synth_ice40 [options]` ::
+    .. code:: yoscrypt
+
+        synth_ice40 [options]
+
+    ::
 
         This command runs synthesis for iCE40 FPGAs.
 
 
-    :code:`-device < hx | lp | u >` ::
+    .. code:: yoscrypt
+
+        -device < hx | lp | u >
+
+    ::
 
             relevant only for '-abc9' flow, optimise timing for the specified
             device. default: hx
 
 
-    :code:`-top <module>` ::
+    .. code:: yoscrypt
+
+        -top <module>
+
+    ::
 
             use the specified module as top module
 
 
-    :code:`-blif <file>` ::
+    .. code:: yoscrypt
+
+        -blif <file>
+
+    ::
 
             write the design to the specified BLIF file. writing of an output file
             is omitted if this parameter is not specified.
 
 
-    :code:`-edif <file>` ::
+    .. code:: yoscrypt
+
+        -edif <file>
+
+    ::
 
             write the design to the specified EDIF file. writing of an output file
             is omitted if this parameter is not specified.
 
 
-    :code:`-json <file>` ::
+    .. code:: yoscrypt
+
+        -json <file>
+
+    ::
 
             write the design to the specified JSON file. writing of an output file
             is omitted if this parameter is not specified.
 
 
-    :code:`-run <from_label>:<to_label>` ::
+    .. code:: yoscrypt
+
+        -run <from_label>:<to_label>
+
+    ::
 
             only run the commands between the labels (see below). an empty
             from label is synonymous to 'begin', and empty to label is
             synonymous to the end of the command list.
 
 
-    :code:`-noflatten` ::
+    .. code:: yoscrypt
+
+        -noflatten
+
+    ::
 
             do not flatten design before synthesis
 
 
-    :code:`-dff` ::
+    .. code:: yoscrypt
+
+        -dff
+
+    ::
 
             run 'abc'/'abc9' with -dff option
 
 
-    :code:`-retime` ::
+    .. code:: yoscrypt
+
+        -retime
+
+    ::
 
             run 'abc' with '-dff -D 1' options
 
 
-    :code:`-nocarry` ::
+    .. code:: yoscrypt
+
+        -nocarry
+
+    ::
 
             do not use SB_CARRY cells in output netlist
 
 
-    :code:`-nodffe` ::
+    .. code:: yoscrypt
+
+        -nodffe
+
+    ::
 
             do not use SB_DFFE* cells in output netlist
 
 
-    :code:`-dffe_min_ce_use <min_ce_use>` ::
+    .. code:: yoscrypt
+
+        -dffe_min_ce_use <min_ce_use>
+
+    ::
 
             do not use SB_DFFE* cells if the resulting CE line would go to less
             than min_ce_use SB_DFFE* in output netlist
 
 
-    :code:`-nobram` ::
+    .. code:: yoscrypt
+
+        -nobram
+
+    ::
 
             do not use SB_RAM40_4K* cells in output netlist
 
 
-    :code:`-spram` ::
+    .. code:: yoscrypt
+
+        -spram
+
+    ::
 
             enable automatic inference of SB_SPRAM256KA
 
 
-    :code:`-dsp` ::
+    .. code:: yoscrypt
+
+        -dsp
+
+    ::
 
             use iCE40 UltraPlus DSP cells for large arithmetic
 
 
-    :code:`-noabc` ::
+    .. code:: yoscrypt
+
+        -noabc
+
+    ::
 
             use built-in Yosys LUT techmapping instead of abc
 
 
-    :code:`-abc2` ::
+    .. code:: yoscrypt
+
+        -abc2
+
+    ::
 
             run two passes of 'abc' for slightly improved logic density
 
 
-    :code:`-vpr` ::
+    .. code:: yoscrypt
+
+        -vpr
+
+    ::
 
             generate an output netlist (and BLIF file) suitable for VPR
             (this feature is experimental and incomplete)
 
 
-    :code:`-abc9` ::
+    .. code:: yoscrypt
+
+        -abc9
+
+    ::
 
             use new ABC9 flow (EXPERIMENTAL)
 
 
-    :code:`-flowmap` ::
+    .. code:: yoscrypt
+
+        -flowmap
+
+    ::
 
             use FlowMap LUT techmapping instead of abc (EXPERIMENTAL)
 
 
-    :code:`-no-rw-check` ::
+    .. code:: yoscrypt
+
+        -no-rw-check
+
+    ::
 
             marks all recognized read ports as "return don't-care value on
             read/write collision" (same result as setting the no_rw_check
@@ -230,6 +322,10 @@ synth_ice40 - synthesis for iCE40 FPGAs
 
             json:
                 write_json <file-name>
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

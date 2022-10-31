@@ -16,7 +16,7 @@ html_sidebars = {'**': ['util/searchbox.html', 'util/sidetoc.html']}
 # These folders are copied to the documentation's HTML output
 html_static_path = ['../static', "../images"]
 
-# code blocks style
+# code blocks style 
 pygments_style = 'colorful'
 highlight_language = 'none'
 
@@ -47,8 +47,10 @@ exclude_patterns = [
 
 latex_elements = {
         'preamble': r'''
-\usepackage[T1]{fontenc}   % required for luximono!
 \usepackage{lmodern}
+
+\usepackage{comment}
+
 '''
 }
 

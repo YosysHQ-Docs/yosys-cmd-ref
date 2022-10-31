@@ -2,44 +2,68 @@
 add - add objects to the design
 ===============================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help add`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help add`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`add <command> [selection]` ::
+    .. code:: yoscrypt
+
+        add <command> [selection]
+
+    ::
 
         This command adds objects to the design. It operates on all fully selected
         modules. So e.g. 'add -wire foo' will add a wire foo to all selected modules.
 
 
+    .. code:: yoscrypt
 
-    :code:`add {-wire|-input|-inout|-output} <name> <width> [selection]` ::
+        add {-wire|-input|-inout|-output} <name> <width> [selection]
+
+    ::
 
         Add a wire (input, inout, output port) with the given name and width. The
         command will fail if the object exists already and has different properties
         than the object to be created.
 
 
+    .. code:: yoscrypt
 
-    :code:`add -global_input <name> <width> [selection]` ::
+        add -global_input <name> <width> [selection]
+
+    ::
 
         Like 'add -input', but also connect the signal between instances of the
         selected modules.
 
 
+    .. code:: yoscrypt
 
-    :code:`add {-assert|-assume|-live|-fair|-cover} <name1> [-if <name2>]` ::
+        add {-assert|-assume|-live|-fair|-cover} <name1> [-if <name2>]
+
+    ::
 
         Add an $assert, $assume, etc. cell connected to a wire named name1, with its
         enable signal optionally connected to a wire named name2 (default: 1'b1).
 
 
+    .. code:: yoscrypt
 
-    :code:`add -mod <name[s]>` ::
+        add -mod <name[s]>
+
+    ::
 
         Add module[s] with the specified name[s].
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

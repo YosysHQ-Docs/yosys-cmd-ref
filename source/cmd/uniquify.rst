@@ -2,13 +2,21 @@
 uniquify - create unique copies of modules
 ==========================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help uniquify`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help uniquify`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`uniquify [selection]` ::
+    .. code:: yoscrypt
+
+        uniquify [selection]
+
+    ::
 
         By default, a module that is instantiated by several other modules is only
         kept once in the design. This preserves the original modularity of the design
@@ -19,6 +27,10 @@ uniquify - create unique copies of modules
 
         This commands only operates on modules that by themself have the 'unique'
         attribute set (the 'top' module is unique implicitly).
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

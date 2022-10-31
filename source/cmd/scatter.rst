@@ -2,13 +2,21 @@
 scatter - add additional intermediate nets
 ==========================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help scatter`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help scatter`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`scatter [selection]` ::
+    .. code:: yoscrypt
+
+        scatter [selection]
+
+    ::
 
         This command adds additional intermediate nets on all cell ports. This is used
         for testing the correct use of the SigMap helper in passes. If you don't know
@@ -16,6 +24,10 @@ scatter - add additional intermediate nets
         extensions to Yosys.
 
         Use the opt_clean command to get rid of the additional nets.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

@@ -2,13 +2,21 @@
 dfflibmap - technology mapping of flip-flops
 ============================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help dfflibmap`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help dfflibmap`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`dfflibmap [-prepare] [-map-only] [-info] -liberty <file> [selection]` ::
+    .. code:: yoscrypt
+
+        dfflibmap [-prepare] [-map-only] [-info] -liberty <file> [selection]
+
+    ::
 
         Map internal flip-flop cells to the flip-flop cells in the technology
         library specified in the given liberty file.
@@ -28,6 +36,10 @@ dfflibmap - technology mapping of flip-flops
         list, along with their associated internal cell types, and the arguments
         that would be passed to the dfflegalize pass.  The design will not be
         changed.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

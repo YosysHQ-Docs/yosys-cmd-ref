@@ -2,16 +2,28 @@
 alumacc - extract ALU and MACC cells
 ====================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help alumacc`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help alumacc`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`alumacc [selection]` ::
+    .. code:: yoscrypt
+
+        alumacc [selection]
+
+    ::
 
         This pass translates arithmetic operations like $add, $mul, $lt, etc. to $alu
         and $macc cells.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

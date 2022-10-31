@@ -2,18 +2,30 @@
 opt_lut - optimize LUT cells
 ============================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help opt_lut`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help opt_lut`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`opt_lut [options] [selection]` ::
+    .. code:: yoscrypt
+
+        opt_lut [options] [selection]
+
+    ::
 
         This pass combines cascaded $lut cells with unused inputs.
 
 
-    :code:`-dlogic <type>:<cell-port>=<LUT-input>[:<cell-port>=<LUT-input>...]` ::
+    .. code:: yoscrypt
+
+        -dlogic <type>:<cell-port>=<LUT-input>[:<cell-port>=<LUT-input>...]
+
+    ::
 
             preserve connections to dedicated logic cell <type> that has ports
             <cell-port> connected to LUT inputs <LUT-input>. this includes
@@ -21,9 +33,17 @@ opt_lut - optimize LUT cells
             the same constant.
 
 
-    :code:`-limit N` ::
+    .. code:: yoscrypt
+
+        -limit N
+
+    ::
 
             only perform the first N combines, then stop. useful for debugging.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

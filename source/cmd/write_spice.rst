@@ -2,53 +2,93 @@
 write_spice - write design to SPICE netlist file
 ================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help write_spice`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help write_spice`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`write_spice [options] [filename]` ::
+    .. code:: yoscrypt
+
+        write_spice [options] [filename]
+
+    ::
 
         Write the current design to an SPICE netlist file.
 
 
-    :code:`-big_endian` ::
+    .. code:: yoscrypt
+
+        -big_endian
+
+    ::
 
             generate multi-bit ports in MSB first order
             (default is LSB first)
 
 
-    :code:`-neg net_name` ::
+    .. code:: yoscrypt
+
+        -neg net_name
+
+    ::
 
             set the net name for constant 0 (default: Vss)
 
 
-    :code:`-pos net_name` ::
+    .. code:: yoscrypt
+
+        -pos net_name
+
+    ::
 
             set the net name for constant 1 (default: Vdd)
 
 
-    :code:`-buf DC|subckt_name` ::
+    .. code:: yoscrypt
+
+        -buf DC|subckt_name
+
+    ::
 
             set the name for jumper element (default: DC)
             (used to connect different nets)
 
 
-    :code:`-nc_prefix` ::
+    .. code:: yoscrypt
+
+        -nc_prefix
+
+    ::
 
             prefix for not-connected nets (default: _NC)
 
 
-    :code:`-inames` ::
+    .. code:: yoscrypt
+
+        -inames
+
+    ::
 
             include names of internal ($-prefixed) nets in outputs
             (default is to use net numbers instead)
 
 
-    :code:`-top top_module` ::
+    .. code:: yoscrypt
+
+        -top top_module
+
+    ::
 
             set the specified module as design top module
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

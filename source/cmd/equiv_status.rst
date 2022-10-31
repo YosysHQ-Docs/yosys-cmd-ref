@@ -2,20 +2,36 @@
 equiv_status - print status of equivalent checking module
 =========================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help equiv_status`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help equiv_status`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`equiv_status [options] [selection]` ::
+    .. code:: yoscrypt
+
+        equiv_status [options] [selection]
+
+    ::
 
         This command prints status information for all selected $equiv cells.
 
 
-    :code:`-assert` ::
+    .. code:: yoscrypt
+
+        -assert
+
+    ::
 
             produce an error if any unproven $equiv cell is found
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

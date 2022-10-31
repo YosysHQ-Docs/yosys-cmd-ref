@@ -2,23 +2,39 @@
 write_smv - write design to SMV file
 ====================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help write_smv`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help write_smv`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`write_smv [options] [filename]` ::
+    .. code:: yoscrypt
+
+        write_smv [options] [filename]
+
+    ::
 
         Write an SMV description of the current design.
 
 
-    :code:`-verbose` ::
+    .. code:: yoscrypt
+
+        -verbose
+
+    ::
 
             this will print the recursive walk used to export the modules.
 
 
-    :code:`-tpl <template_file>` ::
+    .. code:: yoscrypt
+
+        -tpl <template_file>
+
+    ::
 
             use the given template file. the line containing only the token '%%'
             is replaced with the regular output of this command.
@@ -27,6 +43,10 @@ write_smv - write design to SMV file
     ::
 
         THIS COMMAND IS UNDER CONSTRUCTION
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

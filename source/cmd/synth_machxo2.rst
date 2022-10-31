@@ -2,68 +2,116 @@
 synth_machxo2 - synthesis for MachXO2 FPGAs. This work is experimental.
 =======================================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help synth_machxo2`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help synth_machxo2`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`synth_machxo2 [options]` ::
+    .. code:: yoscrypt
+
+        synth_machxo2 [options]
+
+    ::
 
         This command runs synthesis for MachXO2 FPGAs.
 
 
-    :code:`-top <module>` ::
+    .. code:: yoscrypt
+
+        -top <module>
+
+    ::
 
             use the specified module as top module
 
 
-    :code:`-blif <file>` ::
+    .. code:: yoscrypt
+
+        -blif <file>
+
+    ::
 
             write the design to the specified BLIF file. writing of an output file
             is omitted if this parameter is not specified.
 
 
-    :code:`-edif <file>` ::
+    .. code:: yoscrypt
+
+        -edif <file>
+
+    ::
 
             write the design to the specified EDIF file. writing of an output file
             is omitted if this parameter is not specified.
 
 
-    :code:`-json <file>` ::
+    .. code:: yoscrypt
+
+        -json <file>
+
+    ::
 
             write the design to the specified JSON file. writing of an output file
             is omitted if this parameter is not specified.
 
 
-    :code:`-run <from_label>:<to_label>` ::
+    .. code:: yoscrypt
+
+        -run <from_label>:<to_label>
+
+    ::
 
             only run the commands between the labels (see below). an empty
             from label is synonymous to 'begin', and empty to label is
             synonymous to the end of the command list.
 
 
-    :code:`-nobram` ::
+    .. code:: yoscrypt
+
+        -nobram
+
+    ::
 
             do not use block RAM cells in output netlist
 
 
-    :code:`-nolutram` ::
+    .. code:: yoscrypt
+
+        -nolutram
+
+    ::
 
             do not use LUT RAM cells in output netlist
 
 
-    :code:`-noflatten` ::
+    .. code:: yoscrypt
+
+        -noflatten
+
+    ::
 
             do not flatten design before synthesis
 
 
-    :code:`-noiopad` ::
+    .. code:: yoscrypt
+
+        -noiopad
+
+    ::
 
             do not insert IO buffers
 
 
-    :code:`-vpr` ::
+    .. code:: yoscrypt
+
+        -vpr
+
+    ::
 
             generate an output netlist (and BLIF file) suitable for VPR
             (this feature is experimental and incomplete)
@@ -128,6 +176,10 @@ synth_machxo2 - synthesis for MachXO2 FPGAs. This work is experimental.
 
             json:
                 write_json <file-name>
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

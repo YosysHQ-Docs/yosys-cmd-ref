@@ -2,31 +2,55 @@
 opt_merge - consolidate identical cells
 =======================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help opt_merge`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help opt_merge`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`opt_merge [options] [selection]` ::
+    .. code:: yoscrypt
+
+        opt_merge [options] [selection]
+
+    ::
 
         This pass identifies cells with identical type and input signals. Such cells
         are then merged to one cell.
 
 
-    :code:`-nomux` ::
+    .. code:: yoscrypt
+
+        -nomux
+
+    ::
 
             Do not merge MUX cells.
 
 
-    :code:`-share_all` ::
+    .. code:: yoscrypt
+
+        -share_all
+
+    ::
 
             Operate on all cell types, not just built-in types.
 
 
-    :code:`-keepdc` ::
+    .. code:: yoscrypt
+
+        -keepdc
+
+    ::
 
             Do not merge flipflops with don't-care bits in their initial value.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

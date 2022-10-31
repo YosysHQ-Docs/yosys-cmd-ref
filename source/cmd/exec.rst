@@ -2,13 +2,21 @@
 exec - execute commands in the operating system shell
 =====================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help exec`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help exec`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`exec [options] -- [command]` ::
+    .. code:: yoscrypt
+
+        exec [options] -- [command]
+
+    ::
 
         Execute a command in the operating system shell.  All supplied arguments are
         concatenated and passed as a command to popen(3).  Whitespace is not guaranteed
@@ -17,25 +25,41 @@ exec - execute commands in the operating system shell
 
 
 
-    :code:`-q` ::
+    .. code:: yoscrypt
+
+        -q
+
+    ::
 
             Suppress stdout and stderr from subprocess
 
 
-    :code:`-expect-return <int>` ::
+    .. code:: yoscrypt
+
+        -expect-return <int>
+
+    ::
 
             Generate an error if popen() does not return specified value.
             May only be specified once; the final specified value is controlling
             if specified multiple times.
 
 
-    :code:`-expect-stdout <regex>` ::
+    .. code:: yoscrypt
+
+        -expect-stdout <regex>
+
+    ::
 
             Generate an error if the specified regex does not match any line
             in subprocess's stdout.  May be specified multiple times.
 
 
-    :code:`-not-expect-stdout <regex>` ::
+    .. code:: yoscrypt
+
+        -not-expect-stdout <regex>
+
+    ::
 
             Generate an error if the specified regex matches any line
             in subprocess's stdout.  May be specified multiple times.
@@ -46,6 +70,10 @@ exec - execute commands in the operating system shell
 
         Example: exec -q -expect-return 0 -- echo "bananapie" | grep "nana"
 
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

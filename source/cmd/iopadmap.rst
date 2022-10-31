@@ -2,20 +2,32 @@
 iopadmap - technology mapping of i/o pads (or buffers)
 ======================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help iopadmap`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help iopadmap`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`iopadmap [options] [selection]` ::
+    .. code:: yoscrypt
+
+        iopadmap [options] [selection]
+
+    ::
 
         Map module inputs/outputs to PAD cells from a library. This pass
         can only map to very simple PAD cells. Use 'techmap' to further map
         the resulting cells to more sophisticated PAD cells.
 
 
-    :code:`-inpad <celltype> <in_port>[:<ext_port>]` ::
+    .. code:: yoscrypt
+
+        -inpad <celltype> <in_port>[:<ext_port>]
+
+    ::
 
             Map module input ports to the given cell type with the
             given output port name. if a 2nd portname is given, the
@@ -23,14 +35,26 @@ iopadmap - technology mapping of i/o pads (or buffers)
             portname as the port facing the module port.
 
 
-    :code:`-outpad <celltype> <out_port>[:<ext_port>]`
+    .. code:: yoscrypt
 
-    :code:`-inoutpad <celltype> <io_port>[:<ext_port>]` ::
+        -outpad <celltype> <out_port>[:<ext_port>]
+
+   
+
+    .. code:: yoscrypt
+
+        -inoutpad <celltype> <io_port>[:<ext_port>]
+
+    ::
 
             Similar to -inpad, but for output and inout ports.
 
 
-    :code:`-toutpad <celltype> <oe_port>:<out_port>[:<ext_port>]` ::
+    .. code:: yoscrypt
+
+        -toutpad <celltype> <oe_port>:<out_port>[:<ext_port>]
+
+    ::
 
             Merges $_TBUF_ cells into the output pad cell. This takes precedence
             over the other -outpad cell. The first portname is the enable input
@@ -38,7 +62,11 @@ iopadmap - technology mapping of i/o pads (or buffers)
             polarity enable.
 
 
-    :code:`-tinoutpad <celltype> <oe_port>:<in_port>:<out_port>[:<ext_port>]` ::
+    .. code:: yoscrypt
+
+        -tinoutpad <celltype> <oe_port>:<in_port>:<out_port>[:<ext_port>]
+
+    ::
 
             Merges $_TBUF_ cells into the inout pad cell. This takes precedence
             over the other -inoutpad cell. The first portname is the enable input
@@ -47,24 +75,40 @@ iopadmap - technology mapping of i/o pads (or buffers)
             be marked as negative polarity by prefixing the name with `~`.
 
 
-    :code:`-ignore <celltype> <portname>[:<portname>]*` ::
+    .. code:: yoscrypt
+
+        -ignore <celltype> <portname>[:<portname>]*
+
+    ::
 
             Skips mapping inputs/outputs that are already connected to given
             ports of the given cell.  Can be used multiple times.  This is in
             addition to the cells specified as mapping targets.
 
 
-    :code:`-widthparam <param_name>` ::
+    .. code:: yoscrypt
+
+        -widthparam <param_name>
+
+    ::
 
             Use the specified parameter name to set the port width.
 
 
-    :code:`-nameparam <param_name>` ::
+    .. code:: yoscrypt
+
+        -nameparam <param_name>
+
+    ::
 
             Use the specified parameter to set the port name.
 
 
-    :code:`-bits` ::
+    .. code:: yoscrypt
+
+        -bits
+
+    ::
 
             create individual bit-wide buffers even for ports that
             are wider. (the default behavior is to create word-wide
@@ -74,6 +118,10 @@ iopadmap - technology mapping of i/o pads (or buffers)
     ::
 
         Tristate PADS (-toutpad, -tinoutpad) always operate in -bits mode.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

@@ -2,16 +2,28 @@
 opt_ffinv - push inverters through FFs
 ======================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help opt_ffinv`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help opt_ffinv`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`opt_ffinv [selection]` ::
+    .. code:: yoscrypt
+
+        opt_ffinv [selection]
+
+    ::
 
         This pass pushes inverters to the other side of a FF when they can be merged
         into LUTs on the other side.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

@@ -2,15 +2,27 @@
 coolrunner2_fixup - insert necessary buffer cells for CoolRunner-II architecture
 ================================================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help coolrunner2_fixup`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help coolrunner2_fixup`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`coolrunner2_fixup [options] [selection]` ::
+    .. code:: yoscrypt
+
+        coolrunner2_fixup [options] [selection]
+
+    ::
 
         Insert necessary buffer cells for CoolRunner-II architecture.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

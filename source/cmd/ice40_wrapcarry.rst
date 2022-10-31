@@ -2,13 +2,21 @@
 ice40_wrapcarry - iCE40: wrap carries
 =====================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help ice40_wrapcarry`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help ice40_wrapcarry`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`ice40_wrapcarry [selection]` ::
+    .. code:: yoscrypt
+
+        ice40_wrapcarry [selection]
+
+    ::
 
         Wrap manually instantiated SB_CARRY cells, along with their associated SB_LUT4s,
         into an internal $__ICE40_CARRY_WRAPPER cell for preservation across technology
@@ -19,10 +27,18 @@ ice40_wrapcarry - iCE40: wrap carries
         A (* keep *) attribute on either cell will be logically OR-ed together.
 
 
-    :code:`-unwrap` ::
+    .. code:: yoscrypt
+
+        -unwrap
+
+    ::
 
             unwrap $__ICE40_CARRY_WRAPPER cells back into SB_CARRYs and SB_LUT4s,
             including restoring their attributes.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

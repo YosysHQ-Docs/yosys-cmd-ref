@@ -2,13 +2,21 @@
 qbfsat - solve a 2QBF-SAT problem in the circuit
 ================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help qbfsat`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help qbfsat`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`qbfsat [options] [selection]` ::
+    .. code:: yoscrypt
+
+        qbfsat [options] [selection]
+
+    ::
 
         This command solves an "exists-forall" 2QBF-SAT problem defined over the
         currently selected module. Existentially-quantified variables are declared by
@@ -17,37 +25,61 @@ qbfsat - solve a 2QBF-SAT problem in the circuit
         treated as universally-quantified variables by default.
 
 
-    :code:`-nocleanup` ::
+    .. code:: yoscrypt
+
+        -nocleanup
+
+    ::
 
             Do not delete temporary files and directories. Useful for debugging.
 
 
-    :code:`-dump-final-smt2 <file>` ::
+    .. code:: yoscrypt
+
+        -dump-final-smt2 <file>
+
+    ::
 
             Pass the --dump-smt2 option to yosys-smtbmc.
 
 
-    :code:`-assume-outputs` ::
+    .. code:: yoscrypt
+
+        -assume-outputs
+
+    ::
 
             Add an "$assume" cell for the conjunction of all one-bit module output
             wires.
 
 
-    :code:`-assume-negative-polarity` ::
+    .. code:: yoscrypt
+
+        -assume-negative-polarity
+
+    ::
 
             When adding $assume cells for one-bit module output wires, assume they
             are negative polarity signals and should always be low, for example like
             the miters created with the `miter` command.
 
 
-    :code:`-nooptimize` ::
+    .. code:: yoscrypt
+
+        -nooptimize
+
+    ::
 
             Ignore "\minimize" and "\maximize" attributes, do not emit
             "(maximize)" or "(minimize)" in the SMT-LIBv2, and generally make no
             attempt to optimize anything.
 
 
-    :code:`-nobisection` ::
+    .. code:: yoscrypt
+
+        -nobisection
+
+    ::
 
             If a wire is marked with the "\minimize" or "\maximize" attribute,
             do not attempt to optimize that value with the default iterated solving
@@ -56,61 +88,105 @@ qbfsat - solve a 2QBF-SAT problem in the circuit
             hope that the solver supports optimizing quantified bitvector problems.
 
 
-    :code:`-solver <solver>` ::
+    .. code:: yoscrypt
+
+        -solver <solver>
+
+    ::
 
             Use a particular solver. Choose one of: "z3", "yices", and "cvc4".
             (default: yices)
 
 
-    :code:`-solver-option <name> <value>` ::
+    .. code:: yoscrypt
+
+        -solver-option <name> <value>
+
+    ::
 
             Set the specified solver option in the SMT-LIBv2 problem file.
 
 
-    :code:`-timeout <value>` ::
+    .. code:: yoscrypt
+
+        -timeout <value>
+
+    ::
 
             Set the per-iteration timeout in seconds.
             (default: no timeout)
 
 
-    :code:`-O0, -O1, -O2` ::
+    .. code:: yoscrypt
+
+        -O0, -O1, -O2
+
+    ::
 
             Control the use of ABC to simplify the QBF-SAT problem before solving.
 
 
-    :code:`-sat` ::
+    .. code:: yoscrypt
+
+        -sat
+
+    ::
 
             Generate an error if the solver does not return "sat".
 
 
-    :code:`-unsat` ::
+    .. code:: yoscrypt
+
+        -unsat
+
+    ::
 
             Generate an error if the solver does not return "unsat".
 
 
-    :code:`-show-smtbmc` ::
+    .. code:: yoscrypt
+
+        -show-smtbmc
+
+    ::
 
             Print the output from yosys-smtbmc.
 
 
-    :code:`-specialize` ::
+    .. code:: yoscrypt
+
+        -specialize
+
+    ::
 
             If the problem is satisfiable, replace each "$anyconst" cell with its
             corresponding constant value from the model produced by the solver.
 
 
-    :code:`-specialize-from-file <solution file>` ::
+    .. code:: yoscrypt
+
+        -specialize-from-file <solution file>
+
+    ::
 
             Do not run the solver, but instead only attempt to replace each
             "$anyconst" cell in the current module with a constant value provided
             by the specified file.
 
 
-    :code:`-write-solution <solution file>` ::
+    .. code:: yoscrypt
+
+        -write-solution <solution file>
+
+    ::
 
             If the problem is satisfiable, write the corresponding constant value
             for each "$anyconst" cell from the model produced by the solver to the
             specified file.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

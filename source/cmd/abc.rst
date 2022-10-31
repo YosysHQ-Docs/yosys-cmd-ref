@@ -2,25 +2,41 @@
 abc - use ABC for technology mapping
 ====================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help abc`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help abc`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`abc [options] [selection]` ::
+    .. code:: yoscrypt
+
+        abc [options] [selection]
+
+    ::
 
         This pass uses the ABC tool [1] for technology mapping of yosys's internal gate
         library to a target architecture.
 
 
-    :code:`-exe <command>` ::
+    .. code:: yoscrypt
+
+        -exe <command>
+
+    ::
 
             use the specified command instead of "<yosys-bindir>/yosys-abc" to execute ABC.
             This can e.g. be used to call a specific version of ABC or a wrapper.
 
 
-    :code:`-script <file>` ::
+    .. code:: yoscrypt
+
+        -script <file>
+
+    ::
 
             use the specified ABC script file instead of the default script.
 
@@ -57,7 +73,11 @@ abc - use ABC for technology mapping
                    &get -n; &dch -f; &nf {D}; &put
 
 
-    :code:`-fast` ::
+    .. code:: yoscrypt
+
+        -fast
+
+    ::
 
             use different default scripts that are slightly faster (at the cost
             of output quality):
@@ -79,19 +99,31 @@ abc - use ABC for technology mapping
               strash; dretime; map
 
 
-    :code:`-liberty <file>` ::
+    .. code:: yoscrypt
+
+        -liberty <file>
+
+    ::
 
             generate netlists for the specified cell library (using the liberty
             file format).
 
 
-    :code:`-genlib <file>` ::
+    .. code:: yoscrypt
+
+        -genlib <file>
+
+    ::
 
             generate netlists for the specified cell library (using the SIS Genlib
             file format).
 
 
-    :code:`-constr <file>` ::
+    .. code:: yoscrypt
+
+        -constr <file>
+
+    ::
 
             pass this file with timing constraints to ABC.
             use with -liberty/-genlib.
@@ -105,7 +137,11 @@ abc - use ABC for technology mapping
             femtofarads for each primary output.
 
 
-    :code:`-D <picoseconds>` ::
+    .. code:: yoscrypt
+
+        -D <picoseconds>
+
+    ::
 
             set delay target. the string {D} in the default scripts above is
             replaced by this option when used, and an empty string otherwise.
@@ -113,30 +149,50 @@ abc - use ABC for technology mapping
             default scripts above.
 
 
-    :code:`-I <num>` ::
+    .. code:: yoscrypt
+
+        -I <num>
+
+    ::
 
             maximum number of SOP inputs.
             (replaces {I} in the default scripts above)
 
 
-    :code:`-P <num>` ::
+    .. code:: yoscrypt
+
+        -P <num>
+
+    ::
 
             maximum number of SOP products.
             (replaces {P} in the default scripts above)
 
 
-    :code:`-S <num>` ::
+    .. code:: yoscrypt
+
+        -S <num>
+
+    ::
 
             maximum number of LUT inputs shared.
             (replaces {S} in the default scripts above, default: -S 1)
 
 
-    :code:`-lut <width>` ::
+    .. code:: yoscrypt
+
+        -lut <width>
+
+    ::
 
             generate netlist using luts of (max) the specified width.
 
 
-    :code:`-lut <w1>:<w2>` ::
+    .. code:: yoscrypt
+
+        -lut <w1>:<w2>
+
+    ::
 
             generate netlist using luts of (max) the specified width <w2>. All
             luts with width <= <w1> have constant cost. for luts larger than <w1>
@@ -144,18 +200,30 @@ abc - use ABC for technology mapping
             is still constant for all lut widths.
 
 
-    :code:`-luts <cost1>,<cost2>,<cost3>,<sizeN>:<cost4-N>,..` ::
+    .. code:: yoscrypt
+
+        -luts <cost1>,<cost2>,<cost3>,<sizeN>:<cost4-N>,..
+
+    ::
 
             generate netlist using luts. Use the specified costs for luts with 1,
             2, 3, .. inputs.
 
 
-    :code:`-sop` ::
+    .. code:: yoscrypt
+
+        -sop
+
+    ::
 
             map to sum-of-product cells and inverters
 
 
-    :code:`-g type1,type2,...` ::
+    .. code:: yoscrypt
+
+        -g type1,type2,...
+
+    ::
 
             Map to the specified list of gate types. Supported gates types are:
                AND, NAND, OR, NOR, XOR, XNOR, ANDNOT, ORNOT, MUX,
@@ -180,45 +248,73 @@ abc - use ABC for technology mapping
             The default is 'all,-NMUX,-AOI3,-OAI3,-AOI4,-OAI4'.
 
 
-    :code:`-dff` ::
+    .. code:: yoscrypt
+
+        -dff
+
+    ::
 
             also pass $_DFF_?_ and $_DFFE_??_ cells through ABC. modules with many
             clock domains are automatically partitioned in clock domains and each
             domain is passed through ABC independently.
 
 
-    :code:`-clk [!]<clock-signal-name>[,[!]<enable-signal-name>]` ::
+    .. code:: yoscrypt
+
+        -clk [!]<clock-signal-name>[,[!]<enable-signal-name>]
+
+    ::
 
             use only the specified clock domain. this is like -dff, but only FF
             cells that belong to the specified clock domain are used.
 
 
-    :code:`-keepff` ::
+    .. code:: yoscrypt
+
+        -keepff
+
+    ::
 
             set the "keep" attribute on flip-flop output wires. (and thus preserve
             them, for example for equivalence checking.)
 
 
-    :code:`-nocleanup` ::
+    .. code:: yoscrypt
+
+        -nocleanup
+
+    ::
 
             when this option is used, the temporary files created by this pass
             are not removed. this is useful for debugging.
 
 
-    :code:`-showtmp` ::
+    .. code:: yoscrypt
+
+        -showtmp
+
+    ::
 
             print the temp dir name in log. usually this is suppressed so that the
             command output is identical across runs.
 
 
-    :code:`-markgroups` ::
+    .. code:: yoscrypt
+
+        -markgroups
+
+    ::
 
             set a 'abcgroup' attribute on all objects created by ABC. The value of
             this attribute is a unique integer for each ABC process started. This
             is useful for debugging the partitioning of clock domains.
 
 
-    :code:`-dress` ::
+    .. code:: yoscrypt
+
+        -dress
+
+    ::
 
             run the 'dress' command after all other ABC commands. This aims to
             preserve naming by an equivalence check between the original and
@@ -238,6 +334,10 @@ abc - use ABC for technology mapping
         you want to use ABC to convert your design into another format.
 
         [1] http://www.eecs.berkeley.edu/~alanmi/abc/
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

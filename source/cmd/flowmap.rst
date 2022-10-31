@@ -2,13 +2,21 @@
 flowmap - pack LUTs with FlowMap
 ================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help flowmap`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help flowmap`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`flowmap [options] [selection]` ::
+    .. code:: yoscrypt
+
+        flowmap [options] [selection]
+
+    ::
 
         This pass uses the FlowMap technology mapping algorithm to pack logic gates
         into k-LUTs with optimal depth. It allows mapping any circuit elements that can
@@ -16,49 +24,85 @@ flowmap - pack LUTs with FlowMap
         and multi-bit input and output ports.
 
 
-    :code:`-maxlut k` ::
+    .. code:: yoscrypt
+
+        -maxlut k
+
+    ::
 
             perform technology mapping for a k-LUT architecture. if not specified,
             defaults to 3.
 
 
-    :code:`-minlut n` ::
+    .. code:: yoscrypt
+
+        -minlut n
+
+    ::
 
             only produce n-input or larger LUTs. if not specified, defaults to 1.
 
 
-    :code:`-cells <cell>[,<cell>,...]` ::
+    .. code:: yoscrypt
+
+        -cells <cell>[,<cell>,...]
+
+    ::
 
             map specified cells. if not specified, maps $_NOT_, $_AND_, $_OR_,
             $_XOR_ and $_MUX_, which are the outputs of the `simplemap` pass.
 
 
-    :code:`-relax` ::
+    .. code:: yoscrypt
+
+        -relax
+
+    ::
 
             perform depth relaxation and area minimization.
 
 
-    :code:`-r-alpha n, -r-beta n, -r-gamma n` ::
+    .. code:: yoscrypt
+
+        -r-alpha n, -r-beta n, -r-gamma n
+
+    ::
 
             parameters of depth relaxation heuristic potential function.
             if not specified, alpha=8, beta=2, gamma=1.
 
 
-    :code:`-optarea n` ::
+    .. code:: yoscrypt
+
+        -optarea n
+
+    ::
 
             optimize for area by trading off at most n logic levels for fewer LUTs.
             n may be zero, to optimize for area without increasing depth.
             implies -relax.
 
 
-    :code:`-debug` ::
+    .. code:: yoscrypt
+
+        -debug
+
+    ::
 
             dump intermediate graphs.
 
 
-    :code:`-debug-relax` ::
+    .. code:: yoscrypt
+
+        -debug-relax
+
+    ::
 
             explain decisions performed during depth relaxation.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

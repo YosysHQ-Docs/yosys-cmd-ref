@@ -2,15 +2,27 @@
 anlogic_eqn - Anlogic: Calculate equations for luts
 ===================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help anlogic_eqn`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help anlogic_eqn`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`anlogic_eqn [selection]` ::
+    .. code:: yoscrypt
+
+        anlogic_eqn [selection]
+
+    ::
 
         Calculate equations for luts since bitstream generator depends on it.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

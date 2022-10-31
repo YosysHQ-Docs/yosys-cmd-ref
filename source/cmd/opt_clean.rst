@@ -2,13 +2,21 @@
 opt_clean - remove unused cells and wires
 =========================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help opt_clean`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help opt_clean`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`opt_clean [options] [selection]` ::
+    .. code:: yoscrypt
+
+        opt_clean [options] [selection]
+
+    ::
 
         This pass identifies wires and cells that are unused and removes them. Other
         passes often remove cells but leave the wires in the design or reconnect the
@@ -18,9 +26,17 @@ opt_clean - remove unused cells and wires
         This pass only operates on completely selected modules without processes.
 
 
-    :code:`-purge` ::
+    .. code:: yoscrypt
+
+        -purge
+
+    ::
 
             also remove internal nets if they have a public name
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

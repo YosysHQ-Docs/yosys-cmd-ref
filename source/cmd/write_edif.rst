@@ -2,46 +2,78 @@
 write_edif - write design to EDIF netlist file
 ==============================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help write_edif`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help write_edif`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`write_edif [options] [filename]` ::
+    .. code:: yoscrypt
+
+        write_edif [options] [filename]
+
+    ::
 
         Write the current design to an EDIF netlist file.
 
 
-    :code:`-top top_module` ::
+    .. code:: yoscrypt
+
+        -top top_module
+
+    ::
 
             set the specified module as design top module
 
 
-    :code:`-nogndvcc` ::
+    .. code:: yoscrypt
+
+        -nogndvcc
+
+    ::
 
             do not create "GND" and "VCC" cells. (this will produce an error
             if the design contains constant nets. use "hilomap" to map to custom
             constant drivers first)
 
 
-    :code:`-gndvccy` ::
+    .. code:: yoscrypt
+
+        -gndvccy
+
+    ::
 
             create "GND" and "VCC" cells with "Y" outputs. (the default is
             "G" for "GND" and "P" for "VCC".)
 
 
-    :code:`-attrprop` ::
+    .. code:: yoscrypt
+
+        -attrprop
+
+    ::
 
             create EDIF properties for cell attributes
 
 
-    :code:`-keep` ::
+    .. code:: yoscrypt
+
+        -keep
+
+    ::
 
             create extra KEEP nets by allowing a cell to drive multiple nets.
 
 
-    :code:`-pvector {par|bra|ang}` ::
+    .. code:: yoscrypt
+
+        -pvector {par|bra|ang}
+
+    ::
 
             sets the delimiting character for module port rename clauses to
             parentheses, square brackets, or angle brackets.
@@ -53,6 +85,10 @@ write_edif - write design to EDIF netlist file
         command generates EDIF files for the Xilinx place&route tools. It might be
         necessary to make small modifications to this command when a different tool
         is targeted.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

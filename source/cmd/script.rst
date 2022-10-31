@@ -2,15 +2,26 @@
 script - execute commands from file or wire
 ===========================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help script`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help script`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`script <filename> [<from_label>:<to_label>]`
+    .. code:: yoscrypt
 
-    :code:`script -scriptwire [selection]` ::
+        script <filename> [<from_label>:<to_label>]
+
+   
+    .. code:: yoscrypt
+
+        script -scriptwire [selection]
+
+    ::
 
         This command executes the yosys commands in the specified file (default
         behaviour), or commands embedded in the constant text value connected to the
@@ -27,6 +38,10 @@ script - execute commands from file or wire
         In "-scriptwire" mode, the commands on the selected wire(s) will be executed
         in the scope of (and thus, relative to) the wires' owning module(s). This
         '-module' mode can be exited by using the 'cd' command.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

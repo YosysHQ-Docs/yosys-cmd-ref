@@ -2,26 +2,42 @@
 abc9_ops - helper functions for ABC9
 ====================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help abc9_ops`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help abc9_ops`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`abc9_ops [options] [selection]` ::
+    .. code:: yoscrypt
+
+        abc9_ops [options] [selection]
+
+    ::
 
         This pass contains a set of supporting operations for use during ABC technology
         mapping, and is expected to be called in conjunction with other operations from
         the `abc9' script pass. Only fully-selected modules are supported.
 
 
-    :code:`-check` ::
+    .. code:: yoscrypt
+
+        -check
+
+    ::
 
             check that the design is valid, e.g. (* abc9_box_id *) values are
             unique, (* abc9_carry *) is only given for one input/output port, etc.
 
 
-    :code:`-prep_hier` ::
+    .. code:: yoscrypt
+
+        -prep_hier
+
+    ::
 
             derive all used (* abc9_box *) or (* abc9_flop *) (if -dff option)
             whitebox modules. with (* abc9_flop *) modules, only those containing
@@ -29,7 +45,11 @@ abc9_ops - helper functions for ABC9
             limitation -- will be derived.
 
 
-    :code:`-prep_bypass` ::
+    .. code:: yoscrypt
+
+        -prep_bypass
+
+    ::
 
             create techmap rules in the '$abc9_map' and '$abc9_unmap' designs for
             bypassing sequential (* abc9_box *) modules using a combinatorial box
@@ -40,13 +60,21 @@ abc9_ops - helper functions for ABC9
             specify block.
 
 
-    :code:`-prep_dff` ::
+    .. code:: yoscrypt
+
+        -prep_dff
+
+    ::
 
             select all (* abc9_flop *) modules instantiated in the design and store
             in the named selection '$abc9_flops'.
 
 
-    :code:`-prep_dff_submod` ::
+    .. code:: yoscrypt
+
+        -prep_dff_submod
+
+    ::
 
             within (* abc9_flop *) modules, rewrite all edge-sensitive path
             declarations and $setup() timing checks ($specify3 and $specrule cells)
@@ -55,7 +83,11 @@ abc9_ops - helper functions for ABC9
             into the flop box.
 
 
-    :code:`-prep_dff_unmap` ::
+    .. code:: yoscrypt
+
+        -prep_dff_unmap
+
+    ::
 
             populate the '$abc9_unmap' design with techmap rules for mapping
             *_$abc9_flop cells back into their derived cell types (where the rules
@@ -63,13 +95,21 @@ abc9_ops - helper functions for ABC9
             parameters).
 
 
-    :code:`-prep_delays` ::
+    .. code:: yoscrypt
+
+        -prep_delays
+
+    ::
 
             insert `$__ABC9_DELAY' blackbox cells into the design to account for
             certain required times.
 
 
-    :code:`-break_scc` ::
+    .. code:: yoscrypt
+
+        -break_scc
+
+    ::
 
             for an arbitrarily chosen cell in each unique SCC of each selected
             module (tagged with an (* abc9_scc_id = <int> *) attribute) interrupt
@@ -77,7 +117,11 @@ abc9_ops - helper functions for ABC9
             $__ABC9_SCC_BREAKER cell to break the SCC.
 
 
-    :code:`-prep_xaiger` ::
+    .. code:: yoscrypt
+
+        -prep_xaiger
+
+    ::
 
             prepare the design for XAIGER output. this includes computing the
             topological ordering of ABC9 boxes, as well as preparing the 
@@ -85,39 +129,67 @@ abc9_ops - helper functions for ABC9
             whiteboxes.
 
 
-    :code:`-dff` ::
+    .. code:: yoscrypt
+
+        -dff
+
+    ::
 
             consider flop cells (those instantiating modules marked with
             (* abc9_flop *)) during -prep_{delays,xaiger,box}.
 
 
-    :code:`-prep_lut <maxlut>` ::
+    .. code:: yoscrypt
+
+        -prep_lut <maxlut>
+
+    ::
 
             pre-compute the lut library by analysing all modules marked with
             (* abc9_lut=<area> *).
 
 
-    :code:`-write_lut <dst>` ::
+    .. code:: yoscrypt
+
+        -write_lut <dst>
+
+    ::
 
             write the pre-computed lut library to <dst>.
 
 
-    :code:`-prep_box` ::
+    .. code:: yoscrypt
+
+        -prep_box
+
+    ::
 
             pre-compute the box library by analysing all modules marked with
             (* abc9_box *).
 
 
-    :code:`-write_box <dst>` ::
+    .. code:: yoscrypt
+
+        -write_box <dst>
+
+    ::
 
             write the pre-computed box library to <dst>.
 
 
-    :code:`-reintegrate` ::
+    .. code:: yoscrypt
+
+        -reintegrate
+
+    ::
 
             for each selected module, re-intergrate the module '<module-name>$abc9'
             by first recovering ABC9 boxes, and then stitching in the remaining
             primary inputs and outputs.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

@@ -2,13 +2,21 @@
 proc - translate processes to netlists
 ======================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help proc`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help proc`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`proc [options] [selection]` ::
+    .. code:: yoscrypt
+
+        proc [options] [selection]
+
+    ::
 
         This pass calls all the other proc_* passes in the most common order.
 
@@ -31,30 +39,54 @@ proc - translate processes to netlists
         The following options are supported:
 
 
-    :code:`-nomux` ::
+    .. code:: yoscrypt
+
+        -nomux
+
+    ::
 
             Will omit the proc_mux pass.
 
 
-    :code:`-norom` ::
+    .. code:: yoscrypt
+
+        -norom
+
+    ::
 
             Will omit the proc_rom pass.
 
 
-    :code:`-global_arst [!]<netname>` ::
+    .. code:: yoscrypt
+
+        -global_arst [!]<netname>
+
+    ::
 
             This option is passed through to proc_arst.
 
 
-    :code:`-ifx` ::
+    .. code:: yoscrypt
+
+        -ifx
+
+    ::
 
             This option is passed through to proc_mux. proc_rmdead is not
             executed in -ifx mode.
 
 
-    :code:`-noopt` ::
+    .. code:: yoscrypt
+
+        -noopt
+
+    ::
 
             Will omit the opt_expr pass.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

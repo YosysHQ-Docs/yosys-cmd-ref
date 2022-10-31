@@ -2,13 +2,21 @@
 bugpoint - minimize testcases
 =============================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help bugpoint`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help bugpoint`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`bugpoint [options] [-script <filename> | -command "<command>"]` ::
+    .. code:: yoscrypt
+
+        bugpoint [options] [-script <filename> | -command "<command>"]
+
+    ::
 
         This command minimizes the current design that is known to crash Yosys with the
         given script into a smaller testcase. It does this by removing an arbitrary part
@@ -20,29 +28,49 @@ bugpoint - minimize testcases
         another command after `bugpoint` like `write_rtlil` or `write_verilog`.
 
 
-    :code:`-script <filename> | -command "<command>"` ::
+    .. code:: yoscrypt
+
+        -script <filename> | -command "<command>"
+
+    ::
 
             use this script file or command to crash Yosys. required.
 
 
-    :code:`-yosys <filename>` ::
+    .. code:: yoscrypt
+
+        -yosys <filename>
+
+    ::
 
             use this Yosys binary. if not specified, `yosys` is used.
 
 
-    :code:`-grep "<string>"` ::
+    .. code:: yoscrypt
+
+        -grep "<string>"
+
+    ::
 
             only consider crashes that place this string in the log file.
 
 
-    :code:`-fast` ::
+    .. code:: yoscrypt
+
+        -fast
+
+    ::
 
             run `proc_clean; clean -purge` after each minimization step. converges
             faster, but produces larger testcases, and may fail to produce any
             testcase at all if the crash is related to dangling wires.
 
 
-    :code:`-clean` ::
+    .. code:: yoscrypt
+
+        -clean
+
+    ::
 
             run `proc_clean; clean -purge` before checking testcase and after
             finishing. produces smaller and more useful testcases, but may fail to
@@ -56,48 +84,84 @@ bugpoint - minimize testcases
         will be considered.
 
 
-    :code:`-modules` ::
+    .. code:: yoscrypt
+
+        -modules
+
+    ::
 
             try to remove modules. modules with a (* bugpoint_keep *) attribute
             will be skipped.
 
 
-    :code:`-ports` ::
+    .. code:: yoscrypt
+
+        -ports
+
+    ::
 
             try to remove module ports. ports with a (* bugpoint_keep *) attribute
             will be skipped (useful for clocks, resets, etc.)
 
 
-    :code:`-cells` ::
+    .. code:: yoscrypt
+
+        -cells
+
+    ::
 
             try to remove cells. cells with a (* bugpoint_keep *) attribute will
             be skipped.
 
 
-    :code:`-connections` ::
+    .. code:: yoscrypt
+
+        -connections
+
+    ::
 
             try to reconnect ports to 'x.
 
 
-    :code:`-processes` ::
+    .. code:: yoscrypt
+
+        -processes
+
+    ::
 
             try to remove processes. processes with a (* bugpoint_keep *) attribute
             will be skipped.
 
 
-    :code:`-assigns` ::
+    .. code:: yoscrypt
+
+        -assigns
+
+    ::
 
             try to remove process assigns from cases.
 
 
-    :code:`-updates` ::
+    .. code:: yoscrypt
+
+        -updates
+
+    ::
 
             try to remove process updates from syncs.
 
 
-    :code:`-runner "<prefix>"` ::
+    .. code:: yoscrypt
+
+        -runner "<prefix>"
+
+    ::
 
             child process wrapping command, e.g., "timeout 30", or valgrind.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

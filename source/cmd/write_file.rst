@@ -2,18 +2,30 @@
 write_file - write a text to a file
 ===================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help write_file`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help write_file`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`write_file [options] output_file [input_file]` ::
+    .. code:: yoscrypt
+
+        write_file [options] output_file [input_file]
+
+    ::
 
         Write the text from the input file to the output file.
 
 
-    :code:`-a` ::
+    .. code:: yoscrypt
+
+        -a
+
+    ::
 
             Append to output file (instead of overwriting)
 
@@ -26,6 +38,10 @@ write_file - write a text to a file
             write_file hello.txt <<EOT
             Hello World!
             EOT
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

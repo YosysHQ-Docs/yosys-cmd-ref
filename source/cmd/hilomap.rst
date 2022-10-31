@@ -2,32 +2,56 @@
 hilomap - technology mapping of constant hi- and/or lo-drivers
 ==============================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help hilomap`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help hilomap`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`hilomap [options] [selection]` ::
+    .. code:: yoscrypt
+
+        hilomap [options] [selection]
+
+    ::
 
         Map constants to 'tielo' and 'tiehi' driver cells.
 
 
-    :code:`-hicell <celltype> <portname>` ::
+    .. code:: yoscrypt
+
+        -hicell <celltype> <portname>
+
+    ::
 
             Replace constant hi bits with this cell.
 
 
-    :code:`-locell <celltype> <portname>` ::
+    .. code:: yoscrypt
+
+        -locell <celltype> <portname>
+
+    ::
 
             Replace constant lo bits with this cell.
 
 
-    :code:`-singleton` ::
+    .. code:: yoscrypt
+
+        -singleton
+
+    ::
 
             Create only one hi/lo cell and connect all constant bits
             to that cell. Per default a separate cell is created for
             each constant bit.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

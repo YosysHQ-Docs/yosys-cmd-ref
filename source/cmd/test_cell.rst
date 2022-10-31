@@ -2,13 +2,21 @@
 test_cell - automatically test the implementation of a cell type
 ================================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help test_cell`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help test_cell`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`test_cell [options] {cell-types}` ::
+    .. code:: yoscrypt
+
+        test_cell [options] {cell-types}
+
+    ::
 
         Tests the internal implementation of the given cell type (for example '$add')
         by comparing SAT solver, EVAL and TECHMAP implementations of the cell types..
@@ -17,81 +25,145 @@ test_cell - automatically test the implementation of a cell type
         cell types. Use for example 'all /$add' for all cell types except $add.
 
 
-    :code:`-n {integer}` ::
+    .. code:: yoscrypt
+
+        -n {integer}
+
+    ::
 
             create this number of cell instances and test them (default = 100).
 
 
-    :code:`-s {positive_integer}` ::
+    .. code:: yoscrypt
+
+        -s {positive_integer}
+
+    ::
 
             use this value as rng seed value (default = unix time).
 
 
-    :code:`-f {rtlil_file}` ::
+    .. code:: yoscrypt
+
+        -f {rtlil_file}
+
+    ::
 
             don't generate circuits. instead load the specified RTLIL file.
 
 
-    :code:`-w {filename_prefix}` ::
+    .. code:: yoscrypt
+
+        -w {filename_prefix}
+
+    ::
 
             don't test anything. just generate the circuits and write them
             to RTLIL files with the specified prefix
 
 
-    :code:`-map {filename}` ::
+    .. code:: yoscrypt
+
+        -map {filename}
+
+    ::
 
             pass this option to techmap.
 
 
-    :code:`-simlib` ::
+    .. code:: yoscrypt
+
+        -simlib
+
+    ::
 
             use "techmap -D SIMLIB_NOCHECKS -map +/simlib.v -max_iter 2 -autoproc"
 
 
-    :code:`-aigmap` ::
+    .. code:: yoscrypt
+
+        -aigmap
+
+    ::
 
             instead of calling "techmap", call "aigmap"
 
 
-    :code:`-muxdiv` ::
+    .. code:: yoscrypt
+
+        -muxdiv
+
+    ::
 
             when creating test benches with dividers, create an additional mux
             to mask out the division-by-zero case
 
 
-    :code:`-script {script_file}` ::
+    .. code:: yoscrypt
+
+        -script {script_file}
+
+    ::
 
             instead of calling "techmap", call "script {script_file}".
 
 
-    :code:`-const` ::
+    .. code:: yoscrypt
+
+        -const
+
+    ::
 
             set some input bits to random constant values
 
 
-    :code:`-nosat` ::
+    .. code:: yoscrypt
+
+        -nosat
+
+    ::
 
             do not check SAT model or run SAT equivalence checking
 
 
-    :code:`-noeval` ::
+    .. code:: yoscrypt
+
+        -noeval
+
+    ::
 
             do not check const-eval models
 
 
-    :code:`-edges` ::
+    .. code:: yoscrypt
+
+        -edges
+
+    ::
 
             test cell edges db creator against sat-based implementation
 
 
-    :code:`-v` ::
+    .. code:: yoscrypt
+
+        -v
+
+    ::
 
             print additional debug information to the console
 
 
-    :code:`-vlog {filename}` ::
+    .. code:: yoscrypt
+
+        -vlog {filename}
+
+    ::
 
             create a Verilog test bench to test simlib and write_verilog
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

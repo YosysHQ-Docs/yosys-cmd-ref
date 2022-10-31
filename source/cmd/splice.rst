@@ -2,55 +2,91 @@
 splice - create explicit splicing cells
 =======================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help splice`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help splice`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`splice [options] [selection]` ::
+    .. code:: yoscrypt
+
+        splice [options] [selection]
+
+    ::
 
         This command adds $slice and $concat cells to the design to make the splicing
         of multi-bit signals explicit. This for example is useful for coarse grain
         synthesis, where dedicated hardware is needed to splice signals.
 
 
-    :code:`-sel_by_cell` ::
+    .. code:: yoscrypt
+
+        -sel_by_cell
+
+    ::
 
             only select the cell ports to rewire by the cell. if the selection
             contains a cell, than all cell inputs are rewired, if necessary.
 
 
-    :code:`-sel_by_wire` ::
+    .. code:: yoscrypt
+
+        -sel_by_wire
+
+    ::
 
             only select the cell ports to rewire by the wire. if the selection
             contains a wire, than all cell ports driven by this wire are wired,
             if necessary.
 
 
-    :code:`-sel_any_bit` ::
+    .. code:: yoscrypt
+
+        -sel_any_bit
+
+    ::
 
             it is sufficient if the driver of any bit of a cell port is selected.
             by default all bits must be selected.
 
 
-    :code:`-wires` ::
+    .. code:: yoscrypt
+
+        -wires
+
+    ::
 
             also add $slice and $concat cells to drive otherwise unused wires.
 
 
-    :code:`-no_outputs` ::
+    .. code:: yoscrypt
+
+        -no_outputs
+
+    ::
 
             do not rewire selected module outputs.
 
 
-    :code:`-port <name>` ::
+    .. code:: yoscrypt
+
+        -port <name>
+
+    ::
 
             only rewire cell ports with the specified name. can be used multiple
             times. implies -no_output.
 
 
-    :code:`-no_port <name>` ::
+    .. code:: yoscrypt
+
+        -no_port <name>
+
+    ::
 
             do not rewire cell ports with the specified name. can be used multiple
             times. can not be combined with -port <name>.
@@ -60,6 +96,10 @@ splice - create explicit splicing cells
 
         By default selected output wires and all cell ports of selected cells driven
         by selected wires are rewired.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

@@ -2,101 +2,177 @@
 read_verilog - read modules from Verilog file
 =============================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help read_verilog`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help read_verilog`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`read_verilog [options] [filename]` ::
+    .. code:: yoscrypt
+
+        read_verilog [options] [filename]
+
+    ::
 
         Load modules from a Verilog file to the current design. A large subset of
         Verilog-2005 is supported.
 
 
-    :code:`-sv` ::
+    .. code:: yoscrypt
+
+        -sv
+
+    ::
 
             enable support for SystemVerilog features. (only a small subset
             of SystemVerilog is supported)
 
 
-    :code:`-formal` ::
+    .. code:: yoscrypt
+
+        -formal
+
+    ::
 
             enable support for SystemVerilog assertions and some Yosys extensions
             replace the implicit -D SYNTHESIS with -D FORMAL
 
 
-    :code:`-nosynthesis` ::
+    .. code:: yoscrypt
+
+        -nosynthesis
+
+    ::
 
             don't add implicit -D SYNTHESIS
 
 
-    :code:`-noassert` ::
+    .. code:: yoscrypt
+
+        -noassert
+
+    ::
 
             ignore assert() statements
 
 
-    :code:`-noassume` ::
+    .. code:: yoscrypt
+
+        -noassume
+
+    ::
 
             ignore assume() statements
 
 
-    :code:`-norestrict` ::
+    .. code:: yoscrypt
+
+        -norestrict
+
+    ::
 
             ignore restrict() statements
 
 
-    :code:`-assume-asserts` ::
+    .. code:: yoscrypt
+
+        -assume-asserts
+
+    ::
 
             treat all assert() statements like assume() statements
 
 
-    :code:`-assert-assumes` ::
+    .. code:: yoscrypt
+
+        -assert-assumes
+
+    ::
 
             treat all assume() statements like assert() statements
 
 
-    :code:`-debug` ::
+    .. code:: yoscrypt
+
+        -debug
+
+    ::
 
             alias for -dump_ast1 -dump_ast2 -dump_vlog1 -dump_vlog2 -yydebug
 
 
-    :code:`-dump_ast1` ::
+    .. code:: yoscrypt
+
+        -dump_ast1
+
+    ::
 
             dump abstract syntax tree (before simplification)
 
 
-    :code:`-dump_ast2` ::
+    .. code:: yoscrypt
+
+        -dump_ast2
+
+    ::
 
             dump abstract syntax tree (after simplification)
 
 
-    :code:`-no_dump_ptr` ::
+    .. code:: yoscrypt
+
+        -no_dump_ptr
+
+    ::
 
             do not include hex memory addresses in dump (easier to diff dumps)
 
 
-    :code:`-dump_vlog1` ::
+    .. code:: yoscrypt
+
+        -dump_vlog1
+
+    ::
 
             dump ast as Verilog code (before simplification)
 
 
-    :code:`-dump_vlog2` ::
+    .. code:: yoscrypt
+
+        -dump_vlog2
+
+    ::
 
             dump ast as Verilog code (after simplification)
 
 
-    :code:`-dump_rtlil` ::
+    .. code:: yoscrypt
+
+        -dump_rtlil
+
+    ::
 
             dump generated RTLIL netlist
 
 
-    :code:`-yydebug` ::
+    .. code:: yoscrypt
+
+        -yydebug
+
+    ::
 
             enable parser debug output
 
 
-    :code:`-nolatches` ::
+    .. code:: yoscrypt
+
+        -nolatches
+
+    ::
 
             usually latches are synthesized into logic loops
             this option prohibits this and sets the output to 'x'
@@ -107,7 +183,11 @@ read_verilog - read modules from Verilog file
             always block.
 
 
-    :code:`-nomem2reg` ::
+    .. code:: yoscrypt
+
+        -nomem2reg
+
+    ::
 
             under certain conditions memories are converted to registers
             early during simplification to ensure correct handling of
@@ -122,110 +202,186 @@ read_verilog - read modules from Verilog file
             results.
 
 
-    :code:`-mem2reg` ::
+    .. code:: yoscrypt
+
+        -mem2reg
+
+    ::
 
             always convert memories to registers. this can also be
             achieved by setting the 'mem2reg' attribute on the respective
             module or register.
 
 
-    :code:`-nomeminit` ::
+    .. code:: yoscrypt
+
+        -nomeminit
+
+    ::
 
             do not infer $meminit cells and instead convert initialized
             memories to registers directly in the front-end.
 
 
-    :code:`-ppdump` ::
+    .. code:: yoscrypt
+
+        -ppdump
+
+    ::
 
             dump Verilog code after pre-processor
 
 
-    :code:`-nopp` ::
+    .. code:: yoscrypt
+
+        -nopp
+
+    ::
 
             do not run the pre-processor
 
 
-    :code:`-nodpi` ::
+    .. code:: yoscrypt
+
+        -nodpi
+
+    ::
 
             disable DPI-C support
 
 
-    :code:`-noblackbox` ::
+    .. code:: yoscrypt
+
+        -noblackbox
+
+    ::
 
             do not automatically add a (* blackbox *) attribute to an
             empty module.
 
 
-    :code:`-lib` ::
+    .. code:: yoscrypt
+
+        -lib
+
+    ::
 
             only create empty blackbox modules. This implies -DBLACKBOX.
             modules with the (* whitebox *) attribute will be preserved.
             (* lib_whitebox *) will be treated like (* whitebox *).
 
 
-    :code:`-nowb` ::
+    .. code:: yoscrypt
+
+        -nowb
+
+    ::
 
             delete (* whitebox *) and (* lib_whitebox *) attributes from
             all modules.
 
 
-    :code:`-specify` ::
+    .. code:: yoscrypt
+
+        -specify
+
+    ::
 
             parse and import specify blocks
 
 
-    :code:`-noopt` ::
+    .. code:: yoscrypt
+
+        -noopt
+
+    ::
 
             don't perform basic optimizations (such as const folding) in the
             high-level front-end.
 
 
-    :code:`-icells` ::
+    .. code:: yoscrypt
+
+        -icells
+
+    ::
 
             interpret cell types starting with '$' as internal cell types
 
 
-    :code:`-pwires` ::
+    .. code:: yoscrypt
+
+        -pwires
+
+    ::
 
             add a wire for each module parameter
 
 
-    :code:`-nooverwrite` ::
+    .. code:: yoscrypt
+
+        -nooverwrite
+
+    ::
 
             ignore re-definitions of modules. (the default behavior is to
             create an error message if the existing module is not a black box
             module, and overwrite the existing module otherwise.)
 
 
-    :code:`-overwrite` ::
+    .. code:: yoscrypt
+
+        -overwrite
+
+    ::
 
             overwrite existing modules with the same name
 
 
-    :code:`-defer` ::
+    .. code:: yoscrypt
+
+        -defer
+
+    ::
 
             only read the abstract syntax tree and defer actual compilation
             to a later 'hierarchy' command. Useful in cases where the default
             parameters of modules yield invalid or not synthesizable code.
 
 
-    :code:`-noautowire` ::
+    .. code:: yoscrypt
+
+        -noautowire
+
+    ::
 
             make the default of `default_nettype be "none" instead of "wire".
 
 
-    :code:`-setattr <attribute_name>` ::
+    .. code:: yoscrypt
+
+        -setattr <attribute_name>
+
+    ::
 
             set the specified attribute (to the value 1) on all loaded modules
 
 
-    :code:`-Dname[=definition]` ::
+    .. code:: yoscrypt
+
+        -Dname[=definition]
+
+    ::
 
             define the preprocessor symbol 'name' and set its optional value
             'definition'
 
 
-    :code:`-Idir` ::
+    .. code:: yoscrypt
+
+        -Idir
+
+    ::
 
             add 'dir' to the directories which are used when searching include
             files
@@ -247,6 +403,10 @@ read_verilog - read modules from Verilog file
 
         See the Yosys README file for a list of non-standard Verilog features
         supported by the Yosys Verilog front-end.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

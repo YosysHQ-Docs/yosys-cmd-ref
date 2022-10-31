@@ -2,13 +2,21 @@
 read - load HDL designs
 =======================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help read`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help read`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`read {-vlog95|-vlog2k|-sv2005|-sv2009|-sv2012|-sv|-formal} <verilog-file>..` ::
+    .. code:: yoscrypt
+
+        read {-vlog95|-vlog2k|-sv2005|-sv2009|-sv2012|-sv|-formal} <verilog-file>..
+
+    ::
 
         Load the specified Verilog/SystemVerilog files. (Full SystemVerilog support
         is only available via Verific.)
@@ -17,45 +25,70 @@ read - load HDL designs
         the language version (and before file names) to set additional verilog defines.
 
 
+    .. code:: yoscrypt
 
-    :code:`read {-vhdl87|-vhdl93|-vhdl2k|-vhdl2008|-vhdl} <vhdl-file>..` ::
+        read {-vhdl87|-vhdl93|-vhdl2k|-vhdl2008|-vhdl} <vhdl-file>..
+
+    ::
 
         Load the specified VHDL files. (Requires Verific.)
 
 
+    .. code:: yoscrypt
 
-    :code:`read {-f|-F} <command-file>` ::
+        read {-f|-F} <command-file>
+
+    ::
 
         Load and execute the specified command file. (Requires Verific.)
         Check verific command for more information about supported commands in file.
 
 
+    .. code:: yoscrypt
 
-    :code:`read -define <macro>[=<value>]..` ::
+        read -define <macro>[=<value>]..
+
+    ::
 
         Set global Verilog/SystemVerilog defines.
 
 
+    .. code:: yoscrypt
 
-    :code:`read -undef <macro>..` ::
+        read -undef <macro>..
+
+    ::
 
         Unset global Verilog/SystemVerilog defines.
 
 
+    .. code:: yoscrypt
 
-    :code:`read -incdir <directory>` ::
+        read -incdir <directory>
+
+    ::
 
         Add directory to global Verilog/SystemVerilog include directories.
 
 
+    .. code:: yoscrypt
 
-    :code:`read -verific`
+        read -verific
 
-    :code:`read -noverific` ::
+   
+    .. code:: yoscrypt
+
+        read -noverific
+
+    ::
 
         Subsequent calls to 'read' will either use or not use Verific. Calling 'read'
         with -verific will result in an error on Yosys binaries that are built without
         Verific support. The default is to use Verific if it is available.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

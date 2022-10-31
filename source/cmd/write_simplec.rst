@@ -2,25 +2,41 @@
 write_simplec - convert design to simple C code
 ===============================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help write_simplec`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help write_simplec`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`write_simplec [options] [filename]` ::
+    .. code:: yoscrypt
+
+        write_simplec [options] [filename]
+
+    ::
 
         Write simple C code for simulating the design. The C code written can be used to
         simulate the design in a C environment, but the purpose of this command is to
         generate code that works well with C-based formal verification.
 
 
-    :code:`-verbose` ::
+    .. code:: yoscrypt
+
+        -verbose
+
+    ::
 
             this will print the recursive walk used to export the modules.
 
 
-    :code:`-i8, -i16, -i32, -i64` ::
+    .. code:: yoscrypt
+
+        -i8, -i16, -i32, -i64
+
+    ::
 
             set the maximum integer bit width to use in the generated code.
 
@@ -28,6 +44,10 @@ write_simplec - convert design to simple C code
     ::
 
         THIS COMMAND IS UNDER CONSTRUCTION
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

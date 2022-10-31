@@ -2,13 +2,21 @@
 opt_reduce - simplify large MUXes and AND/OR gates
 ==================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help opt_reduce`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help opt_reduce`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`opt_reduce [options] [selection]` ::
+    .. code:: yoscrypt
+
+        opt_reduce [options] [selection]
+
+    ::
 
         This pass performs two interlinked optimizations:
 
@@ -19,14 +27,26 @@ opt_reduce - simplify large MUXes and AND/OR gates
         input with the original control signals OR'ed together.
 
 
-    :code:`-fine` ::
+    .. code:: yoscrypt
+
+        -fine
+
+    ::
 
           perform fine-grain optimizations
 
 
-    :code:`-full` ::
+    .. code:: yoscrypt
+
+        -full
+
+    ::
 
           alias for -fine
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

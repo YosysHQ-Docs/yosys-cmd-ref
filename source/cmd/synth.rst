@@ -2,88 +2,152 @@
 synth - generic synthesis script
 ================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help synth`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help synth`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`synth [options]` ::
+    .. code:: yoscrypt
+
+        synth [options]
+
+    ::
 
         This command runs the default synthesis script. This command does not operate
         on partly selected designs.
 
 
-    :code:`-top <module>` ::
+    .. code:: yoscrypt
+
+        -top <module>
+
+    ::
 
             use the specified module as top module (default='top')
 
 
-    :code:`-auto-top` ::
+    .. code:: yoscrypt
+
+        -auto-top
+
+    ::
 
             automatically determine the top of the design hierarchy
 
 
-    :code:`-flatten` ::
+    .. code:: yoscrypt
+
+        -flatten
+
+    ::
 
             flatten the design before synthesis. this will pass '-auto-top' to
             'hierarchy' if no top module is specified.
 
 
-    :code:`-encfile <file>` ::
+    .. code:: yoscrypt
+
+        -encfile <file>
+
+    ::
 
             passed to 'fsm_recode' via 'fsm'
 
 
-    :code:`-lut <k>` ::
+    .. code:: yoscrypt
+
+        -lut <k>
+
+    ::
 
             perform synthesis for a k-LUT architecture.
 
 
-    :code:`-nofsm` ::
+    .. code:: yoscrypt
+
+        -nofsm
+
+    ::
 
             do not run FSM optimization
 
 
-    :code:`-noabc` ::
+    .. code:: yoscrypt
+
+        -noabc
+
+    ::
 
             do not run abc (as if yosys was compiled without ABC support)
 
 
-    :code:`-noalumacc` ::
+    .. code:: yoscrypt
+
+        -noalumacc
+
+    ::
 
             do not run 'alumacc' pass. i.e. keep arithmetic operators in
             their direct form ($add, $sub, etc.).
 
 
-    :code:`-nordff` ::
+    .. code:: yoscrypt
+
+        -nordff
+
+    ::
 
             passed to 'memory'. prohibits merging of FFs into memory read ports
 
 
-    :code:`-noshare` ::
+    .. code:: yoscrypt
+
+        -noshare
+
+    ::
 
             do not run SAT-based resource sharing
 
 
-    :code:`-run <from_label>[:<to_label>]` ::
+    .. code:: yoscrypt
+
+        -run <from_label>[:<to_label>]
+
+    ::
 
             only run the commands between the labels (see below). an empty
             from label is synonymous to 'begin', and empty to label is
             synonymous to the end of the command list.
 
 
-    :code:`-abc9` ::
+    .. code:: yoscrypt
+
+        -abc9
+
+    ::
 
             use new ABC9 flow (EXPERIMENTAL)
 
 
-    :code:`-flowmap` ::
+    .. code:: yoscrypt
+
+        -flowmap
+
+    ::
 
             use FlowMap LUT techmapping instead of ABC
 
 
-    :code:`-no-rw-check` ::
+    .. code:: yoscrypt
+
+        -no-rw-check
+
+    ::
 
             marks all recognized read ports as "return don't-care value on
             read/write collision" (same result as setting the no_rw_check
@@ -134,6 +198,10 @@ synth - generic synthesis script
                 hierarchy -check
                 stat
                 check
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

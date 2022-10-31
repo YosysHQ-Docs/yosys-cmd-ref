@@ -2,13 +2,21 @@
 opt - perform simple optimizations
 ==================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help opt`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help opt`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`opt [options] [selection]` ::
+    .. code:: yoscrypt
+
+        opt [options] [selection]
+
+    ::
 
         This pass calls all the other opt_* passes in a useful order. This performs
         a series of trivial optimizations and cleanups. This pass executes the other
@@ -39,6 +47,10 @@ opt - perform simple optimizations
         Note: Options in square brackets (such as [-keepdc]) are passed through to
         the opt_* commands when given to 'opt'.
 
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

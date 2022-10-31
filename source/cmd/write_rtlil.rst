@@ -2,21 +2,37 @@
 write_rtlil - write design to RTLIL file
 ========================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help write_rtlil`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help write_rtlil`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`write_rtlil [filename]` ::
+    .. code:: yoscrypt
+
+        write_rtlil [filename]
+
+    ::
 
         Write the current design to an RTLIL file. (RTLIL is a text representation
         of a design in yosys's internal format.)
 
 
-    :code:`-selected` ::
+    .. code:: yoscrypt
+
+        -selected
+
+    ::
 
             only write selected parts of the design.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

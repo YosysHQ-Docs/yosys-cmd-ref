@@ -2,13 +2,21 @@
 clean - remove unused cells and wires
 =====================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help clean`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help clean`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`clean [options] [selection]` ::
+    .. code:: yoscrypt
+
+        clean [options] [selection]
+
+    ::
 
         This is identical to 'opt_clean', but less verbose.
 
@@ -17,6 +25,10 @@ clean - remove unused cells and wires
 
         When commands are separated using the ';;;' token, this command will be executed
         in -purge mode between the commands.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

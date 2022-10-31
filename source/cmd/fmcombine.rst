@@ -2,13 +2,21 @@
 fmcombine - combine two instances of a cell into one
 ====================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help fmcombine`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help fmcombine`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`fmcombine [options] module_name gold_cell gate_cell` ::
+    .. code:: yoscrypt
+
+        fmcombine [options] module_name gold_cell gate_cell
+
+    ::
 
         This pass takes two cells, which are instances of the same module, and replaces
         them with one instance of a special 'combined' module, that effectively
@@ -18,30 +26,50 @@ fmcombine - combine two instances of a cell into one
         a slight difference in input causes in a module.
 
 
-    :code:`-initeq` ::
+    .. code:: yoscrypt
+
+        -initeq
+
+    ::
 
             Insert assumptions that initially all FFs in both circuits have the
             same initial values.
 
 
-    :code:`-anyeq` ::
+    .. code:: yoscrypt
+
+        -anyeq
+
+    ::
 
             Do not duplicate $anyseq/$anyconst cells.
 
 
-    :code:`-fwd` ::
+    .. code:: yoscrypt
+
+        -fwd
+
+    ::
 
             Insert forward hint assumptions into the combined module.
 
 
-    :code:`-bwd` ::
+    .. code:: yoscrypt
+
+        -bwd
+
+    ::
 
             Insert backward hint assumptions into the combined module.
             (Backward hints are logically equivalend to fordward hits, but
             some solvers are faster with bwd hints, or even both -bwd and -fwd.)
 
 
-    :code:`-nop` ::
+    .. code:: yoscrypt
+
+        -nop
+
+    ::
 
             Don't insert hint assumptions into the combined module.
             (This should not provide any speedup over the original design, but
@@ -51,6 +79,10 @@ fmcombine - combine two instances of a cell into one
     ::
 
         If none of -fwd, -bwd, and -nop is given, then -fwd is used as default.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

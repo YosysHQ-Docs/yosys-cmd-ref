@@ -2,25 +2,45 @@
 test_abcloop - automatically test handling of loops in abc command
 ==================================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help test_abcloop`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help test_abcloop`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`test_abcloop [options]` ::
+    .. code:: yoscrypt
+
+        test_abcloop [options]
+
+    ::
 
         Test handling of logic loops in ABC.
 
 
-    :code:`-n {integer}` ::
+    .. code:: yoscrypt
+
+        -n {integer}
+
+    ::
 
             create this number of circuits and test them (default = 100).
 
 
-    :code:`-s {positive_integer}` ::
+    .. code:: yoscrypt
+
+        -s {positive_integer}
+
+    ::
 
             use this value as rng seed value (default = unix time).
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

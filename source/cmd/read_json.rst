@@ -2,16 +2,28 @@
 read_json - read JSON file
 ==========================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help read_json`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help read_json`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`read_json [filename]` ::
+    .. code:: yoscrypt
+
+        read_json [filename]
+
+    ::
 
         Load modules from a JSON file into the current design See "help write_json"
         for a description of the file format.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

@@ -2,13 +2,21 @@
 memory_bram - map memories to block rams
 ========================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help memory_bram`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help memory_bram`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`memory_bram -rules <rule_file> [selection]` ::
+    .. code:: yoscrypt
+
+        memory_bram -rules <rule_file> [selection]
+
+    ::
 
         This pass converts the multi-port $mem memory cells into block ram instances.
         The given rules file describes the available resources and how they should be
@@ -105,6 +113,10 @@ memory_bram - map memories to block rams
 
         A match containing the command 'shuffle_enable A' will re-organize
         the data bits to accommodate the enable pattern of port A.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

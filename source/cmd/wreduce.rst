@@ -2,13 +2,21 @@
 wreduce - reduce the word size of operations if possible
 ========================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help wreduce`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help wreduce`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`wreduce [options] [selection]` ::
+    .. code:: yoscrypt
+
+        wreduce [options] [selection]
+
+    ::
 
         This command reduces the word size of operations. For example it will replace
         the 32 bit adders in the following code with adders of more appropriate widths:
@@ -20,20 +28,36 @@ wreduce - reduce the word size of operations if possible
         Options:
 
 
-    :code:`-memx` ::
+    .. code:: yoscrypt
+
+        -memx
+
+    ::
 
             Do not change the width of memory address ports. Use this options in
             flows that use the 'memory_memx' pass.
 
 
-    :code:`-mux_undef` ::
+    .. code:: yoscrypt
+
+        -mux_undef
+
+    ::
 
             remove 'undef' inputs from $mux, $pmux and $_MUX_ cells
 
 
-    :code:`-keepdc` ::
+    .. code:: yoscrypt
+
+        -keepdc
+
+    ::
 
             Do not optimize explicit don't-care values.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

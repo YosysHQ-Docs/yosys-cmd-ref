@@ -2,13 +2,21 @@
 fsm - extract and optimize finite state machines
 ================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help fsm`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help fsm`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`fsm [options] [selection]` ::
+    .. code:: yoscrypt
+
+        fsm [options] [selection]
+
+    ::
 
         This pass calls all the other fsm_* passes in a useful order. This performs
         FSM extraction and optimization. It also calls opt_clean as needed:
@@ -34,23 +42,47 @@ fsm - extract and optimize finite state machines
         Options:
 
 
-    :code:`-expand, -norecode, -export, -nomap` ::
+    .. code:: yoscrypt
+
+        -expand, -norecode, -export, -nomap
+
+    ::
 
             enable or disable passes as indicated above
 
 
-    :code:`-fullexpand` ::
+    .. code:: yoscrypt
+
+        -fullexpand
+
+    ::
 
             call expand with -full option
 
 
-    :code:`-encoding type`
+    .. code:: yoscrypt
 
-    :code:`-fm_set_fsm_file file`
+        -encoding type
 
-    :code:`-encfile file` ::
+   
+
+    .. code:: yoscrypt
+
+        -fm_set_fsm_file file
+
+   
+
+    .. code:: yoscrypt
+
+        -encfile file
+
+    ::
 
             passed through to fsm_recode pass
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

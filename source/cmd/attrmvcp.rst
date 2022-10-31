@@ -2,25 +2,41 @@
 attrmvcp - move or copy attributes from wires to driving cells
 ==============================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help attrmvcp`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help attrmvcp`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`attrmvcp [options] [selection]` ::
+    .. code:: yoscrypt
+
+        attrmvcp [options] [selection]
+
+    ::
 
         Move or copy attributes on wires to the cells driving them.
 
 
-    :code:`-copy` ::
+    .. code:: yoscrypt
+
+        -copy
+
+    ::
 
             By default, attributes are moved. This will only add
             the attribute to the cell, without removing it from
             the wire.
 
 
-    :code:`-purge` ::
+    .. code:: yoscrypt
+
+        -purge
+
+    ::
 
             If no selected cell consumes the attribute, then it is
             left on the wire by default. This option will cause the
@@ -28,17 +44,29 @@ attrmvcp - move or copy attributes from wires to driving cells
             cell takes it.
 
 
-    :code:`-driven` ::
+    .. code:: yoscrypt
+
+        -driven
+
+    ::
 
             By default, attriburtes are moved to the cell driving the
             wire. With this option set it will be moved to the cell
             driven by the wire instead.
 
 
-    :code:`-attr <attrname>` ::
+    .. code:: yoscrypt
+
+        -attr <attrname>
+
+    ::
 
             Move or copy this attribute. This option can be used
             multiple times.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

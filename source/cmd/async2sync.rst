@@ -2,13 +2,21 @@
 async2sync - convert async FF inputs to sync circuits
 =====================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help async2sync`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help async2sync`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`async2sync [options] [selection]` ::
+    .. code:: yoscrypt
+
+        async2sync [options] [selection]
+
+    ::
 
         This command replaces async FF inputs with sync circuits emulating the same
         behavior for when the async signals are actually synchronized to the clock.
@@ -17,6 +25,10 @@ async2sync - convert async FF inputs to sync circuits
         a reset deasserts with the clock edge, then the FF output will still drive the
         reset value in the next cycle regardless of the data-in value at the time of
         the clock edge.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

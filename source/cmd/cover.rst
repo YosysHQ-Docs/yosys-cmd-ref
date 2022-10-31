@@ -2,35 +2,59 @@
 cover - print code coverage counters
 ====================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help cover`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help cover`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`cover [options] [pattern]` ::
+    .. code:: yoscrypt
+
+        cover [options] [pattern]
+
+    ::
 
         Print the code coverage counters collected using the cover() macro in the Yosys
         C++ code. This is useful to figure out what parts of Yosys are utilized by a
         test bench.
 
 
-    :code:`-q` ::
+    .. code:: yoscrypt
+
+        -q
+
+    ::
 
             Do not print output to the normal destination (console and/or log file)
 
 
-    :code:`-o file` ::
+    .. code:: yoscrypt
+
+        -o file
+
+    ::
 
             Write output to this file, truncate if exists.
 
 
-    :code:`-a file` ::
+    .. code:: yoscrypt
+
+        -a file
+
+    ::
 
             Write output to this file, append if exists.
 
 
-    :code:`-d dir` ::
+    .. code:: yoscrypt
+
+        -d dir
+
+    ::
 
             Write output to a newly created file in the specified directory.
 
@@ -61,6 +85,10 @@ cover - print code coverage counters
 
 
         Coverage counters are only available in Yosys for Linux.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

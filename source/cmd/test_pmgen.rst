@@ -2,33 +2,54 @@
 test_pmgen - test pass for pmgen
 ================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help test_pmgen`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help test_pmgen`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`test_pmgen -reduce_chain [options] [selection]` ::
+    .. code:: yoscrypt
+
+        test_pmgen -reduce_chain [options] [selection]
+
+    ::
 
         Demo for recursive pmgen patterns. Map chains of AND/OR/XOR to $reduce_*.
 
 
+    .. code:: yoscrypt
 
-    :code:`test_pmgen -reduce_tree [options] [selection]` ::
+        test_pmgen -reduce_tree [options] [selection]
+
+    ::
 
         Demo for recursive pmgen patterns. Map trees of AND/OR/XOR to $reduce_*.
 
 
+    .. code:: yoscrypt
 
-    :code:`test_pmgen -eqpmux [options] [selection]` ::
+        test_pmgen -eqpmux [options] [selection]
+
+    ::
 
         Demo for recursive pmgen patterns. Optimize EQ/NE/PMUX circuits.
 
 
+    .. code:: yoscrypt
 
-    :code:`test_pmgen -generate [options] <pattern_name>` ::
+        test_pmgen -generate [options] <pattern_name>
+
+    ::
 
         Create modules that match the specified pattern.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

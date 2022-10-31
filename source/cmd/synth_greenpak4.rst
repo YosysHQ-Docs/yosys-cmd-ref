@@ -2,49 +2,81 @@
 synth_greenpak4 - synthesis for GreenPAK4 FPGAs
 ===============================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help synth_greenpak4`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help synth_greenpak4`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`synth_greenpak4 [options]` ::
+    .. code:: yoscrypt
+
+        synth_greenpak4 [options]
+
+    ::
 
         This command runs synthesis for GreenPAK4 FPGAs. This work is experimental.
         It is intended to be used with https://github.com/azonenberg/openfpga as the
         place-and-route.
 
 
-    :code:`-top <module>` ::
+    .. code:: yoscrypt
+
+        -top <module>
+
+    ::
 
             use the specified module as top module (default='top')
 
 
-    :code:`-part <part>` ::
+    .. code:: yoscrypt
+
+        -part <part>
+
+    ::
 
             synthesize for the specified part. Valid values are SLG46140V,
             SLG46620V, and SLG46621V (default).
 
 
-    :code:`-json <file>` ::
+    .. code:: yoscrypt
+
+        -json <file>
+
+    ::
 
             write the design to the specified JSON file. writing of an output file
             is omitted if this parameter is not specified.
 
 
-    :code:`-run <from_label>:<to_label>` ::
+    .. code:: yoscrypt
+
+        -run <from_label>:<to_label>
+
+    ::
 
             only run the commands between the labels (see below). an empty
             from label is synonymous to 'begin', and empty to label is
             synonymous to the end of the command list.
 
 
-    :code:`-noflatten` ::
+    .. code:: yoscrypt
+
+        -noflatten
+
+    ::
 
             do not flatten design before synthesis
 
 
-    :code:`-retime` ::
+    .. code:: yoscrypt
+
+        -retime
+
+    ::
 
             run 'abc' with '-dff -D 1' options
 
@@ -105,6 +137,10 @@ synth_greenpak4 - synthesis for GreenPAK4 FPGAs
 
             json:
                 write_json <file-name>
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

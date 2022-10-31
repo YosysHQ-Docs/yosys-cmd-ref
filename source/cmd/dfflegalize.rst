@@ -2,18 +2,30 @@
 dfflegalize - convert FFs to types supported by the target
 ==========================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help dfflegalize`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help dfflegalize`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`dfflegalize [options] [selection]` ::
+    .. code:: yoscrypt
+
+        dfflegalize [options] [selection]
+
+    ::
 
         Converts FFs to types supported by the target.
 
 
-    :code:`-cell <cell_type_pattern> <init_values>` ::
+    .. code:: yoscrypt
+
+        -cell <cell_type_pattern> <init_values>
+
+    ::
 
             specifies a supported group of FF cells.  <cell_type_pattern>
             is a yosys internal fine cell name, where ? characters can be
@@ -28,14 +40,22 @@ dfflegalize - convert FFs to types supported by the target
             - 01 (both 0 and 1 supported).
 
 
-    :code:`-mince <num>` ::
+    .. code:: yoscrypt
+
+        -mince <num>
+
+    ::
 
             specifies a minimum number of FFs that should be using any given
             clock enable signal.  If a clock enable signal doesn't meet this
             threshold, it is unmapped into soft logic.
 
 
-    :code:`-minsrst <num>` ::
+    .. code:: yoscrypt
+
+        -minsrst <num>
+
+    ::
 
             specifies a minimum number of FFs that should be using any given
             sync set/reset signal.  If a sync set/reset signal doesn't meet this
@@ -81,6 +101,10 @@ dfflegalize - convert FFs to types supported by the target
         - dlatch + adlatch + dlatch + mux
         If the pass is unable to realize a given cell type (eg. adff when only plain dff
         is available), an error is raised.
+.. raw:: latex
+
+    \end{comment}
+
 .. only:: latex
 
     ::

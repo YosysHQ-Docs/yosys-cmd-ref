@@ -2,15 +2,27 @@
 fsm_map - mapping FSMs to basic logic
 =====================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help fsm_map`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help fsm_map`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`fsm_map [selection]` ::
+    .. code:: yoscrypt
+
+        fsm_map [selection]
+
+    ::
 
         This pass translates FSM cells to flip-flops and logic.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

@@ -2,13 +2,21 @@
 flatten - flatten design
 ========================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help flatten`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help flatten`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`flatten [options] [selection]` ::
+    .. code:: yoscrypt
+
+        flatten [options] [selection]
+
+    ::
 
         This pass flattens the design by replacing cells by their implementation. This
         pass is very similar to the 'techmap' pass. The only difference is that this
@@ -18,9 +26,17 @@ flatten - flatten design
         flattened by this command.
 
 
-    :code:`-wb` ::
+    .. code:: yoscrypt
+
+        -wb
+
+    ::
 
             Ignore the 'whitebox' attribute on cell implementations.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

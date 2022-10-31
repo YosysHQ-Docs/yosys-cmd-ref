@@ -2,17 +2,29 @@
 equiv_purge - purge equivalence checking module
 ===============================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help equiv_purge`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help equiv_purge`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`equiv_purge [options] [selection]` ::
+    .. code:: yoscrypt
+
+        equiv_purge [options] [selection]
+
+    ::
 
         This command removes the proven part of an equivalence checking module, leaving
         only the unproven segments in the design. This will also remove and add module
         ports as needed.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

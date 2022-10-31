@@ -2,22 +2,37 @@
 chparam - re-evaluate modules with new parameters
 =================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help chparam`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help chparam`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`chparam [ -set name value ]... [selection]` ::
+    .. code:: yoscrypt
+
+        chparam [ -set name value ]... [selection]
+
+    ::
 
         Re-evaluate the selected modules with new parameters. String values must be
         passed in double quotes (").
 
 
+    .. code:: yoscrypt
 
-    :code:`chparam -list [selection]` ::
+        chparam -list [selection]
+
+    ::
 
         List the available parameters of the selected modules.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

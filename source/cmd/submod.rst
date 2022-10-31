@@ -2,13 +2,21 @@
 submod - moving part of a module to a new submodule
 ===================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help submod`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help submod`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`submod [options] [selection]` ::
+    .. code:: yoscrypt
+
+        submod [options] [selection]
+
+    ::
 
         This pass identifies all cells with the 'submod' attribute and moves them to
         a newly created module. The value of the attribute is used as name for the
@@ -21,25 +29,41 @@ submod - moving part of a module to a new submodule
         or memories.
 
 
-    :code:`-copy` ::
+    .. code:: yoscrypt
+
+        -copy
+
+    ::
 
             by default the cells are 'moved' from the source module and the source
             module will use an instance of the new module after this command is
             finished. call with -copy to not modify the source module.
 
 
-    :code:`-name <name>` ::
+    .. code:: yoscrypt
+
+        -name <name>
+
+    ::
 
             don't use the 'submod' attribute but instead use the selection. only
             objects from one module might be selected. the value of the -name option
             is used as the value of the 'submod' attribute instead.
 
 
-    :code:`-hidden` ::
+    .. code:: yoscrypt
+
+        -hidden
+
+    ::
 
             instead of creating submodule ports with public names, create ports with
             private names so that a subsequent 'flatten; clean' call will restore
             the original module with original public names.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

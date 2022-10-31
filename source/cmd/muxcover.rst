@@ -2,18 +2,30 @@
 muxcover - cover trees of MUX cells with wider MUXes
 ====================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help muxcover`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help muxcover`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`muxcover [options] [selection]` ::
+    .. code:: yoscrypt
+
+        muxcover [options] [selection]
+
+    ::
 
         Cover trees of $_MUX_ cells with $_MUX{4,8,16}_ cells
 
 
-    :code:`-mux4[=cost], -mux8[=cost], -mux16[=cost]` ::
+    .. code:: yoscrypt
+
+        -mux4[=cost], -mux8[=cost], -mux16[=cost]
+
+    ::
 
             Cover $_MUX_ trees using the specified types of MUXes (with optional
             integer costs). If none of these options are given, the effect is the
@@ -22,29 +34,49 @@ muxcover - cover trees of MUX cells with wider MUXes
                            $_MUX16_ = 940
 
 
-    :code:`-mux2=cost` ::
+    .. code:: yoscrypt
+
+        -mux2=cost
+
+    ::
 
             Use the specified cost for $_MUX_ cells when making covering decisions.
             Default cost: $_MUX_ = 100
 
 
-    :code:`-dmux=cost` ::
+    .. code:: yoscrypt
+
+        -dmux=cost
+
+    ::
 
             Use the specified cost for $_MUX_ cells used in decoders.
             Default cost: 90
 
 
-    :code:`-nodecode` ::
+    .. code:: yoscrypt
+
+        -nodecode
+
+    ::
 
             Do not insert decoder logic. This reduces the number of possible
             substitutions, but guarantees that the resulting circuit is not
             less efficient than the original circuit.
 
 
-    :code:`-nopartial` ::
+    .. code:: yoscrypt
+
+        -nopartial
+
+    ::
 
             Do not consider mappings that use $_MUX<N>_ to select from less
             than <N> different signals.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

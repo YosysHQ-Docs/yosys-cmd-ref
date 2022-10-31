@@ -2,25 +2,41 @@
 nlutmap - map to LUTs of different sizes
 ========================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help nlutmap`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help nlutmap`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`nlutmap [options] [selection]` ::
+    .. code:: yoscrypt
+
+        nlutmap [options] [selection]
+
+    ::
 
         This pass uses successive calls to 'abc' to map to an architecture. That
         provides a small number of differently sized LUTs.
 
 
-    :code:`-luts N_1,N_2,N_3,...` ::
+    .. code:: yoscrypt
+
+        -luts N_1,N_2,N_3,...
+
+    ::
 
             The number of LUTs with 1, 2, 3, ... inputs that are
             available in the target architecture.
 
 
-    :code:`-assert` ::
+    .. code:: yoscrypt
+
+        -assert
+
+    ::
 
             Create an error if not all logic can be mapped
 
@@ -29,6 +45,10 @@ nlutmap - map to LUTs of different sizes
 
         Excess logic that does not fit into the specified LUTs is mapped back
         to generic logic gates ($_AND_, etc.).
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

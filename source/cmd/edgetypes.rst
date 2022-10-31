@@ -2,16 +2,28 @@
 edgetypes - list all types of edges in selection
 ================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help edgetypes`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help edgetypes`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`edgetypes [options] [selection]` ::
+    .. code:: yoscrypt
+
+        edgetypes [options] [selection]
+
+    ::
 
         This command lists all unique types of 'edges' found in the selection. An 'edge'
         is a 4-tuple of source and sink cell type and port name.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

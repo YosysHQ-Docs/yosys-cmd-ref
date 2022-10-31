@@ -2,16 +2,28 @@
 wbflip - flip the whitebox attribute
 ====================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help wbflip`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help wbflip`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`wbflip [selection]` ::
+    .. code:: yoscrypt
+
+        wbflip [selection]
+
+    ::
 
         Flip the whitebox attribute on selected cells. I.e. if it's set, unset it, and
         vice-versa. Blackbox cells are not effected by this command.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

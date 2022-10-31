@@ -2,26 +2,45 @@
 connect_rpc - connect to RPC frontend
 =====================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help connect_rpc`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help connect_rpc`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`connect_rpc -exec <command> [args...]`
+    .. code:: yoscrypt
 
-    :code:`connect_rpc -path <path>` ::
+        connect_rpc -exec <command> [args...]
+
+   
+    .. code:: yoscrypt
+
+        connect_rpc -path <path>
+
+    ::
 
         Load modules using an out-of-process frontend.
 
 
-    :code:`-exec <command> [args...]` ::
+    .. code:: yoscrypt
+
+        -exec <command> [args...]
+
+    ::
 
             run <command> with arguments [args...]. send requests on stdin, read
             responses from stdout.
 
 
-    :code:`-path <path>` ::
+    .. code:: yoscrypt
+
+        -path <path>
+
+    ::
 
             connect to Unix domain socket at <path>. (Unix)
             connect to bidirectional byte-type named pipe at <path>. (Windows)
@@ -55,6 +74,10 @@ connect_rpc - connect to RPC frontend
                 frontend to return anyconvenient representation of the module. the
                 derived module is cached,so the response should be the same whenever the
                 same set of parameters is provided.
+.. raw:: latex
+
+    \end{comment}
+
 .. only:: latex
 
     ::

@@ -2,16 +2,28 @@
 autoname - automatically assign names to objects
 ================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help autoname`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help autoname`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`autoname [selection]` ::
+    .. code:: yoscrypt
+
+        autoname [selection]
+
+    ::
 
         Assign auto-generated public names to objects with private names (the ones
         with $-prefix).
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

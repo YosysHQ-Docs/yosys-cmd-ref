@@ -2,58 +2,102 @@
 read_liberty - read cells from liberty file
 ===========================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help read_liberty`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help read_liberty`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`read_liberty [filename]` ::
+    .. code:: yoscrypt
+
+        read_liberty [filename]
+
+    ::
 
         Read cells from liberty file as modules into current design.
 
 
-    :code:`-lib` ::
+    .. code:: yoscrypt
+
+        -lib
+
+    ::
 
             only create empty blackbox modules
 
 
-    :code:`-wb` ::
+    .. code:: yoscrypt
+
+        -wb
+
+    ::
 
             mark imported cells as whiteboxes
 
 
-    :code:`-nooverwrite` ::
+    .. code:: yoscrypt
+
+        -nooverwrite
+
+    ::
 
             ignore re-definitions of modules. (the default behavior is to
             create an error message if the existing module is not a blackbox
             module, and overwrite the existing module if it is  a blackbox module.)
 
 
-    :code:`-overwrite` ::
+    .. code:: yoscrypt
+
+        -overwrite
+
+    ::
 
             overwrite existing modules with the same name
 
 
-    :code:`-ignore_miss_func` ::
+    .. code:: yoscrypt
+
+        -ignore_miss_func
+
+    ::
 
             ignore cells with missing function specification of outputs
 
 
-    :code:`-ignore_miss_dir` ::
+    .. code:: yoscrypt
+
+        -ignore_miss_dir
+
+    ::
 
             ignore cells with a missing or invalid direction
             specification on a pin
 
 
-    :code:`-ignore_miss_data_latch` ::
+    .. code:: yoscrypt
+
+        -ignore_miss_data_latch
+
+    ::
 
             ignore latches with missing data and/or enable pins
 
 
-    :code:`-setattr <attribute_name>` ::
+    .. code:: yoscrypt
+
+        -setattr <attribute_name>
+
+    ::
 
             set the specified attribute (to the value 1) on all loaded modules
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

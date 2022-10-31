@@ -2,13 +2,21 @@
 write_xaiger - write design to XAIGER file
 ==========================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help write_xaiger`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help write_xaiger`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`write_xaiger [options] [filename]` ::
+    .. code:: yoscrypt
+
+        write_xaiger [options] [filename]
+
+    ::
 
         Write the top module (according to the (* top *) attribute or if only one module
         is currently selected) to an XAIGER file. Any non $_NOT_, $_AND_, (optionally
@@ -17,19 +25,35 @@ write_xaiger - write design to XAIGER file
         module in the '$abc9_holes' design, if it exists.
 
 
-    :code:`-ascii` ::
+    .. code:: yoscrypt
+
+        -ascii
+
+    ::
 
             write ASCII version of AIGER format
 
 
-    :code:`-map <filename>` ::
+    .. code:: yoscrypt
+
+        -map <filename>
+
+    ::
 
             write an extra file with port and box symbols
 
 
-    :code:`-dff` ::
+    .. code:: yoscrypt
+
+        -dff
+
+    ::
 
             write $_DFF_[NP]_ cells
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

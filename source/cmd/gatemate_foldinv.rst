@@ -2,16 +2,28 @@
 gatemate_foldinv - fold inverters into Gatemate LUT trees
 =========================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help gatemate_foldinv`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help gatemate_foldinv`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`gatemate_foldinv [selection]` ::
+    .. code:: yoscrypt
+
+        gatemate_foldinv [selection]
+
+    ::
 
         This pass searches for $__CC_NOT cells and folds them into CC_LUT2, CC_L2T4
         and CC_L2T5 cells as created by LUT tree mapping.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

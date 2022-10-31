@@ -2,13 +2,21 @@
 extract_reduce - converts gate chains into $reduce_* cells
 ==========================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help extract_reduce`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help extract_reduce`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`extract_reduce [options] [selection]` ::
+    .. code:: yoscrypt
+
+        extract_reduce [options] [selection]
+
+    ::
 
         converts gate chains into $reduce_* cells
 
@@ -20,11 +28,19 @@ extract_reduce - converts gate chains into $reduce_* cells
         parts of the design to AND/OR/XOR cells, and run extract_reduce a second time.
 
 
-    :code:`-allow-off-chain` ::
+    .. code:: yoscrypt
+
+        -allow-off-chain
+
+    ::
 
             Allows matching of cells that have loads outside the chain. These cells
             will be replicated and folded into the $reduce_* cell, but the original
             cell will remain, driving its original loads.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

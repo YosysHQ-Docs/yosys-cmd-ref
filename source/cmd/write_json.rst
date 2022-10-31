@@ -2,23 +2,39 @@
 write_json - write design to a JSON file
 ========================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help write_json`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help write_json`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`write_json [options] [filename]` ::
+    .. code:: yoscrypt
+
+        write_json [options] [filename]
+
+    ::
 
         Write a JSON netlist of the current design.
 
 
-    :code:`-aig` ::
+    .. code:: yoscrypt
+
+        -aig
+
+    ::
 
             include AIG models for the different gate types
 
 
-    :code:`-compat-int` ::
+    .. code:: yoscrypt
+
+        -compat-int
+
+    ::
 
             emit 32-bit or smaller fully-defined parameter values directly
             as JSON numbers (for compatibility with old parsers)
@@ -262,6 +278,10 @@ write_json - write design to a JSON file
 
         Future version of Yosys might add support for additional fields in the JSON
         format. A program processing this format must ignore all unknown fields.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

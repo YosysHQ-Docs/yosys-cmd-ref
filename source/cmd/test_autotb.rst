@@ -2,13 +2,21 @@
 test_autotb - generate simple test benches
 ==========================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help test_autotb`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help test_autotb`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`test_autotb [options] [filename]` ::
+    .. code:: yoscrypt
+
+        test_autotb [options] [filename]
+
+    ::
 
         Automatically create primitive Verilog test benches for all modules in the
         design. The generated testbenches toggle the input pins of the module in
@@ -29,16 +37,28 @@ test_autotb - generate simple test benches
         generation.
 
 
-    :code:`-n <int>` ::
+    .. code:: yoscrypt
+
+        -n <int>
+
+    ::
 
             number of iterations the test bench should run (default = 1000)
 
 
-    :code:`-seed <int>` ::
+    .. code:: yoscrypt
+
+        -seed <int>
+
+    ::
 
             seed used for pseudo-random number generation (default = 0).
             a value of 0 will cause an arbitrary seed to be chosen, based on
             the current system time.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

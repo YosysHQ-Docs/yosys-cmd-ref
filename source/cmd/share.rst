@@ -2,19 +2,31 @@
 share - perform sat-based resource sharing
 ==========================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help share`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help share`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`share [options] [selection]` ::
+    .. code:: yoscrypt
+
+        share [options] [selection]
+
+    ::
 
         This pass merges shareable resources into a single resource. A SAT solver
         is used to determine if two resources are share-able.
 
 
-    :code:`-force` ::
+    .. code:: yoscrypt
+
+        -force
+
+    ::
 
           Per default the selection of cells that is considered for sharing is
           narrowed using a list of cell types. With this option all selected
@@ -24,7 +36,11 @@ share - perform sat-based resource sharing
           state must be selected!
 
 
-    :code:`-aggressive` ::
+    .. code:: yoscrypt
+
+        -aggressive
+
+    ::
 
           Per default some heuristics are used to reduce the number of cells
           considered for resource sharing to only large resources. This options
@@ -32,16 +48,28 @@ share - perform sat-based resource sharing
           for resource sharing.
 
 
-    :code:`-fast` ::
+    .. code:: yoscrypt
+
+        -fast
+
+    ::
 
           Only consider the simple part of the control logic in SAT solving, resulting
           in much easier SAT problems at the cost of maybe missing some opportunities
           for resource sharing.
 
 
-    :code:`-limit N` ::
+    .. code:: yoscrypt
+
+        -limit N
+
+    ::
 
           Only perform the first N merges, then stop. This is useful for debugging.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

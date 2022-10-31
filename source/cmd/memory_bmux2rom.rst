@@ -2,15 +2,27 @@
 memory_bmux2rom - convert muxes to ROMs
 =======================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help memory_bmux2rom`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help memory_bmux2rom`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`memory_bmux2rom [options] [selection]` ::
+    .. code:: yoscrypt
+
+        memory_bmux2rom [options] [selection]
+
+    ::
 
         This pass converts $bmux cells with constant A input to ROMs.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

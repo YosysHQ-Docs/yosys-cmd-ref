@@ -2,13 +2,21 @@
 memory - translate memories to basic cells
 ==========================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help memory`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help memory`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`memory [-norom] [-nomap] [-nordff] [-nowiden] [-nosat] [-memx] [-no-rw-check] [-bram <bram_rules>] [selection]` ::
+    .. code:: yoscrypt
+
+        memory [-norom] [-nomap] [-nordff] [-nowiden] [-nosat] [-memx] [-no-rw-check] [-bram <bram_rules>] [selection]
+
+    ::
 
         This pass calls all the other memory_* passes in a useful order:
 
@@ -28,6 +36,10 @@ memory - translate memories to basic cells
 
         This converts memories to word-wide DFFs and address decoders
         or multiport memory blocks if called with the -nomap option.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

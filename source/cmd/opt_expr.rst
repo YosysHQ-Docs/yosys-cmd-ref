@@ -2,54 +2,94 @@
 opt_expr - perform const folding and simple expression rewriting
 ================================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help opt_expr`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help opt_expr`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`opt_expr [options] [selection]` ::
+    .. code:: yoscrypt
+
+        opt_expr [options] [selection]
+
+    ::
 
         This pass performs const folding on internal cell types with constant inputs.
         It also performs some simple expression rewriting.
 
 
-    :code:`-mux_undef` ::
+    .. code:: yoscrypt
+
+        -mux_undef
+
+    ::
 
             remove 'undef' inputs from $mux, $pmux and $_MUX_ cells
 
 
-    :code:`-mux_bool` ::
+    .. code:: yoscrypt
+
+        -mux_bool
+
+    ::
 
             replace $mux cells with inverters or buffers when possible
 
 
-    :code:`-undriven` ::
+    .. code:: yoscrypt
+
+        -undriven
+
+    ::
 
             replace undriven nets with undef (x) constants
 
 
-    :code:`-noclkinv` ::
+    .. code:: yoscrypt
+
+        -noclkinv
+
+    ::
 
             do not optimize clock inverters by changing FF types
 
 
-    :code:`-fine` ::
+    .. code:: yoscrypt
+
+        -fine
+
+    ::
 
             perform fine-grain optimizations
 
 
-    :code:`-full` ::
+    .. code:: yoscrypt
+
+        -full
+
+    ::
 
             alias for -mux_undef -mux_bool -undriven -fine
 
 
-    :code:`-keepdc` ::
+    .. code:: yoscrypt
+
+        -keepdc
+
+    ::
 
             some optimizations change the behavior of the circuit with respect to
             don't-care bits. for example in 'a+0' a single x-bit in 'a' will cause
             all result bits to be set to x. this behavior changes when 'a+0' is
             replaced by 'a'. the -keepdc option disables all such optimizations.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

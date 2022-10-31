@@ -2,77 +2,115 @@
 design - save, restore and reset current design
 ===============================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help design`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help design`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`design -reset` ::
+    .. code:: yoscrypt
+
+        design -reset
+
+    ::
 
         Clear the current design.
 
 
+    .. code:: yoscrypt
 
-    :code:`design -save <name>` ::
+        design -save <name>
+
+    ::
 
         Save the current design under the given name.
 
 
+    .. code:: yoscrypt
 
-    :code:`design -stash <name>` ::
+        design -stash <name>
+
+    ::
 
         Save the current design under the given name and then clear the current design.
 
 
+    .. code:: yoscrypt
 
-    :code:`design -push` ::
+        design -push
+
+    ::
 
         Push the current design to the stack and then clear the current design.
 
 
+    .. code:: yoscrypt
 
-    :code:`design -push-copy` ::
+        design -push-copy
+
+    ::
 
         Push the current design to the stack without clearing the current design.
 
 
+    .. code:: yoscrypt
 
-    :code:`design -pop` ::
+        design -pop
+
+    ::
 
         Reset the current design and pop the last design from the stack.
 
 
+    .. code:: yoscrypt
 
-    :code:`design -load <name>` ::
+        design -load <name>
+
+    ::
 
         Reset the current design and load the design previously saved under the given
         name.
 
 
+    .. code:: yoscrypt
 
-    :code:`design -copy-from <name> [-as <new_mod_name>] <selection>` ::
+        design -copy-from <name> [-as <new_mod_name>] <selection>
+
+    ::
 
         Copy modules from the specified design into the current one. The selection is
         evaluated in the other design.
 
 
+    .. code:: yoscrypt
 
-    :code:`design -copy-to <name> [-as <new_mod_name>] [selection]` ::
+        design -copy-to <name> [-as <new_mod_name>] [selection]
+
+    ::
 
         Copy modules from the current design into the specified one.
 
 
+    .. code:: yoscrypt
 
-    :code:`design -import <name> [-as <new_top_name>] [selection]` ::
+        design -import <name> [-as <new_top_name>] [selection]
+
+    ::
 
         Import the specified design into the current design. The source design must
         either have a selected top module or the selection must contain exactly one
         module that is then used as top module for this command.
 
 
+    .. code:: yoscrypt
 
-    :code:`design -reset-vlog` ::
+        design -reset-vlog
+
+    ::
 
         The Verilog front-end remembers defined macros and top-level declarations
         between calls to 'read_verilog'. This command resets this memory.
@@ -80,6 +118,10 @@ design - save, restore and reset current design
             design -delete <name>
 
         Delete the design previously saved under the given name.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

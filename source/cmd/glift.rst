@@ -2,13 +2,21 @@
 glift - create GLIFT models and optimization problems
 =====================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help glift`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help glift`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`glift <command> [options] [selection]` ::
+    .. code:: yoscrypt
+
+        glift <command> [options] [selection]
+
+    ::
 
         Augments the current or specified module with gate-level information flow 
         tracking (GLIFT) logic using the "constructive mapping" approach. Also can set
@@ -19,7 +27,11 @@ glift - create GLIFT models and optimization problems
         Commands:
 
 
-    :code:`-create-precise-model` ::
+    .. code:: yoscrypt
+
+        -create-precise-model
+
+    ::
 
           Replaces the current or specified module with one that has corresponding
           "taint" inputs, outputs, and internal nets along with precise taint
@@ -30,7 +42,11 @@ glift - create GLIFT models and optimization problems
 
 
 
-    :code:`-create-imprecise-model` ::
+    .. code:: yoscrypt
+
+        -create-imprecise-model
+
+    ::
 
           Replaces the current or specified module with one that has corresponding
           "taint" inputs, outputs, and internal nets along with imprecise "All OR"
@@ -40,7 +56,11 @@ glift - create GLIFT models and optimization problems
 
 
 
-    :code:`-create-instrumented-model` ::
+    .. code:: yoscrypt
+
+        -create-instrumented-model
+
+    ::
 
           Replaces the current or specified module with one that has corresponding
           "taint" inputs, outputs, and internal nets along with 4 varying-precision
@@ -64,20 +84,32 @@ glift - create GLIFT models and optimization problems
         Options:
 
 
-    :code:`-taint-constants` ::
+    .. code:: yoscrypt
+
+        -taint-constants
+
+    ::
 
           Constant values in the design are labeled as tainted.
           (default: label constants as un-tainted)
 
 
-    :code:`-keep-outputs` ::
+    .. code:: yoscrypt
+
+        -keep-outputs
+
+    ::
 
           Do not remove module outputs. Taint tracking outputs will appear in the
           module ports alongside the orignal outputs.
           (default: original module outputs are removed)
 
 
-    :code:`-simple-cost-model` ::
+    .. code:: yoscrypt
+
+        -simple-cost-model
+
+    ::
 
           Do not model logic area. Instead model the number of non-zero assignments to
           $anyconsts. Taint tracking logic versions vary in their size, but all
@@ -88,7 +120,11 @@ glift - create GLIFT models and optimization problems
            wire the "keep" and "minimize" attributes)
 
 
-    :code:`-no-cost-model` ::
+    .. code:: yoscrypt
+
+        -no-cost-model
+
+    ::
 
           Do not model taint tracking logic area and do not create a `__glift_weight`
           wire. Only applicable in combination with `-create-instrumented-model`.
@@ -96,7 +132,11 @@ glift - create GLIFT models and optimization problems
           attributes)
 
 
-    :code:`-instrument-more` ::
+    .. code:: yoscrypt
+
+        -instrument-more
+
+    ::
 
           Allow choice from more versions of (even simpler) taint tracking logic. A
           total of 8 versions of taint tracking logic will be added per gate,
@@ -110,6 +150,10 @@ glift - create GLIFT models and optimization problems
 
           Only applicable in combination with `-create-instrumented-model`.
           (default: do not add more versions of taint tracking logic.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

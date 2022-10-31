@@ -2,13 +2,21 @@
 xilinx_dsp - Xilinx: pack resources into DSPs
 =============================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help xilinx_dsp`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help xilinx_dsp`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`xilinx_dsp [options] [selection]` ::
+    .. code:: yoscrypt
+
+        xilinx_dsp [options] [selection]
+
+    ::
 
         Pack input registers (A2, A1, B2, B1, C, D, AD; with optional enable/reset),
         pipeline registers (M; with optional enable/reset), output registers (P; with
@@ -41,10 +49,18 @@ xilinx_dsp - Xilinx: pack resources into DSPs
         into using the DSP48E1's pattern detector feature for overflow detection.
 
 
-    :code:`-family {xcup|xcu|xc7|xc6v|xc5v|xc4v|xc6s|xc3sda}` ::
+    .. code:: yoscrypt
+
+        -family {xcup|xcu|xc7|xc6v|xc5v|xc4v|xc6s|xc3sda}
+
+    ::
 
             select the family to target
             default: xc7
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

@@ -2,13 +2,21 @@
 write_aiger - write design to AIGER file
 ========================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help write_aiger`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help write_aiger`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`write_aiger [options] [filename]` ::
+    .. code:: yoscrypt
+
+        write_aiger [options] [filename]
+
+    ::
 
         Write the current design to an AIGER file. The design must be flattened and
         must not contain any cell types except $_AND_, $_NOT_, simple FF types,
@@ -18,52 +26,92 @@ write_aiger - write design to AIGER file
         invariant constraints.
 
 
-    :code:`-ascii` ::
+    .. code:: yoscrypt
+
+        -ascii
+
+    ::
 
             write ASCII version of AIGER format
 
 
-    :code:`-zinit` ::
+    .. code:: yoscrypt
+
+        -zinit
+
+    ::
 
             convert FFs to zero-initialized FFs, adding additional inputs for
             uninitialized FFs.
 
 
-    :code:`-miter` ::
+    .. code:: yoscrypt
+
+        -miter
+
+    ::
 
             design outputs are AIGER bad state properties
 
 
-    :code:`-symbols` ::
+    .. code:: yoscrypt
+
+        -symbols
+
+    ::
 
             include a symbol table in the generated AIGER file
 
 
-    :code:`-map <filename>` ::
+    .. code:: yoscrypt
+
+        -map <filename>
+
+    ::
 
             write an extra file with port and latch symbols
 
 
-    :code:`-vmap <filename>` ::
+    .. code:: yoscrypt
+
+        -vmap <filename>
+
+    ::
 
             like -map, but more verbose
 
 
-    :code:`-no-startoffset` ::
+    .. code:: yoscrypt
+
+        -no-startoffset
+
+    ::
 
             make indexes zero based, enable using map files with smt solvers.
 
 
-    :code:`-ywmap <filename>` ::
+    .. code:: yoscrypt
+
+        -ywmap <filename>
+
+    ::
 
             write a map file for conversion to and from yosys witness traces.
 
 
-    :code:`-I, -O, -B, -L` ::
+    .. code:: yoscrypt
+
+        -I, -O, -B, -L
+
+    ::
 
             If the design contains no input/output/assert/flip-flop then create one
             dummy input/output/bad_state-pin or latch to make the tools reading the
             AIGER file happy.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

@@ -2,43 +2,71 @@
 synth_coolrunner2 - synthesis for Xilinx Coolrunner-II CPLDs
 ============================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help synth_coolrunner2`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help synth_coolrunner2`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`synth_coolrunner2 [options]` ::
+    .. code:: yoscrypt
+
+        synth_coolrunner2 [options]
+
+    ::
 
         This command runs synthesis for Coolrunner-II CPLDs. This work is experimental.
         It is intended to be used with https://github.com/azonenberg/openfpga as the
         place-and-route.
 
 
-    :code:`-top <module>` ::
+    .. code:: yoscrypt
+
+        -top <module>
+
+    ::
 
             use the specified module as top module (default='top')
 
 
-    :code:`-json <file>` ::
+    .. code:: yoscrypt
+
+        -json <file>
+
+    ::
 
             write the design to the specified JSON file. writing of an output file
             is omitted if this parameter is not specified.
 
 
-    :code:`-run <from_label>:<to_label>` ::
+    .. code:: yoscrypt
+
+        -run <from_label>:<to_label>
+
+    ::
 
             only run the commands between the labels (see below). an empty
             from label is synonymous to 'begin', and empty to label is
             synonymous to the end of the command list.
 
 
-    :code:`-noflatten` ::
+    .. code:: yoscrypt
+
+        -noflatten
+
+    ::
 
             do not flatten design before synthesis
 
 
-    :code:`-retime` ::
+    .. code:: yoscrypt
+
+        -retime
+
+    ::
 
             run 'abc' with '-dff -D 1' options
 
@@ -103,6 +131,10 @@ synth_coolrunner2 - synthesis for Xilinx Coolrunner-II CPLDs
 
             json:
                 write_json <file-name>
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

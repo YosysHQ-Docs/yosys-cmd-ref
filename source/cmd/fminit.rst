@@ -2,35 +2,63 @@
 fminit - set init values/sequences for formal
 =============================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help fminit`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help fminit`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`fminit [options] <selection>` ::
+    .. code:: yoscrypt
+
+        fminit [options] <selection>
+
+    ::
 
         This pass creates init constraints (for example for reset sequences) in a formal
         model.
 
 
-    :code:`-seq <signal> <sequence>` ::
+    .. code:: yoscrypt
+
+        -seq <signal> <sequence>
+
+    ::
 
             Set sequence using comma-separated list of values, use 'z for
             unconstrained bits. The last value is used for the remainder of the
             trace.
 
 
-    :code:`-set <signal> <value>` ::
+    .. code:: yoscrypt
+
+        -set <signal> <value>
+
+    ::
 
             Add constant value constraint
 
 
-    :code:`-posedge <signal>`
+    .. code:: yoscrypt
 
-    :code:`-negedge <signal>` ::
+        -posedge <signal>
+
+   
+
+    .. code:: yoscrypt
+
+        -negedge <signal>
+
+    ::
 
             Set clock for init sequences
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

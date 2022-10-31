@@ -2,21 +2,37 @@
 insbuf - insert buffer cells for connected wires
 ================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help insbuf`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help insbuf`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`insbuf [options] [selection]` ::
+    .. code:: yoscrypt
+
+        insbuf [options] [selection]
+
+    ::
 
         Insert buffer cells into the design for directly connected wires.
 
 
-    :code:`-buf <celltype> <in-portname> <out-portname>` ::
+    .. code:: yoscrypt
+
+        -buf <celltype> <in-portname> <out-portname>
+
+    ::
 
             Use the given cell type instead of $_BUF_. (Notice that the next
             call to "clean" will remove all $_BUF_ in the design.)
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

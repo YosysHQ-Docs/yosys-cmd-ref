@@ -2,13 +2,21 @@
 ice40_dsp - iCE40: map multipliers
 ==================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help ice40_dsp`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help ice40_dsp`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`ice40_dsp [options] [selection]` ::
+    .. code:: yoscrypt
+
+        ice40_dsp [options] [selection]
+
+    ::
 
         Map multipliers ($mul/SB_MAC16) and multiply-accumulate ($mul/SB_MAC16 + $add)
         cells into iCE40 DSP resources.
@@ -21,6 +29,10 @@ ice40_dsp - iCE40: map multipliers
         Multiply-accumulate operations using the post-adder with feedback on the {C,D}
         input will be folded into the DSP. In this scenario only, resetting the
         the accumulator to an arbitrary value can be inferred to use the {C,D} input.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

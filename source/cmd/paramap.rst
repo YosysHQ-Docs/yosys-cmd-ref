@@ -2,41 +2,69 @@
 paramap - renaming cell parameters
 ==================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help paramap`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help paramap`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`paramap [options] [selection]` ::
+    .. code:: yoscrypt
+
+        paramap [options] [selection]
+
+    ::
 
         This command renames cell parameters and/or maps key/value pairs to
         other key/value pairs.
 
 
-    :code:`-tocase <name>` ::
+    .. code:: yoscrypt
+
+        -tocase <name>
+
+    ::
 
             Match attribute names case-insensitively and set it to the specified
             name.
 
 
-    :code:`-rename <old_name> <new_name>` ::
+    .. code:: yoscrypt
+
+        -rename <old_name> <new_name>
+
+    ::
 
             Rename attributes as specified
 
 
-    :code:`-map <old_name>=<old_value> <new_name>=<new_value>` ::
+    .. code:: yoscrypt
+
+        -map <old_name>=<old_value> <new_name>=<new_value>
+
+    ::
 
             Map key/value pairs as indicated.
 
 
-    :code:`-imap <old_name>=<old_value> <new_name>=<new_value>` ::
+    .. code:: yoscrypt
+
+        -imap <old_name>=<old_value> <new_name>=<new_value>
+
+    ::
 
             Like -map, but use case-insensitive match for <old_value> when
             it is a string value.
 
 
-    :code:`-remove <name>=<value>` ::
+    .. code:: yoscrypt
+
+        -remove <name>=<value>
+
+    ::
 
             Remove attributes matching this pattern.
 
@@ -46,6 +74,10 @@ paramap - renaming cell parameters
         For example, mapping Diamond-style ECP5 "init" attributes to Yosys-style:
 
             paramap -tocase INIT t:LUT4
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

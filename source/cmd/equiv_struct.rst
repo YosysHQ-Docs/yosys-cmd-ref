@@ -2,13 +2,21 @@
 equiv_struct - structural equivalence checking
 ==============================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help equiv_struct`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help equiv_struct`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`equiv_struct [options] [selection]` ::
+    .. code:: yoscrypt
+
+        equiv_struct [options] [selection]
+
+    ::
 
         This command adds additional $equiv cells based on the assumption that the
         gold and gate circuit are structurally equivalent. Note that this can introduce
@@ -17,7 +25,11 @@ equiv_struct - structural equivalence checking
         command will also de-duplicate gates.
 
 
-    :code:`-fwd` ::
+    .. code:: yoscrypt
+
+        -fwd
+
+    ::
 
             by default this command performans forward sweeps until nothing can
             be merged by forwards sweeps, then backward sweeps until forward
@@ -25,22 +37,38 @@ equiv_struct - structural equivalence checking
             are performed.
 
 
-    :code:`-fwonly <cell_type>` ::
+    .. code:: yoscrypt
+
+        -fwonly <cell_type>
+
+    ::
 
             add the specified cell type to the list of cell types that are only
             merged in forward sweeps and never in backward sweeps. $equiv is in
             this list automatically.
 
 
-    :code:`-icells` ::
+    .. code:: yoscrypt
+
+        -icells
+
+    ::
 
             by default, the internal RTL and gate cell types are ignored. add
             this option to also process those cell types with this command.
 
 
-    :code:`-maxiter <N>` ::
+    .. code:: yoscrypt
+
+        -maxiter <N>
+
+    ::
 
             maximum number of iterations to run before aborting
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

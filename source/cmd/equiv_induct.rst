@@ -2,13 +2,21 @@
 equiv_induct - proving $equiv cells using temporal induction
 ============================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help equiv_induct`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help equiv_induct`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`equiv_induct [options] [selection]` ::
+    .. code:: yoscrypt
+
+        equiv_induct [options] [selection]
+
+    ::
 
         Uses a version of temporal induction to prove $equiv cells.
 
@@ -16,12 +24,20 @@ equiv_induct - proving $equiv cells using temporal induction
         perform the proof.
 
 
-    :code:`-undef` ::
+    .. code:: yoscrypt
+
+        -undef
+
+    ::
 
             enable modelling of undef states
 
 
-    :code:`-seq <N>` ::
+    .. code:: yoscrypt
+
+        -seq <N>
+
+    ::
 
             the max. number of time steps to be considered (default = 4)
 
@@ -39,6 +55,10 @@ equiv_induct - proving $equiv cells using temporal induction
         Combined with simulation this is very powerful because simulation can give
         you confidence that the circuits start out synced for at least <N> cycles
         after reset.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

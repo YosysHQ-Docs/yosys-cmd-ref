@@ -2,23 +2,39 @@
 synth_quicklogic - Synthesis for QuickLogic FPGAs
 =================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help synth_quicklogic`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help synth_quicklogic`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`synth_quicklogic [options]` ::
+    .. code:: yoscrypt
+
+        synth_quicklogic [options]
+
+    ::
 
         This command runs synthesis for QuickLogic FPGAs
 
 
-    :code:`-top <module>` ::
+    .. code:: yoscrypt
+
+        -top <module>
+
+    ::
 
              use the specified module as top module
 
 
-    :code:`-family <family>` ::
+    .. code:: yoscrypt
+
+        -family <family>
+
+    ::
 
             run synthesis for the specified QuickLogic architecture
             generate the synthesis netlist for the specified family.
@@ -26,19 +42,31 @@ synth_quicklogic - Synthesis for QuickLogic FPGAs
             - pp3: PolarPro 3 
 
 
-    :code:`-blif <file>` ::
+    .. code:: yoscrypt
+
+        -blif <file>
+
+    ::
 
             write the design to the specified BLIF file. writing of an output file
             is omitted if this parameter is not specified.
 
 
-    :code:`-verilog <file>` ::
+    .. code:: yoscrypt
+
+        -verilog <file>
+
+    ::
 
             write the design to the specified verilog file. writing of an output
             file is omitted if this parameter is not specified.
 
 
-    :code:`-abc` ::
+    .. code:: yoscrypt
+
+        -abc
+
+    ::
 
             use old ABC flow, which has generally worse mapping results but is less
             likely to have bugs.
@@ -127,6 +155,10 @@ synth_quicklogic - Synthesis for QuickLogic FPGAs
 
             verilog:
                 write_verilog -noattr -nohex <file-name>
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

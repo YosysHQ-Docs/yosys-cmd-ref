@@ -2,88 +2,152 @@
 synth_gowin - synthesis for Gowin FPGAs
 =======================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help synth_gowin`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help synth_gowin`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`synth_gowin [options]` ::
+    .. code:: yoscrypt
+
+        synth_gowin [options]
+
+    ::
 
         This command runs synthesis for Gowin FPGAs. This work is experimental.
 
 
-    :code:`-top <module>` ::
+    .. code:: yoscrypt
+
+        -top <module>
+
+    ::
 
             use the specified module as top module (default='top')
 
 
-    :code:`-vout <file>` ::
+    .. code:: yoscrypt
+
+        -vout <file>
+
+    ::
 
             write the design to the specified Verilog netlist file. writing of an
             output file is omitted if this parameter is not specified.
 
 
-    :code:`-json <file>` ::
+    .. code:: yoscrypt
+
+        -json <file>
+
+    ::
 
             write the design to the specified JSON netlist file. writing of an
             output file is omitted if this parameter is not specified.
             This disables features not yet supported by nexpnr-gowin.
 
 
-    :code:`-run <from_label>:<to_label>` ::
+    .. code:: yoscrypt
+
+        -run <from_label>:<to_label>
+
+    ::
 
             only run the commands between the labels (see below). an empty
             from label is synonymous to 'begin', and empty to label is
             synonymous to the end of the command list.
 
 
-    :code:`-nodffe` ::
+    .. code:: yoscrypt
+
+        -nodffe
+
+    ::
 
             do not use flipflops with CE in output netlist
 
 
-    :code:`-nobram` ::
+    .. code:: yoscrypt
+
+        -nobram
+
+    ::
 
             do not use BRAM cells in output netlist
 
 
-    :code:`-nolutram` ::
+    .. code:: yoscrypt
+
+        -nolutram
+
+    ::
 
             do not use distributed RAM cells in output netlist
 
 
-    :code:`-noflatten` ::
+    .. code:: yoscrypt
+
+        -noflatten
+
+    ::
 
             do not flatten design before synthesis
 
 
-    :code:`-retime` ::
+    .. code:: yoscrypt
+
+        -retime
+
+    ::
 
             run 'abc' with '-dff -D 1' options
 
 
-    :code:`-nowidelut` ::
+    .. code:: yoscrypt
+
+        -nowidelut
+
+    ::
 
             do not use muxes to implement LUTs larger than LUT4s
 
 
-    :code:`-noiopads` ::
+    .. code:: yoscrypt
+
+        -noiopads
+
+    ::
 
             do not emit IOB at top level ports
 
 
-    :code:`-noalu` ::
+    .. code:: yoscrypt
+
+        -noalu
+
+    ::
 
             do not use ALU cells
 
 
-    :code:`-abc9` ::
+    .. code:: yoscrypt
+
+        -abc9
+
+    ::
 
             use new ABC9 flow (EXPERIMENTAL)
 
 
-    :code:`-no-rw-check` ::
+    .. code:: yoscrypt
+
+        -no-rw-check
+
+    ::
 
             marks all recognized read ports as "return don't-care value on
             read/write collision" (same result as setting the no_rw_check
@@ -152,6 +216,10 @@ synth_gowin - synthesis for Gowin FPGAs
             vout:
                 write_verilog -simple-lhs -decimal -attr2comment -defparam -renameprefix gen <file-name>
                 write_json <file-name>
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

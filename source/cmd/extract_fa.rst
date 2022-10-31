@@ -2,36 +2,64 @@
 extract_fa - find and extract full/half adders
 ==============================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help extract_fa`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help extract_fa`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`extract_fa [options] [selection]` ::
+    .. code:: yoscrypt
+
+        extract_fa [options] [selection]
+
+    ::
 
         This pass extracts full/half adders from a gate-level design.
 
 
-    :code:`-fa, -ha` ::
+    .. code:: yoscrypt
+
+        -fa, -ha
+
+    ::
 
             Enable cell types (fa=full adder, ha=half adder)
             All types are enabled if none of this options is used
 
 
-    :code:`-d <int>` ::
+    .. code:: yoscrypt
+
+        -d <int>
+
+    ::
 
             Set maximum depth for extracted logic cones (default=20)
 
 
-    :code:`-b <int>` ::
+    .. code:: yoscrypt
+
+        -b <int>
+
+    ::
 
             Set maximum breadth for extracted logic cones (default=6)
 
 
-    :code:`-v` ::
+    .. code:: yoscrypt
+
+        -v
+
+    ::
 
             Verbose output
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

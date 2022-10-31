@@ -2,21 +2,41 @@
 select - modify and view the list of selected objects
 =====================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help select`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help select`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`select [ -add | -del | -set <name> ] {-read <filename> | <selection>}`
+    .. code:: yoscrypt
 
-    :code:`select [ -unset <name> ]`
+        select [ -add | -del | -set <name> ] {-read <filename> | <selection>}
 
-    :code:`select [ <assert_option> ] {-read <filename> | <selection>}`
+   
+    .. code:: yoscrypt
 
-    :code:`select [ -list | -write <filename> | -count | -clear ]`
+        select [ -unset <name> ]
 
-    :code:`select -module <modname>` ::
+   
+    .. code:: yoscrypt
+
+        select [ <assert_option> ] {-read <filename> | <selection>}
+
+   
+    .. code:: yoscrypt
+
+        select [ -list | -write <filename> | -count | -clear ]
+
+   
+    .. code:: yoscrypt
+
+        select -module <modname>
+
+    ::
 
         Most commands use the list of currently selected objects to determine which part
         of the design to operate on. This command can be used to modify and view this
@@ -28,90 +48,150 @@ select - modify and view the list of selected objects
         described here.
 
 
-    :code:`-add, -del` ::
+    .. code:: yoscrypt
+
+        -add, -del
+
+    ::
 
             add or remove the given objects to the current selection.
             without this options the current selection is replaced.
 
 
-    :code:`-set <name>` ::
+    .. code:: yoscrypt
+
+        -set <name>
+
+    ::
 
             do not modify the current selection. instead save the new selection
             under the given name (see @<name> below). to save the current selection,
             use "select -set <name> %"
 
 
-    :code:`-unset <name>` ::
+    .. code:: yoscrypt
+
+        -unset <name>
+
+    ::
 
             do not modify the current selection. instead remove a previously saved
             selection under the given name (see @<name> below).
 
 
-    :code:`-assert-none` ::
+    .. code:: yoscrypt
+
+        -assert-none
+
+    ::
 
             do not modify the current selection. instead assert that the given
             selection is empty. i.e. produce an error if any object or module
             matching the selection is found.
 
 
-    :code:`-assert-any` ::
+    .. code:: yoscrypt
+
+        -assert-any
+
+    ::
 
             do not modify the current selection. instead assert that the given
             selection is non-empty. i.e. produce an error if no object or module
             matching the selection is found.
 
 
-    :code:`-assert-count N` ::
+    .. code:: yoscrypt
+
+        -assert-count N
+
+    ::
 
             do not modify the current selection. instead assert that the given
             selection contains exactly N objects.
 
 
-    :code:`-assert-max N` ::
+    .. code:: yoscrypt
+
+        -assert-max N
+
+    ::
 
             do not modify the current selection. instead assert that the given
             selection contains less than or exactly N objects.
 
 
-    :code:`-assert-min N` ::
+    .. code:: yoscrypt
+
+        -assert-min N
+
+    ::
 
             do not modify the current selection. instead assert that the given
             selection contains at least N objects.
 
 
-    :code:`-list` ::
+    .. code:: yoscrypt
+
+        -list
+
+    ::
 
             list all objects in the current selection
 
 
-    :code:`-write <filename>` ::
+    .. code:: yoscrypt
+
+        -write <filename>
+
+    ::
 
             like -list but write the output to the specified file
 
 
-    :code:`-read <filename>` ::
+    .. code:: yoscrypt
+
+        -read <filename>
+
+    ::
 
             read the specified file (written by -write)
 
 
-    :code:`-count` ::
+    .. code:: yoscrypt
+
+        -count
+
+    ::
 
             count all objects in the current selection
 
 
-    :code:`-clear` ::
+    .. code:: yoscrypt
+
+        -clear
+
+    ::
 
             clear the current selection. this effectively selects the whole
             design. it also resets the selected module (see -module). use the
             command 'select *' to select everything but stay in the current module.
 
 
-    :code:`-none` ::
+    .. code:: yoscrypt
+
+        -none
+
+    ::
 
             create an empty selection. the current module is unchanged.
 
 
-    :code:`-module <modname>` ::
+    .. code:: yoscrypt
+
+        -module <modname>
+
+    ::
 
             limit the current scope to the specified module.
             the difference between this and simply selecting the module
@@ -268,6 +348,10 @@ select - modify and view the list of selected objects
         'GATE' input of a 'SWITCH' cell:
 
             select */t:SWITCH %x:+[GATE] */t:SWITCH %d
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

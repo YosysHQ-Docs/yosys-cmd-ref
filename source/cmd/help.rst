@@ -2,23 +2,50 @@
 help - display help messages
 ============================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help help`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help help`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`help  ................  list all commands`
+    .. code:: yoscrypt
 
-    :code:`help <command>  ......  print help message for given command`
+        help  ................  list all commands
 
-    :code:`help -all  ...........  print complete command reference`
+   
+    .. code:: yoscrypt
 
-    :code:`help -cells ..........  list all cell types`
+        help <command>  ......  print help message for given command
 
-    :code:`help <celltype>  .....  print help message for given cell type`
+   
+    .. code:: yoscrypt
 
-    :code:`help <celltype>+  ....  print verilog code for given cell type`
+        help -all  ...........  print complete command reference
+
+   
+    .. code:: yoscrypt
+
+        help -cells ..........  list all cell types
+
+   
+    .. code:: yoscrypt
+
+        help <celltype>  .....  print help message for given cell type
+
+   
+    .. code:: yoscrypt
+
+        help <celltype>+  ....  print verilog code for given cell type
+
+   
+.. raw:: latex
+
+    \end{comment}
+
 .. only:: latex
 
     ::

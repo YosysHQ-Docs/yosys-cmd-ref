@@ -2,15 +2,27 @@
 deminout - demote inout ports to input or output
 ================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help deminout`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help deminout`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`deminout [options] [selection]` ::
+    .. code:: yoscrypt
+
+        deminout [options] [selection]
+
+    ::
 
         "Demote" inout ports to input or output ports, if possible.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

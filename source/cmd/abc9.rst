@@ -2,33 +2,53 @@
 abc9 - use ABC9 for technology mapping
 ======================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help abc9`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help abc9`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`abc9 [options] [selection]` ::
+    .. code:: yoscrypt
+
+        abc9 [options] [selection]
+
+    ::
 
         This script pass performs a sequence of commands to facilitate the use of the
         ABC tool [1] for technology mapping of the current design to a target FPGA
         architecture. Only fully-selected modules are supported.
 
 
-    :code:`-run <from_label>:<to_label>` ::
+    .. code:: yoscrypt
+
+        -run <from_label>:<to_label>
+
+    ::
 
             only run the commands between the labels (see below). an empty
             from label is synonymous to 'begin', and empty to label is
             synonymous to the end of the command list.
 
 
-    :code:`-exe <command>` ::
+    .. code:: yoscrypt
+
+        -exe <command>
+
+    ::
 
             use the specified command instead of "<yosys-bindir>/yosys-abc" to execute ABC.
             This can e.g. be used to call a specific version of ABC or a wrapper.
 
 
-    :code:`-script <file>` ::
+    .. code:: yoscrypt
+
+        -script <file>
+
+    ::
 
             use the specified ABC script file instead of the default script.
 
@@ -41,26 +61,42 @@ abc9 - use ABC9 for technology mapping
               &scorr; &sweep; &dc2; &dch -f; &ps; &if {C} {W} {D} {R} -v; &mfs
 
 
-    :code:`-fast` ::
+    .. code:: yoscrypt
+
+        -fast
+
+    ::
 
             use different default scripts that are slightly faster (at the cost
             of output quality):
               &if {C} {W} {D} {R} -v
 
 
-    :code:`-D <picoseconds>` ::
+    .. code:: yoscrypt
+
+        -D <picoseconds>
+
+    ::
 
             set delay target. the string {D} in the default scripts above is
             replaced by this option when used, and an empty string otherwise
             (indicating best possible delay).
 
 
-    :code:`-lut <width>` ::
+    .. code:: yoscrypt
+
+        -lut <width>
+
+    ::
 
             generate netlist using luts of (max) the specified width.
 
 
-    :code:`-lut <w1>:<w2>` ::
+    .. code:: yoscrypt
+
+        -lut <w1>:<w2>
+
+    ::
 
             generate netlist using luts of (max) the specified width <w2>. All
             luts with width <= <w1> have constant cost. for luts larger than <w1>
@@ -68,43 +104,71 @@ abc9 - use ABC9 for technology mapping
             is still constant for all lut widths.
 
 
-    :code:`-lut <file>` ::
+    .. code:: yoscrypt
+
+        -lut <file>
+
+    ::
 
             pass this file with lut library to ABC.
 
 
-    :code:`-luts <cost1>,<cost2>,<cost3>,<sizeN>:<cost4-N>,..` ::
+    .. code:: yoscrypt
+
+        -luts <cost1>,<cost2>,<cost3>,<sizeN>:<cost4-N>,..
+
+    ::
 
             generate netlist using luts. Use the specified costs for luts with 1,
             2, 3, .. inputs.
 
 
-    :code:`-maxlut <width>` ::
+    .. code:: yoscrypt
+
+        -maxlut <width>
+
+    ::
 
             when auto-generating the lut library, discard all luts equal to or
             greater than this size (applicable when neither -lut nor -luts is
             specified).
 
 
-    :code:`-dff` ::
+    .. code:: yoscrypt
+
+        -dff
+
+    ::
 
             also pass $_DFF_[NP]_ cells through to ABC. modules with many clock
             domains are supported and automatically partitioned by ABC.
 
 
-    :code:`-nocleanup` ::
+    .. code:: yoscrypt
+
+        -nocleanup
+
+    ::
 
             when this option is used, the temporary files created by this pass
             are not removed. this is useful for debugging.
 
 
-    :code:`-showtmp` ::
+    .. code:: yoscrypt
+
+        -showtmp
+
+    ::
 
             print the temp dir name in log. usually this is suppressed so that the
             command output is identical across runs.
 
 
-    :code:`-box <file>` ::
+    .. code:: yoscrypt
+
+        -box <file>
+
+    ::
 
             pass this file with box library to ABC.
 
@@ -179,6 +243,10 @@ abc9 - use ABC9 for technology mapping
                 design -delete $abc9_holes
                 delete =*_$abc9_byp
                 setattr -mod -unset abc9_box_id
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

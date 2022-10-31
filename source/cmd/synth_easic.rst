@@ -2,46 +2,78 @@
 synth_easic - synthesis for eASIC platform
 ==========================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help synth_easic`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help synth_easic`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`synth_easic [options]` ::
+    .. code:: yoscrypt
+
+        synth_easic [options]
+
+    ::
 
         This command runs synthesis for eASIC platform.
 
 
-    :code:`-top <module>` ::
+    .. code:: yoscrypt
+
+        -top <module>
+
+    ::
 
             use the specified module as top module
 
 
-    :code:`-vlog <file>` ::
+    .. code:: yoscrypt
+
+        -vlog <file>
+
+    ::
 
             write the design to the specified structural Verilog file. writing of
             an output file is omitted if this parameter is not specified.
 
 
-    :code:`-etools <path>` ::
+    .. code:: yoscrypt
+
+        -etools <path>
+
+    ::
 
             set path to the eTools installation. (default=/opt/eTools)
 
 
-    :code:`-run <from_label>:<to_label>` ::
+    .. code:: yoscrypt
+
+        -run <from_label>:<to_label>
+
+    ::
 
             only run the commands between the labels (see below). an empty
             from label is synonymous to 'begin', and empty to label is
             synonymous to the end of the command list.
 
 
-    :code:`-noflatten` ::
+    .. code:: yoscrypt
+
+        -noflatten
+
+    ::
 
             do not flatten design before synthesis
 
 
-    :code:`-retime` ::
+    .. code:: yoscrypt
+
+        -retime
+
+    ::
 
             run 'abc' with '-dff -D 1' options
 
@@ -85,6 +117,10 @@ synth_easic - synthesis for eASIC platform
 
             vlog:
                 write_verilog -noexpr -attr2comment <file-name>
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

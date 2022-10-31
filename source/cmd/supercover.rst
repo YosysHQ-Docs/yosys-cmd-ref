@@ -2,16 +2,28 @@
 supercover - add hi/lo cover cells for each wire bit
 ====================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help supercover`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help supercover`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`supercover [options] [selection]` ::
+    .. code:: yoscrypt
+
+        supercover [options] [selection]
+
+    ::
 
         This command adds two cover cells for each bit of each selected wire, one
         checking for a hi signal level and one checking for lo level.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

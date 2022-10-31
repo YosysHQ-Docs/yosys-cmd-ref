@@ -2,13 +2,21 @@
 xilinx_srl - Xilinx shift register extraction
 =============================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help xilinx_srl`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help xilinx_srl`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`xilinx_srl [options] [selection]` ::
+    .. code:: yoscrypt
+
+        xilinx_srl [options] [selection]
+
+    ::
 
         This pass converts chains of built-in flops (bit-level: $_DFF_[NP]_, $_DFFE_*
         and word-level: $dff, $dffe) as well as Xilinx flops (FDRE, FDRE_1) into a
@@ -17,20 +25,36 @@ xilinx_srl - Xilinx shift register extraction
         Flops with resets cannot be mapped to Xilinx devices and will not be inferred.
 
 
-    :code:`-minlen N` ::
+    .. code:: yoscrypt
+
+        -minlen N
+
+    ::
 
             min length of shift register (default = 3)
 
 
-    :code:`-fixed` ::
+    .. code:: yoscrypt
+
+        -fixed
+
+    ::
 
             infer fixed-length shift registers.
 
 
-    :code:`-variable` ::
+    .. code:: yoscrypt
+
+        -variable
+
+    ::
 
             infer variable-length shift registers (i.e. fixed-length shifts where
             each element also fans-out to a $shiftx cell).
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

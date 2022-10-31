@@ -2,13 +2,21 @@
 miter - automatically create a miter circuit
 ============================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help miter`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help miter`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`miter -equiv [options] gold_name gate_name miter_name` ::
+    .. code:: yoscrypt
+
+        miter -equiv [options] gold_name gate_name miter_name
+
+    ::
 
         Creates a miter circuit for equivalence checking. The gold- and gate- modules
         must have the same interfaces. The miter circuit will have all inputs of the
@@ -17,35 +25,58 @@ miter - automatically create a miter circuit
         detected.
 
 
-    :code:`-ignore_gold_x` ::
+    .. code:: yoscrypt
+
+        -ignore_gold_x
+
+    ::
 
             a undef (x) bit in the gold module output will match any value in
             the gate module output.
 
 
-    :code:`-make_outputs` ::
+    .. code:: yoscrypt
+
+        -make_outputs
+
+    ::
 
             also route the gold- and gate-outputs to 'gold_*' and 'gate_*' outputs
             on the miter circuit.
 
 
-    :code:`-make_outcmp` ::
+    .. code:: yoscrypt
+
+        -make_outcmp
+
+    ::
 
             also create a cmp_* output for each gold/gate output pair.
 
 
-    :code:`-make_assert` ::
+    .. code:: yoscrypt
+
+        -make_assert
+
+    ::
 
             also create an 'assert' cell that checks if trigger is always low.
 
 
-    :code:`-flatten` ::
+    .. code:: yoscrypt
+
+        -flatten
+
+    ::
 
             call 'flatten -wb; opt_expr -keepdc -undriven;;' on the miter circuit.
 
 
+    .. code:: yoscrypt
 
-    :code:`miter -assert [options] module [miter_name]` ::
+        miter -assert [options] module [miter_name]
+
+    ::
 
         Creates a miter circuit for property checking. All input ports are kept,
         output ports are discarded. An additional output 'trigger' is created that
@@ -53,14 +84,26 @@ miter - automatically create a miter circuit
         module is modified.
 
 
-    :code:`-make_outputs` ::
+    .. code:: yoscrypt
+
+        -make_outputs
+
+    ::
 
             keep module output ports.
 
 
-    :code:`-flatten` ::
+    .. code:: yoscrypt
+
+        -flatten
+
+    ::
 
             call 'flatten -wb; opt_expr -keepdc -undriven;;' on the miter circuit.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

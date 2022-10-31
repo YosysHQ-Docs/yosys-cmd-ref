@@ -2,29 +2,49 @@
 tee - redirect command output to file
 =====================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help tee`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help tee`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`tee [-q] [-o logfile|-a logfile] cmd` ::
+    .. code:: yoscrypt
+
+        tee [-q] [-o logfile|-a logfile] cmd
+
+    ::
 
         Execute the specified command, optionally writing the commands output to the
         specified logfile(s).
 
 
-    :code:`-q` ::
+    .. code:: yoscrypt
+
+        -q
+
+    ::
 
             Do not print output to the normal destination (console and/or log file).
 
 
-    :code:`-o logfile` ::
+    .. code:: yoscrypt
+
+        -o logfile
+
+    ::
 
             Write output to this file, truncate if exists.
 
 
-    :code:`-a logfile` ::
+    .. code:: yoscrypt
+
+        -a logfile
+
+    ::
 
             Write output to this file, append if exists.
 
@@ -33,6 +53,10 @@ tee - redirect command output to file
 
         +INT, -INT
             Add/subtract INT from the -v setting for this command.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

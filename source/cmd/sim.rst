@@ -2,164 +2,292 @@
 sim - simulate the circuit
 ==========================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help sim`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help sim`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`sim [options] [top-level]` ::
+    .. code:: yoscrypt
+
+        sim [options] [top-level]
+
+    ::
 
         This command simulates the circuit using the given top-level module.
 
 
-    :code:`-vcd <filename>` ::
+    .. code:: yoscrypt
+
+        -vcd <filename>
+
+    ::
 
             write the simulation results to the given VCD file
 
 
-    :code:`-fst <filename>` ::
+    .. code:: yoscrypt
+
+        -fst <filename>
+
+    ::
 
             write the simulation results to the given FST file
 
 
-    :code:`-aiw <filename>` ::
+    .. code:: yoscrypt
+
+        -aiw <filename>
+
+    ::
 
             write the simulation results to an AIGER witness file
             (requires a *.aim file via -map)
 
 
-    :code:`-hdlname` ::
+    .. code:: yoscrypt
+
+        -hdlname
+
+    ::
 
             use the hdlname attribute when writing simulation results
             (preserves hierarchy in a flattened design)
 
 
-    :code:`-x` ::
+    .. code:: yoscrypt
+
+        -x
+
+    ::
 
             ignore constant x outputs in simulation file.
 
 
-    :code:`-date` ::
+    .. code:: yoscrypt
+
+        -date
+
+    ::
 
             include date and full version info in output.
 
 
-    :code:`-clock <portname>` ::
+    .. code:: yoscrypt
+
+        -clock <portname>
+
+    ::
 
             name of top-level clock input
 
 
-    :code:`-clockn <portname>` ::
+    .. code:: yoscrypt
+
+        -clockn <portname>
+
+    ::
 
             name of top-level clock input (inverse polarity)
 
 
-    :code:`-multiclock` ::
+    .. code:: yoscrypt
+
+        -multiclock
+
+    ::
 
             mark that witness file is multiclock.
 
 
-    :code:`-reset <portname>` ::
+    .. code:: yoscrypt
+
+        -reset <portname>
+
+    ::
 
             name of top-level reset input (active high)
 
 
-    :code:`-resetn <portname>` ::
+    .. code:: yoscrypt
+
+        -resetn <portname>
+
+    ::
 
             name of top-level inverted reset input (active low)
 
 
-    :code:`-rstlen <integer>` ::
+    .. code:: yoscrypt
+
+        -rstlen <integer>
+
+    ::
 
             number of cycles reset should stay active (default: 1)
 
 
-    :code:`-zinit` ::
+    .. code:: yoscrypt
+
+        -zinit
+
+    ::
 
             zero-initialize all uninitialized regs and memories
 
 
-    :code:`-timescale <string>` ::
+    .. code:: yoscrypt
+
+        -timescale <string>
+
+    ::
 
             include the specified timescale declaration in the vcd
 
 
-    :code:`-n <integer>` ::
+    .. code:: yoscrypt
+
+        -n <integer>
+
+    ::
 
             number of clock cycles to simulate (default: 20)
 
 
-    :code:`-a` ::
+    .. code:: yoscrypt
+
+        -a
+
+    ::
 
             use all nets in VCD/FST operations, not just those with public names
 
 
-    :code:`-w` ::
+    .. code:: yoscrypt
+
+        -w
+
+    ::
 
             writeback mode: use final simulation state as new init state
 
 
-    :code:`-r` ::
+    .. code:: yoscrypt
+
+        -r
+
+    ::
 
             read simulation results file
                 File formats supported: FST, VCD, AIW and WIT
                 VCD support requires vcd2fst external tool to be present
 
 
-    :code:`-map <filename>` ::
+    .. code:: yoscrypt
+
+        -map <filename>
+
+    ::
 
             read file with port and latch symbols, needed for AIGER witness input
 
 
-    :code:`-scope <name>` ::
+    .. code:: yoscrypt
+
+        -scope <name>
+
+    ::
 
             scope of simulation top model
 
 
-    :code:`-at <time>` ::
+    .. code:: yoscrypt
+
+        -at <time>
+
+    ::
 
             sets start and stop time
 
 
-    :code:`-start <time>` ::
+    .. code:: yoscrypt
+
+        -start <time>
+
+    ::
 
             start co-simulation in arbitary time (default 0)
 
 
-    :code:`-stop <time>` ::
+    .. code:: yoscrypt
+
+        -stop <time>
+
+    ::
 
             stop co-simulation in arbitary time (default END)
 
 
-    :code:`-sim` ::
+    .. code:: yoscrypt
+
+        -sim
+
+    ::
 
             simulation with stimulus from FST (default)
 
 
-    :code:`-sim-cmp` ::
+    .. code:: yoscrypt
+
+        -sim-cmp
+
+    ::
 
             co-simulation expect exact match
 
 
-    :code:`-sim-gold` ::
+    .. code:: yoscrypt
+
+        -sim-gold
+
+    ::
 
             co-simulation, x in simulation can match any value in FST
 
 
-    :code:`-sim-gate` ::
+    .. code:: yoscrypt
+
+        -sim-gate
+
+    ::
 
             co-simulation, x in FST can match any value in simulation
 
 
-    :code:`-q` ::
+    .. code:: yoscrypt
+
+        -q
+
+    ::
 
             disable per-cycle/sample log message
 
 
-    :code:`-d` ::
+    .. code:: yoscrypt
+
+        -d
+
+    ::
 
             enable debug output
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

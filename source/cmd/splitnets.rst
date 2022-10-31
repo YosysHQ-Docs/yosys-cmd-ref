@@ -2,18 +2,30 @@
 splitnets - split up multi-bit nets
 ===================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help splitnets`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help splitnets`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`splitnets [options] [selection]` ::
+    .. code:: yoscrypt
+
+        splitnets [options] [selection]
+
+    ::
 
         This command splits multi-bit nets into single-bit nets.
 
 
-    :code:`-format char1[char2[char3]]` ::
+    .. code:: yoscrypt
+
+        -format char1[char2[char3]]
+
+    ::
 
             the first char is inserted between the net name and the bit index, the
             second char is appended to the netname. e.g. -format () creates net
@@ -21,15 +33,27 @@ splitnets - split up multi-bit nets
             character when creating multi-bit wires. the default is '[]:'.
 
 
-    :code:`-ports` ::
+    .. code:: yoscrypt
+
+        -ports
+
+    ::
 
             also split module ports. per default only internal signals are split.
 
 
-    :code:`-driver` ::
+    .. code:: yoscrypt
+
+        -driver
+
+    ::
 
             don't blindly split nets in individual bits. instead look at the driver
             and split nets so that no driver drives only part of a net.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

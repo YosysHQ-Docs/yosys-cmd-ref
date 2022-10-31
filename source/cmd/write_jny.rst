@@ -2,28 +2,48 @@
 write_jny - generate design metadata
 ====================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help write_jny`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help write_jny`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`jny [options] [selection]` ::
+    .. code:: yoscrypt
+
+        jny [options] [selection]
+
+    ::
 
         Write JSON netlist metadata for the current design
 
 
-    :code:`-no-connections` ::
+    .. code:: yoscrypt
+
+        -no-connections
+
+    ::
 
             Don't include connection information in the netlist output.
 
 
-    :code:`-no-attributes` ::
+    .. code:: yoscrypt
+
+        -no-attributes
+
+    ::
 
             Don't include attributed information in the netlist output.
 
 
-    :code:`-no-properties` ::
+    .. code:: yoscrypt
+
+        -no-properties
+
+    ::
 
             Don't include property information in the netlist output.
 
@@ -32,6 +52,10 @@ write_jny - generate design metadata
 
         The JSON schema for JNY output files is located in the "jny.schema.json" file
         which is located at "https://raw.githubusercontent.com/YosysHQ/yosys/master/misc/jny.schema.json"
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

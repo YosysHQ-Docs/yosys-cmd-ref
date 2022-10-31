@@ -2,37 +2,65 @@
 dump - print parts of the design in RTLIL format
 ================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help dump`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help dump`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`dump [options] [selection]` ::
+    .. code:: yoscrypt
+
+        dump [options] [selection]
+
+    ::
 
         Write the selected parts of the design to the console or specified file in
         RTLIL format.
 
 
-    :code:`-m` ::
+    .. code:: yoscrypt
+
+        -m
+
+    ::
 
             also dump the module headers, even if only parts of a single
             module is selected
 
 
-    :code:`-n` ::
+    .. code:: yoscrypt
+
+        -n
+
+    ::
 
             only dump the module headers if the entire module is selected
 
 
-    :code:`-o <filename>` ::
+    .. code:: yoscrypt
+
+        -o <filename>
+
+    ::
 
             write to the specified file.
 
 
-    :code:`-a <filename>` ::
+    .. code:: yoscrypt
+
+        -a <filename>
+
+    ::
 
             like -outfile but append instead of overwrite
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

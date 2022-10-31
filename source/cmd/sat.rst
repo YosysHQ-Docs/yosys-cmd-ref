@@ -2,88 +2,152 @@
 sat - solve a SAT problem in the circuit
 ========================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help sat`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help sat`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`sat [options] [selection]` ::
+    .. code:: yoscrypt
+
+        sat [options] [selection]
+
+    ::
 
         This command solves a SAT problem defined over the currently selected circuit
         and additional constraints passed as parameters.
 
 
-    :code:`-all` ::
+    .. code:: yoscrypt
+
+        -all
+
+    ::
 
             show all solutions to the problem (this can grow exponentially, use
             -max <N> instead to get <N> solutions)
 
 
-    :code:`-max <N>` ::
+    .. code:: yoscrypt
+
+        -max <N>
+
+    ::
 
             like -all, but limit number of solutions to <N>
 
 
-    :code:`-enable_undef` ::
+    .. code:: yoscrypt
+
+        -enable_undef
+
+    ::
 
             enable modeling of undef value (aka 'x-bits')
             this option is implied by -set-def, -set-undef et. cetera
 
 
-    :code:`-max_undef` ::
+    .. code:: yoscrypt
+
+        -max_undef
+
+    ::
 
             maximize the number of undef bits in solutions, giving a better
             picture of which input bits are actually vital to the solution.
 
 
-    :code:`-set <signal> <value>` ::
+    .. code:: yoscrypt
+
+        -set <signal> <value>
+
+    ::
 
             set the specified signal to the specified value.
 
 
-    :code:`-set-def <signal>` ::
+    .. code:: yoscrypt
+
+        -set-def <signal>
+
+    ::
 
             add a constraint that all bits of the given signal must be defined
 
 
-    :code:`-set-any-undef <signal>` ::
+    .. code:: yoscrypt
+
+        -set-any-undef <signal>
+
+    ::
 
             add a constraint that at least one bit of the given signal is undefined
 
 
-    :code:`-set-all-undef <signal>` ::
+    .. code:: yoscrypt
+
+        -set-all-undef <signal>
+
+    ::
 
             add a constraint that all bits of the given signal are undefined
 
 
-    :code:`-set-def-inputs` ::
+    .. code:: yoscrypt
+
+        -set-def-inputs
+
+    ::
 
             add -set-def constraints for all module inputs
 
 
-    :code:`-show <signal>` ::
+    .. code:: yoscrypt
+
+        -show <signal>
+
+    ::
 
             show the model for the specified signal. if no -show option is
             passed then a set of signals to be shown is automatically selected.
 
 
-    :code:`-show-inputs, -show-outputs, -show-ports` ::
+    .. code:: yoscrypt
+
+        -show-inputs, -show-outputs, -show-ports
+
+    ::
 
             add all module (input/output) ports to the list of shown signals
 
 
-    :code:`-show-regs, -show-public, -show-all` ::
+    .. code:: yoscrypt
+
+        -show-regs, -show-public, -show-all
+
+    ::
 
             show all registers, show signals with 'public' names, show all signals
 
 
-    :code:`-ignore_div_by_zero` ::
+    .. code:: yoscrypt
+
+        -ignore_div_by_zero
+
+    ::
 
             ignore all solutions that involve a division by zero
 
 
-    :code:`-ignore_unknown_cells` ::
+    .. code:: yoscrypt
+
+        -ignore_unknown_cells
+
+    ::
 
             ignore all cells that can not be matched to a SAT model
 
@@ -93,7 +157,11 @@ sat - solve a SAT problem in the circuit
         The following options can be used to set up a sequential problem:
 
 
-    :code:`-seq <N>` ::
+    .. code:: yoscrypt
+
+        -seq <N>
+
+    ::
 
             set up a sequential problem with <N> time steps. The steps will
             be numbered from 1 to N.
@@ -102,59 +170,111 @@ sat - solve a SAT problem in the circuit
             -tempinduct-baseonly -maxsteps <N> instead of -seq <N>.
 
 
-    :code:`-set-at <N> <signal> <value>`
+    .. code:: yoscrypt
 
-    :code:`-unset-at <N> <signal>` ::
+        -set-at <N> <signal> <value>
+
+   
+
+    .. code:: yoscrypt
+
+        -unset-at <N> <signal>
+
+    ::
 
             set or unset the specified signal to the specified value in the
             given timestep. this has priority over a -set for the same signal.
 
 
-    :code:`-set-assumes` ::
+    .. code:: yoscrypt
+
+        -set-assumes
+
+    ::
 
             set all assumptions provided via $assume cells
 
 
-    :code:`-set-def-at <N> <signal>`
+    .. code:: yoscrypt
 
-    :code:`-set-any-undef-at <N> <signal>`
+        -set-def-at <N> <signal>
 
-    :code:`-set-all-undef-at <N> <signal>` ::
+   
+
+    .. code:: yoscrypt
+
+        -set-any-undef-at <N> <signal>
+
+   
+
+    .. code:: yoscrypt
+
+        -set-all-undef-at <N> <signal>
+
+    ::
 
             add undef constraints in the given timestep.
 
 
-    :code:`-set-init <signal> <value>` ::
+    .. code:: yoscrypt
+
+        -set-init <signal> <value>
+
+    ::
 
             set the initial value for the register driving the signal to the value
 
 
-    :code:`-set-init-undef` ::
+    .. code:: yoscrypt
+
+        -set-init-undef
+
+    ::
 
             set all initial states (not set using -set-init) to undef
 
 
-    :code:`-set-init-def` ::
+    .. code:: yoscrypt
+
+        -set-init-def
+
+    ::
 
             do not force a value for the initial state but do not allow undef
 
 
-    :code:`-set-init-zero` ::
+    .. code:: yoscrypt
+
+        -set-init-zero
+
+    ::
 
             set all initial states (not set using -set-init) to zero
 
 
-    :code:`-dump_vcd <vcd-file-name>` ::
+    .. code:: yoscrypt
+
+        -dump_vcd <vcd-file-name>
+
+    ::
 
             dump SAT model (counter example in proof) to VCD file
 
 
-    :code:`-dump_json <json-file-name>` ::
+    .. code:: yoscrypt
+
+        -dump_json <json-file-name>
+
+    ::
 
             dump SAT model (counter example in proof) to a WaveJSON file.
 
 
-    :code:`-dump_cnf <cnf-file-name>` ::
+    .. code:: yoscrypt
+
+        -dump_cnf <cnf-file-name>
+
+    ::
 
             dump CNF of SAT problem (in DIMACS format). in temporal induction
             proofs this is the CNF of the first induction step.
@@ -166,30 +286,50 @@ sat - solve a SAT problem in the circuit
         is passed, a temporal induction proof is performed.
 
 
-    :code:`-tempinduct` ::
+    .. code:: yoscrypt
+
+        -tempinduct
+
+    ::
 
             Perform a temporal induction proof. In a temporal induction proof it is
             proven that the condition holds forever after the number of time steps
             specified using -seq.
 
 
-    :code:`-tempinduct-def` ::
+    .. code:: yoscrypt
+
+        -tempinduct-def
+
+    ::
 
             Perform a temporal induction proof. Assume an initial state with all
             registers set to defined values for the induction step.
 
 
-    :code:`-tempinduct-baseonly` ::
+    .. code:: yoscrypt
+
+        -tempinduct-baseonly
+
+    ::
 
             Run only the basecase half of temporal induction (requires -maxsteps)
 
 
-    :code:`-tempinduct-inductonly` ::
+    .. code:: yoscrypt
+
+        -tempinduct-inductonly
+
+    ::
 
             Run only the induction half of temporal induction
 
 
-    :code:`-tempinduct-skip <N>` ::
+    .. code:: yoscrypt
+
+        -tempinduct-skip <N>
+
+    ::
 
             Skip the first <N> steps of the induction proof.
 
@@ -199,69 +339,121 @@ sat - solve a SAT problem in the circuit
             minimal induction length.
 
 
-    :code:`-prove <signal> <value>` ::
+    .. code:: yoscrypt
+
+        -prove <signal> <value>
+
+    ::
 
             Attempt to proof that <signal> is always <value>.
 
 
-    :code:`-prove-x <signal> <value>` ::
+    .. code:: yoscrypt
+
+        -prove-x <signal> <value>
+
+    ::
 
             Like -prove, but an undef (x) bit in the lhs matches any value on
             the right hand side. Useful for equivalence checking.
 
 
-    :code:`-prove-asserts` ::
+    .. code:: yoscrypt
+
+        -prove-asserts
+
+    ::
 
             Prove that all asserts in the design hold.
 
 
-    :code:`-prove-skip <N>` ::
+    .. code:: yoscrypt
+
+        -prove-skip <N>
+
+    ::
 
             Do not enforce the prove-condition for the first <N> time steps.
 
 
-    :code:`-maxsteps <N>` ::
+    .. code:: yoscrypt
+
+        -maxsteps <N>
+
+    ::
 
             Set a maximum length for the induction.
 
 
-    :code:`-initsteps <N>` ::
+    .. code:: yoscrypt
+
+        -initsteps <N>
+
+    ::
 
             Set initial length for the induction.
             This will speed up the search of the right induction length
             for deep induction proofs.
 
 
-    :code:`-stepsize <N>` ::
+    .. code:: yoscrypt
+
+        -stepsize <N>
+
+    ::
 
             Increase the size of the induction proof in steps of <N>.
             This will speed up the search of the right induction length
             for deep induction proofs.
 
 
-    :code:`-timeout <N>` ::
+    .. code:: yoscrypt
+
+        -timeout <N>
+
+    ::
 
             Maximum number of seconds a single SAT instance may take.
 
 
-    :code:`-verify` ::
+    .. code:: yoscrypt
+
+        -verify
+
+    ::
 
             Return an error and stop the synthesis script if the proof fails.
 
 
-    :code:`-verify-no-timeout` ::
+    .. code:: yoscrypt
+
+        -verify-no-timeout
+
+    ::
 
             Like -verify but do not return an error for timeouts.
 
 
-    :code:`-falsify` ::
+    .. code:: yoscrypt
+
+        -falsify
+
+    ::
 
             Return an error and stop the synthesis script if the proof succeeds.
 
 
-    :code:`-falsify-no-timeout` ::
+    .. code:: yoscrypt
+
+        -falsify-no-timeout
+
+    ::
 
             Like -falsify but do not return an error for timeouts.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

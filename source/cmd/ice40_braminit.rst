@@ -2,16 +2,28 @@
 ice40_braminit - iCE40: perform SB_RAM40_4K initialization from file
 ====================================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help ice40_braminit`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help ice40_braminit`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`ice40_braminit` ::
+    .. code:: yoscrypt
+
+        ice40_braminit
+
+    ::
 
         This command processes all SB_RAM40_4K blocks with a non-empty INIT_FILE
         parameter and converts it into the required INIT_x attributes
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

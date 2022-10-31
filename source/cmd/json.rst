@@ -2,28 +2,48 @@
 json - write design in JSON format
 ==================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help json`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help json`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`json [options] [selection]` ::
+    .. code:: yoscrypt
+
+        json [options] [selection]
+
+    ::
 
         Write a JSON netlist of all selected objects.
 
 
-    :code:`-o <filename>` ::
+    .. code:: yoscrypt
+
+        -o <filename>
+
+    ::
 
             write to the specified file.
 
 
-    :code:`-aig` ::
+    .. code:: yoscrypt
+
+        -aig
+
+    ::
 
             also include AIG models for the different gate types
 
 
-    :code:`-compat-int` ::
+    .. code:: yoscrypt
+
+        -compat-int
+
+    ::
 
             emit 32-bit or smaller fully-defined parameter values directly
             as JSON numbers (for compatibility with old parsers)
@@ -32,6 +52,10 @@ json - write design in JSON format
     ::
 
         See 'help write_json' for a description of the JSON format used.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

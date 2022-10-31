@@ -2,18 +2,30 @@
 synth_intel - synthesis for Intel (Altera) FPGAs.
 =================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help synth_intel`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help synth_intel`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`synth_intel [options]` ::
+    .. code:: yoscrypt
+
+        synth_intel [options]
+
+    ::
 
         This command runs synthesis for Intel FPGAs.
 
 
-    :code:`-family <max10 | cyclone10lp | cycloneiv | cycloneive>` ::
+    .. code:: yoscrypt
+
+        -family <max10 | cyclone10lp | cycloneiv | cycloneive>
+
+    ::
 
             generate the synthesis netlist for the specified family.
             MAX10 is the default target if no family argument specified.
@@ -22,12 +34,20 @@ synth_intel - synthesis for Intel (Altera) FPGAs.
             backend instead.
 
 
-    :code:`-top <module>` ::
+    .. code:: yoscrypt
+
+        -top <module>
+
+    ::
 
             use the specified module as top module (default='top')
 
 
-    :code:`-vqm <file>` ::
+    .. code:: yoscrypt
+
+        -vqm <file>
+
+    ::
 
             write the design to the specified Verilog Quartus Mapping File. Writing
             of an output file is omitted if this parameter is not specified.
@@ -35,36 +55,60 @@ synth_intel - synthesis for Intel (Altera) FPGAs.
             with recent versions of Quartus.
 
 
-    :code:`-vpr <file>` ::
+    .. code:: yoscrypt
+
+        -vpr <file>
+
+    ::
 
             write BLIF files for VPR flow experiments. The synthesized BLIF output
             file is not compatible with the Quartus flow. Writing of an
             output file is omitted if this parameter is not specified.
 
 
-    :code:`-run <from_label>:<to_label>` ::
+    .. code:: yoscrypt
+
+        -run <from_label>:<to_label>
+
+    ::
 
             only run the commands between the labels (see below). an empty
             from label is synonymous to 'begin', and empty to label is
             synonymous to the end of the command list.
 
 
-    :code:`-iopads` ::
+    .. code:: yoscrypt
+
+        -iopads
+
+    ::
 
             use IO pad cells in output netlist
 
 
-    :code:`-nobram` ::
+    .. code:: yoscrypt
+
+        -nobram
+
+    ::
 
             do not use block RAM cells in output netlist
 
 
-    :code:`-noflatten` ::
+    .. code:: yoscrypt
+
+        -noflatten
+
+    ::
 
             do not flatten design before synthesis
 
 
-    :code:`-retime` ::
+    .. code:: yoscrypt
+
+        -retime
+
+    ::
 
             run 'abc' with '-dff -D 1' options
 
@@ -132,6 +176,10 @@ synth_intel - synthesis for Intel (Altera) FPGAs.
 
 
         WARNING: THE 'synth_intel' COMMAND IS EXPERIMENTAL.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

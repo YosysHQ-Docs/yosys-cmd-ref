@@ -2,15 +2,27 @@
 greenpak4_dffinv - merge greenpak4 inverters and DFF/latches
 ============================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help greenpak4_dffinv`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help greenpak4_dffinv`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`greenpak4_dffinv [options] [selection]` ::
+    .. code:: yoscrypt
+
+        greenpak4_dffinv [options] [selection]
+
+    ::
 
         Merge GP_INV cells with GP_DFF* and GP_DLATCH* cells.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

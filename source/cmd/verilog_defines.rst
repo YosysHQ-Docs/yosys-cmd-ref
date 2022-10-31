@@ -2,36 +2,64 @@
 verilog_defines - define and undefine verilog defines
 =====================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help verilog_defines`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help verilog_defines`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`verilog_defines [options]` ::
+    .. code:: yoscrypt
+
+        verilog_defines [options]
+
+    ::
 
         Define and undefine verilog preprocessor macros.
 
 
-    :code:`-Dname[=definition]` ::
+    .. code:: yoscrypt
+
+        -Dname[=definition]
+
+    ::
 
             define the preprocessor symbol 'name' and set its optional value
             'definition'
 
 
-    :code:`-Uname[=definition]` ::
+    .. code:: yoscrypt
+
+        -Uname[=definition]
+
+    ::
 
             undefine the preprocessor symbol 'name'
 
 
-    :code:`-reset` ::
+    .. code:: yoscrypt
+
+        -reset
+
+    ::
 
             clear list of defined preprocessor symbols
 
 
-    :code:`-list` ::
+    .. code:: yoscrypt
+
+        -list
+
+    ::
 
             list currently defined preprocessor symbols
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

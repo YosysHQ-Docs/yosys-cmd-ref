@@ -2,13 +2,21 @@
 opt_dff - perform DFF optimizations
 ===================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help opt_dff`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help opt_dff`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`opt_dff [-nodffe] [-nosdff] [-keepdc] [-sat] [selection]` ::
+    .. code:: yoscrypt
+
+        opt_dff [-nodffe] [-nosdff] [-keepdc] [-sat] [selection]
+
+    ::
 
         This pass converts flip-flops to a more suitable type by merging clock enables
         and synchronous reset multiplexers, removing unused control inputs, or
@@ -16,35 +24,59 @@ opt_dff - perform DFF optimizations
         driver.
 
 
-    :code:`-nodffe` ::
+    .. code:: yoscrypt
+
+        -nodffe
+
+    ::
 
             disables dff -> dffe conversion, and other transforms recognizing clock
             enable
 
 
-    :code:`-nosdff` ::
+    .. code:: yoscrypt
+
+        -nosdff
+
+    ::
 
             disables dff -> sdff conversion, and other transforms recognizing sync
             resets
 
 
-    :code:`-simple-dffe` ::
+    .. code:: yoscrypt
+
+        -simple-dffe
+
+    ::
 
             only enables clock enable recognition transform for obvious cases
 
 
-    :code:`-sat` ::
+    .. code:: yoscrypt
+
+        -sat
+
+    ::
 
             additionally invoke SAT solver to detect and remove flip-flops (with
             non-constant inputs) that can also be replaced with a constant driver
 
 
-    :code:`-keepdc` ::
+    .. code:: yoscrypt
+
+        -keepdc
+
+    ::
 
             some optimizations change the behavior of the circuit with respect to
             don't-care bits. for example in 'a+0' a single x-bit in 'a' will cause
             all result bits to be set to x. this behavior changes when 'a+0' is
             replaced by 'a'. the -keepdc option disables all such optimizations.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

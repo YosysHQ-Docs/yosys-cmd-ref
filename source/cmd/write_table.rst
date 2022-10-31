@@ -2,13 +2,21 @@
 write_table - write design as connectivity table
 ================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help write_table`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help write_table`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`write_table [options] [filename]` ::
+    .. code:: yoscrypt
+
+        write_table [options] [filename]
+
+    ::
 
         Write the current design as connectivity table. The output is a tab-separated
         ASCII table with the following columns:
@@ -22,6 +30,10 @@ write_table - write design as connectivity table
 
         module inputs and outputs are output using cell type and port '-' and with
         'pi' (primary input) or 'po' (primary output) or 'pio' as direction.
+.. raw:: latex
+
+    \end{comment}
+
 .. only:: latex
 
     ::

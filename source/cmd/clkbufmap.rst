@@ -2,13 +2,21 @@
 clkbufmap - insert clock buffers on clock networks
 ==================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help clkbufmap`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help clkbufmap`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`clkbufmap [options] [selection]` ::
+    .. code:: yoscrypt
+
+        clkbufmap [options] [selection]
+
+    ::
 
         Inserts clock buffers between nets connected to clock inputs and their drivers.
 
@@ -20,7 +28,11 @@ clkbufmap - insert clock buffers on clock networks
         as the selection.
 
 
-    :code:`-buf <celltype> <portname_out>:<portname_in>` ::
+    .. code:: yoscrypt
+
+        -buf <celltype> <portname_out>:<portname_in>
+
+    ::
 
             Specifies the cell type to use for the clock buffers
             and its port names.  The first port will be connected to
@@ -28,7 +40,11 @@ clkbufmap - insert clock buffers on clock networks
             to the actual clock source.
 
 
-    :code:`-inpad <celltype> <portname_out>:<portname_in>` ::
+    .. code:: yoscrypt
+
+        -inpad <celltype> <portname_out>:<portname_in>
+
+    ::
 
             If specified, a PAD cell of the given type is inserted on
             clock nets that are also top module's inputs (in addition
@@ -38,6 +54,10 @@ clkbufmap - insert clock buffers on clock networks
     ::
 
         At least one of -buf or -inpad should be specified.
+.. raw:: latex
+
+    \end{comment}
+
 .. only:: latex
 
     ::

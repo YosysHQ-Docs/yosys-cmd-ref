@@ -2,15 +2,27 @@
 anlogic_fixcarry - Anlogic: fix carry chain
 ===========================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help anlogic_fixcarry`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help anlogic_fixcarry`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`anlogic_fixcarry [options] [selection]` ::
+    .. code:: yoscrypt
+
+        anlogic_fixcarry [options] [selection]
+
+    ::
 
         Add Anlogic adders to fix carry chain if needed.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

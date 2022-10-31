@@ -2,13 +2,21 @@
 opt_lut_ins - discard unused LUT inputs
 =======================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help opt_lut_ins`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help opt_lut_ins`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`opt_lut_ins [options] [selection]` ::
+    .. code:: yoscrypt
+
+        opt_lut_ins [options] [selection]
+
+    ::
 
         This pass removes unused inputs from LUT cells (that is, inputs that can not
         influence the output signal given this LUT's value).  While such LUTs cannot
@@ -17,10 +25,18 @@ opt_lut_ins - discard unused LUT inputs
         full set of inputs) or optimizations such as xilinx_dffopt.
 
 
-    :code:`-tech <technology>` ::
+    .. code:: yoscrypt
+
+        -tech <technology>
+
+    ::
 
             Instead of generic $lut cells, operate on LUT cells specific
             to the given technology.  Valid values are: xilinx, ecp5, gowin.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

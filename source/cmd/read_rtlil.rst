@@ -2,33 +2,57 @@
 read_rtlil - read modules from RTLIL file
 =========================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help read_rtlil`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help read_rtlil`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`read_rtlil [filename]` ::
+    .. code:: yoscrypt
+
+        read_rtlil [filename]
+
+    ::
 
         Load modules from an RTLIL file to the current design. (RTLIL is a text
         representation of a design in yosys's internal format.)
 
 
-    :code:`-nooverwrite` ::
+    .. code:: yoscrypt
+
+        -nooverwrite
+
+    ::
 
             ignore re-definitions of modules. (the default behavior is to
             create an error message if the existing module is not a blackbox
             module, and overwrite the existing module if it is a blackbox module.)
 
 
-    :code:`-overwrite` ::
+    .. code:: yoscrypt
+
+        -overwrite
+
+    ::
 
             overwrite existing modules with the same name
 
 
-    :code:`-lib` ::
+    .. code:: yoscrypt
+
+        -lib
+
+    ::
 
             only create empty blackbox modules
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

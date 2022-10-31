@@ -2,53 +2,89 @@
 equiv_opt - prove equivalence for optimized circuit
 ===================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help equiv_opt`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help equiv_opt`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`equiv_opt [options] [command]` ::
+    .. code:: yoscrypt
+
+        equiv_opt [options] [command]
+
+    ::
 
         This command uses temporal induction to check circuit equivalence before and
         after an optimization pass.
 
 
-    :code:`-run <from_label>:<to_label>` ::
+    .. code:: yoscrypt
+
+        -run <from_label>:<to_label>
+
+    ::
 
             only run the commands between the labels (see below). an empty
             from label is synonymous to the start of the command list, and empty to
             label is synonymous to the end of the command list.
 
 
-    :code:`-map <filename>` ::
+    .. code:: yoscrypt
+
+        -map <filename>
+
+    ::
 
             expand the modules in this file before proving equivalence. this is
             useful for handling architecture-specific primitives.
 
 
-    :code:`-blacklist <file>` ::
+    .. code:: yoscrypt
+
+        -blacklist <file>
+
+    ::
 
             Do not match cells or signals that match the names in the file
             (passed to equiv_make).
 
 
-    :code:`-assert` ::
+    .. code:: yoscrypt
+
+        -assert
+
+    ::
 
             produce an error if the circuits are not equivalent.
 
 
-    :code:`-multiclock` ::
+    .. code:: yoscrypt
+
+        -multiclock
+
+    ::
 
             run clk2fflogic before equivalence checking.
 
 
-    :code:`-async2sync` ::
+    .. code:: yoscrypt
+
+        -async2sync
+
+    ::
 
             run async2sync before equivalence checking.
 
 
-    :code:`-undef` ::
+    .. code:: yoscrypt
+
+        -undef
+
+    ::
 
             enable modelling of undef states during equiv_induct.
 
@@ -79,6 +115,10 @@ equiv_opt - prove equivalence for optimized circuit
 
             restore:
                 design -load preopt
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

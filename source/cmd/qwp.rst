@@ -2,41 +2,69 @@
 qwp - quadratic wirelength placer
 =================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help qwp`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help qwp`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`qwp [options] [selection]` ::
+    .. code:: yoscrypt
+
+        qwp [options] [selection]
+
+    ::
 
         This command runs quadratic wirelength placement on the selected modules and
         annotates the cells in the design with 'qwp_position' attributes.
 
 
-    :code:`-ltr` ::
+    .. code:: yoscrypt
+
+        -ltr
+
+    ::
 
             Add left-to-right constraints: constrain all inputs on the left border
             outputs to the right border.
 
 
-    :code:`-alpha` ::
+    .. code:: yoscrypt
+
+        -alpha
+
+    ::
 
             Add constraints for inputs/outputs to be placed in alphanumerical
             order along the y-axis (top-to-bottom).
 
 
-    :code:`-grid N` ::
+    .. code:: yoscrypt
+
+        -grid N
+
+    ::
 
             Number of grid divisions in x- and y-direction. (default=16)
 
 
-    :code:`-dump <html_file_name>` ::
+    .. code:: yoscrypt
+
+        -dump <html_file_name>
+
+    ::
 
             Dump a protocol of the placement algorithm to the html file.
 
 
-    :code:`-v` ::
+    .. code:: yoscrypt
+
+        -v
+
+    ::
 
             Verbose solver output for profiling or debugging
 
@@ -45,6 +73,10 @@ qwp - quadratic wirelength placer
 
         Note: This implementation of a quadratic wirelength placer uses exact
         dense matrix operations. It is only a toy-placer for small circuits.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

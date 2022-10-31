@@ -2,13 +2,21 @@
 fsm_export - exporting FSMs to KISS2 files
 ==========================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help fsm_export`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help fsm_export`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`fsm_export [-noauto] [-o filename] [-origenc] [selection]` ::
+    .. code:: yoscrypt
+
+        fsm_export [-noauto] [-o filename] [-origenc] [selection]
+
+    ::
 
         This pass creates a KISS2 file for every selected FSM. For FSMs with the
         'fsm_export' attribute set, the attribute value is used as filename, otherwise
@@ -18,19 +26,35 @@ fsm_export - exporting FSMs to KISS2 files
         exported to the default name as mentioned above.
 
 
-    :code:`-noauto` ::
+    .. code:: yoscrypt
+
+        -noauto
+
+    ::
 
             only export FSMs that have the 'fsm_export' attribute set
 
 
-    :code:`-o filename` ::
+    .. code:: yoscrypt
+
+        -o filename
+
+    ::
 
             filename of the first exported FSM
 
 
-    :code:`-origenc` ::
+    .. code:: yoscrypt
+
+        -origenc
+
+    ::
 
             use binary state encoding as state names instead of s0, s1, ...
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

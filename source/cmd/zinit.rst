@@ -2,20 +2,36 @@
 zinit - add inverters so all FF are zero-initialized
 ====================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help zinit`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help zinit`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`zinit [options] [selection]` ::
+    .. code:: yoscrypt
+
+        zinit [options] [selection]
+
+    ::
 
         Add inverters as needed to make all FFs zero-initialized.
 
 
-    :code:`-all` ::
+    .. code:: yoscrypt
+
+        -all
+
+    ::
 
             also add zero initialization to uninitialized FFs
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

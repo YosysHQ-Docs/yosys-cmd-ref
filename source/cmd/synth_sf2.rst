@@ -2,68 +2,116 @@
 synth_sf2 - synthesis for SmartFusion2 and IGLOO2 FPGAs
 =======================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help synth_sf2`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help synth_sf2`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`synth_sf2 [options]` ::
+    .. code:: yoscrypt
+
+        synth_sf2 [options]
+
+    ::
 
         This command runs synthesis for SmartFusion2 and IGLOO2 FPGAs.
 
 
-    :code:`-top <module>` ::
+    .. code:: yoscrypt
+
+        -top <module>
+
+    ::
 
             use the specified module as top module
 
 
-    :code:`-edif <file>` ::
+    .. code:: yoscrypt
+
+        -edif <file>
+
+    ::
 
             write the design to the specified EDIF file. writing of an output file
             is omitted if this parameter is not specified.
 
 
-    :code:`-vlog <file>` ::
+    .. code:: yoscrypt
+
+        -vlog <file>
+
+    ::
 
             write the design to the specified Verilog file. writing of an output
             file is omitted if this parameter is not specified.
 
 
-    :code:`-json <file>` ::
+    .. code:: yoscrypt
+
+        -json <file>
+
+    ::
 
             write the design to the specified JSON file. writing of an output file
             is omitted if this parameter is not specified.
 
 
-    :code:`-run <from_label>:<to_label>` ::
+    .. code:: yoscrypt
+
+        -run <from_label>:<to_label>
+
+    ::
 
             only run the commands between the labels (see below). an empty
             from label is synonymous to 'begin', and empty to label is
             synonymous to the end of the command list.
 
 
-    :code:`-noflatten` ::
+    .. code:: yoscrypt
+
+        -noflatten
+
+    ::
 
             do not flatten design before synthesis
 
 
-    :code:`-noiobs` ::
+    .. code:: yoscrypt
+
+        -noiobs
+
+    ::
 
             run synthesis in "block mode", i.e. do not insert IO buffers
 
 
-    :code:`-clkbuf` ::
+    .. code:: yoscrypt
+
+        -clkbuf
+
+    ::
 
             insert direct PAD->global_net buffers
 
 
-    :code:`-discard-ffinit` ::
+    .. code:: yoscrypt
+
+        -discard-ffinit
+
+    ::
 
             discard FF init value instead of emitting an error
 
 
-    :code:`-retime` ::
+    .. code:: yoscrypt
+
+        -retime
+
+    ::
 
             run 'abc' with '-dff -D 1' options
 
@@ -128,6 +176,10 @@ synth_sf2 - synthesis for SmartFusion2 and IGLOO2 FPGAs
 
             json:
                 write_json <file-name>
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

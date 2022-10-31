@@ -2,26 +2,46 @@
 read_blif - read BLIF file
 ==========================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help read_blif`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help read_blif`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`read_blif [options] [filename]` ::
+    .. code:: yoscrypt
+
+        read_blif [options] [filename]
+
+    ::
 
         Load modules from a BLIF file into the current design.
 
 
-    :code:`-sop` ::
+    .. code:: yoscrypt
+
+        -sop
+
+    ::
 
             Create $sop cells instead of $lut cells
 
 
-    :code:`-wideports` ::
+    .. code:: yoscrypt
+
+        -wideports
+
+    ::
 
             Merge ports that match the pattern 'name[int]' into a single
             multi-bit port 'name'.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

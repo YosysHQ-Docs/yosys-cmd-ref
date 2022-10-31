@@ -2,25 +2,41 @@
 synth_xilinx - synthesis for Xilinx FPGAs
 =========================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help synth_xilinx`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help synth_xilinx`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`synth_xilinx [options]` ::
+    .. code:: yoscrypt
+
+        synth_xilinx [options]
+
+    ::
 
         This command runs synthesis for Xilinx FPGAs. This command does not operate on
         partly selected designs. At the moment this command creates netlists that are
         compatible with 7-Series Xilinx devices.
 
 
-    :code:`-top <module>` ::
+    .. code:: yoscrypt
+
+        -top <module>
+
+    ::
 
             use the specified module as top module
 
 
-    :code:`-family <family>` ::
+    .. code:: yoscrypt
+
+        -family <family>
+
+    ::
 
             run synthesis for the specified Xilinx architecture
             generate the synthesis netlist for the specified family.
@@ -42,101 +58,173 @@ synth_xilinx - synthesis for Xilinx FPGAs
             - xcv: Virtex, Spartan 2 (EXPERIMENTAL)
 
 
-    :code:`-edif <file>` ::
+    .. code:: yoscrypt
+
+        -edif <file>
+
+    ::
 
             write the design to the specified edif file. writing of an output file
             is omitted if this parameter is not specified.
 
 
-    :code:`-blif <file>` ::
+    .. code:: yoscrypt
+
+        -blif <file>
+
+    ::
 
             write the design to the specified BLIF file. writing of an output file
             is omitted if this parameter is not specified.
 
 
-    :code:`-ise` ::
+    .. code:: yoscrypt
+
+        -ise
+
+    ::
 
             generate an output netlist suitable for ISE
 
 
-    :code:`-nobram` ::
+    .. code:: yoscrypt
+
+        -nobram
+
+    ::
 
             do not use block RAM cells in output netlist
 
 
-    :code:`-nolutram` ::
+    .. code:: yoscrypt
+
+        -nolutram
+
+    ::
 
             do not use distributed RAM cells in output netlist
 
 
-    :code:`-nosrl` ::
+    .. code:: yoscrypt
+
+        -nosrl
+
+    ::
 
             do not use distributed SRL cells in output netlist
 
 
-    :code:`-nocarry` ::
+    .. code:: yoscrypt
+
+        -nocarry
+
+    ::
 
             do not use XORCY/MUXCY/CARRY4 cells in output netlist
 
 
-    :code:`-nowidelut` ::
+    .. code:: yoscrypt
+
+        -nowidelut
+
+    ::
 
             do not use MUXF[5-9] resources to implement LUTs larger than native for
             the target
 
 
-    :code:`-nodsp` ::
+    .. code:: yoscrypt
+
+        -nodsp
+
+    ::
 
             do not use DSP48*s to implement multipliers and associated logic
 
 
-    :code:`-noiopad` ::
+    .. code:: yoscrypt
+
+        -noiopad
+
+    ::
 
             disable I/O buffer insertion (useful for hierarchical or 
             out-of-context flows)
 
 
-    :code:`-noclkbuf` ::
+    .. code:: yoscrypt
+
+        -noclkbuf
+
+    ::
 
             disable automatic clock buffer insertion
 
 
-    :code:`-uram` ::
+    .. code:: yoscrypt
+
+        -uram
+
+    ::
 
             infer URAM288s for large memories (xcup only)
 
 
-    :code:`-widemux <int>` ::
+    .. code:: yoscrypt
+
+        -widemux <int>
+
+    ::
 
             enable inference of hard multiplexer resources (MUXF[78]) for muxes at
             or above this number of inputs (minimum value 2, recommended value >= 5)
             default: 0 (no inference)
 
 
-    :code:`-run <from_label>:<to_label>` ::
+    .. code:: yoscrypt
+
+        -run <from_label>:<to_label>
+
+    ::
 
             only run the commands between the labels (see below). an empty
             from label is synonymous to 'begin', and empty to label is
             synonymous to the end of the command list.
 
 
-    :code:`-flatten` ::
+    .. code:: yoscrypt
+
+        -flatten
+
+    ::
 
             flatten design before synthesis
 
 
-    :code:`-dff` ::
+    .. code:: yoscrypt
+
+        -dff
+
+    ::
 
             run 'abc'/'abc9' with -dff option
 
 
-    :code:`-retime` ::
+    .. code:: yoscrypt
+
+        -retime
+
+    ::
 
             run 'abc' with '-D 1' option to enable flip-flop retiming.
             implies -dff.
 
 
-    :code:`-abc9` ::
+    .. code:: yoscrypt
+
+        -abc9
+
+    ::
 
             use new ABC9 flow (EXPERIMENTAL)
 
@@ -241,6 +329,10 @@ synth_xilinx - synthesis for Xilinx FPGAs
 
             blif:
                 write_blif 
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

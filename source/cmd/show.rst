@@ -2,32 +2,52 @@
 show - generate schematics using graphviz
 =========================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help show`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help show`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`show [options] [selection]` ::
+    .. code:: yoscrypt
+
+        show [options] [selection]
+
+    ::
 
         Create a graphviz DOT file for the selected part of the design and compile it
         to a graphics file (usually SVG or PostScript).
 
 
-    :code:`-viewer <viewer>` ::
+    .. code:: yoscrypt
+
+        -viewer <viewer>
+
+    ::
 
             Run the specified command with the graphics file as parameter.
             On Windows, this pauses yosys until the viewer exits.
 
 
-    :code:`-format <format>` ::
+    .. code:: yoscrypt
+
+        -format <format>
+
+    ::
 
             Generate a graphics file in the specified format. Use 'dot' to just
             generate a .dot file, or other <format> strings such as 'svg' or 'ps'
             to generate files in other formats (this calls the 'dot' command).
 
 
-    :code:`-lib <verilog_or_rtlil_file>` ::
+    .. code:: yoscrypt
+
+        -lib <verilog_or_rtlil_file>
+
+    ::
 
             Use the specified library file for determining whether cell ports are
             inputs or outputs. This option can be used multiple times to specify
@@ -38,76 +58,128 @@ show - generate schematics using graphviz
             load liberty files with 'read_liberty -lib <filename>'.
 
 
-    :code:`-prefix <prefix>` ::
+    .. code:: yoscrypt
+
+        -prefix <prefix>
+
+    ::
 
             generate <prefix>.* instead of ~/.yosys_show.*
 
 
-    :code:`-color <color> <object>` ::
+    .. code:: yoscrypt
+
+        -color <color> <object>
+
+    ::
 
             assign the specified color to the specified object. The object can be
             a single selection wildcard expressions or a saved set of objects in
             the @<name> syntax (see "help select" for details).
 
 
-    :code:`-label <text> <object>` ::
+    .. code:: yoscrypt
+
+        -label <text> <object>
+
+    ::
 
             assign the specified label text to the specified object. The object can
             be a single selection wildcard expressions or a saved set of objects in
             the @<name> syntax (see "help select" for details).
 
 
-    :code:`-colors <seed>` ::
+    .. code:: yoscrypt
+
+        -colors <seed>
+
+    ::
 
             Randomly assign colors to the wires. The integer argument is the seed
             for the random number generator. Change the seed value if the colored
             graph still is ambiguous. A seed of zero deactivates the coloring.
 
 
-    :code:`-colorattr <attribute_name>` ::
+    .. code:: yoscrypt
+
+        -colorattr <attribute_name>
+
+    ::
 
             Use the specified attribute to assign colors. A unique color is
             assigned to each unique value of this attribute.
 
 
-    :code:`-width` ::
+    .. code:: yoscrypt
+
+        -width
+
+    ::
 
             annotate buses with a label indicating the width of the bus.
 
 
-    :code:`-signed` ::
+    .. code:: yoscrypt
+
+        -signed
+
+    ::
 
             mark ports (A, B) that are declared as signed (using the [AB]_SIGNED
             cell parameter) with an asterisk next to the port name.
 
 
-    :code:`-stretch` ::
+    .. code:: yoscrypt
+
+        -stretch
+
+    ::
 
             stretch the graph so all inputs are on the left side and all outputs
             (including inout ports) are on the right side.
 
 
-    :code:`-pause` ::
+    .. code:: yoscrypt
+
+        -pause
+
+    ::
 
             wait for the user to press enter to before returning
 
 
-    :code:`-enum` ::
+    .. code:: yoscrypt
+
+        -enum
+
+    ::
 
             enumerate objects with internal ($-prefixed) names
 
 
-    :code:`-long` ::
+    .. code:: yoscrypt
+
+        -long
+
+    ::
 
             do not abbreviate objects with internal ($-prefixed) names
 
 
-    :code:`-notitle` ::
+    .. code:: yoscrypt
+
+        -notitle
+
+    ::
 
             do not add the module name as graph title to the dot file
 
 
-    :code:`-nobg` ::
+    .. code:: yoscrypt
+
+        -nobg
+
+    ::
 
             don't run viewer in the background, IE wait for the viewer tool to
             exit before returning
@@ -124,6 +196,10 @@ show - generate schematics using graphviz
         Yosys on Windows and YosysJS use different defaults: The output is written
         to 'show.dot' in the current directory and new viewer is launched each time
         the 'show' command is executed.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

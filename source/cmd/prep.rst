@@ -2,64 +2,108 @@
 prep - generic synthesis script
 ===============================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help prep`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help prep`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`prep [options]` ::
+    .. code:: yoscrypt
+
+        prep [options]
+
+    ::
 
         This command runs a conservative RTL synthesis. A typical application for this
         is the preparation stage of a verification flow. This command does not operate
         on partly selected designs.
 
 
-    :code:`-top <module>` ::
+    .. code:: yoscrypt
+
+        -top <module>
+
+    ::
 
             use the specified module as top module (default='top')
 
 
-    :code:`-auto-top` ::
+    .. code:: yoscrypt
+
+        -auto-top
+
+    ::
 
             automatically determine the top of the design hierarchy
 
 
-    :code:`-flatten` ::
+    .. code:: yoscrypt
+
+        -flatten
+
+    ::
 
             flatten the design before synthesis. this will pass '-auto-top' to
             'hierarchy' if no top module is specified.
 
 
-    :code:`-ifx` ::
+    .. code:: yoscrypt
+
+        -ifx
+
+    ::
 
             passed to 'proc'. uses verilog simulation behavior for verilog if/case
             undef handling. this also prevents 'wreduce' from being run.
 
 
-    :code:`-memx` ::
+    .. code:: yoscrypt
+
+        -memx
+
+    ::
 
             simulate verilog simulation behavior for out-of-bounds memory accesses
             using the 'memory_memx' pass.
 
 
-    :code:`-nomem` ::
+    .. code:: yoscrypt
+
+        -nomem
+
+    ::
 
             do not run any of the memory_* passes
 
 
-    :code:`-rdff` ::
+    .. code:: yoscrypt
+
+        -rdff
+
+    ::
 
             call 'memory_dff'. This enables merging of FFs into
             memory read ports.
 
 
-    :code:`-nokeepdc` ::
+    .. code:: yoscrypt
+
+        -nokeepdc
+
+    ::
 
             do not call opt_* with -keepdc
 
 
-    :code:`-run <from_label>[:<to_label>]` ::
+    .. code:: yoscrypt
+
+        -run <from_label>[:<to_label>]
+
+    ::
 
             only run the commands between the labels (see below). an empty
             from label is synonymous to 'begin', and empty to label is
@@ -91,6 +135,10 @@ prep - generic synthesis script
             check:
                 stat
                 check
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

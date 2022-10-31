@@ -2,13 +2,21 @@
 write_smt2 - write design to SMT-LIBv2 file
 ===========================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help write_smt2`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help write_smt2`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`write_smt2 [options] [filename]` ::
+    .. code:: yoscrypt
+
+        write_smt2 [options] [filename]
+
+    ::
 
         Write a SMT-LIBv2 [1] description of the current design. For a module with name
         '<mod>' this will declare the sort '<mod>_s' (state of the module) and will
@@ -79,32 +87,52 @@ write_smt2 - write design to SMT-LIBv2 file
         Options:
 
 
-    :code:`-verbose` ::
+    .. code:: yoscrypt
+
+        -verbose
+
+    ::
 
             this will print the recursive walk used to export the modules.
 
 
-    :code:`-stbv` ::
+    .. code:: yoscrypt
+
+        -stbv
+
+    ::
 
             Use a BitVec sort to represent a state instead of an uninterpreted
             sort. As a side-effect this will prevent use of arrays to model
             memories.
 
 
-    :code:`-stdt` ::
+    .. code:: yoscrypt
+
+        -stdt
+
+    ::
 
             Use SMT-LIB 2.6 style datatypes to represent a state instead of an
             uninterpreted sort.
 
 
-    :code:`-nobv` ::
+    .. code:: yoscrypt
+
+        -nobv
+
+    ::
 
             disable support for BitVec (FixedSizeBitVectors theory). without this
             option multi-bit wires are represented using the BitVec sort and
             support for coarse grain cells (incl. arithmetic) is enabled.
 
 
-    :code:`-nomem` ::
+    .. code:: yoscrypt
+
+        -nomem
+
+    ::
 
             disable support for memories (via ArraysEx theory). this option is
             implied by -nobv. only $mem cells without merged registers in
@@ -114,19 +142,31 @@ write_smt2 - write design to SMT-LIBv2 file
             memories.
 
 
-    :code:`-wires` ::
+    .. code:: yoscrypt
+
+        -wires
+
+    ::
 
             create '<mod>_n' functions for all public wires. by default only ports,
             registers, and wires with the 'keep' attribute are exported.
 
 
-    :code:`-tpl <template_file>` ::
+    .. code:: yoscrypt
+
+        -tpl <template_file>
+
+    ::
 
             use the given template file. the line containing only the token '%%'
             is replaced with the regular output of this command.
 
 
-    :code:`-solver-option <option> <value>` ::
+    .. code:: yoscrypt
+
+        -solver-option <option> <value>
+
+    ::
 
             emit a `; yosys-smt2-solver-option` directive for yosys-smtbmc to write
             the given option as a `(set-option ...)` command in the SMT-LIBv2.
@@ -181,6 +221,10 @@ write_smt2 - write design to SMT-LIBv2 file
 
         Running 'cvc4 test.smt2' will print 'unsat' because y can never transition
         from non-zero to zero in the test design.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

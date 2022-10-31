@@ -2,16 +2,28 @@
 memory_unpack - unpack multi-port memory cells
 ==============================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help memory_unpack`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help memory_unpack`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`memory_unpack [selection]` ::
+    .. code:: yoscrypt
+
+        memory_unpack [selection]
+
+    ::
 
         This pass converts the multi-port $mem memory cells into individual $memrd and
         $memwr cells. It is the counterpart to the memory_collect pass.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

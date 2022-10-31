@@ -2,13 +2,21 @@
 tcl - execute a TCL script file
 ===============================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help tcl`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help tcl`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`tcl <filename> [args]` ::
+    .. code:: yoscrypt
+
+        tcl <filename> [args]
+
+    ::
 
         This command executes the tcl commands in the specified file.
         Use 'yosys cmd' to run the yosys command 'cmd' from tcl.
@@ -24,6 +32,10 @@ tcl - execute a TCL script file
         Note, tcl will not recieve the output of any yosys command. If the output
         of the tcl commands are needed, use the yosys command 'tee' to redirect yosys's
         output to a temporary file.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

@@ -2,22 +2,38 @@
 proc_mux - convert decision trees to multiplexers
 =================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help proc_mux`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help proc_mux`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`proc_mux [options] [selection]` ::
+    .. code:: yoscrypt
+
+        proc_mux [options] [selection]
+
+    ::
 
         This pass converts the decision trees in processes (originating from if-else
         and case statements) to trees of multiplexer cells.
 
 
-    :code:`-ifx` ::
+    .. code:: yoscrypt
+
+        -ifx
+
+    ::
 
             Use Verilog simulation behavior with respect to undef values in
             'case' expressions and 'if' conditions.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

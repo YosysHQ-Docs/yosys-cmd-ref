@@ -2,35 +2,52 @@
 rename - rename object in the design
 ====================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help rename`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help rename`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`rename old_name new_name` ::
+    .. code:: yoscrypt
+
+        rename old_name new_name
+
+    ::
 
         Rename the specified object. Note that selection patterns are not supported
         by this command.
 
 
 
+    .. code:: yoscrypt
 
-    :code:`rename -output old_name new_name` ::
+        rename -output old_name new_name
+
+    ::
 
         Like above, but also make the wire an output. This will fail if the object is
         not a wire.
 
 
+    .. code:: yoscrypt
 
-    :code:`rename -src [selection]` ::
+        rename -src [selection]
+
+    ::
 
         Assign names auto-generated from the src attribute to all selected wires and
         cells with private names.
 
 
+    .. code:: yoscrypt
 
-    :code:`rename -wire [selection] [-suffix <suffix>]` ::
+        rename -wire [selection] [-suffix <suffix>]
+
+    ::
 
         Assign auto-generated names based on the wires they drive to all selected
         cells with private names. Ignores cells driving privatly named wires.
@@ -38,8 +55,11 @@ rename - rename object in the design
         The -suffix option can be used to set the suffix to the given string instead.
 
 
+    .. code:: yoscrypt
 
-    :code:`rename -enumerate [-pattern <pattern>] [selection]` ::
+        rename -enumerate [-pattern <pattern>] [selection]
+
+    ::
 
         Assign short auto-generated names to all selected wires and cells with private
         names. The -pattern option can be used to set the pattern for the new names.
@@ -47,8 +67,11 @@ rename - rename object in the design
         pattern is '_%_'.
 
 
+    .. code:: yoscrypt
 
-    :code:`rename -witness` ::
+        rename -witness
+
+    ::
 
         Assigns auto-generated names to all $any*/$all* output wires and containing
         cells that do not have a public name. This ensures that, during formal
@@ -56,25 +79,38 @@ rename - rename object in the design
         hierarchical names.
 
 
+    .. code:: yoscrypt
 
-    :code:`rename -hide [selection]` ::
+        rename -hide [selection]
+
+    ::
 
         Assign private names (the ones with $-prefix) to all selected wires and cells
         with public names. This ignores all selected ports.
 
 
+    .. code:: yoscrypt
 
-    :code:`rename -top new_name` ::
+        rename -top new_name
+
+    ::
 
         Rename top module.
 
 
+    .. code:: yoscrypt
 
-    :code:`rename -scramble-name [-seed <seed>] [selection]` ::
+        rename -scramble-name [-seed <seed>] [selection]
+
+    ::
 
         Assign randomly-generated names to all selected wires and cells. The seed option
         can be used to change the random number generator seed from the default, but it
         must be non-zero.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

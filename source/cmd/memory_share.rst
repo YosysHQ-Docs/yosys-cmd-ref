@@ -2,13 +2,21 @@
 memory_share - consolidate memory ports
 =======================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help memory_share`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help memory_share`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`memory_share [-nosat] [-nowiden] [selection]` ::
+    .. code:: yoscrypt
+
+        memory_share [-nosat] [-nowiden] [selection]
+
+    ::
 
         This pass merges share-able memory ports into single memory ports.
 
@@ -28,6 +36,10 @@ memory_share - consolidate memory ports
         Note that in addition to the algorithms implemented in this pass, the $memrd
         and $memwr cells are also subject to generic resource sharing passes (and other
         optimizations) such as "share" and "opt_merge".
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

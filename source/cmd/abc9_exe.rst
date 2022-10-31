@@ -2,26 +2,42 @@
 abc9_exe - use ABC9 for technology mapping
 ==========================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help abc9_exe`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help abc9_exe`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`abc9_exe [options]` ::
+    .. code:: yoscrypt
+
+        abc9_exe [options]
+
+    ::
 
         This pass uses the ABC tool [1] for technology mapping of the top module
         (according to the (* top *) attribute or if only one module is currently
         selected) to a target FPGA architecture.
 
 
-    :code:`-exe <command>` ::
+    .. code:: yoscrypt
+
+        -exe <command>
+
+    ::
 
             use the specified command instead of "<yosys-bindir>/yosys-abc" to execute ABC.
             This can e.g. be used to call a specific version of ABC or a wrapper.
 
 
-    :code:`-script <file>` ::
+    .. code:: yoscrypt
+
+        -script <file>
+
+    ::
 
             use the specified ABC script file instead of the default script.
 
@@ -34,26 +50,42 @@ abc9_exe - use ABC9 for technology mapping
               &scorr; &sweep; &dc2; &dch -f; &ps; &if {C} {W} {D} {R} -v; &mfs
 
 
-    :code:`-fast` ::
+    .. code:: yoscrypt
+
+        -fast
+
+    ::
 
             use different default scripts that are slightly faster (at the cost
             of output quality):
               &if {C} {W} {D} {R} -v
 
 
-    :code:`-D <picoseconds>` ::
+    .. code:: yoscrypt
+
+        -D <picoseconds>
+
+    ::
 
             set delay target. the string {D} in the default scripts above is
             replaced by this option when used, and an empty string otherwise
             (indicating best possible delay).
 
 
-    :code:`-lut <width>` ::
+    .. code:: yoscrypt
+
+        -lut <width>
+
+    ::
 
             generate netlist using luts of (max) the specified width.
 
 
-    :code:`-lut <w1>:<w2>` ::
+    .. code:: yoscrypt
+
+        -lut <w1>:<w2>
+
+    ::
 
             generate netlist using luts of (max) the specified width <w2>. All
             luts with width <= <w1> have constant cost. for luts larger than <w1>
@@ -61,29 +93,49 @@ abc9_exe - use ABC9 for technology mapping
             is still constant for all lut widths.
 
 
-    :code:`-lut <file>` ::
+    .. code:: yoscrypt
+
+        -lut <file>
+
+    ::
 
             pass this file with lut library to ABC.
 
 
-    :code:`-luts <cost1>,<cost2>,<cost3>,<sizeN>:<cost4-N>,..` ::
+    .. code:: yoscrypt
+
+        -luts <cost1>,<cost2>,<cost3>,<sizeN>:<cost4-N>,..
+
+    ::
 
             generate netlist using luts. Use the specified costs for luts with 1,
             2, 3, .. inputs.
 
 
-    :code:`-showtmp` ::
+    .. code:: yoscrypt
+
+        -showtmp
+
+    ::
 
             print the temp dir name in log. usually this is suppressed so that the
             command output is identical across runs.
 
 
-    :code:`-box <file>` ::
+    .. code:: yoscrypt
+
+        -box <file>
+
+    ::
 
             pass this file with box library to ABC.
 
 
-    :code:`-cwd <dir>` ::
+    .. code:: yoscrypt
+
+        -cwd <dir>
+
+    ::
 
             use this as the current working directory, inside which the 'input.xaig'
             file is expected. temporary files will be created in this directory, and
@@ -100,6 +152,10 @@ abc9_exe - use ABC9 for technology mapping
         you want to use ABC to convert your design into another format.
 
         [1] http://www.eecs.berkeley.edu/~alanmi/abc/
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

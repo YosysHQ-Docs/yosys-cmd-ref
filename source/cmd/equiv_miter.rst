@@ -2,35 +2,63 @@
 equiv_miter - extract miter from equiv circuit
 ==============================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help equiv_miter`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help equiv_miter`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`equiv_miter [options] miter_module [selection]` ::
+    .. code:: yoscrypt
+
+        equiv_miter [options] miter_module [selection]
+
+    ::
 
         This creates a miter module for further analysis of the selected $equiv cells.
 
 
-    :code:`-trigger` ::
+    .. code:: yoscrypt
+
+        -trigger
+
+    ::
 
             Create a trigger output
 
 
-    :code:`-cmp` ::
+    .. code:: yoscrypt
+
+        -cmp
+
+    ::
 
             Create cmp_* outputs for individual unproven $equiv cells
 
 
-    :code:`-assert` ::
+    .. code:: yoscrypt
+
+        -assert
+
+    ::
 
             Create a $assert cell for each unproven $equiv cell
 
 
-    :code:`-undef` ::
+    .. code:: yoscrypt
+
+        -undef
+
+    ::
 
             Create compare logic that handles undefs correctly
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

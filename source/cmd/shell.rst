@@ -2,13 +2,21 @@
 shell - enter interactive command mode
 ======================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help shell`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help shell`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`shell` ::
+    .. code:: yoscrypt
+
+        shell
+
+    ::
 
         This command enters the interactive command mode. This can be useful
         in a script to interrupt the script at a certain point and allow for
@@ -36,6 +44,10 @@ shell - enter interactive command mode
         on the command line.
 
         Press Ctrl-D or type 'exit' to leave the interactive shell.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

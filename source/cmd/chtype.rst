@@ -2,26 +2,46 @@
 chtype - change type of cells in the design
 ===========================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help chtype`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help chtype`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`chtype [options] [selection]` ::
+    .. code:: yoscrypt
+
+        chtype [options] [selection]
+
+    ::
 
         Change the types of cells in the design.
 
 
-    :code:`-set <type>` ::
+    .. code:: yoscrypt
+
+        -set <type>
+
+    ::
 
             set the cell type to the given type
 
 
-    :code:`-map <old_type> <new_type>` ::
+    .. code:: yoscrypt
+
+        -map <old_type> <new_type>
+
+    ::
 
             change cells types that match <old_type> to <new_type>
 
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

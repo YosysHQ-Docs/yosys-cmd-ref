@@ -2,27 +2,47 @@
 dffunmap - unmap clock enable and synchronous reset from FFs
 ============================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help dffunmap`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help dffunmap`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`dffunmap [options] [selection]` ::
+    .. code:: yoscrypt
+
+        dffunmap [options] [selection]
+
+    ::
 
         This pass transforms FF types with clock enable and/or synchronous reset into
         their base type (with neither clock enable nor sync reset) by emulating the
         clock enable and synchronous reset with multiplexers on the cell input.
 
 
-    :code:`-ce-only` ::
+    .. code:: yoscrypt
+
+        -ce-only
+
+    ::
 
             unmap only clock enables, leave synchronous resets alone.
 
 
-    :code:`-srst-only` ::
+    .. code:: yoscrypt
+
+        -srst-only
+
+    ::
 
             unmap only synchronous resets, leave clock enables alone.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

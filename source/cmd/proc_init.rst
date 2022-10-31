@@ -2,17 +2,29 @@
 proc_init - convert initial block to init attributes
 ====================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help proc_init`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help proc_init`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`proc_init [selection]` ::
+    .. code:: yoscrypt
+
+        proc_init [selection]
+
+    ::
 
         This pass extracts the 'init' actions from processes (generated from Verilog
         'initial' blocks) and sets the initial value to the 'init' attribute on the
         respective wire.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

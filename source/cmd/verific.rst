@@ -2,13 +2,21 @@
 verific - load Verilog and VHDL designs using Verific
 =====================================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help verific`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help verific`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`verific {-vlog95|-vlog2k|-sv2005|-sv2009|-sv2012|-sv} <verilog-file>..` ::
+    .. code:: yoscrypt
+
+        verific {-vlog95|-vlog2k|-sv2005|-sv2009|-sv2012|-sv} <verilog-file>..
+
+    ::
 
         Load the specified Verilog/SystemVerilog files into Verific.
 
@@ -251,6 +259,10 @@ verific - load Verilog and VHDL designs using Verific
 
         Contact office@yosyshq.com for free evaluation
         binaries of YosysHQ Tabby CAD Suite.
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

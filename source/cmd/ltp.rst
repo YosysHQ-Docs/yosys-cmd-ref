@@ -2,21 +2,37 @@
 ltp - print longest topological path
 ====================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help ltp`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help ltp`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`ltp [options] [selection]` ::
+    .. code:: yoscrypt
+
+        ltp [options] [selection]
+
+    ::
 
         This command prints the longest topological path in the design. (Only considers
         paths within a single module, so the design must be flattened.)
 
 
-    :code:`-noff` ::
+    .. code:: yoscrypt
+
+        -noff
+
+    ::
 
             automatically exclude FF cell types
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 

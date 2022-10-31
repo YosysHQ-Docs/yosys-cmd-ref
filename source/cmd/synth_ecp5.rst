@@ -2,114 +2,198 @@
 synth_ecp5 - synthesis for ECP5 FPGAs
 =====================================
 
-.. only:: html
+.. raw:: latex
 
-    :code:`yosys> help synth_ecp5`
-    ----------------------------------------------------------------------------
+    \begin{comment}
+
+:code:`yosys> help synth_ecp5`
+--------------------------------------------------------------------------------
+
+.. container:: cmdref
 
 
-    :code:`synth_ecp5 [options]` ::
+    .. code:: yoscrypt
+
+        synth_ecp5 [options]
+
+    ::
 
         This command runs synthesis for ECP5 FPGAs.
 
 
-    :code:`-top <module>` ::
+    .. code:: yoscrypt
+
+        -top <module>
+
+    ::
 
             use the specified module as top module
 
 
-    :code:`-blif <file>` ::
+    .. code:: yoscrypt
+
+        -blif <file>
+
+    ::
 
             write the design to the specified BLIF file. writing of an output file
             is omitted if this parameter is not specified.
 
 
-    :code:`-edif <file>` ::
+    .. code:: yoscrypt
+
+        -edif <file>
+
+    ::
 
             write the design to the specified EDIF file. writing of an output file
             is omitted if this parameter is not specified.
 
 
-    :code:`-json <file>` ::
+    .. code:: yoscrypt
+
+        -json <file>
+
+    ::
 
             write the design to the specified JSON file. writing of an output file
             is omitted if this parameter is not specified.
 
 
-    :code:`-run <from_label>:<to_label>` ::
+    .. code:: yoscrypt
+
+        -run <from_label>:<to_label>
+
+    ::
 
             only run the commands between the labels (see below). an empty
             from label is synonymous to 'begin', and empty to label is
             synonymous to the end of the command list.
 
 
-    :code:`-noflatten` ::
+    .. code:: yoscrypt
+
+        -noflatten
+
+    ::
 
             do not flatten design before synthesis
 
 
-    :code:`-dff` ::
+    .. code:: yoscrypt
+
+        -dff
+
+    ::
 
             run 'abc'/'abc9' with -dff option
 
 
-    :code:`-retime` ::
+    .. code:: yoscrypt
+
+        -retime
+
+    ::
 
             run 'abc' with '-dff -D 1' options
 
 
-    :code:`-noccu2` ::
+    .. code:: yoscrypt
+
+        -noccu2
+
+    ::
 
             do not use CCU2 cells in output netlist
 
 
-    :code:`-nodffe` ::
+    .. code:: yoscrypt
+
+        -nodffe
+
+    ::
 
             do not use flipflops with CE in output netlist
 
 
-    :code:`-nobram` ::
+    .. code:: yoscrypt
+
+        -nobram
+
+    ::
 
             do not use block RAM cells in output netlist
 
 
-    :code:`-nolutram` ::
+    .. code:: yoscrypt
+
+        -nolutram
+
+    ::
 
             do not use LUT RAM cells in output netlist
 
 
-    :code:`-nowidelut` ::
+    .. code:: yoscrypt
+
+        -nowidelut
+
+    ::
 
             do not use PFU muxes to implement LUTs larger than LUT4s
 
 
-    :code:`-asyncprld` ::
+    .. code:: yoscrypt
+
+        -asyncprld
+
+    ::
 
             use async PRLD mode to implement ALDFF (EXPERIMENTAL)
 
 
-    :code:`-abc2` ::
+    .. code:: yoscrypt
+
+        -abc2
+
+    ::
 
             run two passes of 'abc' for slightly improved logic density
 
 
-    :code:`-abc9` ::
+    .. code:: yoscrypt
+
+        -abc9
+
+    ::
 
             use new ABC9 flow (EXPERIMENTAL)
 
 
-    :code:`-vpr` ::
+    .. code:: yoscrypt
+
+        -vpr
+
+    ::
 
             generate an output netlist (and BLIF file) suitable for VPR
             (this feature is experimental and incomplete)
 
 
-    :code:`-nodsp` ::
+    .. code:: yoscrypt
+
+        -nodsp
+
+    ::
 
             do not map multipliers to MULT18X18D
 
 
-    :code:`-no-rw-check` ::
+    .. code:: yoscrypt
+
+        -no-rw-check
+
+    ::
 
             marks all recognized read ports as "return don't-care value on
             read/write collision" (same result as setting the no_rw_check
@@ -203,6 +287,10 @@ synth_ecp5 - synthesis for ECP5 FPGAs
 
             json:
                 write_json <file-name>
+
+.. raw:: latex
+
+    \end{comment}
 
 .. only:: latex
 
