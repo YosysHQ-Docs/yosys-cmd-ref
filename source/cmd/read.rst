@@ -27,15 +27,6 @@ read - load HDL designs
 
     .. code:: yoscrypt
 
-        read {-vhdl87|-vhdl93|-vhdl2k|-vhdl2008|-vhdl} <vhdl-file>..
-
-    ::
-
-        Load the specified VHDL files. (Requires Verific.)
-
-
-    .. code:: yoscrypt
-
         read {-f|-F} <command-file>
 
     ::
@@ -102,11 +93,6 @@ read - load HDL designs
         
         Additional -D<macro>[=<value>] options may be added after the option indicating
         the language version (and before file names) to set additional verilog defines.
-        
-        
-            read {-vhdl87|-vhdl93|-vhdl2k|-vhdl2008|-vhdl} <vhdl-file>..
-        
-        Load the specified VHDL files. (Requires Verific.)
         
         
             read {-f|-F} <command-file>
