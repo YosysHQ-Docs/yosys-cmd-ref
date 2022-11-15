@@ -1,0 +1,3101 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+      <title>6. Programming Yosys extensions</title>
+    
+          <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="_static/yosyshq.css" type="text/css" />
+          <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="_static/theme-vendors.js"></script> -->
+      <script src="_static/theme.js" defer></script>
+    
+      <link rel="shortcut icon" href="_static/favico.png"/>
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="next" title="7. The Verilog and AST frontends" href="CHAPTER_Verilog.html" />
+  <link rel="prev" title="5. Internal cell library" href="CHAPTER_CellLib.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="index.html" class="home-link">
+    
+      <img class="logo" src="_static/logo.png" alt="logo"/>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="index.html#yosys-manual"
+         class="nav-link  router-link-active">
+         Manual
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#yosys-manual"
+         class="nav-link ">
+         Appendix
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="cmd_ref.html#command-line-reference"
+         class="nav-link ">
+         Command reference
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://yosyshq.readthedocs.io"
+        class="nav-link external">
+          YosysHQ Docs <outboundlink></outboundlink>
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="https://blog.yosyshq.com"
+        class="nav-link external">
+          Blog <outboundlink></outboundlink>
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="https://www.yosyshq.com"
+        class="nav-link external">
+          Website <outboundlink></outboundlink>
+      </a>
+    </div>
+  
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="index.html#yosys-manual"
+         class="nav-link  router-link-active">
+         Manual
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#yosys-manual"
+         class="nav-link ">
+         Appendix
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="cmd_ref.html#command-line-reference"
+         class="nav-link ">
+         Command reference
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://yosyshq.readthedocs.io"
+        class="nav-link external">
+          YosysHQ Docs <outboundlink></outboundlink>
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="https://blog.yosyshq.com"
+        class="nav-link external">
+          Blog <outboundlink></outboundlink>
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="https://www.yosyshq.com"
+        class="nav-link external">
+          Website <outboundlink></outboundlink>
+      </a>
+    </div>
+  
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#yosys-manual">Manual</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="CHAPTER_Intro.html" class="reference internal ">Introduction</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="CHAPTER_Basics.html" class="reference internal ">Basic principles</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="CHAPTER_Approach.html" class="reference internal ">Approach</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="CHAPTER_Overview.html" class="reference internal ">Implementation overview</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="CHAPTER_CellLib.html" class="reference internal ">Internal cell library</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current">
+            
+              <a href="#" class="reference internal current">Programming Yosys extensions</a>
+            
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#guidelines" class="reference internal">Guidelines</a></li>
+                
+                  <li class="toctree-l2"><a href="#the-stubsnets-example-module" class="reference internal">The “stubsnets” example module</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="CHAPTER_Verilog.html" class="reference internal ">The Verilog and AST frontends</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="CHAPTER_Optimize.html" class="reference internal ">Optimizations</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="CHAPTER_Techmap.html" class="reference internal ">Technology mapping</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#yosys-manual">Appendix</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="appendix/CHAPTER_Auxlibs.html" class="reference internal ">Auxiliary libraries</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="appendix/CHAPTER_Auxprogs.html" class="reference internal ">Auxiliary programs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="appendix/CHAPTER_TextRtlil.html" class="reference internal ">RTLIL text representation</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="appendix/APPNOTE_010_Verilog_to_BLIF.html" class="reference internal ">010: Converting Verilog to BLIF page</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="appendix/APPNOTE_011_Design_Investigation.html" class="reference internal ">011: Interactive design investigation page</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="appendix/APPNOTE_012_Verilog_to_BTOR.html" class="reference internal ">012: Converting Verilog to BTOR page</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="bib.html" class="reference internal ">Literature references</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="cmd_ref.html#command-line-reference">Command reference</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/abc.html" class="reference internal ">abc - use ABC for technology mapping</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/abc9.html" class="reference internal ">abc9 - use ABC9 for technology mapping</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/abc9_exe.html" class="reference internal ">abc9_exe - use ABC9 for technology mapping</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/abc9_ops.html" class="reference internal ">abc9_ops - helper functions for ABC9</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/add.html" class="reference internal ">add - add objects to the design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/aigmap.html" class="reference internal ">aigmap - map logic to and-inverter-graph circuit</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/alumacc.html" class="reference internal ">alumacc - extract ALU and MACC cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/anlogic_eqn.html" class="reference internal ">anlogic_eqn - Anlogic: Calculate equations for luts</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/anlogic_fixcarry.html" class="reference internal ">anlogic_fixcarry - Anlogic: fix carry chain</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/assertpmux.html" class="reference internal ">assertpmux - adds asserts for parallel muxes</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/async2sync.html" class="reference internal ">async2sync - convert async FF inputs to sync circuits</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/attrmap.html" class="reference internal ">attrmap - renaming attributes</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/attrmvcp.html" class="reference internal ">attrmvcp - move or copy attributes from wires to driving cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/autoname.html" class="reference internal ">autoname - automatically assign names to objects</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/blackbox.html" class="reference internal ">blackbox - convert modules into blackbox modules</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/bmuxmap.html" class="reference internal ">bmuxmap - transform $bmux cells to trees of $mux cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/bugpoint.html" class="reference internal ">bugpoint - minimize testcases</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/cd.html" class="reference internal ">cd - a shortcut for ‘select -module <name>’</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/check.html" class="reference internal ">check - check for obvious problems in the design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/chformal.html" class="reference internal ">chformal - change formal constraints of the design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/chparam.html" class="reference internal ">chparam - re-evaluate modules with new parameters</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/chtype.html" class="reference internal ">chtype - change type of cells in the design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/clean.html" class="reference internal ">clean - remove unused cells and wires</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/clean_zerowidth.html" class="reference internal ">clean_zerowidth - clean zero-width connections from the design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/clk2fflogic.html" class="reference internal ">clk2fflogic - convert clocked FFs to generic $ff cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/clkbufmap.html" class="reference internal ">clkbufmap - insert clock buffers on clock networks</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/connect.html" class="reference internal ">connect - create or remove connections</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/connect_rpc.html" class="reference internal ">connect_rpc - connect to RPC frontend</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/connwrappers.html" class="reference internal ">connwrappers - match width of input-output port pairs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/coolrunner2_fixup.html" class="reference internal ">coolrunner2_fixup - insert necessary buffer cells for CoolRunner-II architecture</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/coolrunner2_sop.html" class="reference internal ">coolrunner2_sop - break $sop cells into ANDTERM/ORTERM cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/copy.html" class="reference internal ">copy - copy modules in the design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/cover.html" class="reference internal ">cover - print code coverage counters</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/cutpoint.html" class="reference internal ">cutpoint - adds formal cut points to the design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/debug.html" class="reference internal ">debug - run command with debug log messages enabled</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/delete.html" class="reference internal ">delete - delete objects in the design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/deminout.html" class="reference internal ">deminout - demote inout ports to input or output</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/demuxmap.html" class="reference internal ">demuxmap - transform $demux cells to $eq + $mux cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/design.html" class="reference internal ">design - save, restore and reset current design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/dffinit.html" class="reference internal ">dffinit - set INIT param on FF cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/dfflegalize.html" class="reference internal ">dfflegalize - convert FFs to types supported by the target</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/dfflibmap.html" class="reference internal ">dfflibmap - technology mapping of flip-flops</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/dffunmap.html" class="reference internal ">dffunmap - unmap clock enable and synchronous reset from FFs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/dump.html" class="reference internal ">dump - print parts of the design in RTLIL format</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/echo.html" class="reference internal ">echo - turning echoing back of commands on and off</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/ecp5_gsr.html" class="reference internal ">ecp5_gsr - ECP5: handle GSR</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/edgetypes.html" class="reference internal ">edgetypes - list all types of edges in selection</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/efinix_fixcarry.html" class="reference internal ">efinix_fixcarry - Efinix: fix carry chain</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/equiv_add.html" class="reference internal ">equiv_add - add a $equiv cell</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/equiv_induct.html" class="reference internal ">equiv_induct - proving $equiv cells using temporal induction</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/equiv_make.html" class="reference internal ">equiv_make - prepare a circuit for equivalence checking</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/equiv_mark.html" class="reference internal ">equiv_mark - mark equivalence checking regions</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/equiv_miter.html" class="reference internal ">equiv_miter - extract miter from equiv circuit</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/equiv_opt.html" class="reference internal ">equiv_opt - prove equivalence for optimized circuit</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/equiv_purge.html" class="reference internal ">equiv_purge - purge equivalence checking module</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/equiv_remove.html" class="reference internal ">equiv_remove - remove $equiv cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/equiv_simple.html" class="reference internal ">equiv_simple - try proving simple $equiv instances</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/equiv_status.html" class="reference internal ">equiv_status - print status of equivalent checking module</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/equiv_struct.html" class="reference internal ">equiv_struct - structural equivalence checking</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/eval.html" class="reference internal ">eval - evaluate the circuit given an input</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/exec.html" class="reference internal ">exec - execute commands in the operating system shell</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/expose.html" class="reference internal ">expose - convert internal signals to module ports</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/extract.html" class="reference internal ">extract - find subcircuits and replace them with cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/extract_counter.html" class="reference internal ">extract_counter - Extract GreenPak4 counter cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/extract_fa.html" class="reference internal ">extract_fa - find and extract full/half adders</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/extract_reduce.html" class="reference internal ">extract_reduce - converts gate chains into $reduce_* cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/extractinv.html" class="reference internal ">extractinv - extract explicit inverter cells for invertible cell pins</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/flatten.html" class="reference internal ">flatten - flatten design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/flowmap.html" class="reference internal ">flowmap - pack LUTs with FlowMap</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/fmcombine.html" class="reference internal ">fmcombine - combine two instances of a cell into one</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/fminit.html" class="reference internal ">fminit - set init values/sequences for formal</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/formalff.html" class="reference internal ">formalff - prepare FFs for formal</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/freduce.html" class="reference internal ">freduce - perform functional reduction</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/fsm.html" class="reference internal ">fsm - extract and optimize finite state machines</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/fsm_detect.html" class="reference internal ">fsm_detect - finding FSMs in design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/fsm_expand.html" class="reference internal ">fsm_expand - expand FSM cells by merging logic into it</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/fsm_export.html" class="reference internal ">fsm_export - exporting FSMs to KISS2 files</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/fsm_extract.html" class="reference internal ">fsm_extract - extracting FSMs in design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/fsm_info.html" class="reference internal ">fsm_info - print information on finite state machines</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/fsm_map.html" class="reference internal ">fsm_map - mapping FSMs to basic logic</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/fsm_opt.html" class="reference internal ">fsm_opt - optimize finite state machines</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/fsm_recode.html" class="reference internal ">fsm_recode - recoding finite state machines</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/fst2tb.html" class="reference internal ">fst2tb - generate testbench out of fst file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/gatemate_foldinv.html" class="reference internal ">gatemate_foldinv - fold inverters into Gatemate LUT trees</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/glift.html" class="reference internal ">glift - create GLIFT models and optimization problems</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/greenpak4_dffinv.html" class="reference internal ">greenpak4_dffinv - merge greenpak4 inverters and DFF/latches</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/help.html" class="reference internal ">help - display help messages</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/hierarchy.html" class="reference internal ">hierarchy - check, expand and clean up design hierarchy</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/hilomap.html" class="reference internal ">hilomap - technology mapping of constant hi- and/or lo-drivers</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/history.html" class="reference internal ">history - show last interactive commands</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/ice40_braminit.html" class="reference internal ">ice40_braminit - iCE40: perform SB_RAM40_4K initialization from file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/ice40_dsp.html" class="reference internal ">ice40_dsp - iCE40: map multipliers</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/ice40_opt.html" class="reference internal ">ice40_opt - iCE40: perform simple optimizations</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/ice40_wrapcarry.html" class="reference internal ">ice40_wrapcarry - iCE40: wrap carries</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/insbuf.html" class="reference internal ">insbuf - insert buffer cells for connected wires</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/iopadmap.html" class="reference internal ">iopadmap - technology mapping of i/o pads (or buffers)</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/jny.html" class="reference internal ">jny - write design and metadata</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/json.html" class="reference internal ">json - write design in JSON format</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/log.html" class="reference internal ">log - print text and log files</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/logger.html" class="reference internal ">logger - set logger properties</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/ls.html" class="reference internal ">ls - list modules or objects in modules</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/ltp.html" class="reference internal ">ltp - print longest topological path</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/lut2mux.html" class="reference internal ">lut2mux - convert $lut to $_MUX_</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/maccmap.html" class="reference internal ">maccmap - mapping macc cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/memory.html" class="reference internal ">memory - translate memories to basic cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/memory_bmux2rom.html" class="reference internal ">memory_bmux2rom - convert muxes to ROMs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/memory_bram.html" class="reference internal ">memory_bram - map memories to block rams</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/memory_collect.html" class="reference internal ">memory_collect - creating multi-port memory cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/memory_dff.html" class="reference internal ">memory_dff - merge input/output DFFs into memory read ports</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/memory_libmap.html" class="reference internal ">memory_libmap - map memories to cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/memory_map.html" class="reference internal ">memory_map - translate multiport memories to basic cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/memory_memx.html" class="reference internal ">memory_memx - emulate vlog sim behavior for mem ports</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/memory_narrow.html" class="reference internal ">memory_narrow - split up wide memory ports</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/memory_nordff.html" class="reference internal ">memory_nordff - extract read port FFs from memories</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/memory_share.html" class="reference internal ">memory_share - consolidate memory ports</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/memory_unpack.html" class="reference internal ">memory_unpack - unpack multi-port memory cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/miter.html" class="reference internal ">miter - automatically create a miter circuit</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/mutate.html" class="reference internal ">mutate - generate or apply design mutations</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/muxcover.html" class="reference internal ">muxcover - cover trees of MUX cells with wider MUXes</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/muxpack.html" class="reference internal ">muxpack - $mux/$pmux cascades to $pmux</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/nlutmap.html" class="reference internal ">nlutmap - map to LUTs of different sizes</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/onehot.html" class="reference internal ">onehot - optimize $eq cells for onehot signals</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/opt.html" class="reference internal ">opt - perform simple optimizations</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/opt_clean.html" class="reference internal ">opt_clean - remove unused cells and wires</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/opt_demorgan.html" class="reference internal ">opt_demorgan - Optimize reductions with DeMorgan equivalents</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/opt_dff.html" class="reference internal ">opt_dff - perform DFF optimizations</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/opt_expr.html" class="reference internal ">opt_expr - perform const folding and simple expression rewriting</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/opt_ffinv.html" class="reference internal ">opt_ffinv - push inverters through FFs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/opt_lut.html" class="reference internal ">opt_lut - optimize LUT cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/opt_lut_ins.html" class="reference internal ">opt_lut_ins - discard unused LUT inputs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/opt_mem.html" class="reference internal ">opt_mem - optimize memories</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/opt_mem_feedback.html" class="reference internal ">opt_mem_feedback - convert memory read-to-write port feedback paths to write enables</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/opt_mem_priority.html" class="reference internal ">opt_mem_priority - remove priority relations between write ports that can never collide</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/opt_mem_widen.html" class="reference internal ">opt_mem_widen - optimize memories where all ports are wide</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/opt_merge.html" class="reference internal ">opt_merge - consolidate identical cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/opt_muxtree.html" class="reference internal ">opt_muxtree - eliminate dead trees in multiplexer trees</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/opt_reduce.html" class="reference internal ">opt_reduce - simplify large MUXes and AND/OR gates</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/opt_share.html" class="reference internal ">opt_share - merge mutually exclusive cells of the same type that share an input signal</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/paramap.html" class="reference internal ">paramap - renaming cell parameters</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/peepopt.html" class="reference internal ">peepopt - collection of peephole optimizers</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/plugin.html" class="reference internal ">plugin - load and list loaded plugins</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/pmux2shiftx.html" class="reference internal ">pmux2shiftx - transform $pmux cells to $shiftx cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/pmuxtree.html" class="reference internal ">pmuxtree - transform $pmux cells to trees of $mux cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/portlist.html" class="reference internal ">portlist - list (top-level) ports</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/prep.html" class="reference internal ">prep - generic synthesis script</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/printattrs.html" class="reference internal ">printattrs - print attributes of selected objects</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/proc.html" class="reference internal ">proc - translate processes to netlists</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/proc_arst.html" class="reference internal ">proc_arst - detect asynchronous resets</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/proc_clean.html" class="reference internal ">proc_clean - remove empty parts of processes</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/proc_dff.html" class="reference internal ">proc_dff - extract flip-flops from processes</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/proc_dlatch.html" class="reference internal ">proc_dlatch - extract latches from processes</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/proc_init.html" class="reference internal ">proc_init - convert initial block to init attributes</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/proc_memwr.html" class="reference internal ">proc_memwr - extract memory writes from processes</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/proc_mux.html" class="reference internal ">proc_mux - convert decision trees to multiplexers</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/proc_prune.html" class="reference internal ">proc_prune - remove redundant assignments</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/proc_rmdead.html" class="reference internal ">proc_rmdead - eliminate dead trees in decision trees</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/proc_rom.html" class="reference internal ">proc_rom - convert switches to ROMs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/qbfsat.html" class="reference internal ">qbfsat - solve a 2QBF-SAT problem in the circuit</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/qwp.html" class="reference internal ">qwp - quadratic wirelength placer</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/read.html" class="reference internal ">read - load HDL designs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/read_aiger.html" class="reference internal ">read_aiger - read AIGER file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/read_blif.html" class="reference internal ">read_blif - read BLIF file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/read_ilang.html" class="reference internal ">read_ilang - (deprecated) alias of read_rtlil</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/read_json.html" class="reference internal ">read_json - read JSON file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/read_liberty.html" class="reference internal ">read_liberty - read cells from liberty file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/read_rtlil.html" class="reference internal ">read_rtlil - read modules from RTLIL file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/read_verilog.html" class="reference internal ">read_verilog - read modules from Verilog file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/rename.html" class="reference internal ">rename - rename object in the design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/rmports.html" class="reference internal ">rmports - remove module ports with no connections</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/sat.html" class="reference internal ">sat - solve a SAT problem in the circuit</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/scatter.html" class="reference internal ">scatter - add additional intermediate nets</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/scc.html" class="reference internal ">scc - detect strongly connected components (logic loops)</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/scratchpad.html" class="reference internal ">scratchpad - get/set values in the scratchpad</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/script.html" class="reference internal ">script - execute commands from file or wire</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/select.html" class="reference internal ">select - modify and view the list of selected objects</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/setattr.html" class="reference internal ">setattr - set/unset attributes on objects</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/setparam.html" class="reference internal ">setparam - set/unset parameters on objects</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/setundef.html" class="reference internal ">setundef - replace undef values with defined constants</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/share.html" class="reference internal ">share - perform sat-based resource sharing</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/shell.html" class="reference internal ">shell - enter interactive command mode</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/show.html" class="reference internal ">show - generate schematics using graphviz</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/shregmap.html" class="reference internal ">shregmap - map shift registers</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/sim.html" class="reference internal ">sim - simulate the circuit</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/simplemap.html" class="reference internal ">simplemap - mapping simple coarse-grain cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/splice.html" class="reference internal ">splice - create explicit splicing cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/splitnets.html" class="reference internal ">splitnets - split up multi-bit nets</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/sta.html" class="reference internal ">sta - perform static timing analysis</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/stat.html" class="reference internal ">stat - print some statistics</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/submod.html" class="reference internal ">submod - moving part of a module to a new submodule</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/supercover.html" class="reference internal ">supercover - add hi/lo cover cells for each wire bit</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/synth.html" class="reference internal ">synth - generic synthesis script</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/synth_achronix.html" class="reference internal ">synth_achronix - synthesis for Acrhonix Speedster22i FPGAs.</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/synth_anlogic.html" class="reference internal ">synth_anlogic - synthesis for Anlogic FPGAs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/synth_coolrunner2.html" class="reference internal ">synth_coolrunner2 - synthesis for Xilinx Coolrunner-II CPLDs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/synth_easic.html" class="reference internal ">synth_easic - synthesis for eASIC platform</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/synth_ecp5.html" class="reference internal ">synth_ecp5 - synthesis for ECP5 FPGAs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/synth_efinix.html" class="reference internal ">synth_efinix - synthesis for Efinix FPGAs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/synth_gatemate.html" class="reference internal ">synth_gatemate - synthesis for Cologne Chip GateMate FPGAs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/synth_gowin.html" class="reference internal ">synth_gowin - synthesis for Gowin FPGAs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/synth_greenpak4.html" class="reference internal ">synth_greenpak4 - synthesis for GreenPAK4 FPGAs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/synth_ice40.html" class="reference internal ">synth_ice40 - synthesis for iCE40 FPGAs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/synth_intel.html" class="reference internal ">synth_intel - synthesis for Intel (Altera) FPGAs.</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/synth_intel_alm.html" class="reference internal ">synth_intel_alm - synthesis for ALM-based Intel (Altera) FPGAs.</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/synth_machxo2.html" class="reference internal ">synth_machxo2 - synthesis for MachXO2 FPGAs. This work is experimental.</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/synth_nexus.html" class="reference internal ">synth_nexus - synthesis for Lattice Nexus FPGAs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/synth_quicklogic.html" class="reference internal ">synth_quicklogic - Synthesis for QuickLogic FPGAs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/synth_sf2.html" class="reference internal ">synth_sf2 - synthesis for SmartFusion2 and IGLOO2 FPGAs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/synth_xilinx.html" class="reference internal ">synth_xilinx - synthesis for Xilinx FPGAs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/tcl.html" class="reference internal ">tcl - execute a TCL script file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/techmap.html" class="reference internal ">techmap - generic technology mapper</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/tee.html" class="reference internal ">tee - redirect command output to file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/test_abcloop.html" class="reference internal ">test_abcloop - automatically test handling of loops in abc command</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/test_autotb.html" class="reference internal ">test_autotb - generate simple test benches</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/test_cell.html" class="reference internal ">test_cell - automatically test the implementation of a cell type</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/test_pmgen.html" class="reference internal ">test_pmgen - test pass for pmgen</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/torder.html" class="reference internal ">torder - print cells in topological order</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/trace.html" class="reference internal ">trace - redirect command output to file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/tribuf.html" class="reference internal ">tribuf - infer tri-state buffers</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/uniquify.html" class="reference internal ">uniquify - create unique copies of modules</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/verific.html" class="reference internal ">verific - load Verilog and VHDL designs using Verific</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/verilog_defaults.html" class="reference internal ">verilog_defaults - set default options for read_verilog</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/verilog_defines.html" class="reference internal ">verilog_defines - define and undefine verilog defines</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/wbflip.html" class="reference internal ">wbflip - flip the whitebox attribute</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/wreduce.html" class="reference internal ">wreduce - reduce the word size of operations if possible</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/write_aiger.html" class="reference internal ">write_aiger - write design to AIGER file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/write_blif.html" class="reference internal ">write_blif - write design to BLIF file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/write_btor.html" class="reference internal ">write_btor - write design to BTOR file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/write_cxxrtl.html" class="reference internal ">write_cxxrtl - convert design to C++ RTL simulation</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/write_edif.html" class="reference internal ">write_edif - write design to EDIF netlist file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/write_file.html" class="reference internal ">write_file - write a text to a file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/write_firrtl.html" class="reference internal ">write_firrtl - write design to a FIRRTL file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/write_ilang.html" class="reference internal ">write_ilang - (deprecated) alias of write_rtlil</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/write_intersynth.html" class="reference internal ">write_intersynth - write design to InterSynth netlist file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/write_jny.html" class="reference internal ">write_jny - generate design metadata</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/write_json.html" class="reference internal ">write_json - write design to a JSON file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/write_rtlil.html" class="reference internal ">write_rtlil - write design to RTLIL file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/write_simplec.html" class="reference internal ">write_simplec - convert design to simple C code</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/write_smt2.html" class="reference internal ">write_smt2 - write design to SMT-LIBv2 file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/write_smv.html" class="reference internal ">write_smv - write design to SMV file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/write_spice.html" class="reference internal ">write_spice - write design to SPICE netlist file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/write_table.html" class="reference internal ">write_table - write design as connectivity table</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/write_verilog.html" class="reference internal ">write_verilog - write design to Verilog file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/write_xaiger.html" class="reference internal ">write_xaiger - write design to XAIGER file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/xilinx_dffopt.html" class="reference internal ">xilinx_dffopt - Xilinx: optimize FF control signal usage</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/xilinx_dsp.html" class="reference internal ">xilinx_dsp - Xilinx: pack resources into DSPs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/xilinx_srl.html" class="reference internal ">xilinx_srl - Xilinx shift register extraction</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cmd/zinit.html" class="reference internal ">zinit - add inverters so all FF are zero-initialized</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">6. </span>Programming Yosys extensions</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="CHAPTER_CellLib.html"
+       title="previous chapter">← <span class="section-number">5. </span>Internal cell library</a>
+  </li>
+  <li class="next">
+    <a href="CHAPTER_Verilog.html"
+       title="next chapter"><span class="section-number">7. </span>The Verilog and AST frontends →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="programming-yosys-extensions">
+<span id="chapter-prog"></span><h1><span class="section-number">6. </span>Programming Yosys extensions<a class="headerlink" href="#programming-yosys-extensions" title="Permalink to this heading">¶</a></h1>
+<p>This chapter contains some bits and pieces of information about
+programming yosys extensions. Also consult the section on programming in
+the “Yosys Presentation” (can be downloaded from the Yosys website as
+PDF) and don’t be afraid to ask questions on the YosysHQ Slack.</p>
+<section id="guidelines">
+<h2><span class="section-number">6.1. </span>Guidelines<a class="headerlink" href="#guidelines" title="Permalink to this heading">¶</a></h2>
+<p>The guidelines directory contains notes on various aspects of Yosys
+development. The files GettingStarted and CodingStyle may be of
+particular interest, and are reproduced here.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-number">Listing 6.1 </span><span class="caption-text">guidelines/GettingStarted</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Getting Started
+===============
+
+
+Outline of a Yosys command
+--------------------------
+
+Here is a the C++ code for a &quot;hello_world&quot; Yosys command (hello.cc):
+
+	#include &quot;kernel/yosys.h&quot;
+
+	USING_YOSYS_NAMESPACE
+	PRIVATE_NAMESPACE_BEGIN
+
+	struct HelloWorldPass : public Pass {
+		HelloWorldPass() : Pass(&quot;hello_world&quot;) { }
+		void execute(vector&lt;string&gt;, Design*) override {
+			log(&quot;Hello World!\n&quot;);
+		}
+	} HelloWorldPass;
+
+	PRIVATE_NAMESPACE_END
+
+This can be built into a Yosys module using the following command:
+
+	yosys-config --exec --cxx --cxxflags --ldflags -o hello.so -shared hello.cc --ldlibs
+
+Or short:
+
+	yosys-config --build hello.so hello.cc
+
+And then executed using the following command:
+
+	yosys -m hello.so -p hello_world
+
+
+Yosys Data Structures
+---------------------
+
+Here is a short list of data structures that you should make yourself familiar
+with before you write C++ code for Yosys. The following data structures are all
+defined when &quot;kernel/yosys.h&quot; is included and USING_YOSYS_NAMESPACE is used.
+
+  1. Yosys Container Classes
+
+Yosys uses dict&lt;K, T&gt; and pool&lt;T&gt; as main container classes. dict&lt;K, T&gt; is
+essentially a replacement for std::unordered_map&lt;K, T&gt; and pool&lt;T&gt; is a
+replacement for std::unordered_set&lt;T&gt;. The main characteristics are:
+
+	- dict&lt;K, T&gt; and pool&lt;T&gt; are about 2x faster than the std containers
+
+	- references to elements in a dict&lt;K, T&gt; or pool&lt;T&gt; are invalidated by
+	  insert and remove operations (similar to std::vector&lt;T&gt; on push_back()).
+
+	- some iterators are invalidated by erase(). specifically, iterators
+	  that have not passed the erased element yet are invalidated. (erase()
+	  itself returns valid iterator to the next element.)
+
+	- no iterators are invalidated by insert(). elements are inserted at
+	  begin(). i.e. only a new iterator that starts at begin() will see the
+	  inserted elements.
+
+	- the method .count(key, iterator) is like .count(key) but only
+	  considers elements that can be reached via the iterator.
+
+	- iterators can be compared. it1 &lt; it2 means that the position of t2
+	  can be reached via t1 but not vice versa.
+
+	- the method .sort() can be used to sort the elements in the container
+	  the container stays sorted until elements are added or removed.
+
+	- dict&lt;K, T&gt; and pool&lt;T&gt; will have the same order of iteration across
+	  all compilers, standard libraries and architectures.
+
+In addition to dict&lt;K, T&gt; and pool&lt;T&gt; there is also an idict&lt;K&gt; that
+creates a bijective map from K to the integers. For example:
+
+	idict&lt;string, 42&gt; si;
+	log(&quot;%d\n&quot;, si(&quot;hello&quot;));      // will print 42
+	log(&quot;%d\n&quot;, si(&quot;world&quot;));      // will print 43
+	log(&quot;%d\n&quot;, si.at(&quot;world&quot;));   // will print 43
+	log(&quot;%d\n&quot;, si.at(&quot;dummy&quot;));   // will throw exception
+	log(&quot;%s\n&quot;, si[42].c_str()));  // will print hello
+	log(&quot;%s\n&quot;, si[43].c_str()));  // will print world
+	log(&quot;%s\n&quot;, si[44].c_str()));  // will throw exception
+
+It is not possible to remove elements from an idict.
+
+Finally mfp&lt;K&gt; implements a merge-find set data structure (aka. disjoint-set or
+union-find) over the type K (&quot;mfp&quot; = merge-find-promote).
+
+  2. Standard STL data types
+
+In Yosys we use std::vector&lt;T&gt; and std::string whenever applicable. When
+dict&lt;K, T&gt; and pool&lt;T&gt; are not suitable then std::map&lt;K, T&gt; and std::set&lt;T&gt;
+are used instead.
+
+The types std::vector&lt;T&gt; and std::string are also available as vector&lt;T&gt;
+and string in the Yosys namespace.
+
+  3. RTLIL objects
+
+The current design (essentially a collection of modules, each defined by a
+netlist) is stored in memory using RTLIL object (declared in kernel/rtlil.h,
+automatically included by kernel/yosys.h). You should glance over at least
+the declarations for the following types in kernel/rtlil.h:
+
+	RTLIL::IdString
+		This is a handle for an identifier (e.g. cell or wire name).
+		It feels a lot like a std::string, but is only a single int
+		in size. (The actual string is stored in a global lookup
+		table.)
+
+	RTLIL::SigBit
+		A single signal bit. I.e. either a constant state (0, 1,
+		x, z) or a single bit from a wire.
+
+	RTLIL::SigSpec
+		Essentially a vector of SigBits.
+
+	RTLIL::Wire
+	RTLIL::Cell
+		The building blocks of the netlist in a module.
+
+	RTLIL::Module
+	RTLIL::Design
+		The module is a container with connected cells and wires
+		in it. The design is a container with modules in it.
+
+All this types are also available without the RTLIL:: prefix in the Yosys
+namespace.
+
+  4. SigMap and other Helper Classes
+
+There are a couple of additional helper classes that are in wide use
+in Yosys. Most importantly there is SigMap (declared in kernel/sigtools.h).
+
+When a design has many wires in it that are connected to each other, then a
+single signal bit can have multiple valid names. The SigMap object can be used
+to map SigSpecs or SigBits to unique SigSpecs and SigBits that consistently
+only use one wire from such a group of connected wires. For example:
+
+	SigBit a = module-&gt;addWire(NEW_ID);
+	SigBit b = module-&gt;addWire(NEW_ID);
+	module-&gt;connect(a, b);
+
+	log(&quot;%d\n&quot;, a == b); // will print 0
+
+	SigMap sigmap(module);
+	log(&quot;%d\n&quot;, sigmap(a) == sigmap(b)); // will print 1
+
+
+Using the RTLIL Netlist Format
+------------------------------
+
+In the RTLIL netlist format the cell ports contain SigSpecs that point to the
+Wires. There are no references in the other direction. This has two direct
+consequences:
+
+(1) It is very easy to go from cells to wires but hard to go in the other way.
+
+(2) There is no danger in removing cells from the netlists, but removing wires
+can break the netlist format when there are still references to the wire
+somewhere in the netlist.
+
+The solution to (1) is easy: Create custom indexes that allow you to make fast
+lookups for the wire-to-cell direction. You can either use existing generic
+index structures to do that (such as the ModIndex class) or write your own
+index. For many application it is simplest to construct a custom index. For
+example:
+
+	SigMap sigmap(module);
+	dict&lt;SigBit, Cell*&gt; sigbit_to_driver_index;
+
+	for (auto cell : module-&gt;cells())
+		for (auto &amp;conn : cell-&gt;connections())
+			if (cell-&gt;output(conn.first))
+				for (auto bit : sigmap(conn.second))
+					sigbit_to_driver_index[bit] = cell;
+
+Regarding (2): There is a general theme in Yosys that you don&#39;t remove wires
+from the design. You can rename them, unconnect them, but you do not actually remove
+the Wire object from the module. Instead you let the &quot;clean&quot; command take care
+of the dangling wires. On the other hand it is safe to remove cells (as long as
+you make sure this does not invalidate a custom index you are using in your code).
+
+
+Example Code
+------------
+
+The following yosys commands are a good starting point if you are looking for examples
+of how to use the Yosys API:
+
+	manual/CHAPTER_Prog/stubnets.cc
+	manual/PRESENTATION_Prog/my_cmd.cc
+
+
+Script Passes
+-------------
+
+The ScriptPass base class can be used to implement passes that just call other passes,
+like a script. Examples for such passes are:
+
+	techlibs/common/prep.cc
+	techlibs/common/synth.cc
+
+In some cases it is easier to implement such a pass as regular pass, for example when
+ScriptPass doesn&#39;t provide the type of flow control desired. (But many of the
+script passes in Yosys that don&#39;t use ScriptPass simply predate the ScriptPass base
+class.) Examples for such passes are:
+
+	passes/opt/opt.cc
+	passes/proc/proc.cc
+
+Whether they use the ScriptPass base-class or not, a pass should always either
+call other passes without doing any non-trivial work itself, or should implement
+a non-trivial algorithm but not call any other passes. The reason for this is that
+this helps containing complexity in individual passes and simplifies debugging the
+entire system.
+
+Exceptions to this rule should be rare and limited to cases where calling other
+passes is optional and only happens when requested by the user (such as for
+example `techmap -autoproc`), or where it is about commands that are &quot;top-level
+commands&quot; in their own right, not components to be used in regular synthesis
+flows (such as the `bugpoint` command).
+
+A pass that would &quot;naturally&quot; call other passes and also do some work itself
+should be re-written in one of two ways:
+
+1) It could be re-written as script pass with the parts that are not calls
+to other passes factored out into individual new passes. Usually in those
+cases the new sub passes share the same prefix as the top-level script pass.
+
+2) It could be re-written so that it already expects the design in a certain
+state, expecting the calling script to set up this state before calling the
+pass in questions.
+
+Many back-ends are examples for the 2nd approach. For example, `write_aiger`
+does not convert the design into AIG representation, but expects the design
+to be already in this form, and prints an `Unsupported cell type` error
+message otherwise.
+
+
+Notes on the existing codebase
+------------------------------
+
+For historical reasons not all parts of Yosys adhere to the current coding
+style. When adding code to existing parts of the system, adhere to this guide
+for the new code instead of trying to mimic the style of the surrounding code.
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-number">Listing 6.2 </span><span class="caption-text">guidelines/CodingStyle</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Coding Style
+============
+
+
+Formatting of code
+------------------
+
+- Yosys code is using tabs for indentation. Tabs are 8 characters.
+
+- A continuation of a statement in the following line is indented by
+  two additional tabs.
+
+- Lines are as long as you want them to be. A good rule of thumb is
+  to break lines at about column 150.
+
+- Opening braces can be put on the same or next line as the statement
+  opening the block (if, switch, for, while, do). Put the opening brace
+  on its own line for larger blocks, especially blocks that contains
+  blank lines.
+
+- Otherwise stick to the Linux Kernel Coding Style:
+    https://www.kernel.org/doc/Documentation/CodingStyle
+
+
+C++ Language
+-------------
+
+Yosys is written in C++11. At the moment only constructs supported by
+gcc 4.8 are allowed in Yosys code. This will change in future releases.
+
+In general Yosys uses &quot;int&quot; instead of &quot;size_t&quot;. To avoid compiler
+warnings for implicit type casts, always use &quot;GetSize(foobar)&quot; instead
+of &quot;foobar.size()&quot;. (GetSize() is defined in kernel/yosys.h)
+
+Use range-based for loops whenever applicable.
+</pre></div>
+</div>
+</div>
+</section>
+<section id="the-stubsnets-example-module">
+<h2><span class="section-number">6.2. </span>The “stubsnets” example module<a class="headerlink" href="#the-stubsnets-example-module" title="Permalink to this heading">¶</a></h2>
+<p>The following is the complete code of the “stubsnets” example module. It
+is included in the Yosys source distribution as
+manual/CHAPTER_Prog/stubnets.cc.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-number">Listing 6.3 </span><span class="caption-text">manual/CHAPTER_Prog/stubnets.cc</span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c1">// This is free and unencumbered software released into the public domain.</span>
+<span class="linenos">  2</span><span class="c1">//</span>
+<span class="linenos">  3</span><span class="c1">// Anyone is free to copy, modify, publish, use, compile, sell, or</span>
+<span class="linenos">  4</span><span class="c1">// distribute this software, either in source code form or as a compiled</span>
+<span class="linenos">  5</span><span class="c1">// binary, for any purpose, commercial or non-commercial, and by any</span>
+<span class="linenos">  6</span><span class="c1">// means.</span>
+<span class="linenos">  7</span>
+<span class="linenos">  8</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;kernel/yosys.h&quot;</span><span class="cp"></span>
+<span class="linenos">  9</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;kernel/sigtools.h&quot;</span><span class="cp"></span>
+<span class="linenos"> 10</span>
+<span class="linenos"> 11</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+<span class="linenos"> 12</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;map&gt;</span><span class="cp"></span>
+<span class="linenos"> 13</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;set&gt;</span><span class="cp"></span>
+<span class="linenos"> 14</span>
+<span class="linenos"> 15</span><span class="n">USING_YOSYS_NAMESPACE</span><span class="w"></span>
+<span class="linenos"> 16</span><span class="n">PRIVATE_NAMESPACE_BEGIN</span><span class="w"></span>
+<span class="linenos"> 17</span>
+<span class="linenos"> 18</span><span class="c1">// this function is called for each module in the design</span>
+<span class="linenos"> 19</span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">find_stub_nets</span><span class="p">(</span><span class="n">RTLIL</span><span class="o">::</span><span class="n">Design</span><span class="w"> </span><span class="o">*</span><span class="n">design</span><span class="p">,</span><span class="w"> </span><span class="n">RTLIL</span><span class="o">::</span><span class="n">Module</span><span class="w"> </span><span class="o">*</span><span class="k">module</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">report_bits</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 20</span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 21</span><span class="w">	</span><span class="c1">// use a SigMap to convert nets to a unique representation</span>
+<span class="linenos"> 22</span><span class="w">	</span><span class="n">SigMap</span><span class="w"> </span><span class="nf">sigmap</span><span class="p">(</span><span class="k">module</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 23</span>
+<span class="linenos"> 24</span><span class="w">	</span><span class="c1">// count how many times a single-bit signal is used</span>
+<span class="linenos"> 25</span><span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">RTLIL</span><span class="o">::</span><span class="n">SigBit</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">bit_usage_count</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 26</span>
+<span class="linenos"> 27</span><span class="w">	</span><span class="c1">// count output lines for this module (needed only for summary output at the end)</span>
+<span class="linenos"> 28</span><span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">line_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 29</span>
+<span class="linenos"> 30</span><span class="w">	</span><span class="n">log</span><span class="p">(</span><span class="s">&quot;Looking for stub wires in module %s:</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">RTLIL</span><span class="o">::</span><span class="n">id2cstr</span><span class="p">(</span><span class="k">module</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">));</span><span class="w"></span>
+<span class="linenos"> 31</span>
+<span class="linenos"> 32</span><span class="w">	</span><span class="c1">// For all ports on all cells</span>
+<span class="linenos"> 33</span><span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="n">cell_iter</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">module</span><span class="o">-&gt;</span><span class="n">cells_</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 34</span><span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="n">conn</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">cell_iter</span><span class="p">.</span><span class="n">second</span><span class="o">-&gt;</span><span class="n">connections</span><span class="p">())</span><span class="w"></span>
+<span class="linenos"> 35</span><span class="w">	</span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 36</span><span class="w">		</span><span class="c1">// Get the signals on the port</span>
+<span class="linenos"> 37</span><span class="w">		</span><span class="c1">// (use sigmap to get a uniqe signal name)</span>
+<span class="linenos"> 38</span><span class="w">		</span><span class="n">RTLIL</span><span class="o">::</span><span class="n">SigSpec</span><span class="w"> </span><span class="n">sig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sigmap</span><span class="p">(</span><span class="n">conn</span><span class="p">.</span><span class="n">second</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 39</span>
+<span class="linenos"> 40</span><span class="w">		</span><span class="c1">// add each bit to bit_usage_count, unless it is a constant</span>
+<span class="linenos"> 41</span><span class="w">		</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="n">bit</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">sig</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 42</span><span class="w">			</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bit</span><span class="p">.</span><span class="n">wire</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 43</span><span class="w">				</span><span class="n">bit_usage_count</span><span class="p">[</span><span class="n">bit</span><span class="p">]</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 44</span><span class="w">	</span><span class="p">}</span><span class="w"></span>
+<span class="linenos"> 45</span>
+<span class="linenos"> 46</span><span class="w">	</span><span class="c1">// for each wire in the module</span>
+<span class="linenos"> 47</span><span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="n">wire_iter</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">module</span><span class="o">-&gt;</span><span class="n">wires_</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 48</span><span class="w">	</span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 49</span><span class="w">		</span><span class="n">RTLIL</span><span class="o">::</span><span class="n">Wire</span><span class="w"> </span><span class="o">*</span><span class="n">wire</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wire_iter</span><span class="p">.</span><span class="n">second</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 50</span>
+<span class="linenos"> 51</span><span class="w">		</span><span class="c1">// .. but only selected wires</span>
+<span class="linenos"> 52</span><span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">design</span><span class="o">-&gt;</span><span class="n">selected</span><span class="p">(</span><span class="k">module</span><span class="p">,</span><span class="w"> </span><span class="n">wire</span><span class="p">))</span><span class="w"></span>
+<span class="linenos"> 53</span><span class="w">			</span><span class="k">continue</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 54</span>
+<span class="linenos"> 55</span><span class="w">		</span><span class="c1">// add +1 usage if this wire actually is a port</span>
+<span class="linenos"> 56</span><span class="w">		</span><span class="kt">int</span><span class="w"> </span><span class="n">usage_offset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wire</span><span class="o">-&gt;</span><span class="n">port_id</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 57</span>
+<span class="linenos"> 58</span><span class="w">		</span><span class="c1">// we will record which bits of the (possibly multi-bit) wire are stub signals</span>
+<span class="linenos"> 59</span><span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stub_bits</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 60</span>
+<span class="linenos"> 61</span><span class="w">		</span><span class="c1">// get a signal description for this wire and split it into separate bits</span>
+<span class="linenos"> 62</span><span class="w">		</span><span class="n">RTLIL</span><span class="o">::</span><span class="n">SigSpec</span><span class="w"> </span><span class="n">sig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sigmap</span><span class="p">(</span><span class="n">wire</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 63</span>
+<span class="linenos"> 64</span><span class="w">		</span><span class="c1">// for each bit (unless it is a constant):</span>
+<span class="linenos"> 65</span><span class="w">		</span><span class="c1">// check if it is used at least two times and add to stub_bits otherwise</span>
+<span class="linenos"> 66</span><span class="w">		</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">GetSize</span><span class="p">(</span><span class="n">sig</span><span class="p">);</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 67</span><span class="w">			</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sig</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">wire</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">bit_usage_count</span><span class="p">[</span><span class="n">sig</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">usage_offset</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 68</span><span class="w">				</span><span class="n">stub_bits</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 69</span>
+<span class="linenos"> 70</span><span class="w">		</span><span class="c1">// continue if no stub bits found</span>
+<span class="linenos"> 71</span><span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">stub_bits</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 72</span><span class="w">			</span><span class="k">continue</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 73</span>
+<span class="linenos"> 74</span><span class="w">		</span><span class="c1">// report stub bits and/or stub wires, don&#39;t report single bits</span>
+<span class="linenos"> 75</span><span class="w">		</span><span class="c1">// if called with report_bits set to false.</span>
+<span class="linenos"> 76</span><span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">GetSize</span><span class="p">(</span><span class="n">stub_bits</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">GetSize</span><span class="p">(</span><span class="n">sig</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 77</span><span class="w">			</span><span class="n">log</span><span class="p">(</span><span class="s">&quot;  found stub wire: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">RTLIL</span><span class="o">::</span><span class="n">id2cstr</span><span class="p">(</span><span class="n">wire</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">));</span><span class="w"></span>
+<span class="linenos"> 78</span><span class="w">		</span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 79</span><span class="w">			</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">report_bits</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 80</span><span class="w">				</span><span class="k">continue</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 81</span><span class="w">			</span><span class="n">log</span><span class="p">(</span><span class="s">&quot;  found wire with stub bits: %s [&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">RTLIL</span><span class="o">::</span><span class="n">id2cstr</span><span class="p">(</span><span class="n">wire</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">));</span><span class="w"></span>
+<span class="linenos"> 82</span><span class="w">			</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">bit</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">stub_bits</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 83</span><span class="w">				</span><span class="n">log</span><span class="p">(</span><span class="s">&quot;%s%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">bit</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">*</span><span class="n">stub_bits</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">bit</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 84</span><span class="w">			</span><span class="n">log</span><span class="p">(</span><span class="s">&quot;]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 85</span><span class="w">		</span><span class="p">}</span><span class="w"></span>
+<span class="linenos"> 86</span>
+<span class="linenos"> 87</span><span class="w">		</span><span class="c1">// we have outputted a line, increment summary counter</span>
+<span class="linenos"> 88</span><span class="w">		</span><span class="n">line_count</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 89</span><span class="w">	</span><span class="p">}</span><span class="w"></span>
+<span class="linenos"> 90</span>
+<span class="linenos"> 91</span><span class="w">	</span><span class="c1">// report summary</span>
+<span class="linenos"> 92</span><span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">report_bits</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 93</span><span class="w">		</span><span class="n">log</span><span class="p">(</span><span class="s">&quot;  found %d stub wires or wires with stub bits.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">line_count</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 94</span><span class="w">	</span><span class="k">else</span><span class="w"></span>
+<span class="linenos"> 95</span><span class="w">		</span><span class="n">log</span><span class="p">(</span><span class="s">&quot;  found %d stub wires.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">line_count</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 96</span><span class="p">}</span><span class="w"></span>
+<span class="linenos"> 97</span>
+<span class="linenos"> 98</span><span class="c1">// each pass contains a singleton object that is derived from Pass</span>
+<span class="linenos"> 99</span><span class="k">struct</span><span class="w"> </span><span class="nc">StubnetsPass</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Pass</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">100</span><span class="w">	</span><span class="n">StubnetsPass</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Pass</span><span class="p">(</span><span class="s">&quot;stubnets&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">101</span><span class="w">	</span><span class="kt">void</span><span class="w"> </span><span class="n">execute</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">args</span><span class="p">,</span><span class="w"> </span><span class="n">RTLIL</span><span class="o">::</span><span class="n">Design</span><span class="w"> </span><span class="o">*</span><span class="n">design</span><span class="p">)</span><span class="w"> </span><span class="k">override</span><span class="w"></span>
+<span class="linenos">102</span><span class="w">	</span><span class="p">{</span><span class="w"></span>
+<span class="linenos">103</span><span class="w">		</span><span class="c1">// variables to mirror information from passed options</span>
+<span class="linenos">104</span><span class="w">		</span><span class="kt">bool</span><span class="w"> </span><span class="n">report_bits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">105</span>
+<span class="linenos">106</span><span class="w">		</span><span class="n">log_header</span><span class="p">(</span><span class="n">design</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Executing STUBNETS pass (find stub nets).</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">107</span>
+<span class="linenos">108</span><span class="w">		</span><span class="c1">// parse options</span>
+<span class="linenos">109</span><span class="w">		</span><span class="kt">size_t</span><span class="w"> </span><span class="n">argidx</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">110</span><span class="w">		</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">argidx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">argidx</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">args</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="n">argidx</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">111</span><span class="w">			</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">arg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">args</span><span class="p">[</span><span class="n">argidx</span><span class="p">];</span><span class="w"></span>
+<span class="linenos">112</span><span class="w">			</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">arg</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;-report_bits&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">113</span><span class="w">				</span><span class="n">report_bits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">114</span><span class="w">				</span><span class="k">continue</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">115</span><span class="w">			</span><span class="p">}</span><span class="w"></span>
+<span class="linenos">116</span><span class="w">			</span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">117</span><span class="w">		</span><span class="p">}</span><span class="w"></span>
+<span class="linenos">118</span>
+<span class="linenos">119</span><span class="w">		</span><span class="c1">// handle extra options (e.g. selection)</span>
+<span class="linenos">120</span><span class="w">		</span><span class="n">extra_args</span><span class="p">(</span><span class="n">args</span><span class="p">,</span><span class="w"> </span><span class="n">argidx</span><span class="p">,</span><span class="w"> </span><span class="n">design</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">121</span>
+<span class="linenos">122</span><span class="w">		</span><span class="c1">// call find_stub_nets() for each module that is either</span>
+<span class="linenos">123</span><span class="w">		</span><span class="c1">// selected as a whole or contains selected objects.</span>
+<span class="linenos">124</span><span class="w">		</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="n">it</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">design</span><span class="o">-&gt;</span><span class="n">modules_</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">125</span><span class="w">			</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">design</span><span class="o">-&gt;</span><span class="n">selected_module</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="n">first</span><span class="p">))</span><span class="w"></span>
+<span class="linenos">126</span><span class="w">				</span><span class="n">find_stub_nets</span><span class="p">(</span><span class="n">design</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="p">.</span><span class="n">second</span><span class="p">,</span><span class="w"> </span><span class="n">report_bits</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">127</span><span class="w">	</span><span class="p">}</span><span class="w"></span>
+<span class="linenos">128</span><span class="p">}</span><span class="w"> </span><span class="n">StubnetsPass</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">129</span>
+<span class="linenos">130</span><span class="n">PRIVATE_NAMESPACE_END</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-number">Listing 6.4 </span><span class="caption-text">manual/CHAPTER_Prog/Makefile</span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+<div class="highlight-makefile notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="nf">test</span><span class="o">:</span> <span class="n">stubnets</span>.<span class="n">so</span>
+<span class="linenos"> 2</span>	yosys -ql test1.log -m ./stubnets.so test.v -p <span class="s2">&quot;stubnets&quot;</span>
+<span class="linenos"> 3</span>	yosys -ql test2.log -m ./stubnets.so test.v -p <span class="s2">&quot;opt; stubnets&quot;</span>
+<span class="linenos"> 4</span>	yosys -ql test3.log -m ./stubnets.so test.v -p <span class="s2">&quot;techmap; opt; stubnets -report_bits&quot;</span>
+<span class="linenos"> 5</span>	tail test1.log test2.log test3.log
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="nf">stubnets.so</span><span class="o">:</span> <span class="n">stubnets</span>.<span class="n">cc</span>
+<span class="linenos"> 8</span>	yosys-config --exec --cxx --cxxflags --ldflags -o <span class="nv">$@</span> -shared $^ --ldlibs
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="nf">clean</span><span class="o">:</span>
+<span class="linenos">11</span>	rm -f test1.log test2.log test3.log
+<span class="linenos">12</span>	rm -f stubnets.so stubnets.d
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-number">Listing 6.5 </span><span class="caption-text">manual/CHAPTER_Prog/test.v</span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
+<div class="highlight-verilog notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">module</span><span class="w"> </span><span class="n">uut</span><span class="p">(</span><span class="n">in1</span><span class="p">,</span><span class="w"> </span><span class="n">in2</span><span class="p">,</span><span class="w"> </span><span class="n">in3</span><span class="p">,</span><span class="w"> </span><span class="n">out1</span><span class="p">,</span><span class="w"> </span><span class="n">out2</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="k">input</span><span class="w"> </span><span class="p">[</span><span class="mh">8</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">in1</span><span class="p">,</span><span class="w"> </span><span class="n">in2</span><span class="p">,</span><span class="w"> </span><span class="n">in3</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">4</span><span class="k">output</span><span class="w"> </span><span class="p">[</span><span class="mh">8</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">out1</span><span class="p">,</span><span class="w"> </span><span class="n">out2</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">5</span>
+<span class="linenos">6</span><span class="k">assign</span><span class="w"> </span><span class="n">out1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">in1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">in2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">in3</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mh">4</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">7</span>
+<span class="linenos">8</span><span class="k">endmodule</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="CHAPTER_CellLib.html"
+       title="previous chapter">← <span class="section-number">5. </span>Internal cell library</a>
+  </li>
+  <li class="next">
+    <a href="CHAPTER_Verilog.html"
+       title="next chapter"><span class="section-number">7. </span>The Verilog and AST frontends →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2022 YosysHQ GmbH.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,3514 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+      <title>011: Interactive design investigation page</title>
+    
+          <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../_static/yosyshq.css" type="text/css" />
+          <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../_static/theme-vendors.js"></script> -->
+      <script src="../_static/theme.js" defer></script>
+    
+      <link rel="shortcut icon" href="../_static/favico.png"/>
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Search" href="../search.html" />
+  <link rel="next" title="012: Converting Verilog to BTOR page" href="APPNOTE_012_Verilog_to_BTOR.html" />
+  <link rel="prev" title="010: Converting Verilog to BLIF page" href="APPNOTE_010_Verilog_to_BLIF.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <img class="logo" src="../_static/logo.png" alt="logo"/>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../index.html#yosys-manual"
+         class="nav-link ">
+         Manual
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#yosys-manual"
+         class="nav-link  router-link-active">
+         Appendix
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../cmd_ref.html#command-line-reference"
+         class="nav-link ">
+         Command reference
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://yosyshq.readthedocs.io"
+        class="nav-link external">
+          YosysHQ Docs <outboundlink></outboundlink>
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="https://blog.yosyshq.com"
+        class="nav-link external">
+          Blog <outboundlink></outboundlink>
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="https://www.yosyshq.com"
+        class="nav-link external">
+          Website <outboundlink></outboundlink>
+      </a>
+    </div>
+  
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../index.html#yosys-manual"
+         class="nav-link ">
+         Manual
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#yosys-manual"
+         class="nav-link  router-link-active">
+         Appendix
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../cmd_ref.html#command-line-reference"
+         class="nav-link ">
+         Command reference
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://yosyshq.readthedocs.io"
+        class="nav-link external">
+          YosysHQ Docs <outboundlink></outboundlink>
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="https://blog.yosyshq.com"
+        class="nav-link external">
+          Blog <outboundlink></outboundlink>
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="https://www.yosyshq.com"
+        class="nav-link external">
+          Website <outboundlink></outboundlink>
+      </a>
+    </div>
+  
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#yosys-manual">Manual</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../CHAPTER_Intro.html" class="reference internal ">Introduction</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../CHAPTER_Basics.html" class="reference internal ">Basic principles</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../CHAPTER_Approach.html" class="reference internal ">Approach</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../CHAPTER_Overview.html" class="reference internal ">Implementation overview</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../CHAPTER_CellLib.html" class="reference internal ">Internal cell library</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../CHAPTER_Prog.html" class="reference internal ">Programming Yosys extensions</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../CHAPTER_Verilog.html" class="reference internal ">The Verilog and AST frontends</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../CHAPTER_Optimize.html" class="reference internal ">Optimizations</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../CHAPTER_Techmap.html" class="reference internal ">Technology mapping</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#yosys-manual">Appendix</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="CHAPTER_Auxlibs.html" class="reference internal ">Auxiliary libraries</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="CHAPTER_Auxprogs.html" class="reference internal ">Auxiliary programs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="CHAPTER_TextRtlil.html" class="reference internal ">RTLIL text representation</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="APPNOTE_010_Verilog_to_BLIF.html" class="reference internal ">010: Converting Verilog to BLIF page</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current">
+            
+              <a href="#" class="reference internal current">011: Interactive design investigation page</a>
+            
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#installation-and-prerequisites" class="reference internal">Installation and prerequisites</a></li>
+                
+                  <li class="toctree-l2"><a href="#overview" class="reference internal">Overview</a></li>
+                
+                  <li class="toctree-l2"><a href="#introduction-to-the-show-command" class="reference internal">Introduction to the show command</a></li>
+                
+                  <li class="toctree-l2"><a href="#navigating-the-design" class="reference internal">Navigating the design</a></li>
+                
+                  <li class="toctree-l2"><a href="#advanced-investigation-techniques" class="reference internal">Advanced investigation techniques</a></li>
+                
+                  <li class="toctree-l2"><a href="#conclusion" class="reference internal">Conclusion</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="APPNOTE_012_Verilog_to_BTOR.html" class="reference internal ">012: Converting Verilog to BTOR page</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../bib.html" class="reference internal ">Literature references</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../cmd_ref.html#command-line-reference">Command reference</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/abc.html" class="reference internal ">abc - use ABC for technology mapping</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/abc9.html" class="reference internal ">abc9 - use ABC9 for technology mapping</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/abc9_exe.html" class="reference internal ">abc9_exe - use ABC9 for technology mapping</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/abc9_ops.html" class="reference internal ">abc9_ops - helper functions for ABC9</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/add.html" class="reference internal ">add - add objects to the design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/aigmap.html" class="reference internal ">aigmap - map logic to and-inverter-graph circuit</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/alumacc.html" class="reference internal ">alumacc - extract ALU and MACC cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/anlogic_eqn.html" class="reference internal ">anlogic_eqn - Anlogic: Calculate equations for luts</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/anlogic_fixcarry.html" class="reference internal ">anlogic_fixcarry - Anlogic: fix carry chain</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/assertpmux.html" class="reference internal ">assertpmux - adds asserts for parallel muxes</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/async2sync.html" class="reference internal ">async2sync - convert async FF inputs to sync circuits</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/attrmap.html" class="reference internal ">attrmap - renaming attributes</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/attrmvcp.html" class="reference internal ">attrmvcp - move or copy attributes from wires to driving cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/autoname.html" class="reference internal ">autoname - automatically assign names to objects</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/blackbox.html" class="reference internal ">blackbox - convert modules into blackbox modules</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/bmuxmap.html" class="reference internal ">bmuxmap - transform $bmux cells to trees of $mux cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/bugpoint.html" class="reference internal ">bugpoint - minimize testcases</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/cd.html" class="reference internal ">cd - a shortcut for ‘select -module <name>’</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/check.html" class="reference internal ">check - check for obvious problems in the design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/chformal.html" class="reference internal ">chformal - change formal constraints of the design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/chparam.html" class="reference internal ">chparam - re-evaluate modules with new parameters</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/chtype.html" class="reference internal ">chtype - change type of cells in the design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/clean.html" class="reference internal ">clean - remove unused cells and wires</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/clean_zerowidth.html" class="reference internal ">clean_zerowidth - clean zero-width connections from the design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/clk2fflogic.html" class="reference internal ">clk2fflogic - convert clocked FFs to generic $ff cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/clkbufmap.html" class="reference internal ">clkbufmap - insert clock buffers on clock networks</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/connect.html" class="reference internal ">connect - create or remove connections</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/connect_rpc.html" class="reference internal ">connect_rpc - connect to RPC frontend</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/connwrappers.html" class="reference internal ">connwrappers - match width of input-output port pairs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/coolrunner2_fixup.html" class="reference internal ">coolrunner2_fixup - insert necessary buffer cells for CoolRunner-II architecture</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/coolrunner2_sop.html" class="reference internal ">coolrunner2_sop - break $sop cells into ANDTERM/ORTERM cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/copy.html" class="reference internal ">copy - copy modules in the design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/cover.html" class="reference internal ">cover - print code coverage counters</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/cutpoint.html" class="reference internal ">cutpoint - adds formal cut points to the design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/debug.html" class="reference internal ">debug - run command with debug log messages enabled</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/delete.html" class="reference internal ">delete - delete objects in the design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/deminout.html" class="reference internal ">deminout - demote inout ports to input or output</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/demuxmap.html" class="reference internal ">demuxmap - transform $demux cells to $eq + $mux cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/design.html" class="reference internal ">design - save, restore and reset current design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/dffinit.html" class="reference internal ">dffinit - set INIT param on FF cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/dfflegalize.html" class="reference internal ">dfflegalize - convert FFs to types supported by the target</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/dfflibmap.html" class="reference internal ">dfflibmap - technology mapping of flip-flops</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/dffunmap.html" class="reference internal ">dffunmap - unmap clock enable and synchronous reset from FFs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/dump.html" class="reference internal ">dump - print parts of the design in RTLIL format</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/echo.html" class="reference internal ">echo - turning echoing back of commands on and off</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/ecp5_gsr.html" class="reference internal ">ecp5_gsr - ECP5: handle GSR</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/edgetypes.html" class="reference internal ">edgetypes - list all types of edges in selection</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/efinix_fixcarry.html" class="reference internal ">efinix_fixcarry - Efinix: fix carry chain</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/equiv_add.html" class="reference internal ">equiv_add - add a $equiv cell</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/equiv_induct.html" class="reference internal ">equiv_induct - proving $equiv cells using temporal induction</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/equiv_make.html" class="reference internal ">equiv_make - prepare a circuit for equivalence checking</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/equiv_mark.html" class="reference internal ">equiv_mark - mark equivalence checking regions</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/equiv_miter.html" class="reference internal ">equiv_miter - extract miter from equiv circuit</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/equiv_opt.html" class="reference internal ">equiv_opt - prove equivalence for optimized circuit</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/equiv_purge.html" class="reference internal ">equiv_purge - purge equivalence checking module</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/equiv_remove.html" class="reference internal ">equiv_remove - remove $equiv cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/equiv_simple.html" class="reference internal ">equiv_simple - try proving simple $equiv instances</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/equiv_status.html" class="reference internal ">equiv_status - print status of equivalent checking module</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/equiv_struct.html" class="reference internal ">equiv_struct - structural equivalence checking</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/eval.html" class="reference internal ">eval - evaluate the circuit given an input</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/exec.html" class="reference internal ">exec - execute commands in the operating system shell</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/expose.html" class="reference internal ">expose - convert internal signals to module ports</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/extract.html" class="reference internal ">extract - find subcircuits and replace them with cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/extract_counter.html" class="reference internal ">extract_counter - Extract GreenPak4 counter cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/extract_fa.html" class="reference internal ">extract_fa - find and extract full/half adders</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/extract_reduce.html" class="reference internal ">extract_reduce - converts gate chains into $reduce_* cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/extractinv.html" class="reference internal ">extractinv - extract explicit inverter cells for invertible cell pins</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/flatten.html" class="reference internal ">flatten - flatten design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/flowmap.html" class="reference internal ">flowmap - pack LUTs with FlowMap</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/fmcombine.html" class="reference internal ">fmcombine - combine two instances of a cell into one</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/fminit.html" class="reference internal ">fminit - set init values/sequences for formal</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/formalff.html" class="reference internal ">formalff - prepare FFs for formal</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/freduce.html" class="reference internal ">freduce - perform functional reduction</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/fsm.html" class="reference internal ">fsm - extract and optimize finite state machines</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/fsm_detect.html" class="reference internal ">fsm_detect - finding FSMs in design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/fsm_expand.html" class="reference internal ">fsm_expand - expand FSM cells by merging logic into it</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/fsm_export.html" class="reference internal ">fsm_export - exporting FSMs to KISS2 files</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/fsm_extract.html" class="reference internal ">fsm_extract - extracting FSMs in design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/fsm_info.html" class="reference internal ">fsm_info - print information on finite state machines</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/fsm_map.html" class="reference internal ">fsm_map - mapping FSMs to basic logic</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/fsm_opt.html" class="reference internal ">fsm_opt - optimize finite state machines</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/fsm_recode.html" class="reference internal ">fsm_recode - recoding finite state machines</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/fst2tb.html" class="reference internal ">fst2tb - generate testbench out of fst file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/gatemate_foldinv.html" class="reference internal ">gatemate_foldinv - fold inverters into Gatemate LUT trees</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/glift.html" class="reference internal ">glift - create GLIFT models and optimization problems</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/greenpak4_dffinv.html" class="reference internal ">greenpak4_dffinv - merge greenpak4 inverters and DFF/latches</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/help.html" class="reference internal ">help - display help messages</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/hierarchy.html" class="reference internal ">hierarchy - check, expand and clean up design hierarchy</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/hilomap.html" class="reference internal ">hilomap - technology mapping of constant hi- and/or lo-drivers</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/history.html" class="reference internal ">history - show last interactive commands</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/ice40_braminit.html" class="reference internal ">ice40_braminit - iCE40: perform SB_RAM40_4K initialization from file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/ice40_dsp.html" class="reference internal ">ice40_dsp - iCE40: map multipliers</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/ice40_opt.html" class="reference internal ">ice40_opt - iCE40: perform simple optimizations</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/ice40_wrapcarry.html" class="reference internal ">ice40_wrapcarry - iCE40: wrap carries</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/insbuf.html" class="reference internal ">insbuf - insert buffer cells for connected wires</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/iopadmap.html" class="reference internal ">iopadmap - technology mapping of i/o pads (or buffers)</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/jny.html" class="reference internal ">jny - write design and metadata</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/json.html" class="reference internal ">json - write design in JSON format</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/log.html" class="reference internal ">log - print text and log files</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/logger.html" class="reference internal ">logger - set logger properties</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/ls.html" class="reference internal ">ls - list modules or objects in modules</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/ltp.html" class="reference internal ">ltp - print longest topological path</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/lut2mux.html" class="reference internal ">lut2mux - convert $lut to $_MUX_</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/maccmap.html" class="reference internal ">maccmap - mapping macc cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/memory.html" class="reference internal ">memory - translate memories to basic cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/memory_bmux2rom.html" class="reference internal ">memory_bmux2rom - convert muxes to ROMs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/memory_bram.html" class="reference internal ">memory_bram - map memories to block rams</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/memory_collect.html" class="reference internal ">memory_collect - creating multi-port memory cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/memory_dff.html" class="reference internal ">memory_dff - merge input/output DFFs into memory read ports</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/memory_libmap.html" class="reference internal ">memory_libmap - map memories to cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/memory_map.html" class="reference internal ">memory_map - translate multiport memories to basic cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/memory_memx.html" class="reference internal ">memory_memx - emulate vlog sim behavior for mem ports</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/memory_narrow.html" class="reference internal ">memory_narrow - split up wide memory ports</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/memory_nordff.html" class="reference internal ">memory_nordff - extract read port FFs from memories</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/memory_share.html" class="reference internal ">memory_share - consolidate memory ports</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/memory_unpack.html" class="reference internal ">memory_unpack - unpack multi-port memory cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/miter.html" class="reference internal ">miter - automatically create a miter circuit</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/mutate.html" class="reference internal ">mutate - generate or apply design mutations</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/muxcover.html" class="reference internal ">muxcover - cover trees of MUX cells with wider MUXes</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/muxpack.html" class="reference internal ">muxpack - $mux/$pmux cascades to $pmux</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/nlutmap.html" class="reference internal ">nlutmap - map to LUTs of different sizes</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/onehot.html" class="reference internal ">onehot - optimize $eq cells for onehot signals</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/opt.html" class="reference internal ">opt - perform simple optimizations</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/opt_clean.html" class="reference internal ">opt_clean - remove unused cells and wires</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/opt_demorgan.html" class="reference internal ">opt_demorgan - Optimize reductions with DeMorgan equivalents</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/opt_dff.html" class="reference internal ">opt_dff - perform DFF optimizations</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/opt_expr.html" class="reference internal ">opt_expr - perform const folding and simple expression rewriting</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/opt_ffinv.html" class="reference internal ">opt_ffinv - push inverters through FFs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/opt_lut.html" class="reference internal ">opt_lut - optimize LUT cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/opt_lut_ins.html" class="reference internal ">opt_lut_ins - discard unused LUT inputs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/opt_mem.html" class="reference internal ">opt_mem - optimize memories</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/opt_mem_feedback.html" class="reference internal ">opt_mem_feedback - convert memory read-to-write port feedback paths to write enables</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/opt_mem_priority.html" class="reference internal ">opt_mem_priority - remove priority relations between write ports that can never collide</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/opt_mem_widen.html" class="reference internal ">opt_mem_widen - optimize memories where all ports are wide</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/opt_merge.html" class="reference internal ">opt_merge - consolidate identical cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/opt_muxtree.html" class="reference internal ">opt_muxtree - eliminate dead trees in multiplexer trees</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/opt_reduce.html" class="reference internal ">opt_reduce - simplify large MUXes and AND/OR gates</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/opt_share.html" class="reference internal ">opt_share - merge mutually exclusive cells of the same type that share an input signal</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/paramap.html" class="reference internal ">paramap - renaming cell parameters</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/peepopt.html" class="reference internal ">peepopt - collection of peephole optimizers</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/plugin.html" class="reference internal ">plugin - load and list loaded plugins</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/pmux2shiftx.html" class="reference internal ">pmux2shiftx - transform $pmux cells to $shiftx cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/pmuxtree.html" class="reference internal ">pmuxtree - transform $pmux cells to trees of $mux cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/portlist.html" class="reference internal ">portlist - list (top-level) ports</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/prep.html" class="reference internal ">prep - generic synthesis script</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/printattrs.html" class="reference internal ">printattrs - print attributes of selected objects</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/proc.html" class="reference internal ">proc - translate processes to netlists</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/proc_arst.html" class="reference internal ">proc_arst - detect asynchronous resets</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/proc_clean.html" class="reference internal ">proc_clean - remove empty parts of processes</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/proc_dff.html" class="reference internal ">proc_dff - extract flip-flops from processes</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/proc_dlatch.html" class="reference internal ">proc_dlatch - extract latches from processes</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/proc_init.html" class="reference internal ">proc_init - convert initial block to init attributes</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/proc_memwr.html" class="reference internal ">proc_memwr - extract memory writes from processes</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/proc_mux.html" class="reference internal ">proc_mux - convert decision trees to multiplexers</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/proc_prune.html" class="reference internal ">proc_prune - remove redundant assignments</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/proc_rmdead.html" class="reference internal ">proc_rmdead - eliminate dead trees in decision trees</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/proc_rom.html" class="reference internal ">proc_rom - convert switches to ROMs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/qbfsat.html" class="reference internal ">qbfsat - solve a 2QBF-SAT problem in the circuit</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/qwp.html" class="reference internal ">qwp - quadratic wirelength placer</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/read.html" class="reference internal ">read - load HDL designs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/read_aiger.html" class="reference internal ">read_aiger - read AIGER file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/read_blif.html" class="reference internal ">read_blif - read BLIF file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/read_ilang.html" class="reference internal ">read_ilang - (deprecated) alias of read_rtlil</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/read_json.html" class="reference internal ">read_json - read JSON file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/read_liberty.html" class="reference internal ">read_liberty - read cells from liberty file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/read_rtlil.html" class="reference internal ">read_rtlil - read modules from RTLIL file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/read_verilog.html" class="reference internal ">read_verilog - read modules from Verilog file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/rename.html" class="reference internal ">rename - rename object in the design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/rmports.html" class="reference internal ">rmports - remove module ports with no connections</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/sat.html" class="reference internal ">sat - solve a SAT problem in the circuit</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/scatter.html" class="reference internal ">scatter - add additional intermediate nets</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/scc.html" class="reference internal ">scc - detect strongly connected components (logic loops)</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/scratchpad.html" class="reference internal ">scratchpad - get/set values in the scratchpad</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/script.html" class="reference internal ">script - execute commands from file or wire</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/select.html" class="reference internal ">select - modify and view the list of selected objects</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/setattr.html" class="reference internal ">setattr - set/unset attributes on objects</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/setparam.html" class="reference internal ">setparam - set/unset parameters on objects</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/setundef.html" class="reference internal ">setundef - replace undef values with defined constants</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/share.html" class="reference internal ">share - perform sat-based resource sharing</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/shell.html" class="reference internal ">shell - enter interactive command mode</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/show.html" class="reference internal ">show - generate schematics using graphviz</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/shregmap.html" class="reference internal ">shregmap - map shift registers</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/sim.html" class="reference internal ">sim - simulate the circuit</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/simplemap.html" class="reference internal ">simplemap - mapping simple coarse-grain cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/splice.html" class="reference internal ">splice - create explicit splicing cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/splitnets.html" class="reference internal ">splitnets - split up multi-bit nets</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/sta.html" class="reference internal ">sta - perform static timing analysis</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/stat.html" class="reference internal ">stat - print some statistics</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/submod.html" class="reference internal ">submod - moving part of a module to a new submodule</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/supercover.html" class="reference internal ">supercover - add hi/lo cover cells for each wire bit</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/synth.html" class="reference internal ">synth - generic synthesis script</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/synth_achronix.html" class="reference internal ">synth_achronix - synthesis for Acrhonix Speedster22i FPGAs.</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/synth_anlogic.html" class="reference internal ">synth_anlogic - synthesis for Anlogic FPGAs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/synth_coolrunner2.html" class="reference internal ">synth_coolrunner2 - synthesis for Xilinx Coolrunner-II CPLDs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/synth_easic.html" class="reference internal ">synth_easic - synthesis for eASIC platform</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/synth_ecp5.html" class="reference internal ">synth_ecp5 - synthesis for ECP5 FPGAs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/synth_efinix.html" class="reference internal ">synth_efinix - synthesis for Efinix FPGAs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/synth_gatemate.html" class="reference internal ">synth_gatemate - synthesis for Cologne Chip GateMate FPGAs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/synth_gowin.html" class="reference internal ">synth_gowin - synthesis for Gowin FPGAs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/synth_greenpak4.html" class="reference internal ">synth_greenpak4 - synthesis for GreenPAK4 FPGAs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/synth_ice40.html" class="reference internal ">synth_ice40 - synthesis for iCE40 FPGAs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/synth_intel.html" class="reference internal ">synth_intel - synthesis for Intel (Altera) FPGAs.</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/synth_intel_alm.html" class="reference internal ">synth_intel_alm - synthesis for ALM-based Intel (Altera) FPGAs.</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/synth_machxo2.html" class="reference internal ">synth_machxo2 - synthesis for MachXO2 FPGAs. This work is experimental.</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/synth_nexus.html" class="reference internal ">synth_nexus - synthesis for Lattice Nexus FPGAs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/synth_quicklogic.html" class="reference internal ">synth_quicklogic - Synthesis for QuickLogic FPGAs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/synth_sf2.html" class="reference internal ">synth_sf2 - synthesis for SmartFusion2 and IGLOO2 FPGAs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/synth_xilinx.html" class="reference internal ">synth_xilinx - synthesis for Xilinx FPGAs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/tcl.html" class="reference internal ">tcl - execute a TCL script file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/techmap.html" class="reference internal ">techmap - generic technology mapper</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/tee.html" class="reference internal ">tee - redirect command output to file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/test_abcloop.html" class="reference internal ">test_abcloop - automatically test handling of loops in abc command</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/test_autotb.html" class="reference internal ">test_autotb - generate simple test benches</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/test_cell.html" class="reference internal ">test_cell - automatically test the implementation of a cell type</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/test_pmgen.html" class="reference internal ">test_pmgen - test pass for pmgen</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/torder.html" class="reference internal ">torder - print cells in topological order</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/trace.html" class="reference internal ">trace - redirect command output to file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/tribuf.html" class="reference internal ">tribuf - infer tri-state buffers</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/uniquify.html" class="reference internal ">uniquify - create unique copies of modules</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/verific.html" class="reference internal ">verific - load Verilog and VHDL designs using Verific</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/verilog_defaults.html" class="reference internal ">verilog_defaults - set default options for read_verilog</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/verilog_defines.html" class="reference internal ">verilog_defines - define and undefine verilog defines</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/wbflip.html" class="reference internal ">wbflip - flip the whitebox attribute</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/wreduce.html" class="reference internal ">wreduce - reduce the word size of operations if possible</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/write_aiger.html" class="reference internal ">write_aiger - write design to AIGER file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/write_blif.html" class="reference internal ">write_blif - write design to BLIF file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/write_btor.html" class="reference internal ">write_btor - write design to BTOR file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/write_cxxrtl.html" class="reference internal ">write_cxxrtl - convert design to C++ RTL simulation</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/write_edif.html" class="reference internal ">write_edif - write design to EDIF netlist file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/write_file.html" class="reference internal ">write_file - write a text to a file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/write_firrtl.html" class="reference internal ">write_firrtl - write design to a FIRRTL file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/write_ilang.html" class="reference internal ">write_ilang - (deprecated) alias of write_rtlil</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/write_intersynth.html" class="reference internal ">write_intersynth - write design to InterSynth netlist file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/write_jny.html" class="reference internal ">write_jny - generate design metadata</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/write_json.html" class="reference internal ">write_json - write design to a JSON file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/write_rtlil.html" class="reference internal ">write_rtlil - write design to RTLIL file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/write_simplec.html" class="reference internal ">write_simplec - convert design to simple C code</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/write_smt2.html" class="reference internal ">write_smt2 - write design to SMT-LIBv2 file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/write_smv.html" class="reference internal ">write_smv - write design to SMV file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/write_spice.html" class="reference internal ">write_spice - write design to SPICE netlist file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/write_table.html" class="reference internal ">write_table - write design as connectivity table</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/write_verilog.html" class="reference internal ">write_verilog - write design to Verilog file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/write_xaiger.html" class="reference internal ">write_xaiger - write design to XAIGER file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/xilinx_dffopt.html" class="reference internal ">xilinx_dffopt - Xilinx: optimize FF control signal usage</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/xilinx_dsp.html" class="reference internal ">xilinx_dsp - Xilinx: pack resources into DSPs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/xilinx_srl.html" class="reference internal ">xilinx_srl - Xilinx shift register extraction</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../cmd/zinit.html" class="reference internal ">zinit - add inverters so all FF are zero-initialized</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+    <li>011: Interactive design investigation page</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="APPNOTE_010_Verilog_to_BLIF.html"
+       title="previous chapter">← 010: Converting Verilog to BLIF page</a>
+  </li>
+  <li class="next">
+    <a href="APPNOTE_012_Verilog_to_BTOR.html"
+       title="next chapter">012: Converting Verilog to BTOR page →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="interactive-design-investigation-page">
+<h1>011: Interactive design investigation page<a class="headerlink" href="#interactive-design-investigation-page" title="Permalink to this heading">¶</a></h1>
+<section id="installation-and-prerequisites">
+<h2>Installation and prerequisites<a class="headerlink" href="#installation-and-prerequisites" title="Permalink to this heading">¶</a></h2>
+<p>This Application Note is based on the <a class="reference external" href="https://github.com/YosysHQ/yosys">Yosys GIT</a> <a class="reference external" href="https://github.com/YosysHQ/yosys/tree/2b90ba1">Rev. 2b90ba1</a> from
+2013-12-08. The README file covers how to install Yosys. The <code class="docutils literal notranslate"><span class="pre">show</span></code> command
+requires a working installation of <a class="reference external" href="http://www.graphviz.org/">GraphViz</a> and <cite>xdot</cite> for generating the
+actual circuit diagrams.</p>
+</section>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<p>This application note is structured as follows:</p>
+<p><a class="reference internal" href="#intro-show"><span class="std std-ref">Introduction to the show command</span></a> introduces the <code class="docutils literal notranslate"><span class="pre">show</span></code> command and explains the symbols used
+in the circuit diagrams generated by it.</p>
+<p><a class="reference internal" href="#navigate"><span class="std std-ref">Navigating the design</span></a> introduces additional commands used to navigate in the design,
+select portions of the design, and print additional information on the elements
+in the design that are not contained in the circuit diagrams.</p>
+<p><a class="reference internal" href="#poke"><span class="std std-ref">Advanced investigation techniques</span></a> introduces commands to evaluate the design and solve SAT problems
+within the design.</p>
+<p><a class="reference internal" href="#conclusion"><span class="std std-ref">Conclusion</span></a> concludes the document and summarizes the key points.</p>
+</section>
+<section id="introduction-to-the-show-command">
+<span id="intro-show"></span><h2>Introduction to the show command<a class="headerlink" href="#introduction-to-the-show-command" title="Permalink to this heading">¶</a></h2>
+<div class="literal-block-wrapper docutils container" id="example-src">
+<div class="code-block-caption"><span class="caption-number">Listing 5 </span><span class="caption-text">Yosys script with <code class="docutils literal notranslate"><span class="pre">show</span></code> commands and example design</span><a class="headerlink" href="#example-src" title="Permalink to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cat example.ys
+<span class="go">read_verilog example.v</span>
+<span class="go">show -pause</span>
+<span class="go">proc</span>
+<span class="go">show -pause</span>
+<span class="go">opt</span>
+<span class="go">show -pause</span>
+
+<span class="gp">$ </span>cat example.v
+<span class="go">module example(input clk, a, b, c,</span>
+<span class="go">               output reg [1:0] y);</span>
+<span class="go">    always @(posedge clk)</span>
+<span class="go">        if (c)</span>
+<span class="go">            y &lt;= c ? a + b : 2&#39;d0;</span>
+<span class="go">endmodule</span>
+</pre></div>
+</div>
+</div>
+<figure class="align-default" id="example-out">
+<img alt="../_images/example_out.svg" class="width-helper" src="../_images/example_out.svg" /><figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Output of the three <code class="docutils literal notranslate"><span class="pre">show</span></code> commands from <a class="reference internal" href="#example-src"><span class="std std-numref">Listing 5</span></a></span><a class="headerlink" href="#example-out" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>The <code class="docutils literal notranslate"><span class="pre">show</span></code> command generates a circuit diagram for the design in its current
+state. Various options can be used to change the appearance of the circuit
+diagram, set the name and format for the output file, and so forth. When called
+without any special options, it saves the circuit diagram in a temporary file
+and launches <code class="docutils literal notranslate"><span class="pre">xdot</span></code> to display the diagram. Subsequent calls to show re-use the
+<code class="docutils literal notranslate"><span class="pre">xdot</span></code> instance (if still running).</p>
+<section id="a-simple-circuit">
+<h3>A simple circuit<a class="headerlink" href="#a-simple-circuit" title="Permalink to this heading">¶</a></h3>
+<p><a class="reference internal" href="#example-src"><span class="std std-numref">Listing 5</span></a> shows a simple synthesis script and a Verilog file that
+demonstrate the usage of show in a simple setting. Note that <code class="docutils literal notranslate"><span class="pre">show</span></code> is called with
+the <code class="docutils literal notranslate"><span class="pre">-pause</span></code> option, that halts execution of the Yosys script until the user
+presses the Enter key. The <code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">-pause</span></code> command also allows the user to enter
+an interactive shell to further investigate the circuit before continuing
+synthesis.</p>
+<p>So this script, when executed, will show the design after each of the three
+synthesis commands. The generated circuit diagrams are shown in
+<a class="reference internal" href="#example-out"><span class="std std-numref">Fig. 1</span></a>.</p>
+<p>The first diagram (from top to bottom) shows the design directly after being
+read by the Verilog front-end. Input and output ports are displayed as octagonal
+shapes. Cells are displayed as rectangles with inputs on the left and outputs on
+the right side. The cell labels are two lines long: The first line contains a
+unique identifier for the cell and the second line contains the cell type.
+Internal cell types are prefixed with a dollar sign. The Yosys manual contains a
+chapter on the internal cell library used in Yosys.</p>
+<p>Constants are shown as ellipses with the constant value as label. The syntax
+<code class="docutils literal notranslate"><span class="pre">&lt;bit_width&gt;'&lt;bits&gt;</span></code> is used for for constants that are not 32-bit wide and/or
+contain bits that are not 0 or 1 (i.e. <code class="docutils literal notranslate"><span class="pre">x</span></code> or <code class="docutils literal notranslate"><span class="pre">z</span></code>). Ordinary 32-bit
+constants are written using decimal numbers.</p>
+<p>Single-bit signals are shown as thin arrows pointing from the driver to the
+load. Signals that are multiple bits wide are shown as think arrows.</p>
+<p>Finally <em>processes</em> are shown in boxes with round corners. Processes are Yosys’
+internal representation of the decision-trees and synchronization events
+modelled in a Verilog <code class="docutils literal notranslate"><span class="pre">always</span></code>-block. The label reads <code class="docutils literal notranslate"><span class="pre">PROC</span></code> followed by a
+unique identifier in the first line and contains the source code location of the
+original <code class="docutils literal notranslate"><span class="pre">always</span></code>-block in the 2nd line. Note how the multiplexer from the
+<code class="docutils literal notranslate"><span class="pre">?:</span></code>-expression is represented as a <code class="docutils literal notranslate"><span class="pre">$mux</span></code> cell but the multiplexer from the
+<code class="docutils literal notranslate"><span class="pre">if</span></code>-statement is yet still hidden within the process.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">proc</span></code> command transforms the process from the first diagram into a
+multiplexer and a d-type flip-flip, which brings us to the 2nd diagram.</p>
+<p>The Rhombus shape to the right is a dangling wire. (Wire nodes are only shown if
+they are dangling or have “public” names, for example names assigned from the
+Verilog input.) Also note that the design now contains two instances of a
+<code class="docutils literal notranslate"><span class="pre">BUF</span></code>-node. This are artefacts left behind by the <code class="docutils literal notranslate"><span class="pre">proc</span></code>-command. It is
+quite usual to see such artefacts after calling commands that perform changes in
+the design, as most commands only care about doing the transformation in the
+least complicated way, not about cleaning up after them. The next call to
+<code class="docutils literal notranslate"><span class="pre">clean</span></code> (or <code class="docutils literal notranslate"><span class="pre">opt</span></code>, which includes <code class="docutils literal notranslate"><span class="pre">clean</span></code> as one of its operations) will
+clean up this artefacts. This operation is so common in Yosys scripts that it
+can simply be abbreviated with the <code class="docutils literal notranslate"><span class="pre">;;</span></code> token, which doubles as separator for
+commands. Unless one wants to specifically analyze this artefacts left behind
+some operations, it is therefore recommended to always call <code class="docutils literal notranslate"><span class="pre">clean</span></code> before
+calling <code class="docutils literal notranslate"><span class="pre">show</span></code>.</p>
+<p>In this script we directly call <code class="docutils literal notranslate"><span class="pre">opt</span></code> as next step, which finally leads us to
+the 3rd diagram in <a class="reference internal" href="#example-out"><span class="std std-numref">Fig. 1</span></a>. Here we see that the <code class="docutils literal notranslate"><span class="pre">opt</span></code> command
+not only has removed the artifacts left behind by <code class="docutils literal notranslate"><span class="pre">proc</span></code>, but also determined
+correctly that it can remove the first <code class="docutils literal notranslate"><span class="pre">$mux</span></code> cell without changing the
+behavior of the circuit.</p>
+<figure class="align-default" id="splice-dia">
+<img alt="../_images/splice.svg" class="width-helper" src="../_images/splice.svg" /><figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Output of <code class="docutils literal notranslate"><span class="pre">yosys</span> <span class="pre">-p</span> <span class="pre">'proc;</span> <span class="pre">opt;</span> <span class="pre">show'</span> <span class="pre">splice.v</span></code></span><a class="headerlink" href="#splice-dia" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="literal-block-wrapper docutils container" id="splice-src">
+<div class="code-block-caption"><span class="caption-number">Listing 6 </span><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">splice.v</span></code></span><a class="headerlink" href="#splice-src" title="Permalink to this code">¶</a></div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>module splice_demo(a, b, c, d, e, f, x, y);
+
+input [1:0] a, b, c, d, e, f;
+output [1:0] x = {a[0], a[1]};
+
+output [11:0] y;
+assign {y[11:4], y[1:0], y[3:2]} =
+                {a, b, -{c, d}, ~{e, f}};
+
+endmodule
+</pre></div>
+</div>
+</div>
+<figure class="align-default" id="splitnets-libfile">
+<img alt="../_images/splitnets_libfile.svg" class="width-helper" src="../_images/splitnets_libfile.svg" /><figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Effects of <code class="docutils literal notranslate"><span class="pre">splitnets</span></code> command and of providing a cell library. (The
+circuit is a half-adder built from simple CMOS gates.)</span><a class="headerlink" href="#splitnets-libfile" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="break-out-boxes-for-signal-vectors">
+<h3>Break-out boxes for signal vectors<a class="headerlink" href="#break-out-boxes-for-signal-vectors" title="Permalink to this heading">¶</a></h3>
+<p>As has been indicated by the last example, Yosys is can manage signal vectors
+(aka. multi-bit wires or buses) as native objects. This provides great
+advantages when analyzing circuits that operate on wide integers. But it also
+introduces some additional complexity when the individual bits of of a signal
+vector are accessed. The example <code class="docutils literal notranslate"><span class="pre">show</span></code> in <a class="reference internal" href="#splice-src"><span class="std std-numref">Listing 6</span></a> demonstrates
+how such circuits are visualized by the <code class="docutils literal notranslate"><span class="pre">show</span></code> command.</p>
+<p>The key elements in understanding this circuit diagram are of course the boxes
+with round corners and rows labeled <code class="docutils literal notranslate"><span class="pre">&lt;MSB_LEFT&gt;:&lt;LSB_LEFT&gt;</span> <span class="pre">-</span>
+<span class="pre">&lt;MSB_RIGHT&gt;:&lt;LSB_RIGHT&gt;</span></code>. Each of this boxes has one signal per row on one side
+and a common signal for all rows on the other side. The <code class="docutils literal notranslate"><span class="pre">&lt;MSB&gt;:&lt;LSB&gt;</span></code> tuples
+specify which bits of the signals are broken out and connected. So the top row
+of the box connecting the signals <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">x</span></code> indicates that the bit 0 (i.e.
+the range 0:0) from signal <code class="docutils literal notranslate"><span class="pre">a</span></code> is connected to bit 1 (i.e. the range 1:1) of
+signal <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p>Lines connecting such boxes together and lines connecting such boxes to
+cell ports have a slightly different look to emphasise that they are not
+actual signal wires but a necessity of the graphical representation.
+This distinction seems like a technicality, until one wants to debug a
+problem related to the way Yosys internally represents signal vectors,
+for example when writing custom Yosys commands.</p>
+</section>
+<section id="gate-level-netlists">
+<h3>Gate level netlists<a class="headerlink" href="#gate-level-netlists" title="Permalink to this heading">¶</a></h3>
+<p>Finally <a class="reference internal" href="#splitnets-libfile"><span class="std std-numref">Fig. 3</span></a> shows two common pitfalls when working with
+designs mapped to a cell library. The top figure has two problems: First Yosys
+did not have access to the cell library when this diagram was generated,
+resulting in all cell ports defaulting to being inputs. This is why all ports
+are drawn on the left side the cells are awkwardly arranged in a large column.
+Secondly the two-bit vector <code class="docutils literal notranslate"><span class="pre">y</span></code> requires breakout-boxes for its individual
+bits, resulting in an unnecessary complex diagram.</p>
+<p>For the 2nd diagram Yosys has been given a description of the cell library as
+Verilog file containing blackbox modules. There are two ways to load cell
+descriptions into Yosys: First the Verilog file for the cell library can be
+passed directly to the <code class="docutils literal notranslate"><span class="pre">show</span></code> command using the <code class="docutils literal notranslate"><span class="pre">-lib</span> <span class="pre">&lt;filename&gt;</span></code> option.
+Secondly it is possible to load cell libraries into the design with the
+<code class="docutils literal notranslate"><span class="pre">read_verilog</span> <span class="pre">-lib</span> <span class="pre">&lt;filename&gt;</span></code> command. The 2nd method has the great advantage
+that the library only needs to be loaded once and can then be used in all
+subsequent calls to the <code class="docutils literal notranslate"><span class="pre">show</span></code> command.</p>
+<p>In addition to that, the 2nd diagram was generated after <code class="docutils literal notranslate"><span class="pre">splitnet</span> <span class="pre">-ports</span></code> was
+run on the design. This command splits all signal vectors into individual signal
+bits, which is often desirable when looking at gate-level circuits. The
+<code class="docutils literal notranslate"><span class="pre">-ports</span></code> option is required to also split module ports. Per default the
+command only operates on interior signals.</p>
+</section>
+<section id="miscellaneous-notes">
+<h3>Miscellaneous notes<a class="headerlink" href="#miscellaneous-notes" title="Permalink to this heading">¶</a></h3>
+<p>Per default the <code class="docutils literal notranslate"><span class="pre">show</span></code> command outputs a temporary dot file and launches
+<code class="docutils literal notranslate"><span class="pre">xdot</span></code> to display it. The options <code class="docutils literal notranslate"><span class="pre">-format</span></code>, <code class="docutils literal notranslate"><span class="pre">-viewer</span></code> and <code class="docutils literal notranslate"><span class="pre">-prefix</span></code> can
+be used to change format, viewer and filename prefix. Note that the <code class="docutils literal notranslate"><span class="pre">pdf</span></code> and
+<code class="docutils literal notranslate"><span class="pre">ps</span></code> format are the only formats that support plotting multiple modules in one
+run.</p>
+<p>In densely connected circuits it is sometimes hard to keep track of the
+individual signal wires. For this cases it can be useful to call <code class="docutils literal notranslate"><span class="pre">show</span></code> with
+the <code class="docutils literal notranslate"><span class="pre">-colors</span> <span class="pre">&lt;integer&gt;</span></code> argument, which randomly assigns colors to the nets.
+The integer (&gt; 0) is used as seed value for the random color assignments.
+Sometimes it is necessary it try some values to find an assignment of colors
+that looks good.</p>
+<p>The command <code class="docutils literal notranslate"><span class="pre">help</span> <span class="pre">show</span></code> prints a complete listing of all options supported by
+the <code class="docutils literal notranslate"><span class="pre">show</span></code> command.</p>
+</section>
+</section>
+<section id="navigating-the-design">
+<span id="navigate"></span><h2>Navigating the design<a class="headerlink" href="#navigating-the-design" title="Permalink to this heading">¶</a></h2>
+<p>Plotting circuit diagrams for entire modules in the design brings us
+only helps in simple cases. For complex modules the generated circuit
+diagrams are just stupidly big and are no help at all. In such cases one
+first has to select the relevant portions of the circuit.</p>
+<p>In addition to <em>what</em> to display one also needs to carefully decide <em>when</em>
+to display it, with respect to the synthesis flow. In general it is a
+good idea to troubleshoot a circuit in the earliest state in which a
+problem can be reproduced. So if, for example, the internal state before
+calling the <code class="docutils literal notranslate"><span class="pre">techmap</span></code> command already fails to verify, it is better to
+troubleshoot the coarse-grain version of the circuit before <code class="docutils literal notranslate"><span class="pre">techmap</span></code> than
+the gate-level circuit after <code class="docutils literal notranslate"><span class="pre">techmap</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is generally recommended to verify the internal state of a
+design by writing it to a Verilog file using <code class="docutils literal notranslate"><span class="pre">write_verilog</span> <span class="pre">-noexpr</span></code>
+and using the simulation models from <code class="docutils literal notranslate"><span class="pre">simlib.v</span></code> and <code class="docutils literal notranslate"><span class="pre">simcells.v</span></code>
+from the Yosys data directory (as printed by <code class="docutils literal notranslate"><span class="pre">yosys-config</span> <span class="pre">--datdir</span></code>).</p>
+</div>
+<section id="interactive-navigation">
+<h3>Interactive navigation<a class="headerlink" href="#interactive-navigation" title="Permalink to this heading">¶</a></h3>
+<div class="literal-block-wrapper docutils container" id="lscd">
+<div class="code-block-caption"><span class="caption-number">Listing 7 </span><span class="caption-text">Demonstration of <code class="docutils literal notranslate"><span class="pre">ls</span></code> and <code class="docutils literal notranslate"><span class="pre">cd</span></code> using <code class="docutils literal notranslate"><span class="pre">example.v</span></code> from <a class="reference internal" href="#example-src"><span class="std std-numref">Listing 5</span></a></span><a class="headerlink" href="#lscd" title="Permalink to this code">¶</a></div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>yosys&gt; ls
+
+1 modules:
+  example
+
+yosys&gt; cd example
+
+yosys [example]&gt; ls
+
+7 wires:
+  $0\y[1:0]
+  $add$example.v:5$2_Y
+  a
+  b
+  c
+  clk
+  y
+
+3 cells:
+  $add$example.v:5$2
+  $procdff$7
+  $procmux$5
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="dump2">
+<div class="code-block-caption"><span class="caption-number">Listing 8 </span><span class="caption-text">Output of <code class="docutils literal notranslate"><span class="pre">dump</span> <span class="pre">\$2</span></code> using the design from <a class="reference internal" href="#example-src"><span class="std std-numref">Listing 5</span></a>
+and <a class="reference internal" href="#example-out"><span class="std std-numref">Fig. 1</span></a></span><a class="headerlink" href="#dump2" title="Permalink to this code">¶</a></div>
+<div class="highlight-RTLIL notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="k">attribute</span><span class="w"> </span><span class="nv">\src</span><span class="w"> </span><span class="s">&quot;example.v:5&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="k">cell</span><span class="w"> </span><span class="nf">$add</span><span class="w"> </span><span class="nf">$add$example.v:5$2</span><span class="w"></span>
+<span class="w">    </span><span class="k">parameter</span><span class="w"> </span><span class="nv">\A_SIGNED</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">    </span><span class="k">parameter</span><span class="w"> </span><span class="nv">\A_WIDTH</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="k">parameter</span><span class="w"> </span><span class="nv">\B_SIGNED</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">    </span><span class="k">parameter</span><span class="w"> </span><span class="nv">\B_WIDTH</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="k">parameter</span><span class="w"> </span><span class="nv">\Y_WIDTH</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">    </span><span class="k">connect</span><span class="w"> </span><span class="nv">\A</span><span class="w"> </span><span class="nv">\a</span><span class="w"></span>
+<span class="w">    </span><span class="k">connect</span><span class="w"> </span><span class="nv">\B</span><span class="w"> </span><span class="nv">\b</span><span class="w"></span>
+<span class="w">    </span><span class="k">connect</span><span class="w"> </span><span class="nv">\Y</span><span class="w"> </span><span class="nv">$add$example.v:5$2_Y</span><span class="w"></span>
+<span class="w">  </span><span class="k">end</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<p>Once the right state within the synthesis flow for debugging the circuit has
+been identified, it is recommended to simply add the <code class="docutils literal notranslate"><span class="pre">shell</span></code> command to the
+matching place in the synthesis script. This command will stop the synthesis at
+the specified moment and go to shell mode, where the user can interactively
+enter commands.</p>
+<p>For most cases, the shell will start with the whole design selected (i.e. when
+the synthesis script does not already narrow the selection). The command <code class="docutils literal notranslate"><span class="pre">ls</span></code>
+can now be used to create a list of all modules. The command <code class="docutils literal notranslate"><span class="pre">cd</span></code> can be used
+to switch to one of the modules (type <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code> to switch back). Now the <cite>ls</cite>
+command lists the objects within that module. <a class="reference internal" href="#lscd"><span class="std std-numref">Listing 7</span></a> demonstrates this
+using the design from <a class="reference internal" href="#example-src"><span class="std std-numref">Listing 5</span></a>.</p>
+<p>There is a thing to note in <a class="reference internal" href="#lscd"><span class="std std-numref">Listing 7</span></a>: We can see that the cell names from
+<a class="reference internal" href="#example-out"><span class="std std-numref">Fig. 1</span></a> are just abbreviations of the actual cell names, namely
+the part after the last dollar-sign. Most auto-generated names (the ones
+starting with a dollar sign) are rather long and contains some additional
+information on the origin of the named object. But in most cases those names can
+simply be abbreviated using the last part.</p>
+<p>Usually all interactive work is done with one module selected using the <code class="docutils literal notranslate"><span class="pre">cd</span></code>
+command. But it is also possible to work from the design-context (<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code>). In
+this case all object names must be prefixed with <code class="docutils literal notranslate"><span class="pre">&lt;module_name&gt;/</span></code>. For example
+<code class="docutils literal notranslate"><span class="pre">a*/b\*</span></code> would refer to all objects whose names start with <code class="docutils literal notranslate"><span class="pre">b</span></code> from all
+modules whose names start with <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">dump</span></code> command can be used to print all information about an object. For
+example <code class="docutils literal notranslate"><span class="pre">dump</span> <span class="pre">$2</span></code> will print <a class="reference internal" href="#dump2"><span class="std std-numref">Listing 8</span></a>. This can for example be useful
+to determine the names of nets connected to cells, as the net-names are usually
+suppressed in the circuit diagram if they are auto-generated.</p>
+<p>For the remainder of this document we will assume that the commands are
+run from module-context and not design-context.</p>
+</section>
+<section id="working-with-selections">
+<h3>Working with selections<a class="headerlink" href="#working-with-selections" title="Permalink to this heading">¶</a></h3>
+<figure class="align-default" id="seladd">
+<img alt="../_images/example_03.svg" class="width-helper" src="../_images/example_03.svg" /><figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Output of <code class="docutils literal notranslate"><span class="pre">show</span></code> after <code class="docutils literal notranslate"><span class="pre">select</span> <span class="pre">$2</span></code> or <code class="docutils literal notranslate"><span class="pre">select</span> <span class="pre">t:$add</span></code> (see also
+<a class="reference internal" href="#example-out"><span class="std std-numref">Fig. 1</span></a>)</span><a class="headerlink" href="#seladd" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>When a module is selected using the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command, all commands (with a few
+exceptions, such as the <code class="docutils literal notranslate"><span class="pre">read_</span></code> and <code class="docutils literal notranslate"><span class="pre">write_</span></code> commands) operate only on the
+selected module. This can also be useful for synthesis scripts where different
+synthesis strategies should be applied to different modules in the design.</p>
+<p>But for most interactive work we want to further narrow the set of
+selected objects. This can be done using the <code class="docutils literal notranslate"><span class="pre">select</span></code> command.</p>
+<p>For example, if the command <code class="docutils literal notranslate"><span class="pre">select</span> <span class="pre">$2</span></code> is executed, a subsequent <code class="docutils literal notranslate"><span class="pre">show</span></code>
+command will yield the diagram shown in <a class="reference internal" href="#seladd"><span class="std std-numref">Fig. 4</span></a>. Note that the nets are
+now displayed in ellipses. This indicates that they are not selected, but only
+shown because the diagram contains a cell that is connected to the net. This of
+course makes no difference for the circuit that is shown, but it can be a useful
+information when manipulating selections.</p>
+<p>Objects can not only be selected by their name but also by other properties. For
+example <code class="docutils literal notranslate"><span class="pre">select</span> <span class="pre">t:$add</span></code> will select all cells of type <code class="docutils literal notranslate"><span class="pre">$add</span></code>. In this case
+this is also yields the diagram shown in <a class="reference internal" href="#seladd"><span class="std std-numref">Fig. 4</span></a>.</p>
+<div class="literal-block-wrapper docutils container" id="foobaraddsub">
+<div class="code-block-caption"><span class="caption-number">Listing 9 </span><span class="caption-text">Test module for operations on selections</span><a class="headerlink" href="#foobaraddsub" title="Permalink to this code">¶</a></div>
+<div class="highlight-verilog notranslate"><div class="highlight"><pre><span></span><span class="k">module</span><span class="w"> </span><span class="n">foobaraddsub</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">fa</span><span class="p">,</span><span class="w"> </span><span class="n">fs</span><span class="p">,</span><span class="w"> </span><span class="n">ba</span><span class="p">,</span><span class="w"> </span><span class="n">bs</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">input</span><span class="w"> </span><span class="p">[</span><span class="mh">7</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">output</span><span class="w"> </span><span class="p">[</span><span class="mh">7</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">fa</span><span class="p">,</span><span class="w"> </span><span class="n">fs</span><span class="p">,</span><span class="w"> </span><span class="n">ba</span><span class="p">,</span><span class="w"> </span><span class="n">bs</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">assign</span><span class="w"> </span><span class="n">fa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">assign</span><span class="w"> </span><span class="n">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">assign</span><span class="w"> </span><span class="n">ba</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="w"> </span><span class="n">bar</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">assign</span><span class="w"> </span><span class="n">bs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="w"> </span><span class="n">bar</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"></span>
+<span class="k">endmodule</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<p>The output of <code class="docutils literal notranslate"><span class="pre">help</span> <span class="pre">select</span></code> contains a complete syntax reference for
+matching different properties.</p>
+<p>Many commands can operate on explicit selections. For example the command <code class="docutils literal notranslate"><span class="pre">dump</span>
+<span class="pre">t:$add</span></code> will print information on all <code class="docutils literal notranslate"><span class="pre">$add</span></code> cells in the active module.
+Whenever a command has <code class="docutils literal notranslate"><span class="pre">[selection]</span></code> as last argument in its usage help, this
+means that it will use the engine behind the <code class="docutils literal notranslate"><span class="pre">select</span></code> command to evaluate
+additional arguments and use the resulting selection instead of the selection
+created by the last <code class="docutils literal notranslate"><span class="pre">select</span></code> command.</p>
+<p>Normally the <code class="docutils literal notranslate"><span class="pre">select</span></code> command overwrites a previous selection. The commands
+<code class="docutils literal notranslate"><span class="pre">select</span> <span class="pre">-add</span></code> and <code class="docutils literal notranslate"><span class="pre">select</span> <span class="pre">-del</span></code> can be used to add or remove objects from
+the current selection.</p>
+<p>The command <code class="docutils literal notranslate"><span class="pre">select</span> <span class="pre">-clear</span></code> can be used to reset the selection to the default,
+which is a complete selection of everything in the current module.</p>
+</section>
+<section id="operations-on-selections">
+<h3>Operations on selections<a class="headerlink" href="#operations-on-selections" title="Permalink to this heading">¶</a></h3>
+<div class="literal-block-wrapper docutils container" id="sumprod">
+<div class="code-block-caption"><span class="caption-number">Listing 10 </span><span class="caption-text">Another test module for operations on selections</span><a class="headerlink" href="#sumprod" title="Permalink to this code">¶</a></div>
+<div class="highlight-verilog notranslate"><div class="highlight"><pre><span></span><span class="k">module</span><span class="w"> </span><span class="n">sumprod</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="p">,</span><span class="w"> </span><span class="n">prod</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">input</span><span class="w"> </span><span class="p">[</span><span class="mh">7</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">output</span><span class="w"> </span><span class="p">[</span><span class="mh">7</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">sum</span><span class="p">,</span><span class="w"> </span><span class="n">prod</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="p">{</span><span class="o">*</span><span class="w"> </span><span class="n">sumstuff</span><span class="w"> </span><span class="o">*</span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">assign</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="o">*</span><span class="w"> </span><span class="o">*</span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">assign</span><span class="w"> </span><span class="n">prod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">endmodule</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<figure class="align-default" id="sumprod-00">
+<img alt="../_images/sumprod_00.svg" class="width-helper" src="../_images/sumprod_00.svg" /><figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Output of <code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">a:sumstuff</span></code> on <a class="reference internal" href="#sumprod"><span class="std std-numref">Listing 10</span></a></span><a class="headerlink" href="#sumprod-00" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>The <code class="docutils literal notranslate"><span class="pre">select</span></code> command is actually much more powerful than it might seem on the
+first glimpse. When it is called with multiple arguments, each argument is
+evaluated and pushed separately on a stack. After all arguments have been
+processed it simply creates the union of all elements on the stack. So the
+following command will select all <code class="docutils literal notranslate"><span class="pre">$add</span></code> cells and all objects with the
+<code class="docutils literal notranslate"><span class="pre">foo</span></code> attribute set:</p>
+<div class="highlight-yoscrypt notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="kt">t:</span><span class="nb">$add</span><span class="w"> </span><span class="kt">a:</span><span class="n">foo</span><span class="w"></span>
+</pre></div>
+</div>
+<p>(Try this with the design shown in <a class="reference internal" href="#foobaraddsub"><span class="std std-numref">Listing 9</span></a>. Use the <code class="docutils literal notranslate"><span class="pre">select</span>
+<span class="pre">-list</span></code> command to list the current selection.)</p>
+<p>In many cases simply adding more and more stuff to the selection is an
+ineffective way of selecting the interesting part of the design. Special
+arguments can be used to combine the elements on the stack. For example
+the <code class="docutils literal notranslate"><span class="pre">%i</span></code> arguments pops the last two elements from the stack, intersects
+them, and pushes the result back on the stack. So the following command
+will select all <code class="docutils literal notranslate"><span class="pre">$add</span> <span class="pre">``cells</span> <span class="pre">that</span> <span class="pre">have</span> <span class="pre">the</span> <span class="pre">``foo</span></code> attribute set:</p>
+<div class="highlight-yoscrypt notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="kt">t:</span><span class="nb">$add</span><span class="w"> </span><span class="kt">a:</span><span class="n">foo</span><span class="w"> </span><span class="kt">%i</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The listing in <a class="reference internal" href="#sumprod"><span class="std std-numref">Listing 10</span></a> uses the Yosys non-standard <code class="docutils literal notranslate"><span class="pre">{...</span> <span class="pre">\*}</span></code> syntax
+to set the attribute <code class="docutils literal notranslate"><span class="pre">sumstuff</span></code> on all cells generated by the first assign
+statement. (This works on arbitrary large blocks of Verilog code an can be used
+to mark portions of code for analysis.)</p>
+<p>Selecting <code class="docutils literal notranslate"><span class="pre">a:sumstuff</span></code> in this module will yield the circuit diagram shown in
+<a class="reference internal" href="#sumprod-00"><span class="std std-numref">Fig. 5</span></a>. As only the cells themselves are selected, but not the
+temporary wire <code class="docutils literal notranslate"><span class="pre">$1_Y</span></code>, the two adders are shown as two disjunct parts. This
+can be very useful for global signals like clock and reset signals: just
+unselect them using a command such as <code class="docutils literal notranslate"><span class="pre">select</span> <span class="pre">-del</span> <span class="pre">clk</span> <span class="pre">rst</span></code> and each cell
+using them will get its own net label.</p>
+<p>In this case however we would like to see the cells connected properly. This can
+be achieved using the <code class="docutils literal notranslate"><span class="pre">%x</span></code> action, that broadens the selection, i.e. for each
+selected wire it selects all cells connected to the wire and vice versa. So
+<code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">a:sumstuff</span> <span class="pre">%x</span></code> yields the diagram shown in <a class="reference internal" href="#sumprod-01"><span class="std std-numref">Fig. 6</span></a>.</p>
+<figure class="align-default" id="sumprod-01">
+<img alt="../_images/sumprod_01.svg" class="width-helper" src="../_images/sumprod_01.svg" /><figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Output of <code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">a:sumstuff</span> <span class="pre">%x</span></code> on <a class="reference internal" href="#sumprod"><span class="std std-numref">Listing 10</span></a></span><a class="headerlink" href="#sumprod-01" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="selecting-logic-cones">
+<h3>Selecting logic cones<a class="headerlink" href="#selecting-logic-cones" title="Permalink to this heading">¶</a></h3>
+<p><a class="reference internal" href="#sumprod-01"><span class="std std-numref">Fig. 6</span></a> shows what is called the <code class="docutils literal notranslate"><span class="pre">input</span> <span class="pre">cone</span></code> of <code class="docutils literal notranslate"><span class="pre">sum</span></code>, i.e.
+all cells and signals that are used to generate the signal <code class="docutils literal notranslate"><span class="pre">sum</span></code>. The <code class="docutils literal notranslate"><span class="pre">%ci</span></code>
+action can be used to select the input cones of all object in the top selection
+in the stack maintained by the <code class="docutils literal notranslate"><span class="pre">select</span></code> command.</p>
+<p>As the <code class="docutils literal notranslate"><span class="pre">%x</span></code> action, this commands broadens the selection by one “step”.
+But this time the operation only works against the direction of data
+flow. That means, wires only select cells via output ports and cells
+only select wires via input ports.</p>
+<p><a class="reference internal" href="#select-prod"><span class="std std-numref">Fig. 7</span></a> show the sequence of diagrams generated by the following
+commands:</p>
+<div class="highlight-yoscrypt notranslate"><div class="highlight"><pre><span></span><span class="k">show</span><span class="w"> </span><span class="n">prod</span><span class="w"></span>
+<span class="k">show</span><span class="w"> </span><span class="n">prod</span><span class="w"> </span><span class="kt">%ci</span><span class="w"></span>
+<span class="k">show</span><span class="w"> </span><span class="n">prod</span><span class="w"> </span><span class="kt">%ci</span><span class="w"> </span><span class="kt">%ci</span><span class="w"></span>
+<span class="k">show</span><span class="w"> </span><span class="n">prod</span><span class="w"> </span><span class="kt">%ci</span><span class="w"> </span><span class="kt">%ci</span><span class="w"> </span><span class="kt">%ci</span><span class="w"></span>
+</pre></div>
+</div>
+<p>When selecting many levels of logic, repeating <code class="docutils literal notranslate"><span class="pre">%ci</span></code> over and over again can
+be a bit dull. So there is a shortcut for that: the number of iterations can be
+appended to the action. So for example the action <code class="docutils literal notranslate"><span class="pre">%ci3</span></code> is identical to
+performing the <code class="docutils literal notranslate"><span class="pre">%ci</span></code> action three times.</p>
+<p>The action <code class="docutils literal notranslate"><span class="pre">%ci\*</span></code> performs the <code class="docutils literal notranslate"><span class="pre">%ci</span></code> action over and over again until it
+has no effect anymore.</p>
+<figure class="align-default" id="select-prod">
+<img alt="../_images/select_prod.svg" class="width-helper" src="../_images/select_prod.svg" /><figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Objects selected by <code class="docutils literal notranslate"><span class="pre">select</span> <span class="pre">prod</span> <span class="pre">\%ci...</span></code></span><a class="headerlink" href="#select-prod" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>In most cases there are certain cell types and/or ports that should not be
+considered for the <code class="docutils literal notranslate"><span class="pre">%ci</span></code> action, or we only want to follow certain cell types
+and/or ports. This can be achieved using additional patterns that can be
+appended to the <code class="docutils literal notranslate"><span class="pre">%ci</span></code> action.</p>
+<p>Lets consider the design from <a class="reference internal" href="#memdemo-src"><span class="std std-numref">Listing 11</span></a>. It serves no purpose other
+than being a non-trivial circuit for demonstrating some of the advanced Yosys
+features. We synthesize the circuit using <code class="docutils literal notranslate"><span class="pre">proc;</span> <span class="pre">opt;</span> <span class="pre">memory;</span> <span class="pre">opt</span></code> and change
+to the <code class="docutils literal notranslate"><span class="pre">memdemo</span></code> module with <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">memdemo</span></code>. If we type <code class="docutils literal notranslate"><span class="pre">show</span></code> now we see
+the diagram shown in <a class="reference internal" href="#memdemo-00"><span class="std std-numref">Fig. 8</span></a>.</p>
+<div class="literal-block-wrapper docutils container" id="memdemo-src">
+<div class="code-block-caption"><span class="caption-number">Listing 11 </span><span class="caption-text">Demo circuit for demonstrating some advanced Yosys features</span><a class="headerlink" href="#memdemo-src" title="Permalink to this code">¶</a></div>
+<div class="highlight-verilog notranslate"><div class="highlight"><pre><span></span><span class="k">module</span><span class="w"> </span><span class="n">memdemo</span><span class="p">(</span><span class="n">clk</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">input</span><span class="w"> </span><span class="n">clk</span><span class="p">;</span><span class="w"></span>
+<span class="k">input</span><span class="w"> </span><span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"></span>
+<span class="k">output</span><span class="w"> </span><span class="kt">reg</span><span class="w"> </span><span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">integer</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="kt">reg</span><span class="w"> </span><span class="p">[</span><span class="mh">1</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">s1</span><span class="p">,</span><span class="w"> </span><span class="n">s2</span><span class="p">;</span><span class="w"></span>
+<span class="kt">reg</span><span class="w"> </span><span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">mem</span><span class="w"> </span><span class="p">[</span><span class="mh">0</span><span class="o">:</span><span class="mh">3</span><span class="p">];</span><span class="w"></span>
+
+<span class="k">always</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mh">4</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="o">+</span><span class="mh">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">mem</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">mem</span><span class="p">[(</span><span class="n">i</span><span class="o">+</span><span class="mh">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mh">4</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">mem</span><span class="p">[(</span><span class="n">i</span><span class="o">+</span><span class="mh">2</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mh">4</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">s2</span><span class="p">,</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">s1</span><span class="p">,</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mh">4</span><span class="mb">&#39;b0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">mem</span><span class="p">[</span><span class="n">s1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">mem</span><span class="p">[</span><span class="n">s2</span><span class="p">];</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+
+<span class="k">endmodule</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<figure class="align-default" id="memdemo-00">
+<img alt="../_images/memdemo_00.svg" class="width-helper" src="../_images/memdemo_00.svg" /><figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Complete circuit diagram for the design shown in <a class="reference internal" href="#memdemo-src"><span class="std std-numref">Listing 11</span></a></span><a class="headerlink" href="#memdemo-00" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>But maybe we are only interested in the tree of multiplexers that select the
+output value. In order to get there, we would start by just showing the output
+signal and its immediate predecessors:</p>
+<div class="highlight-yoscrypt notranslate"><div class="highlight"><pre><span></span><span class="k">show</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="kt">%ci</span><span class="m">2</span><span class="w"></span>
+</pre></div>
+</div>
+<p>From this we would learn that <code class="docutils literal notranslate"><span class="pre">y</span></code> is driven by a <code class="docutils literal notranslate"><span class="pre">$dff</span> <span class="pre">cell</span></code>, that <code class="docutils literal notranslate"><span class="pre">y</span></code> is
+connected to the output port <code class="docutils literal notranslate"><span class="pre">Q</span></code>, that the <code class="docutils literal notranslate"><span class="pre">clk</span></code> signal goes into the
+<code class="docutils literal notranslate"><span class="pre">CLK</span></code> input port of the cell, and that the data comes from a auto-generated
+wire into the input <code class="docutils literal notranslate"><span class="pre">D</span></code> of the flip-flop cell.</p>
+<p>As we are not interested in the clock signal we add an additional pattern to the
+<code class="docutils literal notranslate"><span class="pre">%ci</span></code> action, that tells it to only follow ports <code class="docutils literal notranslate"><span class="pre">Q</span></code> and <code class="docutils literal notranslate"><span class="pre">D</span></code> of <code class="docutils literal notranslate"><span class="pre">$dff</span></code>
+cells:</p>
+<div class="highlight-yoscrypt notranslate"><div class="highlight"><pre><span></span><span class="k">show</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="kt">%ci</span><span class="m">2</span><span class="o">:+</span><span class="nb">$dff</span><span class="o">[</span><span class="n">Q</span><span class="o">,</span><span class="n">D</span><span class="o">]</span><span class="w"></span>
+</pre></div>
+</div>
+<p>To add a pattern we add a colon followed by the pattern to the <code class="docutils literal notranslate"><span class="pre">%ci</span></code> action.
+The pattern it self starts with <code class="docutils literal notranslate"><span class="pre">-</span></code> or <code class="docutils literal notranslate"><span class="pre">+</span></code>, indicating if it is an include
+or exclude pattern, followed by an optional comma separated list of cell types,
+followed by an optional comma separated list of port names in square brackets.</p>
+<p>Since we know that the only cell considered in this case is a <code class="docutils literal notranslate"><span class="pre">$dff</span></code> cell,
+we could as well only specify the port names:</p>
+<div class="highlight-yoscrypt notranslate"><div class="highlight"><pre><span></span><span class="k">show</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="kt">%ci</span><span class="m">2</span><span class="o">:+[</span><span class="n">Q</span><span class="o">,</span><span class="n">D</span><span class="o">]</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Or we could decide to tell the <code class="docutils literal notranslate"><span class="pre">%ci</span></code> action to not follow the <code class="docutils literal notranslate"><span class="pre">CLK</span></code> input:</p>
+<div class="highlight-yoscrypt notranslate"><div class="highlight"><pre><span></span><span class="k">show</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="kt">%ci</span><span class="m">2</span><span class="o">:</span><span class="c">-</span><span class="o">[</span><span class="n">CLK</span><span class="o">]</span><span class="w"></span>
+</pre></div>
+</div>
+<figure class="align-default" id="memdemo-01">
+<img alt="../_images/memdemo_01.svg" class="width-helper" src="../_images/memdemo_01.svg" /><figcaption>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Output of <code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">y</span> <span class="pre">\%ci2:+\$dff[Q,D]</span> <span class="pre">\%ci*:-\$mux[S]:-\$dff</span></code></span><a class="headerlink" href="#memdemo-01" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Next we would investigate the next logic level by adding another <code class="docutils literal notranslate"><span class="pre">%ci2</span></code> to
+the command:</p>
+<div class="highlight-yoscrypt notranslate"><div class="highlight"><pre><span></span><span class="k">show</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="kt">%ci</span><span class="m">2</span><span class="o">:</span><span class="c">-</span><span class="o">[</span><span class="n">CLK</span><span class="o">]</span><span class="w"> </span><span class="kt">%ci</span><span class="m">2</span><span class="w"></span>
+</pre></div>
+</div>
+<p>From this we would learn that the next cell is a <code class="docutils literal notranslate"><span class="pre">$mux</span></code> cell and we would
+add additional pattern to narrow the selection on the path we are
+interested. In the end we would end up with a command such as</p>
+<div class="highlight-yoscrypt notranslate"><div class="highlight"><pre><span></span><span class="k">show</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="kt">%ci</span><span class="m">2</span><span class="o">:+</span><span class="nb">$dff</span><span class="o">[</span><span class="n">Q</span><span class="o">,</span><span class="n">D</span><span class="o">]</span><span class="w"> </span><span class="kt">%ci</span><span class="m">*</span><span class="o">:</span><span class="c">-</span><span class="nb">$mux</span><span class="o">[</span><span class="n">S</span><span class="o">]:</span><span class="c">-</span><span class="nb">$dff</span><span class="w"></span>
+</pre></div>
+</div>
+<p>in which the first <code class="docutils literal notranslate"><span class="pre">%ci</span></code> jumps over the initial d-type flip-flop and the 2nd
+action selects the entire input cone without going over multiplexer select
+inputs and flip-flop cells. The diagram produces by this command is shown in
+<a class="reference internal" href="#memdemo-01"><span class="std std-numref">Fig. 9</span></a>.</p>
+<p>Similar to <code class="docutils literal notranslate"><span class="pre">%ci</span></code> exists an action <code class="docutils literal notranslate"><span class="pre">%co</span></code> to select output cones that accepts
+the same syntax for pattern and repetition. The <code class="docutils literal notranslate"><span class="pre">%x</span></code> action mentioned
+previously also accepts this advanced syntax.</p>
+<p>This actions for traversing the circuit graph, combined with the actions for
+boolean operations such as intersection (<code class="docutils literal notranslate"><span class="pre">%i</span></code>) and difference (<code class="docutils literal notranslate"><span class="pre">%d</span></code>) are
+powerful tools for extracting the relevant portions of the circuit under
+investigation.</p>
+<p>See <code class="docutils literal notranslate"><span class="pre">help</span> <span class="pre">select</span></code> for a complete list of actions available in selections.</p>
+</section>
+<section id="storing-and-recalling-selections">
+<h3>Storing and recalling selections<a class="headerlink" href="#storing-and-recalling-selections" title="Permalink to this heading">¶</a></h3>
+<p>The current selection can be stored in memory with the command <code class="docutils literal notranslate"><span class="pre">select</span> <span class="pre">-set</span>
+<span class="pre">&lt;name&gt;</span></code>. It can later be recalled using <code class="docutils literal notranslate"><span class="pre">select</span> <span class="pre">&#64;&lt;name&gt;</span></code>. In fact, the
+<code class="docutils literal notranslate"><span class="pre">&#64;&lt;name&gt;</span></code> expression pushes the stored selection on the stack maintained by
+the <code class="docutils literal notranslate"><span class="pre">select</span></code> command. So for example</p>
+<div class="highlight-yoscrypt notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="kt">@</span><span class="n">foo</span><span class="w"> </span><span class="kt">@</span><span class="n">bar</span><span class="w"> </span><span class="kt">%i</span><span class="w"></span>
+</pre></div>
+</div>
+<p>will select the intersection between the stored selections <code class="docutils literal notranslate"><span class="pre">foo</span></code> and <code class="docutils literal notranslate"><span class="pre">bar</span></code>.</p>
+<p>In larger investigation efforts it is highly recommended to maintain a
+script that sets up relevant selections, so they can easily be recalled,
+for example when Yosys needs to be re-run after a design or source code
+change.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">history</span></code> command can be used to list all recent interactive commands.
+This feature can be useful for creating such a script from the commands
+used in an interactive session.</p>
+</section>
+</section>
+<section id="advanced-investigation-techniques">
+<span id="poke"></span><h2>Advanced investigation techniques<a class="headerlink" href="#advanced-investigation-techniques" title="Permalink to this heading">¶</a></h2>
+<p>When working with very large modules, it is often not enough to just select the
+interesting part of the module. Instead it can be useful to extract the
+interesting part of the circuit into a separate module. This can for example be
+useful if one wants to run a series of synthesis commands on the critical part
+of the module and wants to carefully read all the debug output created by the
+commands in order to spot a problem. This kind of troubleshooting is much easier
+if the circuit under investigation is encapsulated in a separate module.</p>
+<p><a class="reference internal" href="#submod"><span class="std std-numref">Listing 12</span></a> shows how the <code class="docutils literal notranslate"><span class="pre">submod</span></code> command can be used to split the
+circuit from <a class="reference internal" href="#memdemo-src"><span class="std std-numref">Listing 11</span></a> and <a class="reference internal" href="#memdemo-00"><span class="std std-numref">Fig. 8</span></a> into its components.
+The <code class="docutils literal notranslate"><span class="pre">-name</span></code> option is used to specify the name of the new module and also the
+name of the new cell in the current module.</p>
+<figure class="align-default" id="submod-dots">
+<img alt="../_images/submod_dots.svg" class="width-helper" src="../_images/submod_dots.svg" /></figure>
+<div class="literal-block-wrapper docutils container" id="submod">
+<div class="code-block-caption"><span class="caption-number">Listing 12 </span><span class="caption-text">The circuit from <a class="reference internal" href="#memdemo-src"><span class="std std-numref">Listing 11</span></a> and <a class="reference internal" href="#memdemo-00"><span class="std std-numref">Fig. 8</span></a>
+broken up using <code class="docutils literal notranslate"><span class="pre">submod</span></code></span><a class="headerlink" href="#submod" title="Permalink to this code">¶</a></div>
+<div class="highlight-yoscrypt notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="na">-set</span><span class="w"> </span><span class="n">outstage</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="kt">%ci</span><span class="m">2</span><span class="o">:+</span><span class="nb">$dff</span><span class="o">[</span><span class="n">Q</span><span class="o">,</span><span class="n">D</span><span class="o">]</span><span class="w"> </span><span class="kt">%ci</span><span class="m">*</span><span class="o">:</span><span class="c">-</span><span class="nb">$mux</span><span class="o">[</span><span class="n">S</span><span class="o">]:</span><span class="c">-</span><span class="nb">$dff</span><span class="w"></span>
+<span class="k">select</span><span class="w"> </span><span class="na">-set</span><span class="w"> </span><span class="n">selstage</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="kt">%ci</span><span class="m">2</span><span class="o">:+</span><span class="nb">$dff</span><span class="o">[</span><span class="n">Q</span><span class="o">,</span><span class="n">D</span><span class="o">]</span><span class="w"> </span><span class="kt">%ci</span><span class="m">*</span><span class="o">:</span><span class="c">-</span><span class="nb">$dff</span><span class="w"> </span><span class="kt">@</span><span class="n">outstage</span><span class="w"> </span><span class="kt">%d</span><span class="w"></span>
+<span class="k">select</span><span class="w"> </span><span class="na">-set</span><span class="w"> </span><span class="n">scramble</span><span class="w"> </span><span class="n">mem</span><span class="c">*</span><span class="w"> </span><span class="kt">%ci</span><span class="m">2</span><span class="w"> </span><span class="kt">%ci</span><span class="m">*</span><span class="o">:</span><span class="c">-</span><span class="nb">$dff</span><span class="w"> </span><span class="n">mem</span><span class="c">*</span><span class="w"> </span><span class="kt">%d</span><span class="w"> </span><span class="kt">@</span><span class="n">selstage</span><span class="w"> </span><span class="kt">%d</span><span class="w"></span>
+<span class="k">submod</span><span class="w"> </span><span class="na">-name</span><span class="w"> </span><span class="n">scramble</span><span class="w"> </span><span class="kt">@</span><span class="n">scramble</span><span class="w"></span>
+<span class="k">submod</span><span class="w"> </span><span class="na">-name</span><span class="w"> </span><span class="n">outstage</span><span class="w"> </span><span class="kt">@</span><span class="n">outstage</span><span class="w"></span>
+<span class="k">submod</span><span class="w"> </span><span class="na">-name</span><span class="w"> </span><span class="n">selstage</span><span class="w"> </span><span class="kt">@</span><span class="n">selstage</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<section id="evaluation-of-combinatorial-circuits">
+<h3>Evaluation of combinatorial circuits<a class="headerlink" href="#evaluation-of-combinatorial-circuits" title="Permalink to this heading">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">eval</span></code> command can be used to evaluate combinatorial circuits. For example
+(see <a class="reference internal" href="#submod"><span class="std std-numref">Listing 12</span></a> for the circuit diagram of <code class="docutils literal notranslate"><span class="pre">selstage</span></code>):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>yosys [selstage]&gt; eval -set s2,s1 4&#39;b1001 -set d 4&#39;hc -show n2 -show n1
+
+1. Executing EVAL pass (evaluate the circuit given an input).
+Full command line: eval -set s2,s1 4&#39;b1001 -set d 4&#39;hc -show n2 -show n1
+Eval result: \n2 = 2&#39;10.
+Eval result: \n1 = 2&#39;10.
+</pre></div>
+</div>
+<p>So the <code class="docutils literal notranslate"><span class="pre">-set</span></code> option is used to set input values and the <code class="docutils literal notranslate"><span class="pre">-show</span></code> option is
+used to specify the nets to evaluate. If no <code class="docutils literal notranslate"><span class="pre">-show</span></code> option is specified, all
+selected output ports are used per default.</p>
+<p>If a necessary input value is not given, an error is produced. The option
+<code class="docutils literal notranslate"><span class="pre">-set-undef</span></code> can be used to instead set all unspecified input nets to undef
+(<code class="docutils literal notranslate"><span class="pre">x</span></code>).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">-table</span></code> option can be used to create a truth table. For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>yosys [selstage]&gt; eval -set-undef -set d[3:1] 0 -table s1,d[0]
+
+10. Executing EVAL pass (evaluate the circuit given an input).
+Full command line: eval -set-undef -set d[3:1] 0 -table s1,d[0]
+
+  \s1 \d [0] |  \n1  \n2
+ ---- ------ | ---- ----
+ 2&#39;00    1&#39;0 | 2&#39;00 2&#39;00
+ 2&#39;00    1&#39;1 | 2&#39;xx 2&#39;00
+ 2&#39;01    1&#39;0 | 2&#39;00 2&#39;00
+ 2&#39;01    1&#39;1 | 2&#39;xx 2&#39;01
+ 2&#39;10    1&#39;0 | 2&#39;00 2&#39;00
+ 2&#39;10    1&#39;1 | 2&#39;xx 2&#39;10
+ 2&#39;11    1&#39;0 | 2&#39;00 2&#39;00
+ 2&#39;11    1&#39;1 | 2&#39;xx 2&#39;11
+
+Assumed undef (x) value for the following signals: \s2
+</pre></div>
+</div>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">eval</span></code> command (as well as the <code class="docutils literal notranslate"><span class="pre">sat</span></code> command discussed in the
+next sections) does only operate on flattened modules. It can not analyze
+signals that are passed through design hierarchy levels. So the <code class="docutils literal notranslate"><span class="pre">flatten</span></code>
+command must be used on modules that instantiate other modules before this
+commands can be applied.</p>
+</section>
+<section id="solving-combinatorial-sat-problems">
+<h3>Solving combinatorial SAT problems<a class="headerlink" href="#solving-combinatorial-sat-problems" title="Permalink to this heading">¶</a></h3>
+<div class="literal-block-wrapper docutils container" id="primetest">
+<div class="code-block-caption"><span class="caption-number">Listing 13 </span><span class="caption-text">A simple miter circuit for testing if a number is prime. But it has
+a problem (see main text and <a class="reference internal" href="#primesat"><span class="std std-numref">Listing 14</span></a>).</span><a class="headerlink" href="#primetest" title="Permalink to this code">¶</a></div>
+<div class="highlight-verilog notranslate"><div class="highlight"><pre><span></span><span class="k">module</span><span class="w"> </span><span class="n">primetest</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">ok</span><span class="p">);</span><span class="w"></span>
+<span class="k">input</span><span class="w"> </span><span class="p">[</span><span class="mh">15</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="k">output</span><span class="w"> </span><span class="n">ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">1</span><span class="p">;</span><span class="w"></span>
+<span class="k">endmodule</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="primesat">
+<div class="code-block-caption"><span class="caption-number">Listing 14 </span><span class="caption-text">Experiments with the miter circuit from <a class="reference internal" href="#primetest"><span class="std std-numref">Listing 13</span></a>.
+The first attempt of proving that 31 is prime failed because the
+SAT solver found a creative way of factorizing 31 using integer
+overflow.</span><a class="headerlink" href="#primesat" title="Permalink to this code">¶</a></div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>yosys [primetest]&gt; sat -prove ok 1 -set p 31
+
+8. Executing SAT pass (solving SAT problems in the circuit).
+Full command line: sat -prove ok 1 -set p 31
+
+Setting up SAT problem:
+Import set-constraint: \p = 16&#39;0000000000011111
+Final constraint equation: \p = 16&#39;0000000000011111
+Imported 6 cells to SAT database.
+Import proof-constraint: \ok = 1&#39;1
+Final proof equation: \ok = 1&#39;1
+
+Solving problem with 2790 variables and 8241 clauses..
+SAT proof finished - model found: FAIL!
+
+   ______                   ___       ___       _ _            _ _
+  (_____ \                 / __)     / __)     (_) |          | | |
+   _____) )___ ___   ___ _| |__    _| |__ _____ _| | _____  __| | |
+  |  ____/ ___) _ \ / _ (_   __)  (_   __|____ | | || ___ |/ _  |_|
+  | |   | |  | |_| | |_| || |       | |  / ___ | | || ____( (_| |_
+  |_|   |_|   \___/ \___/ |_|       |_|  \_____|_|\_)_____)\____|_|
+
+
+  Signal Name                 Dec        Hex                   Bin
+  -------------------- ---------- ---------- ---------------------
+  \a                        15029       3ab5      0011101010110101
+  \b                         4099       1003      0001000000000011
+  \ok                           0          0                     0
+  \p                           31         1f      0000000000011111
+
+yosys [primetest]&gt; sat -prove ok 1 -set p 31 -set a[15:8],b[15:8] 0
+
+9. Executing SAT pass (solving SAT problems in the circuit).
+Full command line: sat -prove ok 1 -set p 31 -set a[15:8],b[15:8] 0
+
+Setting up SAT problem:
+Import set-constraint: \p = 16&#39;0000000000011111
+Import set-constraint: { \a [15:8] \b [15:8] } = 16&#39;0000000000000000
+Final constraint equation: { \a [15:8] \b [15:8] \p } = { 16&#39;0000000000000000 16&#39;0000000000011111 }
+Imported 6 cells to SAT database.
+Import proof-constraint: \ok = 1&#39;1
+Final proof equation: \ok = 1&#39;1
+
+Solving problem with 2790 variables and 8257 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$
+                 /$$__  $$    | $$_____/    | $$__  $$
+                | $$  \ $$    | $$          | $$  \ $$
+                | $$  | $$    | $$$$$       | $$  | $$
+                | $$  | $$    | $$__/       | $$  | $$
+                | $$/$$ $$    | $$          | $$  | $$
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/
+</pre></div>
+</div>
+</div>
+<p>Often the opposite of the <code class="docutils literal notranslate"><span class="pre">eval</span></code> command is needed, i.e. the circuits output
+is given and we want to find the matching input signals. For small circuits with
+only a few input bits this can be accomplished by trying all possible input
+combinations, as it is done by the <code class="docutils literal notranslate"><span class="pre">eval</span> <span class="pre">-table</span></code> command. For larger circuits
+however, Yosys provides the <code class="docutils literal notranslate"><span class="pre">sat</span></code> command that uses a <a class="reference external" href="http://en.wikipedia.org/wiki/Circuit_satisfiability">SAT</a> solver,
+<a class="reference external" href="http://minisat.se/">MiniSAT</a>, to solve this kind of problems.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">sat</span></code> command works very similar to the <code class="docutils literal notranslate"><span class="pre">eval</span></code> command. The main
+difference is that it is now also possible to set output values and find the
+corresponding input values. For Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>yosys [selstage]&gt; sat -show s1,s2,d -set s1 s2 -set n2,n1 4&#39;b1001
+
+11. Executing SAT pass (solving SAT problems in the circuit).
+Full command line: sat -show s1,s2,d -set s1 s2 -set n2,n1 4&#39;b1001
+
+Setting up SAT problem:
+Import set-constraint: \s1 = \s2
+Import set-constraint: { \n2 \n1 } = 4&#39;1001
+Final constraint equation: { \n2 \n1 \s1 } = { 4&#39;1001 \s2 }
+Imported 3 cells to SAT database.
+Import show expression: { \s1 \s2 \d }
+
+Solving problem with 81 variables and 207 clauses..
+SAT solving finished - model found:
+
+  Signal Name                 Dec        Hex             Bin
+  -------------------- ---------- ---------- ---------------
+  \d                            9          9            1001
+  \s1                           0          0              00
+  \s2                           0          0              00
+</pre></div>
+</div>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">sat</span></code> command supports signal names in both arguments to the
+<code class="docutils literal notranslate"><span class="pre">-set</span></code> option. In the above example we used <code class="docutils literal notranslate"><span class="pre">-set</span> <span class="pre">s1</span> <span class="pre">s2</span></code> to constraint
+<code class="docutils literal notranslate"><span class="pre">s1</span></code> and <code class="docutils literal notranslate"><span class="pre">s2</span></code> to be equal. When more complex constraints are needed, a
+wrapper circuit must be constructed that checks the constraints and signals if
+the constraint was met using an extra output port, which then can be forced to a
+value using the <code class="docutils literal notranslate"><span class="pre">-set</span></code> option. (Such a circuit that contains the circuit under
+test plus additional constraint checking circuitry is called a <code class="docutils literal notranslate"><span class="pre">miter</span></code>
+circuit.)</p>
+<p><a class="reference internal" href="#primetest"><span class="std std-numref">Listing 13</span></a> shows a miter circuit that is supposed to be used as a prime
+number test. If <code class="docutils literal notranslate"><span class="pre">ok</span></code> is 1 for all input values <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> for a given
+<code class="docutils literal notranslate"><span class="pre">p</span></code>, then <code class="docutils literal notranslate"><span class="pre">p</span></code> is prime, or at least that is the idea.</p>
+<p>The Yosys shell session shown in <a class="reference internal" href="#primesat"><span class="std std-numref">Listing 14</span></a> demonstrates that SAT
+solvers can even find the unexpected solutions to a problem: Using integer
+overflow there actually is a way of “factorizing” 31. The clean solution would
+of course be to perform the test in 32 bits, for example by replacing <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">!=</span>
+<span class="pre">a*b</span></code> in the miter with <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">!=</span> <span class="pre">{16'd0,a}b</span></code>, or by using a temporary variable
+for the 32 bit product <code class="docutils literal notranslate"><span class="pre">a*b</span></code>. But as 31 fits well into 8 bits (and as the
+purpose of this document is to show off Yosys features) we can also simply force
+the upper 8 bits of <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> to zero for the <code class="docutils literal notranslate"><span class="pre">sat</span></code> call, as is done in
+the second command in <a class="reference internal" href="#primesat"><span class="std std-numref">Listing 14</span></a> (line 31).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">-prove</span></code> option used in this example works similar to <code class="docutils literal notranslate"><span class="pre">-set</span></code>, but tries
+to find a case in which the two arguments are not equal. If such a case is not
+found, the property is proven to hold for all inputs that satisfy the other
+constraints.</p>
+<p>It might be worth noting, that SAT solvers are not particularly efficient at
+factorizing large numbers. But if a small factorization problem occurs as part
+of a larger circuit problem, the Yosys SAT solver is perfectly capable of
+solving it.</p>
+</section>
+<section id="solving-sequential-sat-problems">
+<h3>Solving sequential SAT problems<a class="headerlink" href="#solving-sequential-sat-problems" title="Permalink to this heading">¶</a></h3>
+<div class="literal-block-wrapper docutils container" id="memdemo-sat">
+<div class="code-block-caption"><span class="caption-number">Listing 15 </span><span class="caption-text">Solving a sequential SAT problem in the <code class="docutils literal notranslate"><span class="pre">memdemo</span></code> module from <a class="reference internal" href="#memdemo-src"><span class="std std-numref">Listing 11</span></a>.</span><a class="headerlink" href="#memdemo-sat" title="Permalink to this code">¶</a></div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>yosys [memdemo]&gt; sat -seq 6 -show y -show d -set-init-undef \
+    -max_undef -set-at 4 y 1 -set-at 5 y 2 -set-at 6 y 3
+
+6. Executing SAT pass (solving SAT problems in the circuit).
+Full command line: sat -seq 6 -show y -show d -set-init-undef
+    -max_undef -set-at 4 y 1 -set-at 5 y 2 -set-at 6 y 3
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 29 cells to SAT database.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 29 cells to SAT database.
+
+Setting up time step 3:
+Final constraint equation: { } = { }
+Imported 29 cells to SAT database.
+
+Setting up time step 4:
+Import set-constraint for timestep: \y = 4&#39;0001
+Final constraint equation: \y = 4&#39;0001
+Imported 29 cells to SAT database.
+
+Setting up time step 5:
+Import set-constraint for timestep: \y = 4&#39;0010
+Final constraint equation: \y = 4&#39;0010
+Imported 29 cells to SAT database.
+
+Setting up time step 6:
+Import set-constraint for timestep: \y = 4&#39;0011
+Final constraint equation: \y = 4&#39;0011
+Imported 29 cells to SAT database.
+
+Setting up initial state:
+Final constraint equation: { \y \s2 \s1 \mem[3] \mem[2] \mem[1]
+            \mem[0] } = 24&#39;xxxxxxxxxxxxxxxxxxxxxxxx
+
+Import show expression: \y
+Import show expression: \d
+
+Solving problem with 10322 variables and 27881 clauses..
+SAT model found. maximizing number of undefs.
+SAT solving finished - model found:
+
+  Time Signal Name                 Dec        Hex             Bin
+  ---- -------------------- ---------- ---------- ---------------
+  init \mem[0]                      --         --            xxxx
+  init \mem[1]                      --         --            xxxx
+  init \mem[2]                      --         --            xxxx
+  init \mem[3]                      --         --            xxxx
+  init \s1                          --         --              xx
+  init \s2                          --         --              xx
+  init \y                           --         --            xxxx
+  ---- -------------------- ---------- ---------- ---------------
+     1 \d                            0          0            0000
+     1 \y                           --         --            xxxx
+  ---- -------------------- ---------- ---------- ---------------
+     2 \d                            1          1            0001
+     2 \y                           --         --            xxxx
+  ---- -------------------- ---------- ---------- ---------------
+     3 \d                            2          2            0010
+     3 \y                            0          0            0000
+  ---- -------------------- ---------- ---------- ---------------
+     4 \d                            3          3            0011
+     4 \y                            1          1            0001
+  ---- -------------------- ---------- ---------- ---------------
+     5 \d                           --         --            001x
+     5 \y                            2          2            0010
+  ---- -------------------- ---------- ---------- ---------------
+     6 \d                           --         --            xxxx
+     6 \y                            3          3            0011
+</pre></div>
+</div>
+</div>
+<p>The SAT solver functionality in Yosys can not only be used to solve
+combinatorial problems, but can also solve sequential problems. Let’s consider
+the entire memdemo module from <a class="reference internal" href="#memdemo-src"><span class="std std-numref">Listing 11</span></a> and suppose we want to know
+which sequence of input values for <code class="docutils literal notranslate"><span class="pre">d</span></code> will cause the output y to produce the
+sequence 1, 2, 3 from any initial state. <a class="reference internal" href="#memdemo-sat"><span class="std std-numref">Listing 15</span></a> show the solution
+to this question, as produced by the following command:</p>
+<div class="highlight-yoscrypt notranslate"><div class="highlight"><pre><span></span><span class="k">sat</span><span class="w"> </span><span class="na">-seq</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="na">-show</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="na">-show</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="na">-set-init-undef</span><span class="w"> </span><span class="c">\</span><span class="w"></span>
+<span class="w">  </span><span class="na">-max_undef</span><span class="w"> </span><span class="na">-set-at</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="na">-set-at</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="na">-set-at</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="m">3</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">-seq</span> <span class="pre">6</span></code> option instructs the <code class="docutils literal notranslate"><span class="pre">sat</span></code> command to solve a sequential
+problem in 6 time steps. (Experiments with lower number of steps have show that
+at least 3 cycles are necessary to bring the circuit in a state from which the
+sequence 1, 2, 3 can be produced.)</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">-set-init-undef</span></code> option tells the <code class="docutils literal notranslate"><span class="pre">sat</span></code> command to initialize all
+registers to the undef (<code class="docutils literal notranslate"><span class="pre">x</span></code>) state. The way the <code class="docutils literal notranslate"><span class="pre">x</span></code> state is treated in
+Verilog will ensure that the solution will work for any initial state.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">-max_undef</span></code> option instructs the <code class="docutils literal notranslate"><span class="pre">sat</span></code> command to find a solution with
+a maximum number of undefs. This way we can see clearly which inputs bits are
+relevant to the solution.</p>
+<p>Finally the three <code class="docutils literal notranslate"><span class="pre">-set-at</span></code> options add constraints for the <code class="docutils literal notranslate"><span class="pre">y</span></code> signal to
+play the 1, 2, 3 sequence, starting with time step 4.</p>
+<p>It is not surprising that the solution sets <code class="docutils literal notranslate"><span class="pre">d</span> <span class="pre">=</span> <span class="pre">0</span></code> in the first step, as this
+is the only way of setting the <code class="docutils literal notranslate"><span class="pre">s1</span></code> and <code class="docutils literal notranslate"><span class="pre">s2</span></code> registers to a known value. The
+input values for the other steps are a bit harder to work out manually, but the
+SAT solver finds the correct solution in an instant.</p>
+<p>There is much more to write about the <code class="docutils literal notranslate"><span class="pre">sat</span></code> command. For example, there is a
+set of options that can be used to performs sequential proofs using temporal
+induction <span id="id1">[<a class="reference internal" href="../bib.html#id22" title="Niklas Eén and Niklas Sörensson. Temporal induction by incremental sat solving. Electronic Notes in Theoretical Computer Science, 89(4):543–560, 2003.">EenSorensson03</a>]</span>. The command <code class="docutils literal notranslate"><span class="pre">help</span> <span class="pre">sat</span></code> can be used to
+print a list of all options with short descriptions of their functions.</p>
+</section>
+</section>
+<section id="conclusion">
+<span id="id2"></span><h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">¶</a></h2>
+<p>Yosys provides a wide range of functions to analyze and investigate
+designs. For many cases it is sufficient to simply display circuit
+diagrams, maybe use some additional commands to narrow the scope of the
+circuit diagrams to the interesting parts of the circuit. But some cases
+require more than that. For this applications Yosys provides commands
+that can be used to further inspect the behavior of the circuit, either
+by evaluating which output values are generated from certain input
+values (<code class="docutils literal notranslate"><span class="pre">eval</span></code>) or by evaluation which input values and initial conditions
+can result in a certain behavior at the outputs (<code class="docutils literal notranslate"><span class="pre">sat</span></code>). The SAT command
+can even be used to prove (or disprove) theorems regarding the circuit,
+in more advanced cases with the additional help of a miter circuit.</p>
+<p>This features can be powerful tools for the circuit designer using Yosys
+as a utility for building circuits and the software developer using
+Yosys as a framework for new algorithms alike.</p>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="APPNOTE_010_Verilog_to_BLIF.html"
+       title="previous chapter">← 010: Converting Verilog to BLIF page</a>
+  </li>
+  <li class="next">
+    <a href="APPNOTE_012_Verilog_to_BTOR.html"
+       title="next chapter">012: Converting Verilog to BTOR page →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2022 YosysHQ GmbH.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

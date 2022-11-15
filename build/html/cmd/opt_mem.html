@@ -1,0 +1,2637 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+      <title>opt_mem - optimize memories</title>
+    
+          <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../_static/yosyshq.css" type="text/css" />
+          <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../_static/theme-vendors.js"></script> -->
+      <script src="../_static/theme.js" defer></script>
+    
+      <link rel="shortcut icon" href="../_static/favico.png"/>
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Search" href="../search.html" />
+  <link rel="next" title="opt_mem_feedback - convert memory read-to-write port feedback paths to write enables" href="opt_mem_feedback.html" />
+  <link rel="prev" title="opt_lut_ins - discard unused LUT inputs" href="opt_lut_ins.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <img class="logo" src="../_static/logo.png" alt="logo"/>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../index.html#yosys-manual"
+         class="nav-link ">
+         Manual
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#yosys-manual"
+         class="nav-link ">
+         Appendix
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../cmd_ref.html#command-line-reference"
+         class="nav-link  router-link-active">
+         Command reference
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://yosyshq.readthedocs.io"
+        class="nav-link external">
+          YosysHQ Docs <outboundlink></outboundlink>
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="https://blog.yosyshq.com"
+        class="nav-link external">
+          Blog <outboundlink></outboundlink>
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="https://www.yosyshq.com"
+        class="nav-link external">
+          Website <outboundlink></outboundlink>
+      </a>
+    </div>
+  
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../index.html#yosys-manual"
+         class="nav-link ">
+         Manual
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#yosys-manual"
+         class="nav-link ">
+         Appendix
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../cmd_ref.html#command-line-reference"
+         class="nav-link  router-link-active">
+         Command reference
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://yosyshq.readthedocs.io"
+        class="nav-link external">
+          YosysHQ Docs <outboundlink></outboundlink>
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="https://blog.yosyshq.com"
+        class="nav-link external">
+          Blog <outboundlink></outboundlink>
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="https://www.yosyshq.com"
+        class="nav-link external">
+          Website <outboundlink></outboundlink>
+      </a>
+    </div>
+  
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#yosys-manual">Manual</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../CHAPTER_Intro.html" class="reference internal ">Introduction</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../CHAPTER_Basics.html" class="reference internal ">Basic principles</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../CHAPTER_Approach.html" class="reference internal ">Approach</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../CHAPTER_Overview.html" class="reference internal ">Implementation overview</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../CHAPTER_CellLib.html" class="reference internal ">Internal cell library</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../CHAPTER_Prog.html" class="reference internal ">Programming Yosys extensions</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../CHAPTER_Verilog.html" class="reference internal ">The Verilog and AST frontends</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../CHAPTER_Optimize.html" class="reference internal ">Optimizations</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../CHAPTER_Techmap.html" class="reference internal ">Technology mapping</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#yosys-manual">Appendix</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../appendix/CHAPTER_Auxlibs.html" class="reference internal ">Auxiliary libraries</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../appendix/CHAPTER_Auxprogs.html" class="reference internal ">Auxiliary programs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../appendix/CHAPTER_TextRtlil.html" class="reference internal ">RTLIL text representation</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../appendix/APPNOTE_010_Verilog_to_BLIF.html" class="reference internal ">010: Converting Verilog to BLIF page</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../appendix/APPNOTE_011_Design_Investigation.html" class="reference internal ">011: Interactive design investigation page</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../appendix/APPNOTE_012_Verilog_to_BTOR.html" class="reference internal ">012: Converting Verilog to BTOR page</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../bib.html" class="reference internal ">Literature references</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../cmd_ref.html#command-line-reference">Command reference</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="abc.html" class="reference internal ">abc - use ABC for technology mapping</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="abc9.html" class="reference internal ">abc9 - use ABC9 for technology mapping</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="abc9_exe.html" class="reference internal ">abc9_exe - use ABC9 for technology mapping</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="abc9_ops.html" class="reference internal ">abc9_ops - helper functions for ABC9</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="add.html" class="reference internal ">add - add objects to the design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="aigmap.html" class="reference internal ">aigmap - map logic to and-inverter-graph circuit</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="alumacc.html" class="reference internal ">alumacc - extract ALU and MACC cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="anlogic_eqn.html" class="reference internal ">anlogic_eqn - Anlogic: Calculate equations for luts</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="anlogic_fixcarry.html" class="reference internal ">anlogic_fixcarry - Anlogic: fix carry chain</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="assertpmux.html" class="reference internal ">assertpmux - adds asserts for parallel muxes</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="async2sync.html" class="reference internal ">async2sync - convert async FF inputs to sync circuits</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="attrmap.html" class="reference internal ">attrmap - renaming attributes</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="attrmvcp.html" class="reference internal ">attrmvcp - move or copy attributes from wires to driving cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="autoname.html" class="reference internal ">autoname - automatically assign names to objects</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="blackbox.html" class="reference internal ">blackbox - convert modules into blackbox modules</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="bmuxmap.html" class="reference internal ">bmuxmap - transform $bmux cells to trees of $mux cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="bugpoint.html" class="reference internal ">bugpoint - minimize testcases</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cd.html" class="reference internal ">cd - a shortcut for ‘select -module <name>’</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="check.html" class="reference internal ">check - check for obvious problems in the design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="chformal.html" class="reference internal ">chformal - change formal constraints of the design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="chparam.html" class="reference internal ">chparam - re-evaluate modules with new parameters</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="chtype.html" class="reference internal ">chtype - change type of cells in the design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="clean.html" class="reference internal ">clean - remove unused cells and wires</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="clean_zerowidth.html" class="reference internal ">clean_zerowidth - clean zero-width connections from the design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="clk2fflogic.html" class="reference internal ">clk2fflogic - convert clocked FFs to generic $ff cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="clkbufmap.html" class="reference internal ">clkbufmap - insert clock buffers on clock networks</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="connect.html" class="reference internal ">connect - create or remove connections</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="connect_rpc.html" class="reference internal ">connect_rpc - connect to RPC frontend</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="connwrappers.html" class="reference internal ">connwrappers - match width of input-output port pairs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="coolrunner2_fixup.html" class="reference internal ">coolrunner2_fixup - insert necessary buffer cells for CoolRunner-II architecture</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="coolrunner2_sop.html" class="reference internal ">coolrunner2_sop - break $sop cells into ANDTERM/ORTERM cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="copy.html" class="reference internal ">copy - copy modules in the design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cover.html" class="reference internal ">cover - print code coverage counters</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="cutpoint.html" class="reference internal ">cutpoint - adds formal cut points to the design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="debug.html" class="reference internal ">debug - run command with debug log messages enabled</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="delete.html" class="reference internal ">delete - delete objects in the design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="deminout.html" class="reference internal ">deminout - demote inout ports to input or output</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="demuxmap.html" class="reference internal ">demuxmap - transform $demux cells to $eq + $mux cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="design.html" class="reference internal ">design - save, restore and reset current design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="dffinit.html" class="reference internal ">dffinit - set INIT param on FF cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="dfflegalize.html" class="reference internal ">dfflegalize - convert FFs to types supported by the target</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="dfflibmap.html" class="reference internal ">dfflibmap - technology mapping of flip-flops</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="dffunmap.html" class="reference internal ">dffunmap - unmap clock enable and synchronous reset from FFs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="dump.html" class="reference internal ">dump - print parts of the design in RTLIL format</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="echo.html" class="reference internal ">echo - turning echoing back of commands on and off</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="ecp5_gsr.html" class="reference internal ">ecp5_gsr - ECP5: handle GSR</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="edgetypes.html" class="reference internal ">edgetypes - list all types of edges in selection</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="efinix_fixcarry.html" class="reference internal ">efinix_fixcarry - Efinix: fix carry chain</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="equiv_add.html" class="reference internal ">equiv_add - add a $equiv cell</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="equiv_induct.html" class="reference internal ">equiv_induct - proving $equiv cells using temporal induction</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="equiv_make.html" class="reference internal ">equiv_make - prepare a circuit for equivalence checking</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="equiv_mark.html" class="reference internal ">equiv_mark - mark equivalence checking regions</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="equiv_miter.html" class="reference internal ">equiv_miter - extract miter from equiv circuit</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="equiv_opt.html" class="reference internal ">equiv_opt - prove equivalence for optimized circuit</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="equiv_purge.html" class="reference internal ">equiv_purge - purge equivalence checking module</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="equiv_remove.html" class="reference internal ">equiv_remove - remove $equiv cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="equiv_simple.html" class="reference internal ">equiv_simple - try proving simple $equiv instances</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="equiv_status.html" class="reference internal ">equiv_status - print status of equivalent checking module</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="equiv_struct.html" class="reference internal ">equiv_struct - structural equivalence checking</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="eval.html" class="reference internal ">eval - evaluate the circuit given an input</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="exec.html" class="reference internal ">exec - execute commands in the operating system shell</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="expose.html" class="reference internal ">expose - convert internal signals to module ports</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="extract.html" class="reference internal ">extract - find subcircuits and replace them with cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="extract_counter.html" class="reference internal ">extract_counter - Extract GreenPak4 counter cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="extract_fa.html" class="reference internal ">extract_fa - find and extract full/half adders</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="extract_reduce.html" class="reference internal ">extract_reduce - converts gate chains into $reduce_* cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="extractinv.html" class="reference internal ">extractinv - extract explicit inverter cells for invertible cell pins</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="flatten.html" class="reference internal ">flatten - flatten design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="flowmap.html" class="reference internal ">flowmap - pack LUTs with FlowMap</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="fmcombine.html" class="reference internal ">fmcombine - combine two instances of a cell into one</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="fminit.html" class="reference internal ">fminit - set init values/sequences for formal</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="formalff.html" class="reference internal ">formalff - prepare FFs for formal</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="freduce.html" class="reference internal ">freduce - perform functional reduction</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="fsm.html" class="reference internal ">fsm - extract and optimize finite state machines</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="fsm_detect.html" class="reference internal ">fsm_detect - finding FSMs in design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="fsm_expand.html" class="reference internal ">fsm_expand - expand FSM cells by merging logic into it</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="fsm_export.html" class="reference internal ">fsm_export - exporting FSMs to KISS2 files</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="fsm_extract.html" class="reference internal ">fsm_extract - extracting FSMs in design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="fsm_info.html" class="reference internal ">fsm_info - print information on finite state machines</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="fsm_map.html" class="reference internal ">fsm_map - mapping FSMs to basic logic</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="fsm_opt.html" class="reference internal ">fsm_opt - optimize finite state machines</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="fsm_recode.html" class="reference internal ">fsm_recode - recoding finite state machines</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="fst2tb.html" class="reference internal ">fst2tb - generate testbench out of fst file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="gatemate_foldinv.html" class="reference internal ">gatemate_foldinv - fold inverters into Gatemate LUT trees</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="glift.html" class="reference internal ">glift - create GLIFT models and optimization problems</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="greenpak4_dffinv.html" class="reference internal ">greenpak4_dffinv - merge greenpak4 inverters and DFF/latches</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="help.html" class="reference internal ">help - display help messages</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="hierarchy.html" class="reference internal ">hierarchy - check, expand and clean up design hierarchy</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="hilomap.html" class="reference internal ">hilomap - technology mapping of constant hi- and/or lo-drivers</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="history.html" class="reference internal ">history - show last interactive commands</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="ice40_braminit.html" class="reference internal ">ice40_braminit - iCE40: perform SB_RAM40_4K initialization from file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="ice40_dsp.html" class="reference internal ">ice40_dsp - iCE40: map multipliers</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="ice40_opt.html" class="reference internal ">ice40_opt - iCE40: perform simple optimizations</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="ice40_wrapcarry.html" class="reference internal ">ice40_wrapcarry - iCE40: wrap carries</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="insbuf.html" class="reference internal ">insbuf - insert buffer cells for connected wires</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="iopadmap.html" class="reference internal ">iopadmap - technology mapping of i/o pads (or buffers)</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="jny.html" class="reference internal ">jny - write design and metadata</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="json.html" class="reference internal ">json - write design in JSON format</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="log.html" class="reference internal ">log - print text and log files</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="logger.html" class="reference internal ">logger - set logger properties</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="ls.html" class="reference internal ">ls - list modules or objects in modules</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="ltp.html" class="reference internal ">ltp - print longest topological path</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="lut2mux.html" class="reference internal ">lut2mux - convert $lut to $_MUX_</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="maccmap.html" class="reference internal ">maccmap - mapping macc cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="memory.html" class="reference internal ">memory - translate memories to basic cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="memory_bmux2rom.html" class="reference internal ">memory_bmux2rom - convert muxes to ROMs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="memory_bram.html" class="reference internal ">memory_bram - map memories to block rams</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="memory_collect.html" class="reference internal ">memory_collect - creating multi-port memory cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="memory_dff.html" class="reference internal ">memory_dff - merge input/output DFFs into memory read ports</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="memory_libmap.html" class="reference internal ">memory_libmap - map memories to cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="memory_map.html" class="reference internal ">memory_map - translate multiport memories to basic cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="memory_memx.html" class="reference internal ">memory_memx - emulate vlog sim behavior for mem ports</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="memory_narrow.html" class="reference internal ">memory_narrow - split up wide memory ports</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="memory_nordff.html" class="reference internal ">memory_nordff - extract read port FFs from memories</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="memory_share.html" class="reference internal ">memory_share - consolidate memory ports</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="memory_unpack.html" class="reference internal ">memory_unpack - unpack multi-port memory cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="miter.html" class="reference internal ">miter - automatically create a miter circuit</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="mutate.html" class="reference internal ">mutate - generate or apply design mutations</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="muxcover.html" class="reference internal ">muxcover - cover trees of MUX cells with wider MUXes</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="muxpack.html" class="reference internal ">muxpack - $mux/$pmux cascades to $pmux</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="nlutmap.html" class="reference internal ">nlutmap - map to LUTs of different sizes</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="onehot.html" class="reference internal ">onehot - optimize $eq cells for onehot signals</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="opt.html" class="reference internal ">opt - perform simple optimizations</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="opt_clean.html" class="reference internal ">opt_clean - remove unused cells and wires</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="opt_demorgan.html" class="reference internal ">opt_demorgan - Optimize reductions with DeMorgan equivalents</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="opt_dff.html" class="reference internal ">opt_dff - perform DFF optimizations</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="opt_expr.html" class="reference internal ">opt_expr - perform const folding and simple expression rewriting</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="opt_ffinv.html" class="reference internal ">opt_ffinv - push inverters through FFs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="opt_lut.html" class="reference internal ">opt_lut - optimize LUT cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="opt_lut_ins.html" class="reference internal ">opt_lut_ins - discard unused LUT inputs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current">
+            
+              <a href="#" class="reference internal current">opt_mem - optimize memories</a>
+            
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#yosys-help-opt-mem" class="reference internal">yosys> help opt_mem</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="opt_mem_feedback.html" class="reference internal ">opt_mem_feedback - convert memory read-to-write port feedback paths to write enables</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="opt_mem_priority.html" class="reference internal ">opt_mem_priority - remove priority relations between write ports that can never collide</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="opt_mem_widen.html" class="reference internal ">opt_mem_widen - optimize memories where all ports are wide</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="opt_merge.html" class="reference internal ">opt_merge - consolidate identical cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="opt_muxtree.html" class="reference internal ">opt_muxtree - eliminate dead trees in multiplexer trees</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="opt_reduce.html" class="reference internal ">opt_reduce - simplify large MUXes and AND/OR gates</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="opt_share.html" class="reference internal ">opt_share - merge mutually exclusive cells of the same type that share an input signal</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="paramap.html" class="reference internal ">paramap - renaming cell parameters</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="peepopt.html" class="reference internal ">peepopt - collection of peephole optimizers</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="plugin.html" class="reference internal ">plugin - load and list loaded plugins</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="pmux2shiftx.html" class="reference internal ">pmux2shiftx - transform $pmux cells to $shiftx cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="pmuxtree.html" class="reference internal ">pmuxtree - transform $pmux cells to trees of $mux cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="portlist.html" class="reference internal ">portlist - list (top-level) ports</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="prep.html" class="reference internal ">prep - generic synthesis script</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="printattrs.html" class="reference internal ">printattrs - print attributes of selected objects</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="proc.html" class="reference internal ">proc - translate processes to netlists</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="proc_arst.html" class="reference internal ">proc_arst - detect asynchronous resets</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="proc_clean.html" class="reference internal ">proc_clean - remove empty parts of processes</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="proc_dff.html" class="reference internal ">proc_dff - extract flip-flops from processes</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="proc_dlatch.html" class="reference internal ">proc_dlatch - extract latches from processes</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="proc_init.html" class="reference internal ">proc_init - convert initial block to init attributes</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="proc_memwr.html" class="reference internal ">proc_memwr - extract memory writes from processes</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="proc_mux.html" class="reference internal ">proc_mux - convert decision trees to multiplexers</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="proc_prune.html" class="reference internal ">proc_prune - remove redundant assignments</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="proc_rmdead.html" class="reference internal ">proc_rmdead - eliminate dead trees in decision trees</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="proc_rom.html" class="reference internal ">proc_rom - convert switches to ROMs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="qbfsat.html" class="reference internal ">qbfsat - solve a 2QBF-SAT problem in the circuit</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="qwp.html" class="reference internal ">qwp - quadratic wirelength placer</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="read.html" class="reference internal ">read - load HDL designs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="read_aiger.html" class="reference internal ">read_aiger - read AIGER file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="read_blif.html" class="reference internal ">read_blif - read BLIF file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="read_ilang.html" class="reference internal ">read_ilang - (deprecated) alias of read_rtlil</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="read_json.html" class="reference internal ">read_json - read JSON file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="read_liberty.html" class="reference internal ">read_liberty - read cells from liberty file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="read_rtlil.html" class="reference internal ">read_rtlil - read modules from RTLIL file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="read_verilog.html" class="reference internal ">read_verilog - read modules from Verilog file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="rename.html" class="reference internal ">rename - rename object in the design</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="rmports.html" class="reference internal ">rmports - remove module ports with no connections</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="sat.html" class="reference internal ">sat - solve a SAT problem in the circuit</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="scatter.html" class="reference internal ">scatter - add additional intermediate nets</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="scc.html" class="reference internal ">scc - detect strongly connected components (logic loops)</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="scratchpad.html" class="reference internal ">scratchpad - get/set values in the scratchpad</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="script.html" class="reference internal ">script - execute commands from file or wire</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="select.html" class="reference internal ">select - modify and view the list of selected objects</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="setattr.html" class="reference internal ">setattr - set/unset attributes on objects</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="setparam.html" class="reference internal ">setparam - set/unset parameters on objects</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="setundef.html" class="reference internal ">setundef - replace undef values with defined constants</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="share.html" class="reference internal ">share - perform sat-based resource sharing</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="shell.html" class="reference internal ">shell - enter interactive command mode</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="show.html" class="reference internal ">show - generate schematics using graphviz</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="shregmap.html" class="reference internal ">shregmap - map shift registers</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="sim.html" class="reference internal ">sim - simulate the circuit</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="simplemap.html" class="reference internal ">simplemap - mapping simple coarse-grain cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="splice.html" class="reference internal ">splice - create explicit splicing cells</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="splitnets.html" class="reference internal ">splitnets - split up multi-bit nets</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="sta.html" class="reference internal ">sta - perform static timing analysis</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="stat.html" class="reference internal ">stat - print some statistics</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="submod.html" class="reference internal ">submod - moving part of a module to a new submodule</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="supercover.html" class="reference internal ">supercover - add hi/lo cover cells for each wire bit</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="synth.html" class="reference internal ">synth - generic synthesis script</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="synth_achronix.html" class="reference internal ">synth_achronix - synthesis for Acrhonix Speedster22i FPGAs.</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="synth_anlogic.html" class="reference internal ">synth_anlogic - synthesis for Anlogic FPGAs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="synth_coolrunner2.html" class="reference internal ">synth_coolrunner2 - synthesis for Xilinx Coolrunner-II CPLDs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="synth_easic.html" class="reference internal ">synth_easic - synthesis for eASIC platform</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="synth_ecp5.html" class="reference internal ">synth_ecp5 - synthesis for ECP5 FPGAs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="synth_efinix.html" class="reference internal ">synth_efinix - synthesis for Efinix FPGAs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="synth_gatemate.html" class="reference internal ">synth_gatemate - synthesis for Cologne Chip GateMate FPGAs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="synth_gowin.html" class="reference internal ">synth_gowin - synthesis for Gowin FPGAs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="synth_greenpak4.html" class="reference internal ">synth_greenpak4 - synthesis for GreenPAK4 FPGAs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="synth_ice40.html" class="reference internal ">synth_ice40 - synthesis for iCE40 FPGAs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="synth_intel.html" class="reference internal ">synth_intel - synthesis for Intel (Altera) FPGAs.</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="synth_intel_alm.html" class="reference internal ">synth_intel_alm - synthesis for ALM-based Intel (Altera) FPGAs.</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="synth_machxo2.html" class="reference internal ">synth_machxo2 - synthesis for MachXO2 FPGAs. This work is experimental.</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="synth_nexus.html" class="reference internal ">synth_nexus - synthesis for Lattice Nexus FPGAs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="synth_quicklogic.html" class="reference internal ">synth_quicklogic - Synthesis for QuickLogic FPGAs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="synth_sf2.html" class="reference internal ">synth_sf2 - synthesis for SmartFusion2 and IGLOO2 FPGAs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="synth_xilinx.html" class="reference internal ">synth_xilinx - synthesis for Xilinx FPGAs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="tcl.html" class="reference internal ">tcl - execute a TCL script file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="techmap.html" class="reference internal ">techmap - generic technology mapper</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="tee.html" class="reference internal ">tee - redirect command output to file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="test_abcloop.html" class="reference internal ">test_abcloop - automatically test handling of loops in abc command</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="test_autotb.html" class="reference internal ">test_autotb - generate simple test benches</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="test_cell.html" class="reference internal ">test_cell - automatically test the implementation of a cell type</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="test_pmgen.html" class="reference internal ">test_pmgen - test pass for pmgen</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="torder.html" class="reference internal ">torder - print cells in topological order</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="trace.html" class="reference internal ">trace - redirect command output to file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="tribuf.html" class="reference internal ">tribuf - infer tri-state buffers</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="uniquify.html" class="reference internal ">uniquify - create unique copies of modules</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="verific.html" class="reference internal ">verific - load Verilog and VHDL designs using Verific</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="verilog_defaults.html" class="reference internal ">verilog_defaults - set default options for read_verilog</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="verilog_defines.html" class="reference internal ">verilog_defines - define and undefine verilog defines</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="wbflip.html" class="reference internal ">wbflip - flip the whitebox attribute</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="wreduce.html" class="reference internal ">wreduce - reduce the word size of operations if possible</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="write_aiger.html" class="reference internal ">write_aiger - write design to AIGER file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="write_blif.html" class="reference internal ">write_blif - write design to BLIF file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="write_btor.html" class="reference internal ">write_btor - write design to BTOR file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="write_cxxrtl.html" class="reference internal ">write_cxxrtl - convert design to C++ RTL simulation</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="write_edif.html" class="reference internal ">write_edif - write design to EDIF netlist file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="write_file.html" class="reference internal ">write_file - write a text to a file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="write_firrtl.html" class="reference internal ">write_firrtl - write design to a FIRRTL file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="write_ilang.html" class="reference internal ">write_ilang - (deprecated) alias of write_rtlil</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="write_intersynth.html" class="reference internal ">write_intersynth - write design to InterSynth netlist file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="write_jny.html" class="reference internal ">write_jny - generate design metadata</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="write_json.html" class="reference internal ">write_json - write design to a JSON file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="write_rtlil.html" class="reference internal ">write_rtlil - write design to RTLIL file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="write_simplec.html" class="reference internal ">write_simplec - convert design to simple C code</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="write_smt2.html" class="reference internal ">write_smt2 - write design to SMT-LIBv2 file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="write_smv.html" class="reference internal ">write_smv - write design to SMV file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="write_spice.html" class="reference internal ">write_spice - write design to SPICE netlist file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="write_table.html" class="reference internal ">write_table - write design as connectivity table</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="write_verilog.html" class="reference internal ">write_verilog - write design to Verilog file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="write_xaiger.html" class="reference internal ">write_xaiger - write design to XAIGER file</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="xilinx_dffopt.html" class="reference internal ">xilinx_dffopt - Xilinx: optimize FF control signal usage</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="xilinx_dsp.html" class="reference internal ">xilinx_dsp - Xilinx: pack resources into DSPs</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="xilinx_srl.html" class="reference internal ">xilinx_srl - Xilinx shift register extraction</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="zinit.html" class="reference internal ">zinit - add inverters so all FF are zero-initialized</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../cmd_ref.html">Command line reference</a> &raquo;</li>
+    
+    <li>opt_mem - optimize memories</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="opt_lut_ins.html"
+       title="previous chapter">← opt_lut_ins - discard unused LUT inputs</a>
+  </li>
+  <li class="next">
+    <a href="opt_mem_feedback.html"
+       title="next chapter">opt_mem_feedback - convert memory read-to-write port feedback paths to write enables →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="opt-mem-optimize-memories">
+<h1>opt_mem - optimize memories<a class="headerlink" href="#opt-mem-optimize-memories" title="Permalink to this heading">¶</a></h1>
+<section id="yosys-help-opt-mem">
+<h2><code class="code docutils literal notranslate"><span class="pre">yosys&gt;</span> <span class="pre">help</span> <span class="pre">opt_mem</span></code><a class="headerlink" href="#yosys-help-opt-mem" title="Permalink to this heading">¶</a></h2>
+<div class="cmdref docutils container">
+<div class="highlight-yoscrypt notranslate"><div class="highlight"><pre><span></span><span class="k">opt_mem</span><span class="w"> </span><span class="n">[options]</span><span class="w"> </span><span class="n">[selection]</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>This pass performs various optimizations on memories in the design.
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="opt_lut_ins.html"
+       title="previous chapter">← opt_lut_ins - discard unused LUT inputs</a>
+  </li>
+  <li class="next">
+    <a href="opt_mem_feedback.html"
+       title="next chapter">opt_mem_feedback - convert memory read-to-write port feedback paths to write enables →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2022 YosysHQ GmbH.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>
