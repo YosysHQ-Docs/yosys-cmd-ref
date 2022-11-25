@@ -133,10 +133,10 @@ verific - load Verilog and VHDL designs using Verific
         is printed, such as VERI-1209.
 
 
-            verific -import [options] <top-module>..
+            verific -import [options] <top>..
 
-        Elaborate the design for the specified top modules, import to Yosys and
-        reset the internal state of Verific.
+        Elaborate the design for the specified top modules or configurations, import to
+        Yosys and reset the internal state of Verific.
 
         Import options:
 
@@ -404,10 +404,10 @@ verific - load Verilog and VHDL designs using Verific
         is printed, such as VERI-1209.
         
         
-            verific -import [options] <top-module>..
+            verific -import [options] <top>..
         
-        Elaborate the design for the specified top modules, import to Yosys and
-        reset the internal state of Verific.
+        Elaborate the design for the specified top modules or configurations, import to
+        Yosys and reset the internal state of Verific.
         
         Import options:
         
