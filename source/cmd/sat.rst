@@ -108,6 +108,15 @@ sat - solve a SAT problem in the circuit
 
     .. code:: yoscrypt
 
+        -set-def-formal
+
+    ::
+
+            add -set-def constraints for formal $anyinit, $anyconst, $anyseq cells
+
+
+    .. code:: yoscrypt
+
         -show <signal>
 
     ::
@@ -494,6 +503,9 @@ sat - solve a SAT problem in the circuit
         
             -set-def-inputs
                 add -set-def constraints for all module inputs
+        
+            -set-def-formal
+                add -set-def constraints for formal $anyinit, $anyconst, $anyseq cells
         
             -show <signal>
                 show the model for the specified signal. if no -show option is
