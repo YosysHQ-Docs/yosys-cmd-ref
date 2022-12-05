@@ -30,8 +30,8 @@ tcl - execute a TCL script file
         the standard $argc and $argv variables.
 
         Note, tcl will not recieve the output of any yosys command. If the output
-        of the tcl commands are needed, use the yosys command 'tee' to redirect yosys's
-        output to a temporary file.
+        of the tcl commands are needed, use the yosys command 'tee -s result.string'
+        to redirect yosys's output to the 'result.string' scratchpad value.
 
 .. raw:: latex
 
@@ -56,6 +56,6 @@ tcl - execute a TCL script file
         the standard $argc and $argv variables.
         
         Note, tcl will not recieve the output of any yosys command. If the output
-        of the tcl commands are needed, use the yosys command 'tee' to redirect yosys's
-        output to a temporary file.
+        of the tcl commands are needed, use the yosys command 'tee -s result.string'
+        to redirect yosys's output to the 'result.string' scratchpad value.
         

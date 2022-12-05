@@ -49,6 +49,15 @@ tee - redirect command output to file
             Write output to this file, append if exists.
 
 
+    .. code:: yoscrypt
+
+        -s scratchpad
+
+    ::
+
+            Write output to this scratchpad value, truncate if it exists.
+
+
     ::
 
         +INT, -INT
@@ -76,6 +85,9 @@ tee - redirect command output to file
         
             -a logfile
                 Write output to this file, append if exists.
+        
+            -s scratchpad
+                Write output to this scratchpad value, truncate if it exists.
         
             +INT, -INT
                 Add/subtract INT from the -v setting for this command.
