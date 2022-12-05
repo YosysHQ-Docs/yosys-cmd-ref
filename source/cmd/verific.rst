@@ -131,6 +131,8 @@ verific - load Verilog and VHDL designs using Verific
 
         Set message severity. <msg_id> is the string in square brackets when a message
         is printed, such as VERI-1209.
+        Also errors, warnings, infos and comments could be used to set new severity for
+        all messages of certain type.
 
 
             verific -import [options] <top>..
@@ -402,6 +404,8 @@ verific - load Verilog and VHDL designs using Verific
         
         Set message severity. <msg_id> is the string in square brackets when a message
         is printed, such as VERI-1209.
+        Also errors, warnings, infos and comments could be used to set new severity for
+        all messages of certain type.
         
         
             verific -import [options] <top>..
