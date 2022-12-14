@@ -1,0 +1,40 @@
+name: linkcheck
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * 0'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: www.yosyshq.com
+        uses: filiph/linkcheck@2.0.23
+        continue-on-error: true
+        with:
+          arguments: https://www.yosyshq.com/ -e
+
+      - name: yosyshq.net
+        uses: filiph/linkcheck@2.0.23
+        continue-on-error: true
+        with:
+          arguments: https://yosyshq.net/ -e
+
+      - name: blog.yosyshq.com
+        uses: filiph/linkcheck@2.0.23
+        continue-on-error: true
+        with:
+          arguments: https://blog.yosyshq.com/ -e
+
+      - name: yosyshq.readthedocs.io
+        uses: filiph/linkcheck@2.0.23
+        continue-on-error: true
+        with:
+          arguments: https://yosyshq.readthedocs.io/en/latest/ -e
+
+      - name: bygone.clairexen.net
+        uses: filiph/linkcheck@2.0.23
+        continue-on-error: true
+        with:
+          arguments: http://bygone.clairexen.net/menu.html -e
