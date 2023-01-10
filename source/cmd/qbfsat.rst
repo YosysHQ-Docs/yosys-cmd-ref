@@ -94,8 +94,8 @@ qbfsat - solve a 2QBF-SAT problem in the circuit
 
     ::
 
-            Use a particular solver. Choose one of: "z3", "yices", and "cvc4".
-            (default: yices)
+            Use a particular solver. Choose one of: "z3", "yices", "cvc4"
+            and "cvc5". (default: yices)
 
 
     .. code:: yoscrypt
@@ -229,8 +229,8 @@ qbfsat - solve a 2QBF-SAT problem in the circuit
                 hope that the solver supports optimizing quantified bitvector problems.
         
             -solver <solver>
-                Use a particular solver. Choose one of: "z3", "yices", and "cvc4".
-                (default: yices)
+                Use a particular solver. Choose one of: "z3", "yices", "cvc4"
+                and "cvc5". (default: yices)
         
             -solver-option <name> <value>
                 Set the specified solver option in the SMT-LIBv2 problem file.
