@@ -65,6 +65,15 @@ miter - automatically create a miter circuit
 
     .. code:: yoscrypt
 
+        -make_cover
+
+    ::
+
+            also create a 'cover' cell for each gold/gate output pair.
+
+
+    .. code:: yoscrypt
+
         -flatten
 
     ::
@@ -143,6 +152,9 @@ miter - automatically create a miter circuit
         
             -make_assert
                 also create an 'assert' cell that checks if trigger is always low.
+        
+            -make_cover
+                also create a 'cover' cell for each gold/gate output pair.
         
             -flatten
                 call 'flatten -wb; opt_expr -keepdc -undriven;;' on the miter circuit.

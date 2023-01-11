@@ -80,6 +80,17 @@ write_verilog - write design to Verilog file
 
     .. code:: yoscrypt
 
+        -noparallelcase
+
+    ::
+
+            With this option no parallel_case attributes are used. Instead, a case
+            statement that assigns don't-care values for priority dependent inputs
+            is generated.
+
+
+    .. code:: yoscrypt
+
         -siminit
 
     ::
@@ -236,6 +247,11 @@ write_verilog - write design to Verilog file
             -noexpr
                 without this option all internal cells are converted to Verilog
                 expressions.
+        
+            -noparallelcase
+                With this option no parallel_case attributes are used. Instead, a case
+                statement that assigns don't-care values for priority dependent inputs
+                is generated.
         
             -siminit
                 add initial statements with hierarchical refs to initialize FFs when
