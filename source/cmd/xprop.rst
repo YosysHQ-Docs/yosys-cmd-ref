@@ -51,6 +51,19 @@ xprop - formal x propagation
 
     .. code:: yoscrypt
 
+        -split-public
+
+    ::
+
+            Replace each public non-port wire with two new wires, one carrying the
+            defined values (named <wirename>_d) and one carrying the mask of which
+            bits are x (named <wirename>_x). When a bit in the <portname>_x is set
+            the corresponding bit in <wirename>_d is guaranteed to be 0 for
+            outputs.
+
+
+    .. code:: yoscrypt
+
         -assume-encoding
 
     ::
@@ -135,6 +148,13 @@ xprop - formal x propagation
                 bits are x (named <portname>_x). When a bit in the <portname>_x is set
                 the corresponding bit in <portname>_d is ignored for inputs and
                 guaranteed to be 0 for outputs.
+        
+            -split-public
+                Replace each public non-port wire with two new wires, one carrying the
+                defined values (named <wirename>_d) and one carrying the mask of which
+                bits are x (named <wirename>_x). When a bit in the <portname>_x is set
+                the corresponding bit in <wirename>_d is guaranteed to be 0 for
+                outputs.
         
             -assume-encoding
                 Add encoding invariants as assumptions. This can speed up formal

@@ -30,6 +30,15 @@ insbuf - insert buffer cells for connected wires
             Use the given cell type instead of $_BUF_. (Notice that the next
             call to "clean" will remove all $_BUF_ in the design.)
 
+
+    .. code:: yoscrypt
+
+        -chain
+
+    ::
+
+            Chain buffer cells
+
 .. raw:: latex
 
     \end{comment}
@@ -46,4 +55,7 @@ insbuf - insert buffer cells for connected wires
             -buf <celltype> <in-portname> <out-portname>
                 Use the given cell type instead of $_BUF_. (Notice that the next
                 call to "clean" will remove all $_BUF_ in the design.)
+        
+            -chain
+                Chain buffer cells
         
