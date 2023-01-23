@@ -65,6 +65,15 @@ write_btor - write design to BTOR file
 
           Output symbols for internal netnames (starting with '$')
 
+
+    .. code:: yoscrypt
+
+        -ywmap <filename>
+
+    ::
+
+          Create a map file for conversion to and from Yosys witness traces
+
 .. raw:: latex
 
     \end{comment}
@@ -92,4 +101,7 @@ write_btor - write design to BTOR file
         
           -x
             Output symbols for internal netnames (starting with '$')
+        
+          -ywmap <filename>
+            Create a map file for conversion to and from Yosys witness traces
         

@@ -85,6 +85,27 @@ formalff - prepare FFs for formal
             them. For -ff2anyinit, this reduces the number of generated $anyinit
             cells that drive wires with private names.
 
+
+    .. code:: yoscrypt
+
+        -hierarchy
+
+    ::
+
+            Propagates the 'replaced_by_gclk' attribute set by clk2ff upwards
+            through the design hierarchy towards the toplevel inputs. This option
+            works on the whole design and ignores the selection.
+
+
+    .. code:: yoscrypt
+
+        -assume
+
+    ::
+
+            Add assumptions that constrain wires with the 'replaced_by_gclk'
+            attribute to the value they would have before an active clock edge.
+
 .. raw:: latex
 
     \end{comment}
@@ -132,4 +153,13 @@ formalff - prepare FFs for formal
                 initialization does not change the observable behavior and initialize
                 them. For -ff2anyinit, this reduces the number of generated $anyinit
                 cells that drive wires with private names.
+        
+            -hierarchy
+                Propagates the 'replaced_by_gclk' attribute set by clk2ff upwards
+                through the design hierarchy towards the toplevel inputs. This option
+                works on the whole design and ignores the selection.
+        
+            -assume
+                Add assumptions that constrain wires with the 'replaced_by_gclk'
+                attribute to the value they would have before an active clock edge.
         

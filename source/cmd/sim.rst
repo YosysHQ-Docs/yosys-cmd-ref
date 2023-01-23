@@ -178,13 +178,31 @@ sim - simulate the circuit
 
     .. code:: yoscrypt
 
-        -r
+        -r <filename>
 
     ::
 
-            read simulation results file
-                File formats supported: FST, VCD, AIW and WIT
+            read simulation or formal results file
+                File formats supported: FST, VCD, AIW, WIT and .yw
                 VCD support requires vcd2fst external tool to be present
+
+
+    .. code:: yoscrypt
+
+        -append <integer>
+
+    ::
+
+            number of extra clock cycles to simulate for a Yosys witness input
+
+
+    .. code:: yoscrypt
+
+        -summary <filename>
+
+    ::
+
+            write a JSON summary to the given file
 
 
     .. code:: yoscrypt
@@ -351,10 +369,16 @@ sim - simulate the circuit
             -w
                 writeback mode: use final simulation state as new init state
         
-            -r
-                read simulation results file
-                    File formats supported: FST, VCD, AIW and WIT
+            -r <filename>
+                read simulation or formal results file
+                    File formats supported: FST, VCD, AIW, WIT and .yw
                     VCD support requires vcd2fst external tool to be present
+        
+            -append <integer>
+                number of extra clock cycles to simulate for a Yosys witness input
+        
+            -summary <filename>
+                write a JSON summary to the given file
         
             -map <filename>
                 read file with port and latch symbols, needed for AIGER witness input
