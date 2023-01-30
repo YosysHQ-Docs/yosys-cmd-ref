@@ -14,13 +14,25 @@ fsm_detect - finding FSMs in design
 
     .. code:: yoscrypt
 
-        fsm_detect [selection]
+        fsm_detect [options] [selection]
 
     ::
 
         This pass detects finite state machines by identifying the state signal.
         The state signal is then marked by setting the attribute 'fsm_encoding'
         on the state signal to "auto".
+
+
+    .. code:: yoscrypt
+
+        -ignore-self-reset
+
+    ::
+
+            Mark FSMs even if they are self-resetting
+
+
+    ::
 
         Existing 'fsm_encoding' attributes are not changed by this pass.
 
@@ -30,9 +42,9 @@ fsm_detect - finding FSMs in design
         This pass uses a subset of FF types to detect FSMs. Run 'opt -nosdff -nodffe'
         before this pass to prepare the design for fsm_detect.
 
-        The Verific frontend may merge multiplexers in a way that interferes with FSM
+        The Verific frontend may optimize the design in a way that interferes with FSM
         detection. Run 'verific -cfg db_infer_wide_muxes_post_elaboration 0' before
-        reading the source, and 'bmuxmap' after 'proc' for best results.
+        reading the source, and 'bmuxmap -pmux' after 'proc' for best results.
 
 .. raw:: latex
 
@@ -43,11 +55,14 @@ fsm_detect - finding FSMs in design
     ::
 
         
-            fsm_detect [selection]
+            fsm_detect [options] [selection]
         
         This pass detects finite state machines by identifying the state signal.
         The state signal is then marked by setting the attribute 'fsm_encoding'
         on the state signal to "auto".
+        
+            -ignore-self-reset
+                Mark FSMs even if they are self-resetting
         
         Existing 'fsm_encoding' attributes are not changed by this pass.
         
@@ -57,7 +72,7 @@ fsm_detect - finding FSMs in design
         This pass uses a subset of FF types to detect FSMs. Run 'opt -nosdff -nodffe'
         before this pass to prepare the design for fsm_detect.
         
-        The Verific frontend may merge multiplexers in a way that interferes with FSM
+        The Verific frontend may optimize the design in a way that interferes with FSM
         detection. Run 'verific -cfg db_infer_wide_muxes_post_elaboration 0' before
-        reading the source, and 'bmuxmap' after 'proc' for best results.
+        reading the source, and 'bmuxmap -pmux' after 'proc' for best results.
         
