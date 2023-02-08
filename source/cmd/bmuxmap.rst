@@ -20,6 +20,15 @@ bmuxmap - transform $bmux cells to trees of $mux cells
 
         This pass transforms $bmux cells to trees of $mux cells.
 
+
+    .. code:: yoscrypt
+
+        -pmux
+
+    ::
+
+            transform to $pmux instead of $mux cells.
+
 .. raw:: latex
 
     \end{comment}
@@ -32,4 +41,7 @@ bmuxmap - transform $bmux cells to trees of $mux cells
             bmuxmap [selection]
         
         This pass transforms $bmux cells to trees of $mux cells.
+        
+            -pmux
+                transform to $pmux instead of $mux cells.
         
