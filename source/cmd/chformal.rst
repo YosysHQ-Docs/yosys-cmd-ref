@@ -95,6 +95,18 @@ chformal - change formal constraints of the design
 
     .. code:: yoscrypt
 
+        -coverenable
+
+    ::
+
+            add cover statements for the enable signals of the constraints
+
+            Note: For the Verific frontend it is currently not guaranteed that a
+            reachable SVA statement corresponds to an active enable signal.
+
+
+    .. code:: yoscrypt
+
         -assert2assume
 
    
@@ -153,6 +165,12 @@ chformal - change formal constraints of the design
         
             -skip <N>
                 ignore activation of the constraint in the first <N> clock cycles
+        
+            -coverenable
+                add cover statements for the enable signals of the constraints
+        
+                Note: For the Verific frontend it is currently not guaranteed that a
+                reachable SVA statement corresponds to an active enable signal.
         
             -assert2assume
             -assume2assert
