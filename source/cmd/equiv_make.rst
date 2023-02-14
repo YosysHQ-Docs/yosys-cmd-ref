@@ -51,6 +51,15 @@ equiv_make - prepare a circuit for equivalence checking
             See 'help fsm_recode' for details.
 
 
+    .. code:: yoscrypt
+
+        -make_assert
+
+    ::
+
+            Check equivalence with $assert cells instead of $equiv.
+            $eqx (===) is used to compare signals.
+
     ::
 
         Note: The circuit created by this command is not a miter (with something like
@@ -82,6 +91,9 @@ equiv_make - prepare a circuit for equivalence checking
                 Match FSM encodings using the description from the file.
                 See 'help fsm_recode' for details.
         
+            -make_assert
+                Check equivalence with $assert cells instead of $equiv.
+                $eqx (===) is used to compare signals.
         Note: The circuit created by this command is not a miter (with something like
         a trigger output), but instead uses $equiv cells to encode the equivalence
         checking problem. Use 'miter -equiv' if you want to create a miter circuit.
