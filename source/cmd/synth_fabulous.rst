@@ -147,6 +147,15 @@ synth_fabulous - FABulous synthesis script
 
     .. code:: yoscrypt
 
+        -carry <none|ha>
+
+    ::
+
+            carry mapping style (none, half-adders, ...) default=none
+
+
+    .. code:: yoscrypt
+
         -noregfile
 
     ::
@@ -269,7 +278,7 @@ synth_fabulous - FABulous synthesis script
 
             map_gates:
                 opt -full
-                techmap -map +/techmap.v
+                techmap -map +/techmap.v -map +/fabulous/arith_map.v -D ARITH_<carry>
                 opt -fast
 
             map_iopad:    (if -iopad)
@@ -359,6 +368,9 @@ synth_fabulous - FABulous synthesis script
                 do not run 'alumacc' pass. i.e. keep arithmetic operators in
                 their direct form ($add, $sub, etc.).
         
+            -carry <none|ha>
+                carry mapping style (none, half-adders, ...) default=none
+        
             -noregfile
                 do not map register files
         
@@ -433,7 +445,7 @@ synth_fabulous - FABulous synthesis script
         
             map_gates:
                 opt -full
-                techmap -map +/techmap.v
+                techmap -map +/techmap.v -map +/fabulous/arith_map.v -D ARITH_<carry>
                 opt -fast
         
             map_iopad:    (if -iopad)
