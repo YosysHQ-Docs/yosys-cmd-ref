@@ -208,7 +208,7 @@ synth_gatemate - synthesis for Cologne Chip GateMate FPGAs
 
             map_regs:
                 opt_clean
-                dfflegalize -cell $_DFFE_????_ x -cell $_DLATCH_???_ x
+                dfflegalize -cell $_DFFE_????_ 01 -cell $_DLATCH_???_ 01
                 techmap -map +/gatemate/reg_map.v
                 opt_expr -mux_undef
                 simplemap
@@ -362,7 +362,7 @@ synth_gatemate - synthesis for Cologne Chip GateMate FPGAs
         
             map_regs:
                 opt_clean
-                dfflegalize -cell $_DFFE_????_ x -cell $_DLATCH_???_ x
+                dfflegalize -cell $_DFFE_????_ 01 -cell $_DLATCH_???_ 01
                 techmap -map +/gatemate/reg_map.v
                 opt_expr -mux_undef
                 simplemap
