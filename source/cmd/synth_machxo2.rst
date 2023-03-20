@@ -146,9 +146,9 @@ synth_machxo2 - synthesis for MachXO2 FPGAs. This work is experimental.
                 opt -fast
 
             map_ios:    (unless -noiopad)
-                iopadmap -bits -outpad $__FACADE_OUTPAD I:O -inpad $__FACADE_INPAD O:I -toutpad $__FACADE_TOUTPAD ~T:I:O -tinoutpad $__FACADE_TINOUTPAD ~T:O:I:B A:top
-                attrmvcp -attr src -attr LOC t:$__FACADE_OUTPAD %x:+[O] t:$__FACADE_TOUTPAD %x:+[O] t:$__FACADE_TINOUTPAD %x:+[B]
-                attrmvcp -attr src -attr LOC -driven t:$__FACADE_INPAD %x:+[I]
+                iopadmap -bits -outpad OB I:O -inpad IB O:I -toutpad OBZ ~T:I:O -tinoutpad BB ~T:O:I:B A:top    (only if '-iopad')
+                attrmvcp -attr src -attr LOC t:OB %x:+[O] t:OBZ %x:+[O] t:BB %x:+[B]
+                attrmvcp -attr src -attr LOC -driven t:IB %x:+[I]
 
             map_ffs:
                 dfflegalize -cell $_DFF_P_ 0
@@ -253,9 +253,9 @@ synth_machxo2 - synthesis for MachXO2 FPGAs. This work is experimental.
                 opt -fast
         
             map_ios:    (unless -noiopad)
-                iopadmap -bits -outpad $__FACADE_OUTPAD I:O -inpad $__FACADE_INPAD O:I -toutpad $__FACADE_TOUTPAD ~T:I:O -tinoutpad $__FACADE_TINOUTPAD ~T:O:I:B A:top
-                attrmvcp -attr src -attr LOC t:$__FACADE_OUTPAD %x:+[O] t:$__FACADE_TOUTPAD %x:+[O] t:$__FACADE_TINOUTPAD %x:+[B]
-                attrmvcp -attr src -attr LOC -driven t:$__FACADE_INPAD %x:+[I]
+                iopadmap -bits -outpad OB I:O -inpad IB O:I -toutpad OBZ ~T:I:O -tinoutpad BB ~T:O:I:B A:top    (only if '-iopad')
+                attrmvcp -attr src -attr LOC t:OB %x:+[O] t:OBZ %x:+[O] t:BB %x:+[B]
+                attrmvcp -attr src -attr LOC -driven t:IB %x:+[I]
         
             map_ffs:
                 dfflegalize -cell $_DFF_P_ 0
