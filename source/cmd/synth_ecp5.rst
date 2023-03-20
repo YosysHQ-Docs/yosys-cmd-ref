@@ -182,6 +182,15 @@ synth_ecp5 - synthesis for ECP5 FPGAs
 
     .. code:: yoscrypt
 
+        -iopad
+
+    ::
+
+            insert IO buffers
+
+
+    .. code:: yoscrypt
+
         -nodsp
 
     ::
@@ -245,6 +254,9 @@ synth_ecp5 - synthesis for ECP5 FPGAs
 
             map_gates:
                 techmap -map +/techmap.v -map +/ecp5/arith_map.v
+                iopadmap -bits -outpad OB I:O -inpad IB O:I -toutpad OBZ ~T:I:O -tinoutpad BB ~T:O:I:B A:top    (only if '-iopad')
+                attrmvcp -attr src -attr LOC t:OB %x:+[O] t:OBZ %x:+[O] t:BB %x:+[B]
+                attrmvcp -attr src -attr LOC -driven t:IB %x:+[I]
                 opt -fast
                 abc -dff -D 1    (only if -retime)
 
@@ -358,6 +370,9 @@ synth_ecp5 - synthesis for ECP5 FPGAs
                 generate an output netlist (and BLIF file) suitable for VPR
                 (this feature is experimental and incomplete)
         
+            -iopad
+                insert IO buffers
+        
             -nodsp
                 do not map multipliers to MULT18X18D
         
@@ -409,6 +424,9 @@ synth_ecp5 - synthesis for ECP5 FPGAs
         
             map_gates:
                 techmap -map +/techmap.v -map +/ecp5/arith_map.v
+                iopadmap -bits -outpad OB I:O -inpad IB O:I -toutpad OBZ ~T:I:O -tinoutpad BB ~T:O:I:B A:top    (only if '-iopad')
+                attrmvcp -attr src -attr LOC t:OB %x:+[O] t:OBZ %x:+[O] t:BB %x:+[B]
+                attrmvcp -attr src -attr LOC -driven t:IB %x:+[I]
                 opt -fast
                 abc -dff -D 1    (only if -retime)
         
