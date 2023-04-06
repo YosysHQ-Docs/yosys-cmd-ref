@@ -109,6 +109,15 @@ synth_machxo2 - synthesis for MachXO2 FPGAs. This work is experimental.
 
     .. code:: yoscrypt
 
+        -ccu2
+
+    ::
+
+            use CCU2 cells in output netlist
+
+
+    .. code:: yoscrypt
+
         -vpr
 
     ::
@@ -140,18 +149,25 @@ synth_machxo2 - synthesis for MachXO2 FPGAs. This work is experimental.
                 techmap -map +/machxo2/lutrams_map.v -map +/machxo2/brams_map.v
 
             fine:
+                opt -fast -mux_undef -undriven -fine
                 memory_map
-                opt -full
-                techmap -map +/techmap.v
-                opt -fast
+                opt -undriven -fine
 
-            map_ios:    (unless -noiopad)
+            map_gates:    (unless -noiopad)
+                techmap
                 iopadmap -bits -outpad OB I:O -inpad IB O:I -toutpad OBZ ~T:I:O -tinoutpad BB ~T:O:I:B A:top    (only if '-iopad')
                 attrmvcp -attr src -attr LOC t:OB %x:+[O] t:OBZ %x:+[O] t:BB %x:+[B]
                 attrmvcp -attr src -attr LOC -driven t:IB %x:+[I]
 
             map_ffs:
-                dfflegalize -cell $_DFF_P_ 0
+                opt_clean
+                dfflegalize -cell $_DFF_?_ 01 -cell $_DFF_?P?_ r -cell $_SDFF_?P?_ r
+                techmap -D NO_LUT -map +/machxo2/cells_map.v
+                opt_expr -undriven -mux_undef
+                simplemap
+                ecp5_gsr
+                attrmvcp -copy -attr syn_useioff
+                opt_clean
 
             map_luts:
                 abc -lut 4 -dress
@@ -222,6 +238,9 @@ synth_machxo2 - synthesis for MachXO2 FPGAs. This work is experimental.
             -noiopad
                 do not insert IO buffers
         
+            -ccu2
+                use CCU2 cells in output netlist
+        
             -vpr
                 generate an output netlist (and BLIF file) suitable for VPR
                 (this feature is experimental and incomplete)
@@ -247,18 +266,25 @@ synth_machxo2 - synthesis for MachXO2 FPGAs. This work is experimental.
                 techmap -map +/machxo2/lutrams_map.v -map +/machxo2/brams_map.v
         
             fine:
+                opt -fast -mux_undef -undriven -fine
                 memory_map
-                opt -full
-                techmap -map +/techmap.v
-                opt -fast
+                opt -undriven -fine
         
-            map_ios:    (unless -noiopad)
+            map_gates:    (unless -noiopad)
+                techmap
                 iopadmap -bits -outpad OB I:O -inpad IB O:I -toutpad OBZ ~T:I:O -tinoutpad BB ~T:O:I:B A:top    (only if '-iopad')
                 attrmvcp -attr src -attr LOC t:OB %x:+[O] t:OBZ %x:+[O] t:BB %x:+[B]
                 attrmvcp -attr src -attr LOC -driven t:IB %x:+[I]
         
             map_ffs:
-                dfflegalize -cell $_DFF_P_ 0
+                opt_clean
+                dfflegalize -cell $_DFF_?_ 01 -cell $_DFF_?P?_ r -cell $_SDFF_?P?_ r
+                techmap -D NO_LUT -map +/machxo2/cells_map.v
+                opt_expr -undriven -mux_undef
+                simplemap
+                ecp5_gsr
+                attrmvcp -copy -attr syn_useioff
+                opt_clean
         
             map_luts:
                 abc -lut 4 -dress
