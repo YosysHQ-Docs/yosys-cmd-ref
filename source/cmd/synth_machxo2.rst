@@ -132,7 +132,7 @@ synth_machxo2 - synthesis for MachXO2 FPGAs. This work is experimental.
         The following commands are executed by this synthesis command:
 
             begin:
-                read_verilog -lib -icells +/machxo2/cells_sim.v
+                read_verilog -lib -icells +/machxo2/cells_sim.v +/machxo2/cells_bb.v
                 hierarchy -check -top <top>
 
             flatten:    (unless -noflatten)
@@ -249,7 +249,7 @@ synth_machxo2 - synthesis for MachXO2 FPGAs. This work is experimental.
         The following commands are executed by this synthesis command:
         
             begin:
-                read_verilog -lib -icells +/machxo2/cells_sim.v
+                read_verilog -lib -icells +/machxo2/cells_sim.v +/machxo2/cells_bb.v
                 hierarchy -check -top <top>
         
             flatten:    (unless -noflatten)
