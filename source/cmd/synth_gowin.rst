@@ -161,6 +161,7 @@ synth_gowin - synthesis for Gowin FPGAs
 
             begin:
                 read_verilog -specify -lib +/gowin/cells_sim.v
+                read_verilog -specify -lib +/gowin/cells_xtra.v
                 hierarchy -check -top <top>
 
             flatten:    (unless -noflatten)
@@ -284,6 +285,7 @@ synth_gowin - synthesis for Gowin FPGAs
         
             begin:
                 read_verilog -specify -lib +/gowin/cells_sim.v
+                read_verilog -specify -lib +/gowin/cells_xtra.v
                 hierarchy -check -top <top>
         
             flatten:    (unless -noflatten)
