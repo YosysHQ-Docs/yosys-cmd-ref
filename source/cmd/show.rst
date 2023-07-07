@@ -30,6 +30,7 @@ show - generate schematics using graphviz
 
             Run the specified command with the graphics file as parameter.
             On Windows, this pauses yosys until the viewer exits.
+            Use "-viewer none" to not run any command.
 
 
     .. code:: yoscrypt
@@ -214,6 +215,7 @@ show - generate schematics using graphviz
             -viewer <viewer>
                 Run the specified command with the graphics file as parameter.
                 On Windows, this pauses yosys until the viewer exits.
+                Use "-viewer none" to not run any command.
         
             -format <format>
                 Generate a graphics file in the specified format. Use 'dot' to just

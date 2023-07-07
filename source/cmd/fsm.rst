@@ -86,10 +86,6 @@ fsm - extract and optimize finite state machines
         This pass uses a subset of FF types to detect FSMs. Run 'opt -nosdff -nodffe'
         before this pass to prepare the design.
 
-        The Verific frontend may merge multiplexers in a way that interferes with FSM
-        detection. Run 'verific -cfg db_infer_wide_muxes_post_elaboration 0' before
-        reading the source, and 'bmuxmap' after 'proc' for best results.
-
 .. raw:: latex
 
     \end{comment}
@@ -137,8 +133,4 @@ fsm - extract and optimize finite state machines
         
         This pass uses a subset of FF types to detect FSMs. Run 'opt -nosdff -nodffe'
         before this pass to prepare the design.
-        
-        The Verific frontend may merge multiplexers in a way that interferes with FSM
-        detection. Run 'verific -cfg db_infer_wide_muxes_post_elaboration 0' before
-        reading the source, and 'bmuxmap' after 'proc' for best results.
         

@@ -1,0 +1,21 @@
+digraph "counter" {
+rankdir="LR";
+remincross=true;
+n3 [ shape=octagon, label="count", color="black", fontcolor="black" ];
+n4 [ shape=octagon, label="en", color="black", fontcolor="black" ];
+n5 [ shape=octagon, label="rst", color="black", fontcolor="black" ];
+n6 [ shape=octagon, label="clk", color="black", fontcolor="black" ];
+{ rank="source"; n4; n5; n6;}
+{ rank="sink"; n3;}
+v0 [ label="2'01" ];
+c10 [ shape=record, label="{{<p7> A|<p8> B}|$2\n$add|{<p9> Y}}",  ];
+p1 [shape=box, style=rounded, label="PROC $1\ncounter.v:6.2-10.26"];
+c10:p9:e -> p1:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+p1:e -> n3:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n3:e -> c10:p7:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n3:e -> p1:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n4:e -> p1:w [color="black", fontcolor="black", label=""];
+n5:e -> p1:w [color="black", fontcolor="black", label=""];
+n6:e -> p1:w [color="black", fontcolor="black", label=""];
+v0:e -> c10:p8:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+}

@@ -1,12 +1,14 @@
 .. role:: verilog(code)
 	:language: Verilog
 
+.. TODO: copypaste
+
 .. _chapter:celllib:
 
 Internal cell library
 =====================
 
-Most of the passes in Yosys operate on netlists, i.e. they only care about the
+Most of the passes in Yosys operate on netlists, i.e. they only care about the
 RTLIL::Wire and RTLIL::Cell objects in an RTLIL::Module. This chapter discusses
 the cell types used by Yosys to represent a behavioural design internally.
 
@@ -205,7 +207,7 @@ Behavioural code with cascaded if-then-else- and case-statements usually results
 in trees of multiplexer cells. Many passes (from various optimizations to FSM
 extraction) heavily depend on these multiplexer trees to understand dependencies
 between signals. Therefore optimizations should not break these multiplexer
-trees (e.g. by replacing a multiplexer between a calculated signal and a
+trees (e.g. by replacing a multiplexer between a calculated signal and a
 constant zero with an ``$and`` gate).
 
 Registers
@@ -571,7 +573,7 @@ The ``$mem_v2`` cell has the following ports:
 	signals for the read ports.
 
 ``\RD_DATA``
-	This input is ``\RD_PORTS*\WIDTH`` bits wide, containing all data
+	This output is ``\RD_PORTS*\WIDTH`` bits wide, containing all data
 	signals for the read ports.
 
 ``\RD_ARST``
@@ -814,7 +816,7 @@ techlibs/common/simcells.v in the Yosys source tree.
 	============== ============== =========
 
 
-Tables \ :numref:`%s <tab:CellLib_gates>`, :numref:`%s
+Tables \ :numref:`%s <tab:CellLib_gates>`, :numref:`%s
 <tab:CellLib_gates_dffe>`, :numref:`%s <tab:CellLib_gates_adff>`, :numref:`%s
 <tab:CellLib_gates_adffe>`, :numref:`%s <tab:CellLib_gates_dffsr>`, :numref:`%s
 <tab:CellLib_gates_dffsre>`, :numref:`%s <tab:CellLib_gates_adlatch>`,

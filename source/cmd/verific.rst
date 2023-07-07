@@ -34,25 +34,6 @@ verific - load Verilog and VHDL designs using Verific
         Like -sv, but define FORMAL instead of SYNTHESIS.
 
 
-            verific {-vhdl87|-vhdl93|-vhdl2k|-vhdl2008|-vhdl} <vhdl-file>..
-
-        Load the specified VHDL files into Verific.
-
-
-            verific {-edif} <edif-file>..
-
-        Load the specified EDIF files into Verific.
-
-
-            verific {-liberty} <liberty-file>..
-
-        Load the specified Liberty files into Verific.
-        Default library when -work is not present is one specified in liberty file.
-        To use from SystemVerilog or VHDL use -L to specify liberty library.
-            -lib
-                only create empty blackbox modules
-
-
             verific {-f|-F} [-vlog95|-vlog2k|-sv2005|-sv2009|
                              -sv2012|-sv|-formal] <command-file>
 
@@ -222,57 +203,6 @@ verific - load Verilog and VHDL designs using Verific
 
         Get/set Verific runtime flags.
 
-
-            verific [-work <libname>] -rewrite [-clear][-list] <name> [options]..
-
-        Register rewriter for execution on elaboration step.
-
-            -help
-                Displays help for specific rewriter.
-
-            -clear
-                Remove all rewriters from list, including default rewriters.
-
-            -list
-                Displays all rewriter in list in order of execution.
-
-            -module <module>
-                Run rewriter only on specified module.
-
-            -work <libname>
-                Use verilog sources from given library.
-                (default library when -work is not present: "work")
-
-            -blacklist <filename[:lineno]>
-                Do not run rewriter on modules from files that match the filename
-                or filename and line number if provided in such format.
-                Parameter can also contain comma separated list of file locations.
-
-            -blfile <file>
-                Do not run rewriter on locations specified in file, they can
-                represent filename or filename and location in file.
-
-            -whitelist <filename[:lineno]>
-                Run rewriter on modules from files that match the filename
-                or filename and line number if provided in such format.
-                Parameter can also contain comma separated list of file locations.
-
-            -wlfile <file>
-                Run rewriter on locations specified in file, they can
-                represent filename or filename and location in file.
-
-        Available rewriters:
-          gen-witness-covers   - Generate witness covers
-          initial-assertions   - Generate initial block assertions (automatically added)
-
-
-            verific [-work <libname>] -elaborate [options]..
-
-        Execute elaboration step and all registered rewriters.
-
-            -work <libname>
-                Use verilog sources from given library.
-                (default library when -work is not present: "work")
 
         Use YosysHQ Tabby CAD Suite if you need Yosys+Verific.
         https://www.yosyshq.com/
@@ -307,25 +237,6 @@ verific - load Verilog and VHDL designs using Verific
         Like -sv, but define FORMAL instead of SYNTHESIS.
         
         
-            verific {-vhdl87|-vhdl93|-vhdl2k|-vhdl2008|-vhdl} <vhdl-file>..
-        
-        Load the specified VHDL files into Verific.
-        
-        
-            verific {-edif} <edif-file>..
-        
-        Load the specified EDIF files into Verific.
-        
-        
-            verific {-liberty} <liberty-file>..
-        
-        Load the specified Liberty files into Verific.
-        Default library when -work is not present is one specified in liberty file.
-        To use from SystemVerilog or VHDL use -L to specify liberty library.
-            -lib
-                only create empty blackbox modules
-        
-        
             verific {-f|-F} [-vlog95|-vlog2k|-sv2005|-sv2009|
                              -sv2012|-sv|-formal] <command-file>
         
@@ -495,57 +406,6 @@ verific - load Verilog and VHDL designs using Verific
         
         Get/set Verific runtime flags.
         
-        
-            verific [-work <libname>] -rewrite [-clear][-list] <name> [options]..
-        
-        Register rewriter for execution on elaboration step.
-        
-            -help
-                Displays help for specific rewriter.
-        
-            -clear
-                Remove all rewriters from list, including default rewriters.
-        
-            -list
-                Displays all rewriter in list in order of execution.
-        
-            -module <module>
-                Run rewriter only on specified module.
-        
-            -work <libname>
-                Use verilog sources from given library.
-                (default library when -work is not present: "work")
-        
-            -blacklist <filename[:lineno]>
-                Do not run rewriter on modules from files that match the filename
-                or filename and line number if provided in such format.
-                Parameter can also contain comma separated list of file locations.
-        
-            -blfile <file>
-                Do not run rewriter on locations specified in file, they can
-                represent filename or filename and location in file.
-        
-            -whitelist <filename[:lineno]>
-                Run rewriter on modules from files that match the filename
-                or filename and line number if provided in such format.
-                Parameter can also contain comma separated list of file locations.
-        
-            -wlfile <file>
-                Run rewriter on locations specified in file, they can
-                represent filename or filename and location in file.
-        
-        Available rewriters:
-          gen-witness-covers   - Generate witness covers
-          initial-assertions   - Generate initial block assertions (automatically added)
-        
-        
-            verific [-work <libname>] -elaborate [options]..
-        
-        Execute elaboration step and all registered rewriters.
-        
-            -work <libname>
-                Use verilog sources from given library.
-                (default library when -work is not present: "work")
         
         Use YosysHQ Tabby CAD Suite if you need Yosys+Verific.
         https://www.yosyshq.com/

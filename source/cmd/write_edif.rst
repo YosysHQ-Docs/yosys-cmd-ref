@@ -79,6 +79,15 @@ write_edif - write design to EDIF netlist file
             parentheses, square brackets, or angle brackets.
 
 
+    .. code:: yoscrypt
+
+        -lsbidx
+
+    ::
+
+            use index 0 for the LSB bit of a net or port instead of MSB.
+
+
     ::
 
         Unfortunately there are different "flavors" of the EDIF file format. This
@@ -120,6 +129,9 @@ write_edif - write design to EDIF netlist file
             -pvector {par|bra|ang}
                 sets the delimiting character for module port rename clauses to
                 parentheses, square brackets, or angle brackets.
+        
+            -lsbidx
+                use index 0 for the LSB bit of a net or port instead of MSB.
         
         Unfortunately there are different "flavors" of the EDIF file format. This
         command generates EDIF files for the Xilinx place&route tools. It might be
