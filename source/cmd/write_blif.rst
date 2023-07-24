@@ -89,8 +89,8 @@ write_blif - write design to BLIF file
     ::
 
         The following options can be useful when the generated file is not going to be
-        read by a BLIF parser but a custom tool. It is recommended to not name the
-        output file *.blif when any of this options is used.
+        read by a BLIF parser but a custom tool. It is recommended not to name the
+        output file *.blif when any of these options are used.
 
 
     .. code:: yoscrypt
@@ -217,8 +217,8 @@ write_blif - write design to BLIF file
                 suppresses the generation of this nets without fanout.
         
         The following options can be useful when the generated file is not going to be
-        read by a BLIF parser but a custom tool. It is recommended to not name the
-        output file *.blif when any of this options is used.
+        read by a BLIF parser but a custom tool. It is recommended not to name the
+        output file *.blif when any of these options are used.
         
             -icells
                 do not translate Yosys's internal gates to generic BLIF logic

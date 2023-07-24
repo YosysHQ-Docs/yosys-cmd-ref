@@ -23,6 +23,7 @@ write_firrtl - write design to a FIRRTL file
                 pmuxtree
                 bmuxmap
                 demuxmap
+                bwmuxmap
 
 .. raw:: latex
 
@@ -40,4 +41,5 @@ write_firrtl - write design to a FIRRTL file
                 pmuxtree
                 bmuxmap
                 demuxmap
+                bwmuxmap
         
