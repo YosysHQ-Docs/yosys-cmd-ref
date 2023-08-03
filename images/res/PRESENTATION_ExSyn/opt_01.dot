@@ -1,0 +1,10 @@
+digraph "test" {
+rankdir="LR";
+remincross=true;
+n1 [ shape=octagon, label="A", color="black", fontcolor="black" ];
+n2 [ shape=octagon, label="B", color="black", fontcolor="black" ];
+n3 [ shape=octagon, label="Y", color="black", fontcolor="black" ];
+x0 [shape=box, style=rounded, label="BUF"];
+n2:e -> x0:w:w [color="black", label=""];
+x0:e:e -> n3:w [color="black", label=""];
+}
