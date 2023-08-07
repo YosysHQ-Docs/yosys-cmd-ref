@@ -1,0 +1,15 @@
+digraph "macc_16_16_32" {
+rankdir="LR";
+remincross=true;
+n2 [ shape=octagon, label="a", color="black", fontcolor="black" ];
+n3 [ shape=octagon, label="b", color="black", fontcolor="black" ];
+n4 [ shape=octagon, label="c", color="black", fontcolor="black" ];
+n5 [ shape=octagon, label="y", color="black", fontcolor="black" ];
+c9 [ shape=record, label="{{<p6> A|<p7> B}|$35\n$add|{<p8> Y}}" ];
+c10 [ shape=record, label="{{<p6> A|<p7> B}|$34\n$mul|{<p8> Y}}" ];
+c10:p8:e -> c9:p6:w [color="black", style="setlinewidth(3)", label=""];
+n2:e -> c10:p6:w [color="black", style="setlinewidth(3)", label=""];
+n3:e -> c10:p7:w [color="black", style="setlinewidth(3)", label=""];
+n4:e -> c9:p7:w [color="black", style="setlinewidth(3)", label=""];
+c9:p8:e -> n5:w [color="black", style="setlinewidth(3)", label=""];
+}

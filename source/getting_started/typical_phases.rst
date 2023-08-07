@@ -1,5 +1,7 @@
-Typical Phases of a Synthesis Flow
+Typical phases of a synthesis flow
 ----------------------------------
+
+.. TODO: copypaste
 
 - Reading and elaborating the design
 - Higher-level synthesis and optimization
