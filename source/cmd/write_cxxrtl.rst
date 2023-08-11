@@ -204,6 +204,17 @@ write_cxxrtl - convert design to C++ RTL simulation
 
     .. code:: yoscrypt
 
+        -print-output <stream>
+
+    ::
+
+            $print cells in the generated code direct their output to <stream>.
+            must be one of "std::cout", "std::cerr". if not specified,
+            "std::cout" is used.
+
+
+    .. code:: yoscrypt
+
         -nohierarchy
 
     ::
@@ -543,6 +554,11 @@ write_cxxrtl - convert design to C++ RTL simulation
             -namespace <ns-name>
                 place the generated code into namespace <ns-name>. if not specified,
                 "cxxrtl_design" is used.
+        
+            -print-output <stream>
+                $print cells in the generated code direct their output to <stream>.
+                must be one of "std::cout", "std::cerr". if not specified,
+                "std::cout" is used.
         
             -nohierarchy
                 use design hierarchy as-is. in most designs, a top module should be
