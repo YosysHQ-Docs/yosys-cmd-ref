@@ -6,10 +6,9 @@ read_aiger - read AIGER file
 
     \begin{comment}
 
-:code:`yosys> help read_aiger`
---------------------------------------------------------------------------------
+.. cmd:def:: read_aiger
+    :title: read AIGER file
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

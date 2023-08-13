@@ -6,10 +6,9 @@ cd - a shortcut for 'select -module <name>'
 
     \begin{comment}
 
-:code:`yosys> help cd`
---------------------------------------------------------------------------------
+.. cmd:def:: cd
+    :title: a shortcut for 'select -module <name>'
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

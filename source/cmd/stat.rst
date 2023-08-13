@@ -6,10 +6,9 @@ stat - print some statistics
 
     \begin{comment}
 
-:code:`yosys> help stat`
---------------------------------------------------------------------------------
+.. cmd:def:: stat
+    :title: print some statistics
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

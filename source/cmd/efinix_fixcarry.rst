@@ -6,10 +6,9 @@ efinix_fixcarry - Efinix: fix carry chain
 
     \begin{comment}
 
-:code:`yosys> help efinix_fixcarry`
---------------------------------------------------------------------------------
+.. cmd:def:: efinix_fixcarry
+    :title: Efinix: fix carry chain
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

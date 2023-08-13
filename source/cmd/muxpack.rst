@@ -6,10 +6,9 @@ muxpack - $mux/$pmux cascades to $pmux
 
     \begin{comment}
 
-:code:`yosys> help muxpack`
---------------------------------------------------------------------------------
+.. cmd:def:: muxpack
+    :title: $mux/$pmux cascades to $pmux
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

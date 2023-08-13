@@ -6,10 +6,9 @@ xprop - formal x propagation
 
     \begin{comment}
 
-:code:`yosys> help xprop`
---------------------------------------------------------------------------------
+.. cmd:def:: xprop
+    :title: formal x propagation
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

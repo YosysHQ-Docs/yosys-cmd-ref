@@ -6,10 +6,9 @@ proc_arst - detect asynchronous resets
 
     \begin{comment}
 
-:code:`yosys> help proc_arst`
---------------------------------------------------------------------------------
+.. cmd:def:: proc_arst
+    :title: detect asynchronous resets
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

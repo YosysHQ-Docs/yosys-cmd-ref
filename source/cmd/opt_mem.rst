@@ -6,10 +6,9 @@ opt_mem - optimize memories
 
     \begin{comment}
 
-:code:`yosys> help opt_mem`
---------------------------------------------------------------------------------
+.. cmd:def:: opt_mem
+    :title: optimize memories
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

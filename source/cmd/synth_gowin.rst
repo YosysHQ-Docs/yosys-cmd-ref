@@ -6,10 +6,9 @@ synth_gowin - synthesis for Gowin FPGAs
 
     \begin{comment}
 
-:code:`yosys> help synth_gowin`
---------------------------------------------------------------------------------
+.. cmd:def:: synth_gowin
+    :title: synthesis for Gowin FPGAs
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

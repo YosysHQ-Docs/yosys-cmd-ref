@@ -6,10 +6,9 @@ opt_lut_ins - discard unused LUT inputs
 
     \begin{comment}
 
-:code:`yosys> help opt_lut_ins`
---------------------------------------------------------------------------------
+.. cmd:def:: opt_lut_ins
+    :title: discard unused LUT inputs
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

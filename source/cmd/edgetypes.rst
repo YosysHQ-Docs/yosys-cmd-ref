@@ -6,10 +6,9 @@ edgetypes - list all types of edges in selection
 
     \begin{comment}
 
-:code:`yosys> help edgetypes`
---------------------------------------------------------------------------------
+.. cmd:def:: edgetypes
+    :title: list all types of edges in selection
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

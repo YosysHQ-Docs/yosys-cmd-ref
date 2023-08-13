@@ -6,10 +6,9 @@ connect - create or remove connections
 
     \begin{comment}
 
-:code:`yosys> help connect`
---------------------------------------------------------------------------------
+.. cmd:def:: connect
+    :title: create or remove connections
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

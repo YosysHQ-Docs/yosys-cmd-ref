@@ -6,10 +6,9 @@ read_ilang - (deprecated) alias of read_rtlil
 
     \begin{comment}
 
-:code:`yosys> help read_ilang`
---------------------------------------------------------------------------------
+.. cmd:def:: read_ilang
+    :title: (deprecated) alias of read_rtlil
 
-.. container:: cmdref
 
 
     See `help read_rtlil`.

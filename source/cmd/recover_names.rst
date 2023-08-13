@@ -6,10 +6,9 @@ recover_names - Execute a lossy mapping command and recover original netnames
 
     \begin{comment}
 
-:code:`yosys> help recover_names`
---------------------------------------------------------------------------------
+.. cmd:def:: recover_names
+    :title: Execute a lossy mapping command and recover original netnames
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

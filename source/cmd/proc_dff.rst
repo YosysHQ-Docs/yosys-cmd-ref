@@ -6,10 +6,9 @@ proc_dff - extract flip-flops from processes
 
     \begin{comment}
 
-:code:`yosys> help proc_dff`
---------------------------------------------------------------------------------
+.. cmd:def:: proc_dff
+    :title: extract flip-flops from processes
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

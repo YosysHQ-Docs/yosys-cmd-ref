@@ -6,10 +6,9 @@ memory_libmap - map memories to cells
 
     \begin{comment}
 
-:code:`yosys> help memory_libmap`
---------------------------------------------------------------------------------
+.. cmd:def:: memory_libmap
+    :title: map memories to cells
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

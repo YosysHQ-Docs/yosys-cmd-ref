@@ -6,10 +6,9 @@ synth_coolrunner2 - synthesis for Xilinx Coolrunner-II CPLDs
 
     \begin{comment}
 
-:code:`yosys> help synth_coolrunner2`
---------------------------------------------------------------------------------
+.. cmd:def:: synth_coolrunner2
+    :title: synthesis for Xilinx Coolrunner-II CPLDs
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

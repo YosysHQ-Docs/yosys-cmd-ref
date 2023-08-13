@@ -6,10 +6,9 @@ proc_prune - remove redundant assignments
 
     \begin{comment}
 
-:code:`yosys> help proc_prune`
---------------------------------------------------------------------------------
+.. cmd:def:: proc_prune
+    :title: remove redundant assignments
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

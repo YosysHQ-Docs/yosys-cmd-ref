@@ -6,10 +6,9 @@ hierarchy - check, expand and clean up design hierarchy
 
     \begin{comment}
 
-:code:`yosys> help hierarchy`
---------------------------------------------------------------------------------
+.. cmd:def:: hierarchy
+    :title: check, expand and clean up design hierarchy
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

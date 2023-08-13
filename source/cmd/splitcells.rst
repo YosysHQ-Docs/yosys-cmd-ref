@@ -6,10 +6,9 @@ splitcells - split up multi-bit cells
 
     \begin{comment}
 
-:code:`yosys> help splitcells`
---------------------------------------------------------------------------------
+.. cmd:def:: splitcells
+    :title: split up multi-bit cells
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

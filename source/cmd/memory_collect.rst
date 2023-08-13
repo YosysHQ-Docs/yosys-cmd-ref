@@ -6,10 +6,9 @@ memory_collect - creating multi-port memory cells
 
     \begin{comment}
 
-:code:`yosys> help memory_collect`
---------------------------------------------------------------------------------
+.. cmd:def:: memory_collect
+    :title: creating multi-port memory cells
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

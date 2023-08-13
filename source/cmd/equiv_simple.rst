@@ -6,10 +6,9 @@ equiv_simple - try proving simple $equiv instances
 
     \begin{comment}
 
-:code:`yosys> help equiv_simple`
---------------------------------------------------------------------------------
+.. cmd:def:: equiv_simple
+    :title: try proving simple $equiv instances
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

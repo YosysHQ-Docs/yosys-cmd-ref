@@ -6,10 +6,9 @@ peepopt - collection of peephole optimizers
 
     \begin{comment}
 
-:code:`yosys> help peepopt`
---------------------------------------------------------------------------------
+.. cmd:def:: peepopt
+    :title: collection of peephole optimizers
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

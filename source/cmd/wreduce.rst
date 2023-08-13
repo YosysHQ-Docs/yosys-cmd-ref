@@ -6,10 +6,9 @@ wreduce - reduce the word size of operations if possible
 
     \begin{comment}
 
-:code:`yosys> help wreduce`
---------------------------------------------------------------------------------
+.. cmd:def:: wreduce
+    :title: reduce the word size of operations if possible
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

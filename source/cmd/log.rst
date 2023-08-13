@@ -6,10 +6,9 @@ log - print text and log files
 
     \begin{comment}
 
-:code:`yosys> help log`
---------------------------------------------------------------------------------
+.. cmd:def:: log
+    :title: print text and log files
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

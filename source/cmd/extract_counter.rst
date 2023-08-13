@@ -6,10 +6,9 @@ extract_counter - Extract GreenPak4 counter cells
 
     \begin{comment}
 
-:code:`yosys> help extract_counter`
---------------------------------------------------------------------------------
+.. cmd:def:: extract_counter
+    :title: Extract GreenPak4 counter cells
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt
@@ -18,9 +17,9 @@ extract_counter - Extract GreenPak4 counter cells
 
     ::
 
-        This pass converts non-resettable or async resettable down counters to
-        counter cells. Use a target-specific 'techmap' map file to convert those cells
-        to the actual target cells.
+        This pass converts non-resettable or async resettable counters to counter cells.
+        Use a target-specific 'techmap' map file to convert those cells to the actual
+        target cells.
 
 
     .. code:: yoscrypt
@@ -80,9 +79,9 @@ extract_counter - Extract GreenPak4 counter cells
         
             extract_counter [options] [selection]
         
-        This pass converts non-resettable or async resettable down counters to
-        counter cells. Use a target-specific 'techmap' map file to convert those cells
-        to the actual target cells.
+        This pass converts non-resettable or async resettable counters to counter cells.
+        Use a target-specific 'techmap' map file to convert those cells to the actual
+        target cells.
         
             -maxwidth N
                 Only extract counters up to N bits wide (default 64)

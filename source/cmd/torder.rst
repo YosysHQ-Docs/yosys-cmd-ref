@@ -6,10 +6,9 @@ torder - print cells in topological order
 
     \begin{comment}
 
-:code:`yosys> help torder`
---------------------------------------------------------------------------------
+.. cmd:def:: torder
+    :title: print cells in topological order
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

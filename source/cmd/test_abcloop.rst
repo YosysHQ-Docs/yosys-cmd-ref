@@ -6,10 +6,9 @@ test_abcloop - automatically test handling of loops in abc command
 
     \begin{comment}
 
-:code:`yosys> help test_abcloop`
---------------------------------------------------------------------------------
+.. cmd:def:: test_abcloop
+    :title: automatically test handling of loops in abc command
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

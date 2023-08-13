@@ -6,10 +6,9 @@ proc_init - convert initial block to init attributes
 
     \begin{comment}
 
-:code:`yosys> help proc_init`
---------------------------------------------------------------------------------
+.. cmd:def:: proc_init
+    :title: convert initial block to init attributes
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

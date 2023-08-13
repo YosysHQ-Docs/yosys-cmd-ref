@@ -6,10 +6,9 @@ xilinx_srl - Xilinx shift register extraction
 
     \begin{comment}
 
-:code:`yosys> help xilinx_srl`
---------------------------------------------------------------------------------
+.. cmd:def:: xilinx_srl
+    :title: Xilinx shift register extraction
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

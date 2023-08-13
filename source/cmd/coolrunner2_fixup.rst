@@ -6,10 +6,9 @@ coolrunner2_fixup - insert necessary buffer cells for CoolRunner-II architecture
 
     \begin{comment}
 
-:code:`yosys> help coolrunner2_fixup`
---------------------------------------------------------------------------------
+.. cmd:def:: coolrunner2_fixup
+    :title: insert necessary buffer cells for CoolRunner-II architecture
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

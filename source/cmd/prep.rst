@@ -6,10 +6,9 @@ prep - generic synthesis script
 
     \begin{comment}
 
-:code:`yosys> help prep`
---------------------------------------------------------------------------------
+.. cmd:def:: prep
+    :title: generic synthesis script
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

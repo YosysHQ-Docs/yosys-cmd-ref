@@ -6,10 +6,9 @@ write_rtlil - write design to RTLIL file
 
     \begin{comment}
 
-:code:`yosys> help write_rtlil`
---------------------------------------------------------------------------------
+.. cmd:def:: write_rtlil
+    :title: write design to RTLIL file
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

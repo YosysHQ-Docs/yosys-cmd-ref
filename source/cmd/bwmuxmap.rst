@@ -6,10 +6,9 @@ bwmuxmap - replace $bwmux cells with equivalent logic
 
     \begin{comment}
 
-:code:`yosys> help bwmuxmap`
---------------------------------------------------------------------------------
+.. cmd:def:: bwmuxmap
+    :title: replace $bwmux cells with equivalent logic
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

@@ -6,10 +6,9 @@ equiv_struct - structural equivalence checking
 
     \begin{comment}
 
-:code:`yosys> help equiv_struct`
---------------------------------------------------------------------------------
+.. cmd:def:: equiv_struct
+    :title: structural equivalence checking
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

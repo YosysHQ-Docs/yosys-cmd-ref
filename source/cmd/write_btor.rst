@@ -6,10 +6,9 @@ write_btor - write design to BTOR file
 
     \begin{comment}
 
-:code:`yosys> help write_btor`
---------------------------------------------------------------------------------
+.. cmd:def:: write_btor
+    :title: write design to BTOR file
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

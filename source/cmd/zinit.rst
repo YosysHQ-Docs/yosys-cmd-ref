@@ -6,10 +6,9 @@ zinit - add inverters so all FF are zero-initialized
 
     \begin{comment}
 
-:code:`yosys> help zinit`
---------------------------------------------------------------------------------
+.. cmd:def:: zinit
+    :title: add inverters so all FF are zero-initialized
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

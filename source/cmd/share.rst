@@ -6,10 +6,9 @@ share - perform sat-based resource sharing
 
     \begin{comment}
 
-:code:`yosys> help share`
---------------------------------------------------------------------------------
+.. cmd:def:: share
+    :title: perform sat-based resource sharing
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

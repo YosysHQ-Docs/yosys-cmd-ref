@@ -6,10 +6,9 @@ read_liberty - read cells from liberty file
 
     \begin{comment}
 
-:code:`yosys> help read_liberty`
---------------------------------------------------------------------------------
+.. cmd:def:: read_liberty
+    :title: read cells from liberty file
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

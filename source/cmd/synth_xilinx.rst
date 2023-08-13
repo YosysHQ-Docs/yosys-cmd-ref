@@ -6,10 +6,9 @@ synth_xilinx - synthesis for Xilinx FPGAs
 
     \begin{comment}
 
-:code:`yosys> help synth_xilinx`
---------------------------------------------------------------------------------
+.. cmd:def:: synth_xilinx
+    :title: synthesis for Xilinx FPGAs
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

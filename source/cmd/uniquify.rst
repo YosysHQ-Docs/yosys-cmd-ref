@@ -6,10 +6,9 @@ uniquify - create unique copies of modules
 
     \begin{comment}
 
-:code:`yosys> help uniquify`
---------------------------------------------------------------------------------
+.. cmd:def:: uniquify
+    :title: create unique copies of modules
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

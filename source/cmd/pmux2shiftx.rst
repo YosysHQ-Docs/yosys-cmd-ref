@@ -6,10 +6,9 @@ pmux2shiftx - transform $pmux cells to $shiftx cells
 
     \begin{comment}
 
-:code:`yosys> help pmux2shiftx`
---------------------------------------------------------------------------------
+.. cmd:def:: pmux2shiftx
+    :title: transform $pmux cells to $shiftx cells
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

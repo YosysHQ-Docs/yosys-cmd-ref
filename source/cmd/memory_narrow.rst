@@ -6,10 +6,9 @@ memory_narrow - split up wide memory ports
 
     \begin{comment}
 
-:code:`yosys> help memory_narrow`
---------------------------------------------------------------------------------
+.. cmd:def:: memory_narrow
+    :title: split up wide memory ports
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

@@ -6,10 +6,9 @@ synth_intel_alm - synthesis for ALM-based Intel (Altera) FPGAs.
 
     \begin{comment}
 
-:code:`yosys> help synth_intel_alm`
---------------------------------------------------------------------------------
+.. cmd:def:: synth_intel_alm
+    :title: synthesis for ALM-based Intel (Altera) FPGAs.
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

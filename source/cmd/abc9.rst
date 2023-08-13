@@ -6,10 +6,9 @@ abc9 - use ABC9 for technology mapping
 
     \begin{comment}
 
-:code:`yosys> help abc9`
---------------------------------------------------------------------------------
+.. cmd:def:: abc9
+    :title: use ABC9 for technology mapping
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

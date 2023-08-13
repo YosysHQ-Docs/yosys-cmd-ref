@@ -6,10 +6,9 @@ extract - find subcircuits and replace them with cells
 
     \begin{comment}
 
-:code:`yosys> help extract`
---------------------------------------------------------------------------------
+.. cmd:def:: extract
+    :title: find subcircuits and replace them with cells
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

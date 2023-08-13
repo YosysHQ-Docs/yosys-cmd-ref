@@ -6,10 +6,9 @@ memory_nordff - extract read port FFs from memories
 
     \begin{comment}
 
-:code:`yosys> help memory_nordff`
---------------------------------------------------------------------------------
+.. cmd:def:: memory_nordff
+    :title: extract read port FFs from memories
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

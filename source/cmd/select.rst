@@ -6,10 +6,9 @@ select - modify and view the list of selected objects
 
     \begin{comment}
 
-:code:`yosys> help select`
---------------------------------------------------------------------------------
+.. cmd:def:: select
+    :title: modify and view the list of selected objects
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

@@ -6,10 +6,9 @@ equiv_add - add a $equiv cell
 
     \begin{comment}
 
-:code:`yosys> help equiv_add`
---------------------------------------------------------------------------------
+.. cmd:def:: equiv_add
+    :title: add a $equiv cell
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

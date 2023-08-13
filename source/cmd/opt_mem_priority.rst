@@ -6,10 +6,9 @@ opt_mem_priority - remove priority relations between write ports that can never 
 
     \begin{comment}
 
-:code:`yosys> help opt_mem_priority`
---------------------------------------------------------------------------------
+.. cmd:def:: opt_mem_priority
+    :title: remove priority relations between write ports that can never collide
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

@@ -6,10 +6,9 @@ write_file - write a text to a file
 
     \begin{comment}
 
-:code:`yosys> help write_file`
---------------------------------------------------------------------------------
+.. cmd:def:: write_file
+    :title: write a text to a file
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

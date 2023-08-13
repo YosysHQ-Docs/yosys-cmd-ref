@@ -6,10 +6,9 @@ jny - write design and metadata
 
     \begin{comment}
 
-:code:`yosys> help jny`
---------------------------------------------------------------------------------
+.. cmd:def:: jny
+    :title: write design and metadata
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

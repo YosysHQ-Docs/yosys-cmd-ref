@@ -6,10 +6,9 @@ opt_share - merge mutually exclusive cells of the same type that share an input 
 
     \begin{comment}
 
-:code:`yosys> help opt_share`
---------------------------------------------------------------------------------
+.. cmd:def:: opt_share
+    :title: merge mutually exclusive cells of the same type that share an input signal
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

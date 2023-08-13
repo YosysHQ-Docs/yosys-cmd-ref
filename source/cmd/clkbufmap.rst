@@ -6,10 +6,9 @@ clkbufmap - insert clock buffers on clock networks
 
     \begin{comment}
 
-:code:`yosys> help clkbufmap`
---------------------------------------------------------------------------------
+.. cmd:def:: clkbufmap
+    :title: insert clock buffers on clock networks
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

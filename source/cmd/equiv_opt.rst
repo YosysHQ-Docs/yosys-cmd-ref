@@ -6,10 +6,9 @@ equiv_opt - prove equivalence for optimized circuit
 
     \begin{comment}
 
-:code:`yosys> help equiv_opt`
---------------------------------------------------------------------------------
+.. cmd:def:: equiv_opt
+    :title: prove equivalence for optimized circuit
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

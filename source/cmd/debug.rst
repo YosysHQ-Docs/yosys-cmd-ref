@@ -6,10 +6,9 @@ debug - run command with debug log messages enabled
 
     \begin{comment}
 
-:code:`yosys> help debug`
---------------------------------------------------------------------------------
+.. cmd:def:: debug
+    :title: run command with debug log messages enabled
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

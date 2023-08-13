@@ -6,10 +6,9 @@ bmuxmap - transform $bmux cells to trees of $mux cells
 
     \begin{comment}
 
-:code:`yosys> help bmuxmap`
---------------------------------------------------------------------------------
+.. cmd:def:: bmuxmap
+    :title: transform $bmux cells to trees of $mux cells
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

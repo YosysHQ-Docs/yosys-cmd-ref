@@ -6,10 +6,9 @@ flowmap - pack LUTs with FlowMap
 
     \begin{comment}
 
-:code:`yosys> help flowmap`
---------------------------------------------------------------------------------
+.. cmd:def:: flowmap
+    :title: pack LUTs with FlowMap
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

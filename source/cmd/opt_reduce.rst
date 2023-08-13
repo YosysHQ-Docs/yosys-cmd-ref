@@ -6,10 +6,9 @@ opt_reduce - simplify large MUXes and AND/OR gates
 
     \begin{comment}
 
-:code:`yosys> help opt_reduce`
---------------------------------------------------------------------------------
+.. cmd:def:: opt_reduce
+    :title: simplify large MUXes and AND/OR gates
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

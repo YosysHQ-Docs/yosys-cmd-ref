@@ -6,10 +6,9 @@ extractinv - extract explicit inverter cells for invertible cell pins
 
     \begin{comment}
 
-:code:`yosys> help extractinv`
---------------------------------------------------------------------------------
+.. cmd:def:: extractinv
+    :title: extract explicit inverter cells for invertible cell pins
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

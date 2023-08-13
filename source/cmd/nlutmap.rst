@@ -6,10 +6,9 @@ nlutmap - map to LUTs of different sizes
 
     \begin{comment}
 
-:code:`yosys> help nlutmap`
---------------------------------------------------------------------------------
+.. cmd:def:: nlutmap
+    :title: map to LUTs of different sizes
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

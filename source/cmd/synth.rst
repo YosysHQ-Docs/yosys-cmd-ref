@@ -6,10 +6,9 @@ synth - generic synthesis script
 
     \begin{comment}
 
-:code:`yosys> help synth`
---------------------------------------------------------------------------------
+.. cmd:def:: synth
+    :title: generic synthesis script
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

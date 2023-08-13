@@ -6,10 +6,9 @@ blackbox - convert modules into blackbox modules
 
     \begin{comment}
 
-:code:`yosys> help blackbox`
---------------------------------------------------------------------------------
+.. cmd:def:: blackbox
+    :title: convert modules into blackbox modules
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

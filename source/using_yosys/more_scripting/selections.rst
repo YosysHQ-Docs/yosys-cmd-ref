@@ -1,8 +1,7 @@
 Selections
 ----------
 
-.. TODO: copypaste
-
+.. todo:: copypaste
 
 Most Yosys commands make use of the "selection framework" of Yosys. It can be
 used to apply commands only to part of the design. For example:
@@ -13,7 +12,7 @@ used to apply commands only to part of the design. For example:
 
     delete foobar         # will only delete the module foobar.
 
-The ``select`` command can be used to create a selection for subsequent
+The :cmd:ref:`select` command can be used to create a selection for subsequent
 commands. For example:
 
 .. code:: yoscrypt
@@ -43,8 +42,8 @@ in synthesis scripts that are hand-tailored for a specific design.
 Module and design context
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Commands can be executed in *module/* or *design/* context. Until now
-all commands have been executed in design context. The ``cd`` command can be
+Commands can be executed in *module/* or *design/* context. Until now all
+commands have been executed in design context. The :cmd:ref:`cd` command can be
 used to switch to module context.
 
 In module context all commands only effect the active module. Objects in the
@@ -77,7 +76,7 @@ Special patterns can be used to select by object property or type. For example:
     select foo/t:$add     # select all $add cells from the module foo
 
 A complete list of this pattern expressions can be found in the command
-reference to the ``select`` command.
+reference to the :cmd:ref:`select` command.
 
 Combining selection
 ^^^^^^^^^^^^^^^^^^^
@@ -191,22 +190,30 @@ Interactive Design Investigation
 Yosys can also be used to investigate designs (or netlists created from other
 tools).
 
-- The selection mechanism, especially patterns such as ``%ci`` and ``%co``,
-  can be used to figure out how parts of the design are connected.
-- Commands such as ``submod``, ``expose``, and ``splice`` can be used to
-  transform the design into an equivalent design that is easier to analyse.
-- Commands such as ``eval`` and ``sat`` can be used to investigate the behavior
-  of the circuit.
+- The selection mechanism, especially patterns such as ``%ci`` and ``%co``, can
+  be used to figure out how parts of the design are connected.
+- Commands such as :cmd:ref:`submod`, :cmd:ref:`expose`, and :cmd:ref:`splice`
+  can be used to transform the design into an equivalent design that is easier
+  to analyse.
+- Commands such as :cmd:ref:`eval` and :cmd:ref:`sat` can be used to investigate
+  the behavior of the circuit.
 - :doc:`/cmd/show`.
 - :doc:`/cmd/dump`.
+- :doc:`/cmd/add` and :doc:`/cmd/delete` can be used to modify and reorganize a
+  design dynamically.
 
-Reorganizing a module
-^^^^^^^^^^^^^^^^^^^^^
+Changing design hierarchy
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Commands such as :cmd:ref:`flatten` and :cmd:ref:`submod` can be used to change
+the design hierarchy, i.e. flatten the hierarchy or moving parts of a module to
+a submodule. This has applications in synthesis scripts as well as in reverse
+engineering and analysis.  An example using :cmd:ref:`submod` is shown below for
+reorganizing a module in Yosys and checking the resulting circuit.
 
 .. literalinclude:: ../../../resources/PRESENTATION_ExOth/scrambler.v
    :language: verilog
    :caption: ``docs/resources/PRESENTATION_ExOth/scrambler.v``
-
 
 .. code:: yoscrypt
 
@@ -225,14 +232,9 @@ Reorganizing a module
 .. figure:: ../../../images/res/PRESENTATION_ExOth/scrambler_p02.*
     :class: width-helper
 
-Analysis of circuit behavior
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Analyzing the resulting circuit with :doc:`/cmd/eval`:
 
 .. code:: text
-
-    > read_verilog scrambler.v
-    > hierarchy; proc;; cd scrambler
-    > submod -name xorshift32 xs %c %ci %D %c %ci:+[D] %D %ci*:-$dff xs %co %ci %d
 
     > cd xorshift32
     > rename n2 in
@@ -249,3 +251,44 @@ Analysis of circuit behavior
     -------------------- ---------- ---------- -------------------------------------
     \in                   745495504   2c6f5bd0      00101100011011110101101111010000
     \out                  632435482   25b2331a      00100101101100100011001100011010
+
+Behavioral changes
+^^^^^^^^^^^^^^^^^^
+
+Commands such as :cmd:ref:`techmap` can be used to make behavioral changes to
+the design, for example changing asynchronous resets to synchronous resets. This
+has applications in design space exploration (evaluation of various
+architectures for one circuit).
+
+The following techmap map file replaces all positive-edge async reset flip-flops
+with positive-edge sync reset flip-flops. The code is taken from the example
+Yosys script for ASIC synthesis of the Amber ARMv2 CPU.
+
+.. code:: verilog
+
+    (* techmap_celltype = "$adff" *)
+    module adff2dff (CLK, ARST, D, Q);
+
+        parameter WIDTH = 1;
+        parameter CLK_POLARITY = 1;
+        parameter ARST_POLARITY = 1;
+        parameter ARST_VALUE = 0;
+
+        input CLK, ARST;
+        input [WIDTH-1:0] D;
+        output reg [WIDTH-1:0] Q;
+
+        wire [1023:0] _TECHMAP_DO_ = "proc";
+
+        wire _TECHMAP_FAIL_ = !CLK_POLARITY || !ARST_POLARITY;
+
+        always @(posedge CLK)
+            if (ARST)
+                Q <= ARST_VALUE;
+            else
+                <= D;
+
+    endmodule
+
+For more on the :cmd:ref:`techmap` command, see the page on
+:doc:`/yosys_internals/techmap`.

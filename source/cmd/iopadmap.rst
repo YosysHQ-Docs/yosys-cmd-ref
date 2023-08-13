@@ -6,10 +6,9 @@ iopadmap - technology mapping of i/o pads (or buffers)
 
     \begin{comment}
 
-:code:`yosys> help iopadmap`
---------------------------------------------------------------------------------
+.. cmd:def:: iopadmap
+    :title: technology mapping of i/o pads (or buffers)
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

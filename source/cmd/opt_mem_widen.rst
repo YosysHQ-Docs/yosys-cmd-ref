@@ -6,10 +6,9 @@ opt_mem_widen - optimize memories where all ports are wide
 
     \begin{comment}
 
-:code:`yosys> help opt_mem_widen`
---------------------------------------------------------------------------------
+.. cmd:def:: opt_mem_widen
+    :title: optimize memories where all ports are wide
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

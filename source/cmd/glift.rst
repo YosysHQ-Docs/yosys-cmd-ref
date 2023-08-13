@@ -6,10 +6,9 @@ glift - create GLIFT models and optimization problems
 
     \begin{comment}
 
-:code:`yosys> help glift`
---------------------------------------------------------------------------------
+.. cmd:def:: glift
+    :title: create GLIFT models and optimization problems
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

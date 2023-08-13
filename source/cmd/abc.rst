@@ -6,10 +6,9 @@ abc - use ABC for technology mapping
 
     \begin{comment}
 
-:code:`yosys> help abc`
---------------------------------------------------------------------------------
+.. cmd:def:: abc
+    :title: use ABC for technology mapping
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

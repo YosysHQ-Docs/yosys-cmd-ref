@@ -6,10 +6,9 @@ write_aiger - write design to AIGER file
 
     \begin{comment}
 
-:code:`yosys> help write_aiger`
---------------------------------------------------------------------------------
+.. cmd:def:: write_aiger
+    :title: write design to AIGER file
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

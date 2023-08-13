@@ -6,10 +6,9 @@ async2sync - convert async FF inputs to sync circuits
 
     \begin{comment}
 
-:code:`yosys> help async2sync`
---------------------------------------------------------------------------------
+.. cmd:def:: async2sync
+    :title: convert async FF inputs to sync circuits
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

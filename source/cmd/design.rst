@@ -6,10 +6,9 @@ design - save, restore and reset current design
 
     \begin{comment}
 
-:code:`yosys> help design`
---------------------------------------------------------------------------------
+.. cmd:def:: design
+    :title: save, restore and reset current design
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

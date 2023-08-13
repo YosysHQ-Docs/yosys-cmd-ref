@@ -6,10 +6,9 @@ dffinit - set INIT param on FF cells
 
     \begin{comment}
 
-:code:`yosys> help dffinit`
---------------------------------------------------------------------------------
+.. cmd:def:: dffinit
+    :title: set INIT param on FF cells
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

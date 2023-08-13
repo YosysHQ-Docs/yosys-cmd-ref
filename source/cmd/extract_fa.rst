@@ -6,10 +6,9 @@ extract_fa - find and extract full/half adders
 
     \begin{comment}
 
-:code:`yosys> help extract_fa`
---------------------------------------------------------------------------------
+.. cmd:def:: extract_fa
+    :title: find and extract full/half adders
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

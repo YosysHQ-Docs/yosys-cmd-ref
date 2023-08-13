@@ -6,10 +6,9 @@ opt - perform simple optimizations
 
     \begin{comment}
 
-:code:`yosys> help opt`
---------------------------------------------------------------------------------
+.. cmd:def:: opt
+    :title: perform simple optimizations
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

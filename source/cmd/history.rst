@@ -6,10 +6,9 @@ history - show last interactive commands
 
     \begin{comment}
 
-:code:`yosys> help history`
---------------------------------------------------------------------------------
+.. cmd:def:: history
+    :title: show last interactive commands
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

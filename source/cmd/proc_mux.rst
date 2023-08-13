@@ -6,10 +6,9 @@ proc_mux - convert decision trees to multiplexers
 
     \begin{comment}
 
-:code:`yosys> help proc_mux`
---------------------------------------------------------------------------------
+.. cmd:def:: proc_mux
+    :title: convert decision trees to multiplexers
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

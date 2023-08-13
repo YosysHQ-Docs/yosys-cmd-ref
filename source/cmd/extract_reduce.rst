@@ -6,10 +6,9 @@ extract_reduce - converts gate chains into $reduce_* cells
 
     \begin{comment}
 
-:code:`yosys> help extract_reduce`
---------------------------------------------------------------------------------
+.. cmd:def:: extract_reduce
+    :title: converts gate chains into $reduce_* cells
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

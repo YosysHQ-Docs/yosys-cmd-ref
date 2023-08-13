@@ -6,10 +6,9 @@ echo - turning echoing back of commands on and off
 
     \begin{comment}
 
-:code:`yosys> help echo`
---------------------------------------------------------------------------------
+.. cmd:def:: echo
+    :title: turning echoing back of commands on and off
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

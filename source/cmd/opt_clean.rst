@@ -6,10 +6,9 @@ opt_clean - remove unused cells and wires
 
     \begin{comment}
 
-:code:`yosys> help opt_clean`
---------------------------------------------------------------------------------
+.. cmd:def:: opt_clean
+    :title: remove unused cells and wires
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

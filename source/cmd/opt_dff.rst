@@ -6,10 +6,9 @@ opt_dff - perform DFF optimizations
 
     \begin{comment}
 
-:code:`yosys> help opt_dff`
---------------------------------------------------------------------------------
+.. cmd:def:: opt_dff
+    :title: perform DFF optimizations
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

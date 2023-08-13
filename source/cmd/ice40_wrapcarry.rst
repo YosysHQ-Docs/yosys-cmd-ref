@@ -6,10 +6,9 @@ ice40_wrapcarry - iCE40: wrap carries
 
     \begin{comment}
 
-:code:`yosys> help ice40_wrapcarry`
---------------------------------------------------------------------------------
+.. cmd:def:: ice40_wrapcarry
+    :title: iCE40: wrap carries
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

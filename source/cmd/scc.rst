@@ -6,10 +6,9 @@ scc - detect strongly connected components (logic loops)
 
     \begin{comment}
 
-:code:`yosys> help scc`
---------------------------------------------------------------------------------
+.. cmd:def:: scc
+    :title: detect strongly connected components (logic loops)
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

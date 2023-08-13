@@ -6,10 +6,9 @@ write_verilog - write design to Verilog file
 
     \begin{comment}
 
-:code:`yosys> help write_verilog`
---------------------------------------------------------------------------------
+.. cmd:def:: write_verilog
+    :title: write design to Verilog file
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

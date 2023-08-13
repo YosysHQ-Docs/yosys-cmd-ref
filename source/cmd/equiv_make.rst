@@ -6,10 +6,9 @@ equiv_make - prepare a circuit for equivalence checking
 
     \begin{comment}
 
-:code:`yosys> help equiv_make`
---------------------------------------------------------------------------------
+.. cmd:def:: equiv_make
+    :title: prepare a circuit for equivalence checking
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

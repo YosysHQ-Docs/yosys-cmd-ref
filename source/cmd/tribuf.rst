@@ -6,10 +6,9 @@ tribuf - infer tri-state buffers
 
     \begin{comment}
 
-:code:`yosys> help tribuf`
---------------------------------------------------------------------------------
+.. cmd:def:: tribuf
+    :title: infer tri-state buffers
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

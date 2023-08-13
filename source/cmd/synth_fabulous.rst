@@ -6,10 +6,9 @@ synth_fabulous - FABulous synthesis script
 
     \begin{comment}
 
-:code:`yosys> help synth_fabulous`
---------------------------------------------------------------------------------
+.. cmd:def:: synth_fabulous
+    :title: FABulous synthesis script
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

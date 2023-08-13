@@ -6,10 +6,9 @@ ecp5_gsr - ECP5: handle GSR
 
     \begin{comment}
 
-:code:`yosys> help ecp5_gsr`
---------------------------------------------------------------------------------
+.. cmd:def:: ecp5_gsr
+    :title: ECP5: handle GSR
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

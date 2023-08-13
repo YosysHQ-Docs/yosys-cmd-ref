@@ -6,10 +6,9 @@ help - display help messages
 
     \begin{comment}
 
-:code:`yosys> help help`
---------------------------------------------------------------------------------
+.. cmd:def:: help
+    :title: display help messages
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

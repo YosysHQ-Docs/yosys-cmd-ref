@@ -6,10 +6,9 @@ plugin - load and list loaded plugins
 
     \begin{comment}
 
-:code:`yosys> help plugin`
---------------------------------------------------------------------------------
+.. cmd:def:: plugin
+    :title: load and list loaded plugins
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

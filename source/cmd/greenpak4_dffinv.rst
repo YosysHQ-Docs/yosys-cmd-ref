@@ -6,10 +6,9 @@ greenpak4_dffinv - merge greenpak4 inverters and DFF/latches
 
     \begin{comment}
 
-:code:`yosys> help greenpak4_dffinv`
---------------------------------------------------------------------------------
+.. cmd:def:: greenpak4_dffinv
+    :title: merge greenpak4 inverters and DFF/latches
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

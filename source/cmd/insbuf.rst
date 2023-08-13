@@ -6,10 +6,9 @@ insbuf - insert buffer cells for connected wires
 
     \begin{comment}
 
-:code:`yosys> help insbuf`
---------------------------------------------------------------------------------
+.. cmd:def:: insbuf
+    :title: insert buffer cells for connected wires
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

@@ -6,10 +6,9 @@ paramap - renaming cell parameters
 
     \begin{comment}
 
-:code:`yosys> help paramap`
---------------------------------------------------------------------------------
+.. cmd:def:: paramap
+    :title: renaming cell parameters
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

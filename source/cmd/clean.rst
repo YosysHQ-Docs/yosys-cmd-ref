@@ -6,10 +6,9 @@ clean - remove unused cells and wires
 
     \begin{comment}
 
-:code:`yosys> help clean`
---------------------------------------------------------------------------------
+.. cmd:def:: clean
+    :title: remove unused cells and wires
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

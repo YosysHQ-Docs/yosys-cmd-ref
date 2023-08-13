@@ -6,10 +6,9 @@ chtype - change type of cells in the design
 
     \begin{comment}
 
-:code:`yosys> help chtype`
---------------------------------------------------------------------------------
+.. cmd:def:: chtype
+    :title: change type of cells in the design
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

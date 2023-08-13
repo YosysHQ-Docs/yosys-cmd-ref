@@ -6,10 +6,9 @@ proc_clean - remove empty parts of processes
 
     \begin{comment}
 
-:code:`yosys> help proc_clean`
---------------------------------------------------------------------------------
+.. cmd:def:: proc_clean
+    :title: remove empty parts of processes
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

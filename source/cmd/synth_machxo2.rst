@@ -6,10 +6,9 @@ synth_machxo2 - synthesis for MachXO2 FPGAs. This work is experimental.
 
     \begin{comment}
 
-:code:`yosys> help synth_machxo2`
---------------------------------------------------------------------------------
+.. cmd:def:: synth_machxo2
+    :title: synthesis for MachXO2 FPGAs. This work is experimental.
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

@@ -6,10 +6,9 @@ flatten - flatten design
 
     \begin{comment}
 
-:code:`yosys> help flatten`
---------------------------------------------------------------------------------
+.. cmd:def:: flatten
+    :title: flatten design
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

@@ -6,10 +6,9 @@ synth_greenpak4 - synthesis for GreenPAK4 FPGAs
 
     \begin{comment}
 
-:code:`yosys> help synth_greenpak4`
---------------------------------------------------------------------------------
+.. cmd:def:: synth_greenpak4
+    :title: synthesis for GreenPAK4 FPGAs
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

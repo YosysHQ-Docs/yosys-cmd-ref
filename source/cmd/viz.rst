@@ -6,10 +6,9 @@ viz - visualize data flow graph
 
     \begin{comment}
 
-:code:`yosys> help viz`
---------------------------------------------------------------------------------
+.. cmd:def:: viz
+    :title: visualize data flow graph
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

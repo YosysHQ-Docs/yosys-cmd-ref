@@ -6,10 +6,9 @@ scatter - add additional intermediate nets
 
     \begin{comment}
 
-:code:`yosys> help scatter`
---------------------------------------------------------------------------------
+.. cmd:def:: scatter
+    :title: add additional intermediate nets
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

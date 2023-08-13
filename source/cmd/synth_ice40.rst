@@ -6,10 +6,9 @@ synth_ice40 - synthesis for iCE40 FPGAs
 
     \begin{comment}
 
-:code:`yosys> help synth_ice40`
---------------------------------------------------------------------------------
+.. cmd:def:: synth_ice40
+    :title: synthesis for iCE40 FPGAs
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

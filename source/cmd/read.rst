@@ -6,10 +6,9 @@ read - load HDL designs
 
     \begin{comment}
 
-:code:`yosys> help read`
---------------------------------------------------------------------------------
+.. cmd:def:: read
+    :title: load HDL designs
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

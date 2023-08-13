@@ -6,10 +6,9 @@ connect_rpc - connect to RPC frontend
 
     \begin{comment}
 
-:code:`yosys> help connect_rpc`
---------------------------------------------------------------------------------
+.. cmd:def:: connect_rpc
+    :title: connect to RPC frontend
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

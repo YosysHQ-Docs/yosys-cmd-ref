@@ -6,10 +6,9 @@ maccmap - mapping macc cells
 
     \begin{comment}
 
-:code:`yosys> help maccmap`
---------------------------------------------------------------------------------
+.. cmd:def:: maccmap
+    :title: mapping macc cells
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

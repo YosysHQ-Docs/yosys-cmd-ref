@@ -6,10 +6,9 @@ submod - moving part of a module to a new submodule
 
     \begin{comment}
 
-:code:`yosys> help submod`
---------------------------------------------------------------------------------
+.. cmd:def:: submod
+    :title: moving part of a module to a new submodule
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

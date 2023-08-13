@@ -6,10 +6,9 @@ memory_dff - merge input/output DFFs into memory read ports
 
     \begin{comment}
 
-:code:`yosys> help memory_dff`
---------------------------------------------------------------------------------
+.. cmd:def:: memory_dff
+    :title: merge input/output DFFs into memory read ports
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

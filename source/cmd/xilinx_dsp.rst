@@ -6,10 +6,9 @@ xilinx_dsp - Xilinx: pack resources into DSPs
 
     \begin{comment}
 
-:code:`yosys> help xilinx_dsp`
---------------------------------------------------------------------------------
+.. cmd:def:: xilinx_dsp
+    :title: Xilinx: pack resources into DSPs
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

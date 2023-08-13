@@ -6,10 +6,9 @@ qwp - quadratic wirelength placer
 
     \begin{comment}
 
-:code:`yosys> help qwp`
---------------------------------------------------------------------------------
+.. cmd:def:: qwp
+    :title: quadratic wirelength placer
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

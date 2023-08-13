@@ -6,10 +6,9 @@ shell - enter interactive command mode
 
     \begin{comment}
 
-:code:`yosys> help shell`
---------------------------------------------------------------------------------
+.. cmd:def:: shell
+    :title: enter interactive command mode
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

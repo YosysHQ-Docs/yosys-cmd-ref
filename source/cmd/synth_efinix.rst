@@ -6,10 +6,9 @@ synth_efinix - synthesis for Efinix FPGAs
 
     \begin{comment}
 
-:code:`yosys> help synth_efinix`
---------------------------------------------------------------------------------
+.. cmd:def:: synth_efinix
+    :title: synthesis for Efinix FPGAs
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

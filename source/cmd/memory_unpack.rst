@@ -6,10 +6,9 @@ memory_unpack - unpack multi-port memory cells
 
     \begin{comment}
 
-:code:`yosys> help memory_unpack`
---------------------------------------------------------------------------------
+.. cmd:def:: memory_unpack
+    :title: unpack multi-port memory cells
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

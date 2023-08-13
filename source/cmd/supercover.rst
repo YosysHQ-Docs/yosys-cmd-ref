@@ -6,10 +6,9 @@ supercover - add hi/lo cover cells for each wire bit
 
     \begin{comment}
 
-:code:`yosys> help supercover`
---------------------------------------------------------------------------------
+.. cmd:def:: supercover
+    :title: add hi/lo cover cells for each wire bit
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

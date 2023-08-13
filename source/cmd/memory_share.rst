@@ -6,10 +6,9 @@ memory_share - consolidate memory ports
 
     \begin{comment}
 
-:code:`yosys> help memory_share`
---------------------------------------------------------------------------------
+.. cmd:def:: memory_share
+    :title: consolidate memory ports
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

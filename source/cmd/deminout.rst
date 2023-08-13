@@ -6,10 +6,9 @@ deminout - demote inout ports to input or output
 
     \begin{comment}
 
-:code:`yosys> help deminout`
---------------------------------------------------------------------------------
+.. cmd:def:: deminout
+    :title: demote inout ports to input or output
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

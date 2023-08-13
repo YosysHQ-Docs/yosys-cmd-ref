@@ -6,10 +6,9 @@ test_autotb - generate simple test benches
 
     \begin{comment}
 
-:code:`yosys> help test_autotb`
---------------------------------------------------------------------------------
+.. cmd:def:: test_autotb
+    :title: generate simple test benches
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

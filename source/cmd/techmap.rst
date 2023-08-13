@@ -6,10 +6,9 @@ techmap - generic technology mapper
 
     \begin{comment}
 
-:code:`yosys> help techmap`
---------------------------------------------------------------------------------
+.. cmd:def:: techmap
+    :title: generic technology mapper
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

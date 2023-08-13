@@ -6,10 +6,9 @@ opt_expr - perform const folding and simple expression rewriting
 
     \begin{comment}
 
-:code:`yosys> help opt_expr`
---------------------------------------------------------------------------------
+.. cmd:def:: opt_expr
+    :title: perform const folding and simple expression rewriting
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

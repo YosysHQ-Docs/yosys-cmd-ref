@@ -6,10 +6,9 @@ fsm_detect - finding FSMs in design
 
     \begin{comment}
 
-:code:`yosys> help fsm_detect`
---------------------------------------------------------------------------------
+.. cmd:def:: fsm_detect
+    :title: finding FSMs in design
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

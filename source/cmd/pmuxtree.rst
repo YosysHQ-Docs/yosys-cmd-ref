@@ -6,10 +6,9 @@ pmuxtree - transform $pmux cells to trees of $mux cells
 
     \begin{comment}
 
-:code:`yosys> help pmuxtree`
---------------------------------------------------------------------------------
+.. cmd:def:: pmuxtree
+    :title: transform $pmux cells to trees of $mux cells
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

@@ -6,10 +6,9 @@ miter - automatically create a miter circuit
 
     \begin{comment}
 
-:code:`yosys> help miter`
---------------------------------------------------------------------------------
+.. cmd:def:: miter
+    :title: automatically create a miter circuit
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

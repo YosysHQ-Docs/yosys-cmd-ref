@@ -6,10 +6,9 @@ splice - create explicit splicing cells
 
     \begin{comment}
 
-:code:`yosys> help splice`
---------------------------------------------------------------------------------
+.. cmd:def:: splice
+    :title: create explicit splicing cells
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

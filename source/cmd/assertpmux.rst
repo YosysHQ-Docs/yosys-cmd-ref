@@ -6,10 +6,9 @@ assertpmux - adds asserts for parallel muxes
 
     \begin{comment}
 
-:code:`yosys> help assertpmux`
---------------------------------------------------------------------------------
+.. cmd:def:: assertpmux
+    :title: adds asserts for parallel muxes
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

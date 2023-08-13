@@ -12,3 +12,14 @@ Yosys Open SYnthesis Suite
 	test_suites
 
 	appendix
+
+Indices
+-------
+
+- :ref:`commandindex`
+- :ref:`tagindex`
+
+TODOs
+-----
+
+.. todolist::

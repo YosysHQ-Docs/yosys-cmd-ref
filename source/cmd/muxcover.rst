@@ -6,10 +6,9 @@ muxcover - cover trees of MUX cells with wider MUXes
 
     \begin{comment}
 
-:code:`yosys> help muxcover`
---------------------------------------------------------------------------------
+.. cmd:def:: muxcover
+    :title: cover trees of MUX cells with wider MUXes
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

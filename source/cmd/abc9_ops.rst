@@ -6,10 +6,9 @@ abc9_ops - helper functions for ABC9
 
     \begin{comment}
 
-:code:`yosys> help abc9_ops`
---------------------------------------------------------------------------------
+.. cmd:def:: abc9_ops
+    :title: helper functions for ABC9
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

@@ -6,10 +6,9 @@ read_verilog - read modules from Verilog file
 
     \begin{comment}
 
-:code:`yosys> help read_verilog`
---------------------------------------------------------------------------------
+.. cmd:def:: read_verilog
+    :title: read modules from Verilog file
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

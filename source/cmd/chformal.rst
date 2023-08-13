@@ -6,10 +6,9 @@ chformal - change formal constraints of the design
 
     \begin{comment}
 
-:code:`yosys> help chformal`
---------------------------------------------------------------------------------
+.. cmd:def:: chformal
+    :title: change formal constraints of the design
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

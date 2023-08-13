@@ -6,10 +6,9 @@ sim - simulate the circuit
 
     \begin{comment}
 
-:code:`yosys> help sim`
---------------------------------------------------------------------------------
+.. cmd:def:: sim
+    :title: simulate the circuit
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

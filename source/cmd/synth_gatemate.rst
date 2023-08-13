@@ -6,10 +6,9 @@ synth_gatemate - synthesis for Cologne Chip GateMate FPGAs
 
     \begin{comment}
 
-:code:`yosys> help synth_gatemate`
---------------------------------------------------------------------------------
+.. cmd:def:: synth_gatemate
+    :title: synthesis for Cologne Chip GateMate FPGAs
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt
