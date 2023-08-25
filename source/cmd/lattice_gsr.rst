@@ -1,12 +1,12 @@
-===========================
-ecp5_gsr - ECP5: handle GSR
-===========================
+=================================
+lattice_gsr - Lattice: handle GSR
+=================================
 
 .. raw:: latex
 
     \begin{comment}
 
-:code:`yosys> help ecp5_gsr`
+:code:`yosys> help lattice_gsr`
 --------------------------------------------------------------------------------
 
 .. container:: cmdref
@@ -14,7 +14,7 @@ ecp5_gsr - ECP5: handle GSR
 
     .. code:: yoscrypt
 
-        ecp5_gsr [options] [selection]
+        lattice_gsr [options] [selection]
 
     ::
 
@@ -34,7 +34,7 @@ ecp5_gsr - ECP5: handle GSR
     ::
 
         
-            ecp5_gsr [options] [selection]
+            lattice_gsr [options] [selection]
         
         Trim active low async resets connected to GSR and resolve GSR parameter,
         if a GSR or SGSR primitive is used in the design.

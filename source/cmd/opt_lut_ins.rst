@@ -32,7 +32,7 @@ opt_lut_ins - discard unused LUT inputs
     ::
 
             Instead of generic $lut cells, operate on LUT cells specific
-            to the given technology.  Valid values are: xilinx, ecp5, gowin.
+            to the given technology.  Valid values are: xilinx, lattice, gowin.
 
 .. raw:: latex
 
@@ -53,5 +53,5 @@ opt_lut_ins - discard unused LUT inputs
         
             -tech <technology>
                 Instead of generic $lut cells, operate on LUT cells specific
-                to the given technology.  Valid values are: xilinx, ecp5, gowin.
+                to the given technology.  Valid values are: xilinx, lattice, gowin.
         
