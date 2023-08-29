@@ -146,6 +146,16 @@ synth_lattice - synthesis for Lattice FPGAs
     ::
 
             do not use PFU muxes to implement LUTs larger than LUT4s
+            (by default enabled on MachXO2/XO3/XO3D)
+
+
+    .. code:: yoscrypt
+
+        -widelut
+
+    ::
+
+            force use of PFU muxes to implement LUTs larger than LUT4s
 
 
     .. code:: yoscrypt
@@ -349,6 +359,10 @@ synth_lattice - synthesis for Lattice FPGAs
         
             -nowidelut
                 do not use PFU muxes to implement LUTs larger than LUT4s
+                (by default enabled on MachXO2/XO3/XO3D)
+        
+            -widelut
+                force use of PFU muxes to implement LUTs larger than LUT4s
         
             -asyncprld
                 use async PRLD mode to implement ALDFF (EXPERIMENTAL)
