@@ -19,7 +19,7 @@ memory_libmap - map memories to cells
     ::
 
         This pass takes a description of available RAM cell types and maps
-        all selected memories to one of them, or leaves them  to be mapped to FFs.
+        all selected memories to one of them, or leaves them to be mapped to FFs.
 
 
     .. code:: yoscrypt
@@ -92,7 +92,7 @@ memory_libmap - map memories to cells
             memory_libmap -lib <library_file> [-D <condition>] [selection]
         
         This pass takes a description of available RAM cell types and maps
-        all selected memories to one of them, or leaves them  to be mapped to FFs.
+        all selected memories to one of them, or leaves them to be mapped to FFs.
         
           -lib <library_file>
             Selects a library file containing RAM cell definitions. This option
