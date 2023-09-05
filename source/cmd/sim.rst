@@ -288,6 +288,16 @@ sim - simulate the circuit
 
     .. code:: yoscrypt
 
+        -assert
+
+    ::
+
+            fail the simulation command if, in the course of simulating,
+            any of the asserts in the design fail
+
+
+    .. code:: yoscrypt
+
         -q
 
     ::
@@ -406,6 +416,10 @@ sim - simulate the circuit
         
             -sim-gate
                 co-simulation, x in FST can match any value in simulation
+        
+            -assert
+                fail the simulation command if, in the course of simulating,
+                any of the asserts in the design fail
         
             -q
                 disable per-cycle/sample log message
