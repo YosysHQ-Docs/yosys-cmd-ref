@@ -111,6 +111,16 @@ abc - use ABC for technology mapping
 
     .. code:: yoscrypt
 
+        -dont_use <cell_name>
+
+    ::
+
+            generate netlists for the specified cell library (using the liberty
+            file format).
+
+
+    .. code:: yoscrypt
+
         -genlib <file>
 
     ::
@@ -409,6 +419,10 @@ abc - use ABC for technology mapping
                   strash; dretime; map
         
             -liberty <file>
+                generate netlists for the specified cell library (using the liberty
+                file format).
+        
+            -dont_use <cell_name>
                 generate netlists for the specified cell library (using the liberty
                 file format).
         
