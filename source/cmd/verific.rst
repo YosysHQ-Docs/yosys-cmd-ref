@@ -274,6 +274,36 @@ verific - load Verilog and VHDL designs using Verific
                 Use verilog sources from given library.
                 (default library when -work is not present: "work")
 
+            verific [-work <libname>] -ivy-json-export <filename> [options]..
+
+        Export IVY specific data to json file.
+
+            -work <libname>
+                Use verilog sources from given library.
+                (default library when -work is not present: "work")
+
+            -top <top>
+                Specify top module.
+
+
+            verific -assert-all-invariants
+
+        Executes code rewriter to assert all invariants.
+
+            verific -assert-used-properties-and-sequences
+
+        Executes code rewriter to assert all properties and sequences used in proofs.
+
+            verific -delete-all-invariants
+
+        Executes code rewriter to delete all invariants.
+
+
+            verific -delete-all-proofs
+
+        Executes code rewriter to delete all proofs.
+
+
         Use YosysHQ Tabby CAD Suite if you need Yosys+Verific.
         https://www.yosyshq.com/
 
@@ -546,6 +576,36 @@ verific - load Verilog and VHDL designs using Verific
             -work <libname>
                 Use verilog sources from given library.
                 (default library when -work is not present: "work")
+        
+            verific [-work <libname>] -ivy-json-export <filename> [options]..
+        
+        Export IVY specific data to json file.
+        
+            -work <libname>
+                Use verilog sources from given library.
+                (default library when -work is not present: "work")
+        
+            -top <top>
+                Specify top module.
+        
+        
+            verific -assert-all-invariants
+        
+        Executes code rewriter to assert all invariants.
+        
+            verific -assert-used-properties-and-sequences
+        
+        Executes code rewriter to assert all properties and sequences used in proofs.
+        
+            verific -delete-all-invariants
+        
+        Executes code rewriter to delete all invariants.
+        
+        
+            verific -delete-all-proofs
+        
+        Executes code rewriter to delete all proofs.
+        
         
         Use YosysHQ Tabby CAD Suite if you need Yosys+Verific.
         https://www.yosyshq.com/
