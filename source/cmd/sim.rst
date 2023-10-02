@@ -160,6 +160,15 @@ sim - simulate the circuit
 
     .. code:: yoscrypt
 
+        -noinitstate
+
+    ::
+
+            do not activate $initstate cells during the first cycle
+
+
+    .. code:: yoscrypt
+
         -a
 
     ::
@@ -372,6 +381,9 @@ sim - simulate the circuit
         
             -n <integer>
                 number of clock cycles to simulate (default: 20)
+        
+            -noinitstate
+                do not activate $initstate cells during the first cycle
         
             -a
                 use all nets in VCD/FST operations, not just those with public names
