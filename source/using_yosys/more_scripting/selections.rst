@@ -1,16 +1,11 @@
 Selections
 ----------
 
-.. todo:: expand on text
+.. role:: yoscrypt(code)
+   :language: yoscrypt
 
-Most Yosys commands make use of the "selection framework" of Yosys. It can be
-used to apply commands only to part of the design. For example:
-
-.. code:: yoscrypt
-
-    delete                # will delete the whole design, but
-
-    delete foobar         # will only delete the module foobar.
+The selection framework
+~~~~~~~~~~~~~~~~~~~~~~~
 
 The :cmd:ref:`select` command can be used to create a selection for subsequent
 commands. For example:
@@ -19,9 +14,28 @@ commands. For example:
 
     select foobar         # select the module foobar
     delete                # delete selected objects
-    select -clear         # reset selection (select whole design)
 
-See :doc:`/cmd/select`
+Normally the :cmd:ref:`select` command overwrites a previous selection. The
+commands :yoscrypt:`select -add` and :yoscrypt:`select -del` can be used to add
+or remove objects from the current selection.
+
+The command :yoscrypt:`select -clear` can be used to reset the selection to the
+default, which is a complete selection of everything in the current module.
+
+This selection framework can also be used directly in many other commands.
+Whenever a command has ``[selection]`` as last argument in its usage help, this
+means that it will use the engine behind the :cmd:ref:`select` command to
+evaluate additional arguments and use the resulting selection instead of the
+selection created by the last :cmd:ref:`select` command.
+
+For example, the command :cmd:ref:`delete` will delete everything in the current
+selection; while :yoscrypt:`delete foobar` will only delete the module foobar.
+If no :cmd:ref:`select` command has been made, then the "current selection" will
+be the whole design.
+
+.. note:: Many of the examples on this page make use of the :cmd:ref:`show` 
+   command to visually demonstrate the effect of selections.  For a more 
+   detailed look at this command, refer to :ref:`interactive_show`.
 
 How to make a selection
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -46,7 +60,7 @@ Commands can be executed in *module/* or *design/* context. Until now all
 commands have been executed in design context. The :cmd:ref:`cd` command can be
 used to switch to module context.
 
-In module context all commands only effect the active module. Objects in the
+In module context, all commands only effect the active module. Objects in the
 module are selected without the ``<module_name>/`` prefix. For example:
 
 .. code:: yoscrypt
@@ -60,77 +74,263 @@ module are selected without the ``<module_name>/`` prefix. For example:
     cd ..                 # switch back to design
 
 Note: Most synthesis scripts never switch to module context. But it is a very
-powerful tool for interactive design investigation.
+powerful tool which we explore more in
+:doc:`/using_yosys/more_scripting/interactive_investigation`.
 
 Selecting by object property or type
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Special patterns can be used to select by object property or type. For example:
 
-.. code:: yoscrypt
+- select all wires whose names start with ``reg_``: :yoscrypt:`select w:reg_*`
+- select all objects with the attribute ``foobar`` set: :yoscrypt:`select a:foobar`
+- select all objects with the attribute ``foobar`` set to 42: :yoscrypt:`select a:foobar=42`
+- select all modules with the attribute ``blabla`` set: :yoscrypt:`select A:blabla`
+- select all $add cells from the module foo: :yoscrypt:`select foo/t:$add`
 
-    select w:reg_*        # select all wires whose names start with reg_
-    select a:foobar       # select all objects with the attribute foobar set
-    select a:foobar=42    # select all objects with the attribute foobar set to 42
-    select A:blabla       # select all modules with the attribute blabla set
-    select foo/t:$add     # select all $add cells from the module foo
+A complete list of pattern expressions can be found in :doc:`/cmd/select`.
 
-A complete list of this pattern expressions can be found in the command
-reference to the :cmd:ref:`select` command.
+Operations on selections
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-Combining selection
-^^^^^^^^^^^^^^^^^^^
+Combining selections
+^^^^^^^^^^^^^^^^^^^^
 
-When more than one selection expression is used in one statement, then they are
-pushed on a stack. The final elements on the stack are combined into a union:
+The :cmd:ref:`select` command is actually much more powerful than it might seem
+at first glance. When it is called with multiple arguments, each argument is
+evaluated and pushed separately on a stack. After all arguments have been
+processed it simply creates the union of all elements on the stack. So
+:yoscrypt:`select t:$add a:foo` will select all ``$add`` cells and all objects
+with the ``foo`` attribute set:   
 
-.. code:: yoscrypt
+.. literalinclude:: /APPNOTE_011_Design_Investigation/foobaraddsub.v
+   :caption: Test module for operations on selections
+   :name: foobaraddsub
+   :language: verilog
 
-    select t:$dff r:WIDTH>1     # all cells of type $dff and/or with a parameter WIDTH > 1
+.. code-block::
+   :caption: Output for command ``select t:$add a:foo -list`` on :numref:`foobaraddsub`
 
-Special ``%``-commands can be used to combine the elements on the stack:
+   yosys> select t:$add a:foo -list
+   foobaraddsub/$add$foobaraddsub.v:6$3
+   foobaraddsub/$sub$foobaraddsub.v:5$2
+   foobaraddsub/$add$foobaraddsub.v:4$1
 
-.. code:: yoscrypt
+In many cases simply adding more and more stuff to the selection is an
+ineffective way of selecting the interesting part of the design. Special
+arguments can be used to combine the elements on the stack. For example the
+``%i`` arguments pops the last two elements from the stack, intersects them, and
+pushes the result back on the stack. So :yoscrypt:`select t:$add a:foo %i` will
+select all ``$add`` cells that have the ``foo`` attribute set:
 
-    select t:$dff r:WIDTH>1 %i  # all cells of type $dff *AND* with a parameter WIDTH > 1
+.. code-block::
+   :caption: Output for command ``select t:$add a:foo %i -list`` on :numref:`foobaraddsub`
+   
+   yosys> select t:$add a:foo %i -list
+   foobaraddsub/$add$foobaraddsub.v:4$1
 
-Examples for ``%``-codes (see :doc:`/cmd/select` for full list):
+Some of the special ``%``-codes:
 
 - ``%u``: union of top two elements on stack -- pop 2, push 1
 - ``%d``: difference of top two elements on stack -- pop 2, push 1
 - ``%i``: intersection of top two elements on stack -- pop 2, push 1
 - ``%n``: inverse of top element on stack -- pop 1, push 1
 
+See :doc:`/cmd/select` for the full list.
+
 Expanding selections
 ^^^^^^^^^^^^^^^^^^^^
 
-Selections of cells and wires can be expanded along connections using
-``%``-codes for selecting input cones (``%ci``), output cones (``%co``), or
-both (``%x``).
+The listing in :numref:`sumprod` uses the Yosys non-standard ``{... *}`` syntax
+to set the attribute ``sumstuff`` on all cells generated by the first assign
+statement. (This works on arbitrary large blocks of Verilog code an can be used
+to mark portions of code for analysis.)
 
-.. code:: yoscrypt
+.. literalinclude:: /APPNOTE_011_Design_Investigation/sumprod.v
+   :caption: Another test module for operations on selections
+   :name: sumprod
+   :language: verilog
 
-    # select all wires that are inputs to $add cells
-    select t:$add %ci w:* %i
+Selecting ``a:sumstuff`` in this module will yield the following circuit
+diagram:
 
-Additional constraints such as port names can be specified.
+.. figure:: /_images/011/sumprod_00.*
+   :class: width-helper
+   :name: sumprod_00
 
-.. code:: yoscrypt
+   Output of ``show a:sumstuff`` on :numref:`sumprod`
 
-    # select all wires that connect a "Q" output with a "D" input
-    select c:* %co:+[Q] w:* %i c:* %ci:+[D] w:* %i %i
+As only the cells themselves are selected, but not the temporary wire ``$1_Y``,
+the two adders are shown as two disjunct parts. This can be very useful for
+global signals like clock and reset signals: just unselect them using a command
+such as :yoscrypt:`select -del clk rst` and each cell using them will get its
+own net label.
 
-    # select the multiplexer tree that drives the signal 'state'
-    select state %ci*:+$mux,$pmux[A,B,Y]
+In this case however we would like to see the cells connected properly. This can
+be achieved using the ``%x`` action, that broadens the selection, i.e. for each
+selected wire it selects all cells connected to the wire and vice versa. So
+:yoscrypt:`show a:sumstuff %x` yields the diagram shown in :numref:`sumprod_01`:
 
-See :doc:`/cmd/select` for full documentation of these expressions.
+.. figure:: /_images/011/sumprod_01.*
+   :class: width-helper
+   :name: sumprod_01
+
+   Output of ``show a:sumstuff %x`` on :numref:`sumprod`
+
+Selecting logic cones
+^^^^^^^^^^^^^^^^^^^^^
+
+:numref:`sumprod_01` shows what is called the ``input cone`` of ``sum``, i.e.
+all cells and signals that are used to generate the signal ``sum``. The ``%ci``
+action can be used to select the input cones of all object in the top selection
+in the stack maintained by the :cmd:ref:`select` command.
+
+As with the ``%x`` action, this commands broadens the selection by one "step".
+But this time the operation only works against the direction of data flow. That
+means, wires only select cells via output ports and cells only select wires via
+input ports.
+
+The following sequence of diagrams demonstrates this step-wise expansion:
+
+.. figure:: /_images/011/sumprod_02.*
+   :class: width-helper
+
+   Output of ``show prod`` on :numref:`sumprod`
+
+.. figure:: /_images/011/sumprod_03.*
+   :class: width-helper
+
+   Output of ``show prod %ci`` on :numref:`sumprod`
+
+.. figure:: /_images/011/sumprod_04.*
+   :class: width-helper
+
+   Output of ``show prod %ci %ci`` on :numref:`sumprod`
+
+.. figure:: /_images/011/sumprod_05.*
+   :class: width-helper
+
+   Output of ``show prod %ci %ci %ci`` on :numref:`sumprod`
+
+When selecting many levels of logic, repeating ``%ci`` over and over again can
+be a bit dull. So there is a shortcut for that: the number of iterations can be
+appended to the action. So for example the action ``%ci3`` is identical to
+performing the ``%ci`` action three times.
+
+The action ``%ci*`` performs the ``%ci`` action over and over again until it
+has no effect anymore.
+
+.. _advanced_logic_cones:
+
+Advanced logic cone selection
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In most cases there are certain cell types and/or ports that should not be
+considered for the ``%ci`` action, or we only want to follow certain cell types
+and/or ports. This can be achieved using additional patterns that can be
+appended to the ``%ci`` action.
+
+Lets consider :numref:`memdemo_src`. It serves no purpose other than being a
+non-trivial circuit for demonstrating some of the advanced Yosys features. 
+
+.. literalinclude:: /APPNOTE_011_Design_Investigation/memdemo.v
+   :caption: Demo circuit for demonstrating some advanced Yosys features
+   :name: memdemo_src
+   :language: verilog
+
+We synthesize the circuit using ``proc; opt; memory; opt`` and change to the
+``memdemo`` module with ``cd memdemo``. If we type :cmd:ref:`show` now we see
+the diagram shown in :numref:`memdemo_00`.
+
+.. figure:: /_images/011/memdemo_00.*
+   :class: width-helper
+   :name: memdemo_00
+   
+   Complete circuit diagram for the design shown in :numref:`memdemo_src`
+
+But maybe we are only interested in the tree of multiplexers that select the
+output value. In order to get there, we would start by just showing the output
+signal and its immediate predecessors:
+
+.. code-block:: yoscrypt
+
+   show y %ci2
+
+From this we would learn that ``y`` is driven by a ``$dff cell``, that ``y`` is
+connected to the output port ``Q``, that the ``clk`` signal goes into the
+``CLK`` input port of the cell, and that the data comes from a auto-generated
+wire into the input ``D`` of the flip-flop cell.
+
+As we are not interested in the clock signal we add an additional pattern to the
+``%ci`` action, that tells it to only follow ports ``Q`` and ``D`` of ``$dff``
+cells:
+
+.. code-block:: yoscrypt
+
+   show y %ci2:+$dff[Q,D]
+
+To add a pattern we add a colon followed by the pattern to the ``%ci`` action.
+The pattern itself starts with ``-`` or ``+``, indicating if it is an include or
+exclude pattern, followed by an optional comma separated list of cell types,
+followed by an optional comma separated list of port names in square brackets.
+
+Since we know that the only cell considered in this case is a ``$dff`` cell, we
+could as well only specify the port names:
+
+.. code-block:: yoscrypt
+
+   show y %ci2:+[Q,D]
+
+Or we could decide to tell the ``%ci`` action to not follow the ``CLK`` input:
+
+.. code-block:: yoscrypt
+
+   show y %ci2:-[CLK]
+
+.. figure:: /_images/011/memdemo_01.*
+   :class: width-helper
+   :name: memdemo_01
+   
+   Output of ``show y %ci2:+$dff[Q,D] %ci*:-$mux[S]:-$dff``
+
+Next we would investigate the next logic level by adding another ``%ci2`` to the
+command:
+
+.. code-block:: yoscrypt
+
+   show y %ci2:-[CLK] %ci2
+
+From this we would learn that the next cell is a ``$mux`` cell and we would add
+additional pattern to narrow the selection on the path we are interested. In the
+end we would end up with a command such as
+
+.. code-block:: yoscrypt
+
+   show y %ci2:+$dff[Q,D] %ci*:-$mux[S]:-$dff
+
+in which the first ``%ci`` jumps over the initial d-type flip-flop and the 2nd
+action selects the entire input cone without going over multiplexer select
+inputs and flip-flop cells. The diagram produces by this command is shown in
+:numref:`memdemo_01`.
+
+Similar to ``%ci`` exists an action ``%co`` to select output cones that accepts
+the same syntax for pattern and repetition. The ``%x`` action mentioned
+previously also accepts this advanced syntax.
+
+This actions for traversing the circuit graph, combined with the actions for
+boolean operations such as intersection (``%i``) and difference (``%d``) are
+powerful tools for extracting the relevant portions of the circuit under
+investigation.
+
+Again, see :doc:`/cmd/select` for full documentation of these expressions.
 
 Incremental selection
 ^^^^^^^^^^^^^^^^^^^^^
 
 Sometimes a selection can most easily be described by a series of add/delete
-operations. The commands ``select -add`` and ``select -del`` respectively add or
-remove objects from the current selection instead of overwriting it.
+operations. As mentioned previously, the commands :yoscrypt:`select -add` and
+:yoscrypt:`select -del` respectively add or remove objects from the current
+selection instead of overwriting it.
 
 .. code:: yoscrypt
 
@@ -147,29 +347,26 @@ on the stack.
     select t:$add t:$sub    # select all $add and $sub cells
     select % %ci % %d       # select only the input wires to those cells
 
-Creating selection variables
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Storing and recalling selections
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Selections can be stored under a name with the ``select -set <name>``
-command. The stored selections can be used in later select expressions
-using the syntax ``@<name>``.
+The current selection can be stored in memory with the command ``select -set
+<name>``. It can later be recalled using ``select @<name>``. In fact, the
+``@<name>`` expression pushes the stored selection on the stack maintained by
+the :cmd:ref:`select` command. So for example :yoscrypt:`select @foo @bar %i`
+will select the intersection between the stored selections ``foo`` and ``bar``.
 
-.. code:: yoscrypt
+In larger investigation efforts it is highly recommended to maintain a script
+that sets up relevant selections, so they can easily be recalled, for example
+when Yosys needs to be re-run after a design or source code change.
 
-    select -set cone_a state_a %ci*:-$dff  # set @cone_a to the input cone of state_a
-    select -set cone_b state_b %ci*:-$dff  # set @cone_b to the input cone of state_b
-    select @cone_a @cone_b %i              # select the objects that are in both cones
+The :cmd:ref:`history` command can be used to list all recent interactive
+commands. This feature can be useful for creating such a script from the
+commands used in an interactive session.
 
 Remember that select expressions can also be used directly as arguments to most
-commands. Some commands also except a single select argument to some options.
-In those cases selection variables must be used to capture more complex selections.
-
-.. code:: yoscrypt
-
-    dump @cone_a @cone_b
-
-    select -set cone_ab @cone_a @cone_b %i
-    show -color red @cone_ab -color magenta @cone_a -color blue @cone_b
+commands. Some commands also accept a single select argument to some options. In
+those cases selection variables must be used to capture more complex selections.
 
 Example:
 
@@ -180,115 +377,9 @@ Example:
 .. literalinclude:: ../../../resources/PRESENTATION_ExAdv/select.ys
    :language: yoscrypt
    :caption: ``docs/resources/PRESENTATION_ExAdv/select.ys``
+   :name: select_ys
 
-.. figure:: ../../../images/res/PRESENTATION_ExAdv/select.*
+.. figure:: /_images/res/PRESENTATION_ExAdv/select.*
     :class: width-helper
 
-Interactive Design Investigation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Yosys can also be used to investigate designs (or netlists created from other
-tools).
-
-- The selection mechanism, especially patterns such as ``%ci`` and ``%co``, can
-  be used to figure out how parts of the design are connected.
-- Commands such as :cmd:ref:`submod`, :cmd:ref:`expose`, and :cmd:ref:`splice`
-  can be used to transform the design into an equivalent design that is easier
-  to analyse.
-- Commands such as :cmd:ref:`eval` and :cmd:ref:`sat` can be used to investigate
-  the behavior of the circuit.
-- :doc:`/cmd/show`.
-- :doc:`/cmd/dump`.
-- :doc:`/cmd/add` and :doc:`/cmd/delete` can be used to modify and reorganize a
-  design dynamically.
-
-Changing design hierarchy
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Commands such as :cmd:ref:`flatten` and :cmd:ref:`submod` can be used to change
-the design hierarchy, i.e. flatten the hierarchy or moving parts of a module to
-a submodule. This has applications in synthesis scripts as well as in reverse
-engineering and analysis.  An example using :cmd:ref:`submod` is shown below for
-reorganizing a module in Yosys and checking the resulting circuit.
-
-.. literalinclude:: ../../../resources/PRESENTATION_ExOth/scrambler.v
-   :language: verilog
-   :caption: ``docs/resources/PRESENTATION_ExOth/scrambler.v``
-
-.. code:: yoscrypt
-
-    read_verilog scrambler.v
-
-    hierarchy; proc;;
-
-    cd scrambler
-    submod -name xorshift32 \
-            xs %c %ci %D %c %ci:+[D] %D \
-            %ci*:-$dff xs %co %ci %d
-
-.. figure:: ../../../images/res/PRESENTATION_ExOth/scrambler_p01.*
-    :class: width-helper
-
-.. figure:: ../../../images/res/PRESENTATION_ExOth/scrambler_p02.*
-    :class: width-helper
-
-Analyzing the resulting circuit with :doc:`/cmd/eval`:
-
-.. code:: text
-
-    > cd xorshift32
-    > rename n2 in
-    > rename n1 out
-
-    > eval -set in 1 -show out
-    Eval result: \out = 270369.
-
-    > eval -set in 270369 -show out
-    Eval result: \out = 67634689.
-
-    > sat -set out 632435482
-    Signal Name                 Dec        Hex                                   Bin
-    -------------------- ---------- ---------- -------------------------------------
-    \in                   745495504   2c6f5bd0      00101100011011110101101111010000
-    \out                  632435482   25b2331a      00100101101100100011001100011010
-
-Behavioral changes
-^^^^^^^^^^^^^^^^^^
-
-Commands such as :cmd:ref:`techmap` can be used to make behavioral changes to
-the design, for example changing asynchronous resets to synchronous resets. This
-has applications in design space exploration (evaluation of various
-architectures for one circuit).
-
-The following techmap map file replaces all positive-edge async reset flip-flops
-with positive-edge sync reset flip-flops. The code is taken from the example
-Yosys script for ASIC synthesis of the Amber ARMv2 CPU.
-
-.. code:: verilog
-
-    (* techmap_celltype = "$adff" *)
-    module adff2dff (CLK, ARST, D, Q);
-
-        parameter WIDTH = 1;
-        parameter CLK_POLARITY = 1;
-        parameter ARST_POLARITY = 1;
-        parameter ARST_VALUE = 0;
-
-        input CLK, ARST;
-        input [WIDTH-1:0] D;
-        output reg [WIDTH-1:0] Q;
-
-        wire [1023:0] _TECHMAP_DO_ = "proc";
-
-        wire _TECHMAP_FAIL_ = !CLK_POLARITY || !ARST_POLARITY;
-
-        always @(posedge CLK)
-            if (ARST)
-                Q <= ARST_VALUE;
-            else
-                <= D;
-
-    endmodule
-
-For more on the :cmd:ref:`techmap` command, see the page on
-:doc:`/yosys_internals/techmap`.
+    Circuit diagram produced by :numref:`select_ys`
