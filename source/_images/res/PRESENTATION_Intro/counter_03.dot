@@ -6,8 +6,6 @@ n12 [ shape=octagon, label="count[0]", color="black", fontcolor="black" ];
 n13 [ shape=octagon, label="count[1]", color="black", fontcolor="black" ];
 n14 [ shape=octagon, label="en", color="black", fontcolor="black" ];
 n15 [ shape=octagon, label="rst", color="black", fontcolor="black" ];
-{ rank="source"; n11; n14; n15;}
-{ rank="sink"; n12; n13;}
 c19 [ shape=record, label="{{<p16> A|<p17> B}|$130\nNAND|{<p18> Y}}",  ];
 c20 [ shape=record, label="{{<p16> A|<p17> B}|$131\nNOR|{<p18> Y}}",  ];
 c21 [ shape=record, label="{{<p16> A}|$132\nNOT|{<p18> Y}}",  ];
