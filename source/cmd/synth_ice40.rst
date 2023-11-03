@@ -193,11 +193,11 @@ synth_ice40 - synthesis for iCE40 FPGAs
 
     .. code:: yoscrypt
 
-        -abc9
+        -noabc9
 
     ::
 
-            use new ABC9 flow (EXPERIMENTAL)
+            disable use of new ABC9 flow
 
 
     .. code:: yoscrypt
@@ -295,7 +295,8 @@ synth_ice40 - synthesis for iCE40 FPGAs
                 simplemap                                   (if -noabc or -flowmap)
                 techmap -map +/gate2lut.v -D LUT_WIDTH=4    (only if -noabc)
                 flowmap -maxlut 4    (only if -flowmap)
-                abc -dress -lut 4     (skip if -noabc)
+                read_verilog -D ICE40_HX -icells -lib -specify +/ice40/abc9_model.v
+                abc9  -W 250
                 ice40_wrapcarry -unwrap
                 techmap -map +/ice40/ff_map.v
                 clean
@@ -398,8 +399,8 @@ synth_ice40 - synthesis for iCE40 FPGAs
                 generate an output netlist (and BLIF file) suitable for VPR
                 (this feature is experimental and incomplete)
         
-            -abc9
-                use new ABC9 flow (EXPERIMENTAL)
+            -noabc9
+                disable use of new ABC9 flow
         
             -flowmap
                 use FlowMap LUT techmapping instead of abc (EXPERIMENTAL)
@@ -482,7 +483,8 @@ synth_ice40 - synthesis for iCE40 FPGAs
                 simplemap                                   (if -noabc or -flowmap)
                 techmap -map +/gate2lut.v -D LUT_WIDTH=4    (only if -noabc)
                 flowmap -maxlut 4    (only if -flowmap)
-                abc -dress -lut 4     (skip if -noabc)
+                read_verilog -D ICE40_HX -icells -lib -specify +/ice40/abc9_model.v
+                abc9  -W 250
                 ice40_wrapcarry -unwrap
                 techmap -map +/ice40/ff_map.v
                 clean
