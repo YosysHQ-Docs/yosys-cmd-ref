@@ -163,11 +163,11 @@ synth_ecp5 - synthesis for ECP5 FPGAs
 
     .. code:: yoscrypt
 
-        -noabc9
+        -abc9
 
     ::
 
-            disable use of new ABC9 flow
+            use new ABC9 flow (EXPERIMENTAL)
 
 
     .. code:: yoscrypt
@@ -274,7 +274,7 @@ synth_ecp5 - synthesis for ECP5 FPGAs
             map_luts:
                 abc          (only if -abc2)
                 techmap -map +/ecp5/latches_map.v    (skip if -asyncprld)
-                abc9 -W 300
+                abc -dress -lut 4:7
                 clean
 
             map_cells:
@@ -363,8 +363,8 @@ synth_ecp5 - synthesis for ECP5 FPGAs
             -abc2
                 run two passes of 'abc' for slightly improved logic density
         
-            -noabc9
-                disable use of new ABC9 flow
+            -abc9
+                use new ABC9 flow (EXPERIMENTAL)
         
             -vpr
                 generate an output netlist (and BLIF file) suitable for VPR
@@ -444,7 +444,7 @@ synth_ecp5 - synthesis for ECP5 FPGAs
             map_luts:
                 abc          (only if -abc2)
                 techmap -map +/ecp5/latches_map.v    (skip if -asyncprld)
-                abc9 -W 300
+                abc -dress -lut 4:7
                 clean
         
             map_cells:
