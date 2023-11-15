@@ -120,6 +120,7 @@ prep - generic synthesis script
             coarse:
                 proc [-ifx]
                 flatten    (if -flatten)
+                future
                 opt_expr -keepdc
                 opt_clean
                 check
@@ -192,6 +193,7 @@ prep - generic synthesis script
             coarse:
                 proc [-ifx]
                 flatten    (if -flatten)
+                future
                 opt_expr -keepdc
                 opt_clean
                 check

@@ -87,10 +87,15 @@ synth - generic synthesis script
 
     .. code:: yoscrypt
 
-        -noalumacc
+        -booth
 
     ::
 
+            run the booth pass to convert $mul to Booth encoded multipliers
+
+    ::
+
+        -noalumacc
             do not run 'alumacc' pass. i.e. keep arithmetic operators in
             their direct form ($add, $sub, etc.).
 
@@ -234,6 +239,8 @@ synth - generic synthesis script
             -noabc
                 do not run abc (as if yosys was compiled without ABC support)
         
+            -booth
+                run the booth pass to convert $mul to Booth encoded multipliers
             -noalumacc
                 do not run 'alumacc' pass. i.e. keep arithmetic operators in
                 their direct form ($add, $sub, etc.).

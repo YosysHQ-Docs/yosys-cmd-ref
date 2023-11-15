@@ -1,0 +1,20 @@
+digraph "memdemo" {
+label="memdemo";
+rankdir="LR";
+remincross=true;
+n5 [ shape=octagon, label="clk", color="black", fontcolor="black" ];
+n6 [ shape=octagon, label="y", color="black", fontcolor="black" ];
+c10 [ shape=record, label="{{<p7> CLK|<p8> D}|$rdreg[0]\n$dff|{<p9> Q}}",  ];
+c15 [ shape=record, label="{{<p11> A|<p12> B|<p13> S}|$79\n$mux|{<p14> Y}}",  ];
+x0 [ shape=record, style=rounded, label="<s0> 1:1 - 0:0 ", color="black", fontcolor="black" ];
+x0:e -> c15:p13:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", fontcolor="black", label=""];
+n1 [ shape=diamond, label="$0&#9586;s2[1:0]" ];
+n1:e -> x0:s0:w [color="black", fontcolor="black", label=""];
+c15:p14:e -> c10:p8:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n3 [ shape=diamond, label="$80" ];
+n3:e -> c15:p11:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n4 [ shape=diamond, label="$81" ];
+n4:e -> c15:p12:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n5:e -> c10:p7:w [color="black", fontcolor="black", label=""];
+c10:p9:e -> n6:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+}

@@ -1,0 +1,24 @@
+digraph "cmos_demo" {
+label="cmos_demo";
+rankdir="LR";
+remincross=true;
+n4 [ shape=octagon, label="a", color="black", fontcolor="black" ];
+n5 [ shape=octagon, label="b", color="black", fontcolor="black" ];
+n6 [ shape=octagon, label="y[0]", color="black", fontcolor="black" ];
+n7 [ shape=octagon, label="y[1]", color="black", fontcolor="black" ];
+c10 [ shape=record, label="{{<p8> A}|$222\nNOT|{<p9> Y}}",  ];
+c11 [ shape=record, label="{{<p8> A}|$223\nNOT|{<p9> Y}}",  ];
+c13 [ shape=record, label="{{<p8> A|<p12> B}|$224\nNOR|{<p9> Y}}",  ];
+c14 [ shape=record, label="{{<p8> A|<p12> B}|$225\nNOR|{<p9> Y}}",  ];
+c15 [ shape=record, label="{{<p8> A|<p12> B}|$226\nNOR|{<p9> Y}}",  ];
+c10:p9:e -> c13:p8:w [color="black", fontcolor="black", label=""];
+c11:p9:e -> c13:p12:w [color="black", fontcolor="black", label=""];
+c14:p9:e -> c15:p12:w [color="black", fontcolor="black", label=""];
+n4:e -> c11:p8:w [color="black", fontcolor="black", label=""];
+n4:e -> c14:p12:w [color="black", fontcolor="black", label=""];
+n5:e -> c10:p8:w [color="black", fontcolor="black", label=""];
+n5:e -> c14:p8:w [color="black", fontcolor="black", label=""];
+c15:p9:e -> n6:w [color="black", fontcolor="black", label=""];
+c13:p9:e -> n7:w [color="black", fontcolor="black", label=""];
+n7:e -> c15:p8:w [color="black", fontcolor="black", label=""];
+}

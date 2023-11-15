@@ -1,0 +1,15 @@
+digraph "test" {
+rankdir="LR";
+remincross=true;
+n1 [ shape=octagon, label="A", color="black", fontcolor="black" ];
+n2 [ shape=octagon, label="B", color="black", fontcolor="black" ];
+n3 [ shape=octagon, label="Y", color="black", fontcolor="black" ];
+n4 [ shape=octagon, label="Z", color="black", fontcolor="black" ];
+c5 [ shape=record, label="{{<p1> A|<p2> B}|$2\n$add|{<p3> Y}}",  ];
+x0 [shape=point, ];
+n1:e -> c5:p2:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n2:e -> c5:p1:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+c5:p3:e -> n3:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n3:e -> x0:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+x0:e -> n4:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+}

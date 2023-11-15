@@ -266,7 +266,7 @@ synth_ecp5 - synthesis for ECP5 FPGAs
                 techmap -D NO_LUT -map +/ecp5/cells_map.v
                 opt_expr -undriven -mux_undef
                 simplemap
-                ecp5_gsr
+                lattice_gsr
                 attrmvcp -copy -attr syn_useioff
                 opt_clean
 
@@ -278,7 +278,7 @@ synth_ecp5 - synthesis for ECP5 FPGAs
 
             map_cells:
                 techmap -map +/ecp5/cells_map.v    (skip if -vpr)
-                opt_lut_ins -tech ecp5
+                opt_lut_ins -tech lattice
                 clean
 
             check:
@@ -436,7 +436,7 @@ synth_ecp5 - synthesis for ECP5 FPGAs
                 techmap -D NO_LUT -map +/ecp5/cells_map.v
                 opt_expr -undriven -mux_undef
                 simplemap
-                ecp5_gsr
+                lattice_gsr
                 attrmvcp -copy -attr syn_useioff
                 opt_clean
         
@@ -448,7 +448,7 @@ synth_ecp5 - synthesis for ECP5 FPGAs
         
             map_cells:
                 techmap -map +/ecp5/cells_map.v    (skip if -vpr)
-                opt_lut_ins -tech ecp5
+                opt_lut_ins -tech lattice
                 clean
         
             check:

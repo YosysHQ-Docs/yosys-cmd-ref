@@ -1,0 +1,35 @@
+digraph "cmos_demo" {
+label="cmos_demo";
+rankdir="LR";
+remincross=true;
+n4 [ shape=octagon, label="a", color="black", fontcolor="black" ];
+n5 [ shape=octagon, label="b", color="black", fontcolor="black" ];
+n6 [ shape=octagon, label="y", color="black", fontcolor="black" ];
+c9 [ shape=record, label="{{<p7> A|<p8> Y}|$109\nNOT|{}}",  ];
+c10 [ shape=record, label="{{<p7> A|<p8> Y}|$110\nNOT|{}}",  ];
+c12 [ shape=record, label="{{<p7> A|<p11> B|<p8> Y}|$111\nNOR|{}}",  ];
+x0 [ shape=record, style=rounded, label="<s0> 1:1 - 0:0 ", color="black", fontcolor="black" ];
+x0:e -> c12:p8:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", fontcolor="black", label=""];
+c13 [ shape=record, label="{{<p7> A|<p11> B|<p8> Y}|$112\nNOR|{}}",  ];
+c14 [ shape=record, label="{{<p7> A|<p11> B|<p8> Y}|$113\nNOR|{}}",  ];
+x1 [ shape=record, style=rounded, label="<s0> 1:1 - 0:0 ", color="black", fontcolor="black" ];
+x1:e -> c14:p7:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", fontcolor="black", label=""];
+x2 [ shape=record, style=rounded, label="<s0> 0:0 - 0:0 ", color="black", fontcolor="black" ];
+x2:e -> c14:p8:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", fontcolor="black", label=""];
+n1 [ shape=diamond, label="$new_n5" ];
+n1:e -> c12:p7:w [color="black", fontcolor="black", label=""];
+n1:e -> c9:p8:w [color="black", fontcolor="black", label=""];
+n2 [ shape=diamond, label="$new_n6" ];
+n2:e -> c10:p8:w [color="black", fontcolor="black", label=""];
+n2:e -> c12:p11:w [color="black", fontcolor="black", label=""];
+n3 [ shape=diamond, label="$new_n8" ];
+n3:e -> c13:p8:w [color="black", fontcolor="black", label=""];
+n3:e -> c14:p11:w [color="black", fontcolor="black", label=""];
+n4:e -> c13:p7:w [color="black", fontcolor="black", label=""];
+n4:e -> c9:p7:w [color="black", fontcolor="black", label=""];
+n5:e -> c10:p7:w [color="black", fontcolor="black", label=""];
+n5:e -> c13:p11:w [color="black", fontcolor="black", label=""];
+n6:e -> x0:s0:w [color="black", fontcolor="black", label=""];
+n6:e -> x1:s0:w [color="black", fontcolor="black", label=""];
+n6:e -> x2:s0:w [color="black", fontcolor="black", label=""];
+}

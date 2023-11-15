@@ -1,0 +1,14 @@
+PROGRAM_PREFIX :=
+
+YOSYS ?= ../../../../$(PROGRAM_PREFIX)yosys
+
+DOTS = counter_00.dot counter_01.dot counter_02.dot counter_03.dot
+
+dots: $(DOTS)
+
+$(DOTS): counter.v counter_outputs.ys mycells.lib
+	$(YOSYS) counter_outputs.ys
+
+.PHONY: clean
+clean:
+	rm -f *.dot

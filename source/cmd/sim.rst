@@ -159,6 +159,15 @@ sim - simulate the circuit
 
     .. code:: yoscrypt
 
+        -noinitstate
+
+    ::
+
+            do not activate $initstate cells during the first cycle
+
+
+    .. code:: yoscrypt
+
         -a
 
     ::
@@ -287,6 +296,16 @@ sim - simulate the circuit
 
     .. code:: yoscrypt
 
+        -assert
+
+    ::
+
+            fail the simulation command if, in the course of simulating,
+            any of the asserts in the design fail
+
+
+    .. code:: yoscrypt
+
         -q
 
     ::
@@ -362,6 +381,9 @@ sim - simulate the circuit
             -n <integer>
                 number of clock cycles to simulate (default: 20)
         
+            -noinitstate
+                do not activate $initstate cells during the first cycle
+        
             -a
                 use all nets in VCD/FST operations, not just those with public names
         
@@ -405,6 +427,10 @@ sim - simulate the circuit
         
             -sim-gate
                 co-simulation, x in FST can match any value in simulation
+        
+            -assert
+                fail the simulation command if, in the course of simulating,
+                any of the asserts in the design fail
         
             -q
                 disable per-cycle/sample log message

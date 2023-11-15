@@ -18,9 +18,9 @@ A simple circuit
 :numref:`example_v` below provides the Verilog code for a simple circuit which
 we will use to demonstrate the usage of :cmd:ref:`show` in a simple setting.
 
-.. literalinclude:: /APPNOTE_011_Design_Investigation/example.v
+.. literalinclude:: /code_examples/show/example.v
    :language: Verilog
-   :caption: ``docs/source/APPNOTE_011_Design_Investigation/example.v``
+   :caption: ``docs/source/code_examples/show/example.v``
    :name: example_v
 
 The Yosys synthesis script we will be running is included as
@@ -31,7 +31,7 @@ interactive shell to further investigate the circuit before continuing
 synthesis.
 
 .. code-block:: yoscrypt
-   :caption: ``docs/source/APPNOTE_011_Design_Investigation/example.ys``
+   :caption: ``docs/source/code_examples/show/example.ys``
    :name: example_ys
    
    read_verilog example.v
@@ -45,7 +45,7 @@ This script, when executed, will show the design after each of the three
 synthesis commands. We will now look at each of these diagrams and explain what
 is shown.
 
-.. figure:: /_images/011/example_00.*
+.. figure:: /_images/code_examples/show/example_00.*
    :class: width-helper
    
    Output of the first :cmd:ref:`show` command in :numref:`example_ys`
@@ -77,7 +77,7 @@ original ``always``-block in the second line. Note how the multiplexer from the
 The :cmd:ref:`proc` command transforms the process from the first diagram into a
 multiplexer and a d-type flip-flop, which brings us to the second diagram:
 
-.. figure:: /_images/011/example_01.*
+.. figure:: /_images/code_examples/show/example_01.*
    :class: width-helper
    
    Output of the second :cmd:ref:`show` command in :numref:`example_ys`
@@ -99,7 +99,7 @@ call :cmd:ref:`clean` before calling :cmd:ref:`show`.
 In this script we directly call :cmd:ref:`opt` as the next step, which finally
 leads us to the third diagram: 
 
-.. figure:: /_images/011/example_02.*
+.. figure:: /_images/code_examples/show/example_02.*
    :class: width-helper
    :name: example_out
    
@@ -115,8 +115,8 @@ Break-out boxes for signal vectors
 The code listing below shows a simple circuit which uses a lot of spliced signal
 accesses.
 
-.. literalinclude:: /APPNOTE_011_Design_Investigation/splice.v
-   :caption: ``splice.v``
+.. literalinclude:: /code_examples/show/splice.v
+   :caption: ``docs/source/code_examples/show/splice.v``
    :name: splice_src
 
 Notice how the output for this circuit from the :cmd:ref:`show` command
@@ -126,11 +126,11 @@ native objects. While this provides great advantages when analyzing circuits
 that operate on wide integers, it also introduces some additional complexity
 when the individual bits of of a signal vector are accessed.
 
-.. figure:: /_images/011/splice.*
+.. figure:: /_images/code_examples/show/splice.*
    :class: width-helper
    :name: splice_dia
 
-   Output of ``yosys -p 'proc; opt; show' splice.v``
+   Output of ``yosys -p 'prep -top splice_demo; show' splice.v``
 
 The key elements in understanding this circuit diagram are of course the boxes
 with round corners and rows labeled ``<MSB_LEFT>:<LSB_LEFT> -
@@ -152,14 +152,21 @@ Gate level netlists
 ^^^^^^^^^^^^^^^^^^^
 
 :numref:`first_pitfall` shows two common pitfalls when working with designs
-mapped to a cell library: 
+mapped to a cell library:
 
-.. figure:: /_images/011/cmos_00.*
+.. figure:: /_images/code_examples/show/cmos_00.*
    :class: width-helper
    :name: first_pitfall
 
    A half-adder built from simple CMOS gates, demonstrating common pitfalls when 
    using :cmd:ref:`show`
+
+.. literalinclude:: /code_examples/show/cmos.ys
+   :language: yoscrypt
+   :start-after: pitfall
+   :end-at: cmos_00
+   :name: pitfall_code
+   :caption: Generating :numref:`first_pitfall`
    
 First, Yosys did not have access to the cell library when this diagram was
 generated, resulting in all cell ports defaulting to being inputs. This is why
@@ -167,12 +174,19 @@ all ports are drawn on the left side the cells are awkwardly arranged in a large
 column. Secondly the two-bit vector ``y`` requires breakout-boxes for its
 individual bits, resulting in an unnecessary complex diagram.
 
-.. figure:: /_images/011/cmos_01.*
+.. figure:: /_images/code_examples/show/cmos_01.*
    :class: width-helper
    :name: second_pitfall
 
    Effects of :cmd:ref:`splitnets` command and of providing a cell library on 
    design in :numref:`first_pitfall`
+
+.. literalinclude:: /code_examples/show/cmos.ys
+   :language: yoscrypt
+   :start-after: fixed
+   :end-at: cmos_01
+   :name: pitfall_avoided
+   :caption: Generating :numref:`second_pitfall`
 
 For :numref:`second_pitfall`, Yosys has been given a description of the cell
 library as Verilog file containing blackbox modules. There are two ways to load
@@ -341,25 +355,19 @@ a submodule. This has applications in synthesis scripts as well as in reverse
 engineering and analysis.  An example using :cmd:ref:`submod` is shown below for
 reorganizing a module in Yosys and checking the resulting circuit.
 
-.. literalinclude:: ../../../resources/PRESENTATION_ExOth/scrambler.v
+.. literalinclude:: /code_examples/scrambler/scrambler.v
    :language: verilog
-   :caption: ``docs/resources/PRESENTATION_ExOth/scrambler.v``
+   :caption: ``docs/source/code_examples/scrambler/scrambler.v``
 
-.. code:: yoscrypt
+.. literalinclude:: /code_examples/scrambler/scrambler.ys
+   :language: yoscrypt
+   :caption: ``docs/source/code_examples/scrambler/scrambler.ys``
+   :end-before: cd ..
 
-    read_verilog scrambler.v
-
-    hierarchy; proc;;
-
-    cd scrambler
-    submod -name xorshift32 \
-            xs %c %ci %D %c %ci:+[D] %D \
-            %ci*:-$dff xs %co %ci %d
-
-.. figure:: /_images/res/PRESENTATION_ExOth/scrambler_p01.*
+.. figure:: /_images/code_examples/scrambler/scrambler_p01.*
     :class: width-helper
 
-.. figure:: /_images/res/PRESENTATION_ExOth/scrambler_p02.*
+.. figure:: /_images/code_examples/scrambler/scrambler_p02.*
     :class: width-helper
 
 Analyzing the resulting circuit with :doc:`/cmd/eval`:
@@ -416,7 +424,7 @@ Yosys script for ASIC synthesis of the Amber ARMv2 CPU.
             if (ARST)
                 Q <= ARST_VALUE;
             else
-                <= D;
+                Q <= D;
 
     endmodule
 
@@ -436,7 +444,7 @@ if the circuit under investigation is encapsulated in a separate module.
 
 Recall the ``memdemo`` design from :ref:`advanced_logic_cones`:
 
-.. figure:: /_images/011/memdemo_00.*
+.. figure:: /_images/code_examples/selections/memdemo_00.*
    :class: width-helper
    
    ``memdemo``
@@ -446,33 +454,29 @@ smaller parts for viewing and working with.  :numref:`submod` does exactly that,
 utilising the :cmd:ref:`submod` command to split the circuit into three
 sections: ``outstage``, ``selstage``, and ``scramble``.
 
-.. code-block:: yoscrypt
-   :caption: The circuit from ``memdemo.v`` broken up using :cmd:ref:`submod`
+.. literalinclude:: /code_examples/selections/submod.ys
+   :language: yoscrypt
+   :caption: Using :cmd:ref:`submod` to break up the circuit from ``memdemo.v``
+   :start-after: cd memdemo
+   :end-at: @selstage
    :name: submod
-
-   select -set outstage y %ci2:+$dff[Q,D] %ci*:-$mux[S]:-$dff
-   select -set selstage y %ci2:+$dff[Q,D] %ci*:-$dff @outstage %d
-   select -set scramble mem* %ci2 %ci*:-$dff mem* %d @selstage %d
-   submod -name scramble @scramble
-   submod -name outstage @outstage
-   submod -name selstage @selstage
 
 The ``-name`` option is used to specify the name of the new module and also the
 name of the new cell in the current module. The resulting circuits are shown
 below.
 
-.. figure:: /_images/011/submod_02.*
+.. figure:: /_images/code_examples/selections/submod_02.*
    :class: width-helper
    
    ``outstage``
 
-.. figure:: /_images/011/submod_03.*
+.. figure:: /_images/code_examples/selections/submod_03.*
    :class: width-helper
    :name: selstage
    
    ``selstage``
 
-.. figure:: /_images/011/submod_01.*
+.. figure:: /_images/code_examples/selections/submod_01.*
    :class: width-helper
    
    ``scramble``
@@ -584,7 +588,7 @@ value using the ``-set`` option. (Such a circuit that contains the circuit under
 test plus additional constraint checking circuitry is called a ``miter``
 circuit.)
 
-.. literalinclude:: /APPNOTE_011_Design_Investigation/primetest.v
+.. literalinclude:: /code_examples/primetest.v
    :language: verilog
    :caption: ``primetest.v``, a simple miter circuit for testing if a number is
              prime. But it has a problem.
