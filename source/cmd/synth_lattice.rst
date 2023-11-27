@@ -251,6 +251,7 @@ synth_lattice - synthesis for Lattice FPGAs
                 techmap -map +/cmp2lut.v -D LUT_WIDTH=4
                 opt_expr
                 opt_clean
+                booth    (only if '-family xo3')
                 alumacc
                 opt
                 memory -nomap [-no-rw-check]
@@ -424,6 +425,7 @@ synth_lattice - synthesis for Lattice FPGAs
                 techmap -map +/cmp2lut.v -D LUT_WIDTH=4
                 opt_expr
                 opt_clean
+                booth    (only if '-family xo3')
                 alumacc
                 opt
                 memory -nomap [-no-rw-check]
