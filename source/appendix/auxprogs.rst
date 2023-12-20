@@ -9,7 +9,7 @@ yosys-config
 
 The ``yosys-config`` tool (an auto-generated shell-script) can be used to query
 compiler options and other information needed for building loadable modules for
-Yosys. See :doc:`/yosys_internals/extensions` for details.
+Yosys. See :doc:`/yosys_internals/extending_yosys/extensions` for details.
 
 .. literalinclude:: /temp/yosys-config
     :start-at: Usage
@@ -19,7 +19,7 @@ Yosys. See :doc:`/yosys_internals/extensions` for details.
 yosys-filterlib
 ---------------
 
-.. todo:: how does a filterlib rules-file work?  is this still supported?
+.. todo:: how does a filterlib rules-file work?
 
 The ``yosys-filterlib`` tool is a small utility that can be used to strip or
 extract information from a Liberty file.  This can be useful for removing

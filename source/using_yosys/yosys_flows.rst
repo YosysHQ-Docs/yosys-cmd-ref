@@ -4,7 +4,7 @@ Flows, command types, and order
 Command order
 -------------
 
-.. todo:: check text is coherent
+.. TODO:: check text is coherent
 
 Intro to coarse-grain synthesis
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -278,7 +278,9 @@ Checking.
 Checking techmap
 ~~~~~~~~~~~~~~~~
 
-.. todo:: add/expand supporting text, reference no longer exists
+.. todo:: add/expand supporting text
+
+.. TODO:: reference no longer exists
 
 Remember the following example from :doc:`/getting_started/typical_phases`?
 

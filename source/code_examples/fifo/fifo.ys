@@ -1,0 +1,106 @@
+# ========================================================
+# throw in some extra text to match what we expect if we were opening an
+# interactive terminal
+log $ yosys fifo.v
+log 
+log -- Parsing `fifo.v' using frontend ` -vlog2k' --
+read_verilog -defer fifo.v
+
+# turn command echoes on to use the log output as a console session
+echo on
+hierarchy -top addr_gen
+select -set new_cells t:*
+show -color maroon3 @new_cells -notitle -format dot -prefix addr_gen_hier
+
+# ========================================================
+proc
+select -set new_cells t:$mux t:*dff
+show -color maroon3 @new_cells -notitle -format dot -prefix addr_gen_proc
+
+# ========================================================
+opt_clean
+show -notitle -format dot -prefix addr_gen_clean
+
+# ========================================================
+design -reset
+read_verilog fifo.v
+hierarchy -check -top fifo
+proc
+show -color maroon3 c:fifo_reader -notitle -format dot -prefix rdata_proc o:rdata %ci*
+
+# ========================================================
+
+flatten;;
+show -notitle -format dot -prefix rdata_flat o:rdata %ci*
+
+# ========================================================
+
+opt_dff
+select -set new_cells t:$adffe
+show -color maroon3 @new_cells -notitle -format dot -prefix rdata_adffe o:rdata %ci*
+
+# ========================================================
+
+memory_dff
+select -set new_cells t:$memrd_v2
+show -color maroon3 @new_cells -notitle -format dot -prefix rdata_memrdv2 o:rdata %ci*
+
+# ========================================================
+
+alumacc
+select -set new_cells t:$alu t:$macc
+show -color maroon3 @new_cells -notitle -format dot -prefix rdata_alumacc o:rdata %ci*
+
+# ========================================================
+
+design -reset
+read_verilog fifo.v
+synth_ice40 -top fifo -run begin:map_ram
+select -set new_cells t:$mem_v2
+select -set rdata_path @new_cells %ci*:-$mem_v2[WR_DATA,WR_ADDR,WR_EN] @new_cells %co* %%
+show -color maroon3 @new_cells -notitle -format dot -prefix rdata_coarse @rdata_path
+
+# turn command echoes off to avoid randomly generated abc file names
+echo off
+
+# ========================================================
+
+synth_ice40 -top fifo -run map_ram:map_ffram
+select -set new_cells t:SB_RAM40_4K
+select -set rdata_path @new_cells %ci*:-SB_RAM40_4K[WDATA,WADDR,WE] @new_cells %co* %%
+show -color maroon3 @new_cells -notitle -format dot -prefix rdata_map_ram @rdata_path
+
+# ========================================================
+
+synth_ice40 -top fifo -run map_ffram:map_gates
+select -set new_cells t:SB_RAM40_4K
+select -set rdata_path @new_cells %ci*:-SB_RAM40_4K[WDATA,WADDR,WE] @new_cells %co* %%
+show -color maroon3 @new_cells -notitle -format dot -prefix rdata_map_ffram @rdata_path
+
+# ========================================================
+
+synth_ice40 -top fifo -run map_gates:map_ffs
+select -set new_cells t:SB_RAM40_4K
+select -set rdata_path @new_cells %ci*:-SB_RAM40_4K[WDATA,WADDR,WE] @new_cells %co* %%
+show -color maroon3 @new_cells -notitle -format dot -prefix rdata_map_gates @rdata_path
+
+# ========================================================
+
+synth_ice40 -top fifo -run map_ffs:map_luts
+select -set new_cells t:SB_RAM40_4K
+select -set rdata_path @new_cells %ci*:-SB_RAM40_4K[WDATA,WADDR,WE] @new_cells %co* %%
+show -color maroon3 @new_cells -notitle -format dot -prefix rdata_map_ffs @rdata_path
+
+# ========================================================
+
+synth_ice40 -top fifo -run map_luts:map_cells
+select -set new_cells t:SB_RAM40_4K
+select -set rdata_path @new_cells %ci*:-SB_RAM40_4K[WDATA,WADDR,WE] @new_cells %co* %%
+show -color maroon3 @new_cells -notitle -format dot -prefix rdata_map_luts @rdata_path
+
+# ========================================================
+
+synth_ice40 -top fifo -run map_cells:
+select -set new_cells t:SB_RAM40_4K
+select -set rdata_path @new_cells %ci*:-SB_RAM40_4K[WDATA,WADDR,WE] @new_cells %co* %%
+show -color maroon3 @new_cells -notitle -format dot -prefix rdata_map_cells @rdata_path

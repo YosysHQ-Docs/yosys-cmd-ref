@@ -1,0 +1,32 @@
+digraph "addr_gen" {
+rankdir="LR";
+remincross=true;
+n5 [ shape=octagon, label="addr", color="black", fontcolor="black" ];
+n6 [ shape=octagon, label="clk", color="black", fontcolor="black" ];
+n7 [ shape=octagon, label="en", color="black", fontcolor="black" ];
+n8 [ shape=octagon, label="rst", color="black", fontcolor="black" ];
+v0 [ label="1" ];
+c12 [ shape=record, label="{{<p9> A|<p10> B}|$3\n$add|{<p11> Y}}",  ];
+v1 [ label="8'11111111" ];
+c13 [ shape=record, label="{{<p9> A|<p10> B}|$2\n$eq|{<p11> Y}}",  ];
+c18 [ shape=record, label="{{<p14> ARST|<p15> CLK|<p16> D}|$10\n$adff|{<p17> Q}}",  ];
+v3 [ label="8'00000000" ];
+c20 [ shape=record, label="{{<p9> A|<p10> B|<p19> S}|$6\n$mux|{<p11> Y}}",  ];
+x2 [ shape=record, style=rounded, label="<s0> 7:0 - 7:0 ", color="black", fontcolor="black" ];
+x2:e -> c20:p9:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+c21 [ shape=record, label="{{<p9> A|<p10> B|<p19> S}|$8\n$mux|{<p11> Y}}",  ];
+c21:p11:e -> c18:p16:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+c12:p11:e -> x2:s0:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+c13:p11:e -> c20:p19:w [color="black", fontcolor="black", label=""];
+c20:p11:e -> c21:p10:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+c18:p17:e -> n5:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n5:e -> c12:p9:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n5:e -> c13:p9:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n5:e -> c21:p9:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n6:e -> c18:p15:w [color="black", fontcolor="black", label=""];
+n7:e -> c21:p19:w [color="black", fontcolor="black", label=""];
+n8:e -> c18:p14:w [color="black", fontcolor="black", label=""];
+v0:e -> c12:p10:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+v1:e -> c13:p10:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+v3:e -> c20:p10:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+}
