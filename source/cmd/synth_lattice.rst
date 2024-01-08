@@ -213,6 +213,16 @@ synth_lattice - synthesis for Lattice FPGAs
             attribute on all memories).
 
 
+    .. code:: yoscrypt
+
+        -cmp2softlogic
+
+    ::
+
+            implement constant comparisons in soft logic, do not involve
+            hard carry chains
+
+
 
     ::
 
@@ -240,6 +250,7 @@ synth_lattice - synthesis for Lattice FPGAs
                 techmap -map +/cmp2lut.v -D LUT_WIDTH=4
                 opt_expr
                 opt_clean
+                booth    (only if '-family xo3')
                 alumacc
                 opt
                 memory -nomap [-no-rw-check]
@@ -252,7 +263,7 @@ synth_lattice - synthesis for Lattice FPGAs
             map_ffram:
                 opt -fast -mux_undef -undriven -fine
                 memory_map
-                opt -undriven -fine
+                opt -undriven -fine -mux_undef
 
             map_gates:
                 techmap -map +/techmap.v -map +/lattice/arith_map.v
@@ -265,6 +276,7 @@ synth_lattice - synthesis for Lattice FPGAs
             map_ffs:
                 opt_clean
                 dfflegalize -cell $_DFF_?_ 01 -cell $_DFF_?P?_ r -cell $_SDFF_?P?_ r [-cell $_DFFE_??_ 01 -cell $_DFFE_?P??_ r -cell $_SDFFE_?P??_ r] [-cell $_ALDFF_?P_ x -cell $_ALDFFE_?P?_ x] [-cell $_DLATCH_?_ x]    ($_ALDFF_*_ only if -asyncprld, $_DLATCH_* only if not -asyncprld, $_*DFFE_* only if not -nodffe)
+                opt_merge
                 zinit -all w:* t:$_DFF_?_ t:$_DFFE_??_ t:$_SDFF*    (only if -abc9 and -dff)
                 techmap -D NO_LUT -map +/lattice/cells_map.v
                 opt_expr -undriven -mux_undef
@@ -383,6 +395,10 @@ synth_lattice - synthesis for Lattice FPGAs
                 read/write collision" (same result as setting the no_rw_check
                 attribute on all memories).
         
+            -cmp2softlogic
+                implement constant comparisons in soft logic, do not involve
+                hard carry chains
+        
         
         The following commands are executed by this synthesis command:
         
@@ -408,6 +424,7 @@ synth_lattice - synthesis for Lattice FPGAs
                 techmap -map +/cmp2lut.v -D LUT_WIDTH=4
                 opt_expr
                 opt_clean
+                booth    (only if '-family xo3')
                 alumacc
                 opt
                 memory -nomap [-no-rw-check]
@@ -420,7 +437,7 @@ synth_lattice - synthesis for Lattice FPGAs
             map_ffram:
                 opt -fast -mux_undef -undriven -fine
                 memory_map
-                opt -undriven -fine
+                opt -undriven -fine -mux_undef
         
             map_gates:
                 techmap -map +/techmap.v -map +/lattice/arith_map.v
@@ -433,6 +450,7 @@ synth_lattice - synthesis for Lattice FPGAs
             map_ffs:
                 opt_clean
                 dfflegalize -cell $_DFF_?_ 01 -cell $_DFF_?P?_ r -cell $_SDFF_?P?_ r [-cell $_DFFE_??_ 01 -cell $_DFFE_?P??_ r -cell $_SDFFE_?P??_ r] [-cell $_ALDFF_?P_ x -cell $_ALDFFE_?P?_ x] [-cell $_DLATCH_?_ x]    ($_ALDFF_*_ only if -asyncprld, $_DLATCH_* only if not -asyncprld, $_*DFFE_* only if not -nodffe)
+                opt_merge
                 zinit -all w:* t:$_DFF_?_ t:$_DFFE_??_ t:$_SDFF*    (only if -abc9 and -dff)
                 techmap -D NO_LUT -map +/lattice/cells_map.v
                 opt_expr -undriven -mux_undef

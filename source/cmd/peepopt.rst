@@ -30,6 +30,9 @@ peepopt - collection of peephole optimizers
                         Analogously, replace A<<(B*C) with appropriate selection of
                         output bits from A<<(B<<K). (left variant)
 
+           * shiftadd - Replace A>>(B+D) with (A'>>D)>>(B) where D is constant and
+                        A' is derived from A by padding or cutting inaccessible bits.
+
 .. raw:: latex
 
     \end{comment}
@@ -53,4 +56,7 @@ peepopt - collection of peephole optimizers
         
                         Analogously, replace A<<(B*C) with appropriate selection of
                         output bits from A<<(B<<K). (left variant)
+        
+           * shiftadd - Replace A>>(B+D) with (A'>>D)>>(B) where D is constant and
+                        A' is derived from A by padding or cutting inaccessible bits.
         

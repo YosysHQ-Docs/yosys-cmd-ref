@@ -149,25 +149,29 @@ each of these in more detail in :doc:`/using_yosys/synthesis/proc`.
    :doc:`/cmd/opt_expr`
 
    - by default called at the end of :cmd:ref:`proc`
+   - can be disabled with ``-noopt``
+   - done here for... reasons?
 
 Notice how in the top left of :ref:`addr_gen_proc` we have a floating wire,
 generated from the initial assignment of 0 to the ``addr`` wire.  However, this
 initial assignment is not synthesizable, so this will need to be cleaned up
 before we can generate the physical hardware.  We can do this now by calling
-:cmd:ref:`opt_clean`:
+:cmd:ref:`clean`:
 
 .. figure:: /_images/code_examples/fifo/addr_gen_clean.*
    :class: width-helper
    :name: addr_gen_clean
 
-   ``addr_gen`` module after :cmd:ref:`opt_clean`
+   ``addr_gen`` module after :cmd:ref:`clean`
 
-.. TODO:: more on opt_clean
-   :doc:`/cmd/opt_clean`
+.. note::
 
-   - :cmd:ref:`clean` for short, ``;;`` for even shorter
-   - final command of :cmd:ref:`opt`
-   - can run at any time
+   :doc:`/cmd/clean` can also be called with two semicolons after any command,
+   for example we could have called :yoscrypt:`proc;;` instead of
+   :yoscrypt:`proc` and then :yoscrypt:`clean`.  It is generally beneficial to
+   run :cmd:ref:`clean` after each command as a quick way of removing
+   disconnected parts of the circuit which have been left over.  You may notice
+   some scripts will end each line with ``;;``.
 
 .. todo:: consider a brief glossary for terms like adff
 
@@ -231,11 +235,15 @@ command only works with a single module, so you may need to call it with
 
 The highlighted ``fifo_reader`` block contains an instance of the
 :ref:`addr_gen_proc` that we looked at earlier.  Notice how the type is shown as
-``$paramod\\addr_gen\\MAX_DATA=s32'...``.  This is a "parametric module"; an
-instance of the ``addr_gen`` module with the ``MAX_DATA`` set to the given
-value.
+``$paramod\\addr_gen\\MAX_DATA=s32'...``.  This is a "parametric module": an
+instance of the ``addr_gen`` module with the ``MAX_DATA`` parameter set to the
+given value.
 
-.. TODO:: comment on ``$memrd``
+The other highlighted block is a ``$memrd`` cell.  At this stage of synthesis we
+don't yet know what type of memory is going to be implemented, but we *do* know
+that ``rdata <= data[raddr];`` could be implemented as a read from memory. Note
+that the ``$memrd`` cell here is asynchronous, with both the clock and enable
+signal undefined; shown with the ``1'x`` inputs.
 
 .. seealso:: Advanced usage docs for
    :doc:`/using_yosys/synthesis/proc`
@@ -261,7 +269,7 @@ optimizations between modules which would otherwise be missed.  Let's run
 .. literalinclude:: /code_examples/fifo/fifo.out
    :language: doscon
    :start-at: yosys> flatten
-   :end-before: yosys> show
+   :end-before: yosys> select
    :name: flat_clean
    :caption: output of :yoscrypt:`flatten;;`
 
@@ -271,16 +279,24 @@ optimizations between modules which would otherwise be missed.  Let's run
 
    ``rdata`` output after :yoscrypt:`flatten;;`
 
-We can now see both :ref:`rdata_proc` and :ref:`addr_gen_proc` together.  Note
-that in the :ref:`flat_clean` we see above has two separate calls: one to
-:cmd:ref:`flatten` and one to :cmd:ref:`clean`.  In an interactive terminal the
-output of both commands will be combined into the single `yosys> flatten;;`
-output.
+.. role:: yoterm(code)
+   :language: doscon
 
-Depending on the target architecture, we might also see commands such as
-:cmd:ref:`tribuf` with the ``-logic`` option and :cmd:ref:`deminout`.  These
-remove tristate and inout constructs respectively, replacing them with logic
-suitable for mapping to an FPGA.
+The pieces have moved around a bit, but we can see :ref:`addr_gen_proc` from
+earlier has replaced the ``fifo_reader`` block in :ref:`rdata_proc`.  We can
+also see that the ``addr`` output has been renamed to ``fifo_reader.addr`` and
+merged with the ``raddr`` wire feeding into the ``$memrd`` cell.  This wire
+merging happened during the call to :cmd:ref:`clean` which we can see in the
+:ref:`flat_clean`.  Note that in an interactive terminal the outputs of
+:cmd:ref:`flatten` and :cmd:ref:`clean` will be combined into a single
+:yoterm:`yosys> flatten;;` output.
+
+Depending on the target architecture, this stage of synthesis might also see
+commands such as :cmd:ref:`tribuf` with the ``-logic`` option and
+:cmd:ref:`deminout`.  These remove tristate and inout constructs respectively,
+replacing them with logic suitable for mapping to an FPGA.  Since we do not have
+any such constructs in our example running these commands does not change our
+design.
 
 The coarse-grain representation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -314,18 +330,18 @@ In the iCE40 flow, we start with the following commands:
    :caption: ``coarse`` section (part 1)
    :name: synth_coarse1
 
-The first few commands are relatively straightforward, and we've already come
-across :cmd:ref:`opt_clean` and :cmd:ref:`opt_expr`.  The :cmd:ref:`check` pass
-identifies a few obvious problems which will cause errors later.  Calling it
-here lets us fail faster rather than wasting time on something we know is
+We've already come across :cmd:ref:`opt_expr`, and :cmd:ref:`opt_clean` is the
+same as :cmd:ref:`clean` but with more verbose output.  The :cmd:ref:`check`
+pass identifies a few obvious problems which will cause errors later.  Calling
+it here lets us fail faster rather than wasting time on something we know is
 impossible.
 
 Next up is :yoscrypt:`opt -nodffe -nosdff` performing a set of simple
 optimizations on the design.  This command also ensures that only a specific
 subset of FF types are included, in preparation for the next command:
 :doc:`/cmd/fsm`.  Both :cmd:ref:`opt` and :cmd:ref:`fsm` are macro commands
-which are explored in more detail in :doc:`/using_yosys/synthesis/fsm` and
-:doc:`/using_yosys/synthesis/opt` respectively.
+which are explored in more detail in :doc:`/using_yosys/synthesis/opt` and
+:doc:`/using_yosys/synthesis/fsm` respectively.
 
 Up until now, the data path for ``rdata`` has remained the same since
 :ref:`rdata_flat`.  However the next call to :cmd:ref:`opt` does cause a change.
@@ -353,6 +369,8 @@ options is able to fold one of the ``$mux`` cells into the ``$adff`` to form an
 Part 2
 ^^^^^^
 
+The next group of commands performs a series of optimizations:
+
 .. literalinclude:: /cmd/synth_ice40.rst
    :language: yoscrypt
    :start-at: wreduce
@@ -361,12 +379,33 @@ Part 2
    :caption: ``coarse`` section (part 2)
    :name: synth_coarse2
 
-The next three (new) commands are :doc:`/cmd/wreduce`, :doc:`/cmd/peepopt`, and
-:doc:`/cmd/share`.  None of these affect our design either, so let's skip over
-them.  :yoscrypt:`techmap -map +/cmp2lut.v -D LUT_WIDTH=4` optimizes certain
-comparison operators by converting them to LUTs instead.  The usage of
-:cmd:ref:`techmap` is explored more in
-:doc:`/using_yosys/synthesis/techmap_synth`.
+First up is :doc:`/cmd/wreduce`.  If we run this we get the following:
+
+.. literalinclude:: /code_examples/fifo/fifo.out
+   :language: doscon
+   :start-at: yosys> wreduce
+   :end-before: yosys> select
+   :caption: output of :cmd:ref:`wreduce`
+
+Looking at the data path for ``rdata``, the most relevant of these width
+reductions are the ones affecting ``fifo.$flatten\fifo_reader.$add$fifo.v``.
+That is the ``$add`` cell incrementing the fifo_reader address.  We can look at
+the schematic and see the output of that cell has now changed.
+
+.. TODO:: pending bugfix in :cmd:ref:`wreduce` and/or :cmd:ref:`opt_clean`
+
+.. figure:: /_images/code_examples/fifo/rdata_wreduce.*
+   :class: width-helper
+   :name: rdata_wreduce
+
+   ``rdata`` output after :cmd:ref:`wreduce`
+
+The next two (new) commands are :doc:`/cmd/peepopt` and :doc:`/cmd/share`.
+Neither of these affect our design, and they're explored in more detail in
+:doc:`/using_yosys/synthesis/opt`, so let's skip over them.  :yoscrypt:`techmap
+-map +/cmp2lut.v -D LUT_WIDTH=4` optimizes certain comparison operators by
+converting them to LUTs instead.  The usage of :cmd:ref:`techmap` is explored
+more in :doc:`/using_yosys/synthesis/techmap_synth`.
 
 Our next command to run is
 :doc:`/cmd/memory_dff`.
@@ -384,7 +423,10 @@ Our next command to run is
    ``rdata`` output after :cmd:ref:`memory_dff`
 
 As the title suggests, :cmd:ref:`memory_dff` has merged the output ``$dff`` into
-the ``$memrd`` cell and converted it to a ``$memrd_v2`` (highlighted).
+the ``$memrd`` cell and converted it to a ``$memrd_v2`` (highlighted).  This has
+also connected the ``CLK`` port to the ``clk`` input as it is now a synchronous
+memory read with appropriate enable (``EN=1'1``) and reset (``ARST=1'0`` and
+``SRST=1'0``) inputs.
 
 .. seealso:: Advanced usage docs for
    
@@ -396,7 +438,11 @@ Part 3
 ^^^^^^
 
 The third part of the :cmd:ref:`synth_ice40` flow is a series of commands for
-mapping to DSPs.
+mapping to DSPs.  By default, the iCE40 flow will not map to the hardware DSP
+blocks and will only be performed if called with the ``-dsp`` flag:
+:yoscrypt:`synth_ice40 -dsp`.  While our example has nothing that could be
+mapped to DSPs we can still take a quick look at the commands here and describe
+what they do.
 
 .. literalinclude:: /cmd/synth_ice40.rst
    :language: yoscrypt
@@ -406,7 +452,28 @@ mapping to DSPs.
    :caption: ``coarse`` section (part 3)
    :name: synth_coarse3
 
-.. TODO:: more on DSP mapping
+:yoscrypt:`wreduce t:$mul` performs width reduction again, this time targetting
+only cells of type ``$mul``.  :yoscrypt:`techmap -map +/mul2dsp.v -map
++/ice40/dsp_map.v ... -D DSP_NAME=$__MUL16X16` uses :cmd:ref:`techmap` to map
+``$mul`` cells to ``$__MUL16X16`` which are, in turn, mapped to the iCE40
+``SB_MAC16``.  Any multipliers which aren't compatible with conversion to
+``$__MUL16X16`` are relabelled to ``$__soft_mul`` before :cmd:ref:`chtype`
+changes them back to ``$mul``.
+
+During the mul2dsp conversion, some of the intermediate signals are marked with
+the attribute ``mul2dsp``.  By calling :yoscrypt:`select a:mul2dsp` we restrict
+the following commands to only operate on the cells and wires used for these
+signals.  :cmd:ref:`setattr` removes the now unnecessary ``mul2dsp`` attribute.
+:cmd:ref:`opt_expr` we've already come across for const folding and simple
+expression rewriting, the ``-fine`` option just enables more fine-grain
+optimizations.  Then we perform width reduction a final time and clear the
+selection.
+
+Finally we have :cmd:ref:`ice40_dsp`: similar to the :cmd:ref:`memory_dff`
+command we saw in the previous section, this merges any surrounding registers
+into the ``SB_MAC16`` cell.  This includes not just the input/output registers,
+but also pipeline registers and even a post-adder where applicable: turning a
+multiply + add into a single multiply-accumulate.
 
 .. seealso:: Advanced usage docs for
    :doc:`/using_yosys/synthesis/techmap_synth`
@@ -441,19 +508,38 @@ see produce the following changes in our example design:
 
    ``rdata`` output after :cmd:ref:`alumacc`
 
-.. TODO:: discuss :cmd:ref:`memory_collect` and ``$mem_v2``
+The other new command in this part is :doc:`/cmd/memory`.  :cmd:ref:`memory` is
+another macro command which we examine in more detail in
+:doc:`/using_yosys/synthesis/memory`.  For this document, let us focus just on
+the step most relevant to our example: :cmd:ref:`memory_collect`. Up until this
+point, our memory reads and our memory writes have been totally disjoint cells;
+operating on the same memory only in the abstract. :cmd:ref:`memory_collect`
+combines all of the reads and writes for a memory block into a single cell.
 
 .. figure:: /_images/code_examples/fifo/rdata_coarse.*
    :class: width-helper
    :name: rdata_coarse
 
-   ``rdata`` output after :yoscrypt:`memory -nomap`
+   ``rdata`` output after :cmd:ref:`memory_collect`
 
-We could also have gotten here by running :yoscrypt:`synth_ice40 -top fifo -run
-begin:map_ram` after loading the design.
+Looking at the schematic after running :cmd:ref:`memory_collect` we see that our
+``$memrd_v2`` cell has been replaced with a ``$mem_v2`` cell named ``data``, the
+same name that we used in :ref:`fifo-v`. Where before we had a single set of
+signals for address and enable, we now have one set for reading (``RD_*``) and
+one for writing (``WR_*``), as well as both ``WR_DATA`` input and ``RD_DATA``
+output.
 
 .. seealso:: Advanced usage docs for
    :doc:`/using_yosys/synthesis/memory`
+
+Final note
+^^^^^^^^^^
+
+Having now reached the end of the the coarse-grain representation, we could also
+have gotten here by running :yoscrypt:`synth_ice40 -top fifo -run :map_ram`
+after loading the design.  The :yoscrypt:`-run <from_label>:<to_label>` option
+with an empty ``<from_label>`` starts from the :ref:`synth_begin`, while the
+``<to_label>`` runs up to but including the :ref:`map_ram`.
 
 Hardware mapping
 ~~~~~~~~~~~~~~~~
@@ -467,8 +553,6 @@ Memory blocks
 
 Mapping to hard memory blocks uses a combination of :cmd:ref:`memory_libmap`,
 :cmd:ref:`memory_map`, and :cmd:ref:`techmap`.
-
-.. TODO:: ``$mem_v2`` -> ``SB_RAM40_4K``
 
 .. literalinclude:: /cmd/synth_ice40.rst
    :language: yoscrypt
@@ -484,6 +568,16 @@ Mapping to hard memory blocks uses a combination of :cmd:ref:`memory_libmap`,
 
    ``rdata`` output after :ref:`map_ram`
 
+:ref:`map_ram` converts the generic ``$mem_v2`` into the iCE40 ``SB_RAM40_4K``
+(highlighted). We can also see the memory address has been remapped, and the
+data bits have been reordered (or swizzled).  There is also now a ``$mux`` cell
+controlling the value of ``rdata``.  In :ref:`fifo-v` we wrote our memory as
+read-before-write, however the ``SB_RAM40_4K`` has undefined behaviour when
+reading from and writing to the same address in the same cycle.  As a result,
+extra logic is added so that the generated circuit matches the behaviour of the
+verilog.  :ref:`no_rw_check` describes how we could change our verilog to match
+our hardware instead.
+
 .. literalinclude:: /cmd/synth_ice40.rst
    :language: yoscrypt
    :start-after: map_ffram:
@@ -498,6 +592,8 @@ Mapping to hard memory blocks uses a combination of :cmd:ref:`memory_libmap`,
 
    ``rdata`` output after :ref:`map_ffram`
 
+.. TODO:: what even is this opt output
+
 .. seealso:: Advanced usage docs for
    
    - :doc:`/using_yosys/synthesis/techmap_synth`
@@ -506,9 +602,11 @@ Mapping to hard memory blocks uses a combination of :cmd:ref:`memory_libmap`,
 Arithmetic
 ^^^^^^^^^^
 
-Uses :cmd:ref:`techmap`.
-
-.. TODO:: example_synth/Arithmetic
+Uses :cmd:ref:`techmap` to map basic arithmetic logic to hardware.  This sees
+somewhat of an explosion in cells as multi-bit ``$mux`` and ``$adffe`` are
+replaced with single-bit ``$_MUX_`` and ``$_DFFE_PP0P_`` cells, while the
+``$alu`` is replaced with primitive ``$_OR_`` and ``$_NOT_`` gates and a
+``$lut`` cell.
 
 .. literalinclude:: /cmd/synth_ice40.rst
    :language: yoscrypt
@@ -531,9 +629,13 @@ Flip-flops
 ^^^^^^^^^^
 
 Convert FFs to the types supported in hardware with :cmd:ref:`dfflegalize`, and
-then use :cmd:ref:`techmap` to map them.  We also run :cmd:ref:`simplemap` here
-to convert any remaining cells which could not be mapped to hardware into
-gate-level primitives.
+then use :cmd:ref:`techmap` to map them.  In our example, this converts the
+``$_DFFE_PP0P_`` cells to ``SB_DFFER``.
+
+We also run :cmd:ref:`simplemap` here to convert any remaining cells which could
+not be mapped to hardware into gate-level primitives.  This includes optimizing
+``$_MUX_`` cells where one of the inputs is a constant ``1'0``, replacing it
+instead with an ``$_AND_`` cell.
 
 .. literalinclude:: /cmd/synth_ice40.rst
    :language: yoscrypt
@@ -555,9 +657,10 @@ gate-level primitives.
 LUTs
 ^^^^
 
-:cmd:ref:`abc` and :cmd:ref:`techmap` are used to map LUTs.  Note that the iCE40
-flow uses :cmd:ref:`abc` rather than :cmd:ref:`abc9`.  For more on what these
-do, and what the difference between these two commands are, refer to
+:cmd:ref:`abc` and :cmd:ref:`techmap` are used to map LUTs; converting primitive
+cell types to use ``$lut`` and ``SB_CARRY`` cells.  Note that the iCE40 flow
+uses :cmd:ref:`abc9` rather than :cmd:ref:`abc`. For more on what these do, and
+what the difference between these two commands are, refer to
 :doc:`/using_yosys/synthesis/abc`.
 
 .. literalinclude:: /cmd/synth_ice40.rst
@@ -574,15 +677,8 @@ do, and what the difference between these two commands are, refer to
 
    ``rdata`` output after :ref:`map_luts`
 
-.. seealso:: Advanced usage docs for
-   
-   - :doc:`/using_yosys/synthesis/techmap_synth`
-   - :doc:`/using_yosys/synthesis/abc`
-
-Other cells
-^^^^^^^^^^^
-
-Seems to be wide LUTs into individual LUTs using :cmd:ref:`techmap`.
+Finally we use :cmd:ref:`techmap` to map the generic ``$lut`` cells to iCE40
+``SB_LUT4`` cells.
 
 .. literalinclude:: /cmd/synth_ice40.rst
    :language: yoscrypt
@@ -598,7 +694,15 @@ Seems to be wide LUTs into individual LUTs using :cmd:ref:`techmap`.
 
    ``rdata`` output after :ref:`map_cells`
 
-.. TODO:: example_synth other cells
+.. seealso:: Advanced usage docs for
+   
+   - :doc:`/using_yosys/synthesis/techmap_synth`
+   - :doc:`/using_yosys/synthesis/abc`
+
+Other cells
+^^^^^^^^^^^
+
+The following commands may also be used for mapping other cells:
 
 :cmd:ref:`hilomap`
     Some architectures require special driver cells for driving a constant hi or
@@ -609,8 +713,8 @@ Seems to be wide LUTs into individual LUTs using :cmd:ref:`techmap`.
     Top-level input/outputs must usually be implemented using special I/O-pad
     cells. This command inserts such cells to the design.
 
-.. seealso:: Advanced usage docs for
-   :doc:`/yosys_internals/techmap`
+These commands tend to either be in the :ref:`map_cells` or after the
+:ref:`check` depending on the flow.
 
 Final steps
 ~~~~~~~~~~~~

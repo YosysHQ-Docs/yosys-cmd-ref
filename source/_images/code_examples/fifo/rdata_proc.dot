@@ -10,7 +10,7 @@ c10 [ shape=record, label="{{<p7> CLK|<p8> D}|$56\n$dff|{<p9> Q}}",  ];
 c13 [ shape=record, label="{{<p5> clk|<p11> en|<p4> rst}|fifo_reader\n$paramod&#9586;addr_gen&#9586;MAX_DATA=s32'00000000000000000000000100000000|{<p12> addr}}", color="maroon3", fontcolor="maroon3" ];
 v0 [ label="1'x" ];
 v1 [ label="1'x" ];
-c17 [ shape=record, label="{{<p14> ADDR|<p7> CLK|<p15> EN}|$23\n$memrd|{<p16> DATA}}",  ];
+c17 [ shape=record, label="{{<p14> ADDR|<p7> CLK|<p15> EN}|$23\n$memrd|{<p16> DATA}}", color="cornflowerblue", fontcolor="cornflowerblue" ];
 c17:p16:e -> c10:p8:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
 c13:p12:e -> n2:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
 n2:e -> c17:p14:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];

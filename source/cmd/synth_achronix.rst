@@ -1,5 +1,5 @@
 ===========================================================
-synth_achronix - synthesis for Acrhonix Speedster22i FPGAs.
+synth_achronix - synthesis for Achronix Speedster22i FPGAs.
 ===========================================================
 
 .. raw:: latex
@@ -7,7 +7,7 @@ synth_achronix - synthesis for Acrhonix Speedster22i FPGAs.
     \begin{comment}
 
 .. cmd:def:: synth_achronix
-    :title: synthesis for Acrhonix Speedster22i FPGAs.
+    :title: synthesis for Achronix Speedster22i FPGAs.
 
 
 

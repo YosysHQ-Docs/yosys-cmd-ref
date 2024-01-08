@@ -135,11 +135,11 @@ synth_gowin - synthesis for Gowin FPGAs
 
     .. code:: yoscrypt
 
-        -abc9
+        -noabc9
 
     ::
 
-            use new ABC9 flow (EXPERIMENTAL)
+            disable use of new ABC9 flow
 
 
     .. code:: yoscrypt
@@ -195,7 +195,8 @@ synth_gowin - synthesis for Gowin FPGAs
                 simplemap
 
             map_luts:
-                abc -lut 4:8
+                read_verilog -icells -lib -specify +/abc9_model.v
+                abc9 -maxlut 8 -W 500
                 clean
 
             map_cells:
@@ -271,8 +272,8 @@ synth_gowin - synthesis for Gowin FPGAs
             -noalu
                 do not use ALU cells
         
-            -abc9
-                use new ABC9 flow (EXPERIMENTAL)
+            -noabc9
+                disable use of new ABC9 flow
         
             -no-rw-check
                 marks all recognized read ports as "return don't-care value on
@@ -319,7 +320,8 @@ synth_gowin - synthesis for Gowin FPGAs
                 simplemap
         
             map_luts:
-                abc -lut 4:8
+                read_verilog -icells -lib -specify +/abc9_model.v
+                abc9 -maxlut 8 -W 500
                 clean
         
             map_cells:
