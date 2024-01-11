@@ -98,6 +98,16 @@ read_verilog - read modules from Verilog file
 
     .. code:: yoscrypt
 
+        -nodisplay
+
+    ::
+
+            suppress output from display system tasks ($display et. al).
+            This does not affect the output from a later 'sim' command.
+
+
+    .. code:: yoscrypt
+
         -debug
 
     ::
@@ -443,6 +453,10 @@ read_verilog - read modules from Verilog file
         
             -assert-assumes
                 treat all assume() statements like assert() statements
+        
+            -nodisplay
+                suppress output from display system tasks ($display et. al).
+                This does not affect the output from a later 'sim' command.
         
             -debug
                 alias for -dump_ast1 -dump_ast2 -dump_vlog1 -dump_vlog2 -yydebug
