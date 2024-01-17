@@ -33,6 +33,13 @@ opt_lut - optimize LUT cells
             the same constant.
 
 
+    ::
+
+        -tech ice40
+               treat the design as a LUT-mapped circuit for the iCE40 architecture
+               and preserve connections to SB_CARRY as appropriate
+
+
     .. code:: yoscrypt
 
         -limit N
@@ -59,6 +66,10 @@ opt_lut - optimize LUT cells
                 <cell-port> connected to LUT inputs <LUT-input>. this includes
                 the case where both LUT and dedicated logic input are connected to
                 the same constant.
+        
+        	-tech ice40
+                treat the design as a LUT-mapped circuit for the iCE40 architecture
+                and preserve connections to SB_CARRY as appropriate
         
             -limit N
                 only perform the first N combines, then stop. useful for debugging.
