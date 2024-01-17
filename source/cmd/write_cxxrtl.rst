@@ -68,7 +68,7 @@ write_cxxrtl - convert design to C++ RTL simulation
               value<8> p_i_data;
               wire<8> p_o_data;
 
-              bool eval() override;
+              bool eval(performer *performer) override;
               template<class ObserverT>
               bool commit(ObserverT &observer);
               bool commit() override;
@@ -83,11 +83,11 @@ write_cxxrtl - convert design to C++ RTL simulation
             namespace cxxrtl_design {
 
             struct stderr_debug : public bb_p_debug {
-              bool eval() override {
+              bool eval(performer *performer) override {
                 if (posedge_p_clk() && p_en)
                   fprintf(stderr, "debug: %02x\n", p_i_data.data[0]);
                 p_o_data.next = p_i_data;
-                return bb_p_debug::eval();
+                return bb_p_debug::eval(performer);
               }
             };
 
@@ -212,7 +212,7 @@ write_cxxrtl - convert design to C++ RTL simulation
 
             $print cells in the generated code direct their output to <stream>.
             must be one of "std::cout", "std::cerr". if not specified,
-            "std::cout" is used.
+            "std::cout" is used. explicitly provided performer overrides this.
 
 
     .. code:: yoscrypt
@@ -442,7 +442,7 @@ write_cxxrtl - convert design to C++ RTL simulation
               value<8> p_i_data;
               wire<8> p_o_data;
         
-              bool eval() override;
+              bool eval(performer *performer) override;
               template<class ObserverT>
               bool commit(ObserverT &observer);
               bool commit() override;
@@ -457,11 +457,11 @@ write_cxxrtl - convert design to C++ RTL simulation
             namespace cxxrtl_design {
         
             struct stderr_debug : public bb_p_debug {
-              bool eval() override {
+              bool eval(performer *performer) override {
                 if (posedge_p_clk() && p_en)
                   fprintf(stderr, "debug: %02x\n", p_i_data.data[0]);
                 p_o_data.next = p_i_data;
-                return bb_p_debug::eval();
+                return bb_p_debug::eval(performer);
               }
             };
         
@@ -562,7 +562,7 @@ write_cxxrtl - convert design to C++ RTL simulation
             -print-output <stream>
                 $print cells in the generated code direct their output to <stream>.
                 must be one of "std::cout", "std::cerr". if not specified,
-                "std::cout" is used.
+                "std::cout" is used. explicitly provided performer overrides this.
         
             -nohierarchy
                 use design hierarchy as-is. in most designs, a top module should be
