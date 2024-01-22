@@ -48,7 +48,7 @@ stat - print some statistics
 
     ::
 
-            print area estemate for the specified technology. Currently supported
+            print area estimate for the specified technology. Currently supported
             values for <technology>: xilinx, cmos
 
 
@@ -94,7 +94,7 @@ stat - print some statistics
                 use cell area information from the provided liberty file
         
             -tech <technology>
-                print area estemate for the specified technology. Currently supported
+                print area estimate for the specified technology. Currently supported
                 values for <technology>: xilinx, cmos
         
             -width
