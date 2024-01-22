@@ -1,165 +1,197 @@
 Scripting in Yosys
 ------------------
 
-.. TODO:: logical consistency, esp with example_synth
+On the previous page we went through a synthesis script, running each command in
+the interactive Yosys shell.  On this page, we will be introducing the script
+file format and how you can make your own synthesis scripts.
 
-Yosys reads and processes commands from synthesis scripts, command line
-arguments and an interactive command prompt. Yosys commands consist of a command
-name and an optional whitespace separated list of arguments. Commands are
-terminated using the newline character or a semicolon (;). Empty lines and lines
-starting with the hash sign (#) are ignored. Also see :doc:`example_synth`.
+Yosys script files typically use the ``.ys`` extension and contain a set of
+commands for Yosys to run sequentially.  These commands are the same ones we
+were using on the previous page like :cmd:ref:`read_verilog` and
+:cmd:ref:`hierarchy`.  As with the interactive shell, each command consists of
+the command name, and an optional whitespace separated list of arguments.
+Commands are terminated with the newline character, or by a semicolon (;).
+Empty lines, and lines starting with the hash sign (#), are ignored.
 
-The command :cmd:ref:`help` can be used to access the command reference manual,
-with ``help <command>`` providing details for a specific command.  ``yosys -H``
-or ``yosys -h <command>`` will do the same outside of an interactive prompt.
-The entire reference manual is also available here at :doc:`/cmd_ref`.
-
-Example commands
-~~~~~~~~~~~~~~~~
-
-Commands for design navigation and investigation:
-
-.. code-block:: yoscrypt
-
-    cd                   # a shortcut for 'select -module <name>'
-    ls                   # list modules or objects in modules
-    dump                 # print parts of the design in RTLIL format
-    show                 # generate schematics using graphviz
-    select               # modify and view the list of selected objects
-
-Commands for executing scripts or entering interactive mode:
-
-.. code-block:: yoscrypt
-
-    shell                # enter interactive command mode
-    history              # show last interactive commands
-    script               # execute commands from script file
-    tcl                  # execute a TCL script file
-
-Commands for reading and elaborating the design:
-
-.. code-block:: yoscrypt
-
-    read_rtlil           # read modules from RTLIL file
-    read_verilog         # read modules from Verilog file
-    hierarchy            # check, expand and clean up design hierarchy
-
-
-Commands for high-level synthesis:
-
-.. code-block:: yoscrypt
-
-    proc                 # translate processes to netlists
-    fsm                  # extract and optimize finite state machines
-    memory               # translate memories to basic cells
-    opt                  # perform simple optimizations
-
-
-Commands for technology mapping:
-
-.. code-block:: yoscrypt
-
-    techmap              # generic technology mapper
-    abc                  # use ABC for technology mapping
-    dfflibmap            # technology mapping of flip-flops
-    hilomap              # technology mapping of constant hi- and/or lo-drivers
-    iopadmap             # technology mapping of i/o pads (or buffers)
-    flatten              # flatten design
-
-Commands for writing the results:
-
-.. code-block:: yoscrypt
-
-    write_blif           # write design to BLIF file
-    write_btor           # write design to BTOR file
-    write_edif           # write design to EDIF netlist file
-    write_rtlil          # write design to RTLIL file
-    write_spice          # write design to SPICE netlist file
-    write_verilog        # write design to Verilog file
-
-
-Script-Commands for standard synthesis tasks:
-
-.. code-block:: yoscrypt
-
-    synth                # generic synthesis script
-    synth_xilinx         # synthesis for Xilinx FPGAs
-
-
-Commands for model checking:
-
-.. code-block:: yoscrypt
-
-    sat                  # solve a SAT problem in the circuit
-    miter                # automatically create a miter circuit
-    scc                  # detect strongly connected components (logic loops)
-
-Selections intro
-~~~~~~~~~~~~~~~~
-
-.. todo:: reorder text for logical consistency
-
-Most commands can operate not only on the entire design but also specifically on
-selected parts of the design. For example the command :cmd:ref:`dump` will print
-all selected objects in the current design while ``dump foobar`` will only print
-the module ``foobar`` and ``dump *`` will print the entire design regardless of
-the current selection.
-
-.. code:: yoscrypt
-
-	dump */t:$add %x:+[A] */w:* %i
-
-The selection mechanism is very powerful. For example the command above will
-print all wires that are connected to the ``\A`` port of a ``$add`` cell.
-Detailed documentation of the select framework can be found under
-:doc:`/using_yosys/more_scripting/selections` or in the command reference at
-:doc:`/cmd/select`.
-
-The show command
-~~~~~~~~~~~~~~~~
-
-The :cmd:ref:`show` command requires a working installation of `GraphViz`_ and
-`xdot`_ for generating the actual circuit diagrams.  Below is an example of how
-this command can be used, showing the changes in the generated circuit at
-different stages of the yosys tool flow.
-
-.. _GraphViz: http://www.graphviz.org/
-
-.. _xdot: https://github.com/jrfonseca/xdot.py
-
-.. literalinclude:: /code_examples/show/example.ys
-    :language: yoscrypt
-    :caption: docs/source/code_examples/show/example.ys
-
-.. literalinclude:: /code_examples/show/example.v
-    :language: Verilog
-    :caption: docs/source/code_examples/show/example.v
+The synthesis starter script
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. role:: yoscrypt(code)
    :language: yoscrypt
 
-.. figure:: /_images/code_examples/show/example_00.*
-   :class: width-helper
-   
-   ``example_00`` - shown after :yoscrypt:`read_verilog example.v`
+All of the images and console output used in
+:doc:`/getting_started/example_synth` were generated by Yosys, using Yosys
+script files found in ``docs/source/code_examples/fifo``. If you haven't
+already, let's take a look at some of those script files now.
 
-.. figure:: /_images/code_examples/show/example_01.*
-   :class: width-helper
-   
-   ``example_01`` - shown after :yoscrypt:`proc`
+.. literalinclude:: /code_examples/fifo/fifo.ys
+   :language: yoscrypt
+   :lineno-match:
+   :start-at: echo on
+   :end-before: design -reset
+   :caption: A section of ``fifo.ys``, generating the images used for :ref:`addr_gen_example`
+   :name: fifo-ys
 
-.. figure:: /_images/code_examples/show/example_02.*
-   :class: width-helper
-   
-   ``example_02`` - shown after :yoscrypt:`opt`
+The first command there, :yoscrypt:`echo on`, uses :cmd:ref:`echo` to enable
+command echoes on.  This is how we generated the code listing for
+:ref:`hierarchy_output`.  Turning command echoes on prints the ``yosys>
+hierarchy -top addr_gen`` line, making the output look the same as if it were an
+interactive terminal.  :yoscrypt:`hierarchy -top addr_gen` is of course the
+command we were demonstrating, including the output text and an image of the
+design schematic after running it.
 
-A circuit diagram is generated for the design in its current state. Various
-options can be used to change the appearance of the circuit diagram, set the
-name and format for the output file, and so forth. When called without any
-special options, it saves the circuit diagram in a temporary file and launches
-``xdot`` to display the diagram. Subsequent calls to show re-use the ``xdot``
-instance (if still running).
+We briefly touched on :cmd:ref:`select` when it came up in
+:cmd:ref:`synth_ice40`, but let's look at it more now.
 
-For more information on the :cmd:ref:`show` command, including a guide on what
-the different symbols represent, see :ref:`interactive_show` and the 
+.. _select_intro:
+
+Selections intro
+^^^^^^^^^^^^^^^^
+
+The :cmd:ref:`select` command is used to modify and view the list of selected
+objects:
+
+.. literalinclude:: /code_examples/fifo/fifo.out
+   :language: doscon
+   :start-at: yosys> select
+   :end-before: yosys> show
+
+When we call :yoscrypt:`select -module addr_gen` we are changing the currently
+active selection from the whole design, to just the ``addr_gen`` module.  Notice
+how this changes the ``yosys`` at the start of each command to ``yosys
+[addr_gen]``?  This indicates that any commands we run at this point will *only*
+operate on the ``addr_gen`` module.  When we then call :yoscrypt:`select -list`
+we get a list of all objects in the ``addr_gen`` module, including the module
+itself, as well as all of the wires, inputs, outputs, processes, and cells.
+
+Next we perform another selection, :yoscrypt:`select t:*`.  The ``t:`` part
+signifies we are matching on the *cell type*, and the ``*`` means to match
+anything.  For this (very simple) selection, we are trying to find all of the
+cells, regardless of their type.  The active selection is now shown as
+``[addr_gen]*``, indicating some sub-selection of the ``addr_gen`` module.  This
+gives us the ``$add`` and ``$eq`` cells, which we want to highlight for the
+:ref:`addr_gen_hier` image.
+
+.. _select_new_cells:
+
+We can assign a name to a selection with :yoscrypt:`select -set`.  In our case
+we are using the name ``new_cells``, and telling it to use the current
+selection, indicated by the ``%`` symbol.  We can then use this named selection
+by referring to it as ``@new_cells``, which we will see later.  Then we clear
+the selection so that the following commands can operate on the full design.
+While we split that out for this document, we could have done the same thing in
+a single line by calling :yoscrypt:`select -set new_cells addr_gen/t:*`.  If we
+know we only have the one module in our design, we can even skip the `addr_gen/`
+part.  Looking further down :ref:`the fifo.ys code <fifo-ys>` we can see this
+with :yoscrypt:`select -set new_cells t:$mux t:*dff`.  We can also see in that
+command that selections don't have to be limited to a single statement.
+
+Many commands also support an optional ``[selection]`` argument which can be
+used to override the currently selected objects.  We could, for example, call
+:yoscrypt:`clean addr_gen` to have :cmd:ref:`clean` operate on *just* the
+``addr_gen`` module.
+
+Detailed documentation of the select framework can be found under
+:doc:`/using_yosys/more_scripting/selections` or in the command reference at
+:doc:`/cmd/select`.
+
+.. _show_intro:
+
+Displaying schematics
+^^^^^^^^^^^^^^^^^^^^^
+
+While the :cmd:ref:`select` command is very useful, sometimes nothing beats
+being able to see a design for yourself.  This is where :cmd:ref:`show` comes
+in.  Note that this document is just an introduction to the :cmd:ref:`show`
+command, only covering the basics.  For more information, including a guide on
+what the different symbols represent, see :ref:`interactive_show` and the
 :doc:`/using_yosys/more_scripting/interactive_investigation` page.
+
+.. figure:: /_images/code_examples/fifo/addr_gen_show.*
+   :class: width-helper
+   :name: addr_gen_show
+
+   Calling :yoscrypt:`show addr_gen` after :cmd:ref:`hierarchy`
+
+.. note:: 
+
+   The :cmd:ref:`show` command requires a working installation of `GraphViz`_
+   and `xdot`_ for displaying the actual circuit diagrams.
+   
+.. _GraphViz: http://www.graphviz.org/
+.. _xdot: https://github.com/jrfonseca/xdot.py
+
+This is the first :yoscrypt:`show` command we called in ``fifo.ys``, :ref:`as we
+saw above <fifo-ys>`.  If we look at the log output for this image we see the
+following:
+
+.. literalinclude:: /code_examples/fifo/fifo.out
+   :language: doscon
+   :start-at: -prefix addr_gen_show
+   :end-before: yosys> show
+
+Calling :cmd:ref:`show` with :yoscrypt:`-format dot` tells it we want to output
+a ``.dot`` file rather than opening it for display.  The :yoscrypt:`-prefix
+addr_gen_show` option indicates we want the file to be called `addr_gen_show.*`.
+Remember, we do this in ``fifo.ys`` because we need to store the image for
+displaying in the documentation you're reading.  But if you just want to display
+the images locally you can skip these two options.  The ``-format`` option
+internally calls the ``dot`` command line program from GraphViz to convert to
+formats other than ``.dot``.  Check `GraphViz output docs`_ for more on
+available formats.
+
+.. _GraphViz output docs: https://graphviz.org/docs/outputs/
+
+.. note::
+
+   If you are using a POSIX based version of Yosys (such as for Mac or Linux),
+   xdot will be opened in the background and Yosys can continue to be used. If
+   it it still open, future calls to :yoscrypt:`show` will use the same xdot
+   instance.
+
+The ``addr_gen`` at the end tells it we only want the ``addr_gen`` module, just
+like when we called :yoscrypt:`select -module addr_gen` in :ref:`select_intro`.
+That last parameter doesn't have to be a module name, it can be any valid
+selection string.  Remember when we :ref:`assigned a name to a
+selection<select_new_cells>` and called it ``new_cells``?  We saw in the
+:yoscrypt:`select -list` output that it contained two cells, an ``$add`` and an
+``$eq``.  We can call :cmd:ref:`show` on that selection just as easily:
+
+.. figure:: /_images/code_examples/fifo/new_cells_show.*
+   :class: width-helper
+   :name: new_cells_show
+
+   Calling :yoscrypt:`show -notitle @new_cells`
+
+We could have gotten the same output with :yoscrypt:`show -notitle t:$add t:$eq`
+if we didn't have the named selection. By adding the :yoscrypt:`-notitle` flag
+there we can also get rid of the ``addr_gen`` title that would have been
+automatically added.  The last two images were both added for this introduction.
+The next image is the first one we saw in :doc:`/getting_started/example_synth`:
+showing the full ``addr_gen`` module while also highlighting ``@new_cells`` and
+the two ``PROC`` blocks.  To achieve this highlight, we make use of the
+:yoscrypt:`-color` option:
+
+.. figure:: /_images/code_examples/fifo/addr_gen_hier.*
+   :class: width-helper
+
+   Calling :yoscrypt:`show -color maroon3 @new_cells -color cornflowerblue p:* -notitle`
+
+As described in the the :cmd:ref:`help` output for :cmd:ref:`show` (or by
+clicking on the :cmd:ref:`show` link), colors are specified as :yoscrypt:`-color
+<color> <object>`.  Color names for the ``<color>`` portion can be found on the
+`GraphViz color docs`_.  Unlike the final :cmd:ref:`show` parameter which can
+have be any selection string, the ``<object>`` part must be a single selection
+expression or named selection.  That means while we can use ``@new_cells``, we
+couldn't use ``t:$eq t:$add``.  In general, if a command lists ``[selection]``
+as its final parameter it can be any selection string.  Any selections that are
+not the final parameter, such as those used in options, must be a single
+expression instead.
+
+.. _GraphViz color docs: https://graphviz.org/doc/info/colors
+
+For all of the options available to :cmd:ref:`show`, check the command reference
+at :doc:`/cmd/show`.
+
+.. seealso:: :ref:`interactive_show` on the
+   :doc:`/using_yosys/more_scripting/interactive_investigation` page.

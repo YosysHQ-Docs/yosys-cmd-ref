@@ -13,7 +13,7 @@ x1 [ shape=record, style=rounded, label="<s0> 7:0 - 7:0 ", color="black", fontco
 x1:e -> c23:p18:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", fontcolor="black", style="setlinewidth(3)", label=""];
 v2 [ label="1" ];
 c24 [ shape=record, label="{{<p18> A|<p19> B}|$3\n$add|{<p21> Y}}",  ];
-v3 [ label="8'11111111" ];
+v3 [ label="255" ];
 c25 [ shape=record, label="{{<p18> A|<p19> B}|$2\n$eq|{<p21> Y}}",  ];
 v4 [ label="8'00000000" ];
 x5 [shape=point, ];

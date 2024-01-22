@@ -75,15 +75,25 @@ Let's start with the section labeled ``begin``:
 iCE40 cell models which allows us to include platform specific IP blocks in our
 design.  PLLs are a common example of this, where we might need to reference
 ``SB_PLL40_CORE`` directly rather than being able to rely on mapping passes
-later.  Since our simple design doesn't use any of these IP blocks, we can safely
-skip this command.
+later.  Since our simple design doesn't use any of these IP blocks, we can skip
+this command for now.  Because these cell models will also be needed once we
+start mapping to hardware we will still need to load them later.
+
+.. note::
+
+   ``+/`` is a dynamic reference to the Yosys ``share`` directory.  By default,
+   this is ``/usr/local/share/yosys``.  If using a locally built version of
+   Yosys from the source directory, this will be the ``share`` folder in the
+   same directory.
+
+.. _addr_gen_example:
 
 The addr_gen module
 ^^^^^^^^^^^^^^^^^^^
 
 Since we're just getting started, let's instead begin with :yoscrypt:`hierarchy
--top addr_gen`.  This command declares that the top level module is ``addr_gen``,
-and everything else can be discarded.
+-top addr_gen`.  This command declares that the top level module is
+``addr_gen``, and everything else can be discarded.
 
 .. literalinclude:: /code_examples/fifo/fifo.v
    :language: Verilog
@@ -96,7 +106,9 @@ and everything else can be discarded.
 .. note::
 
    :cmd:ref:`hierarchy` should always be the first command after the design has
-   been read.
+   been read.  By specifying the top module, :cmd:ref:`hierarchy` will also set
+   the ``(* top *)`` attribute on it.  This is used by other commands that need
+   to know which module is the top.
 
 .. use doscon for a console-like display that supports the `yosys> [command]` format.
 
@@ -105,6 +117,7 @@ and everything else can be discarded.
    :start-at: yosys> hierarchy -top addr_gen
    :end-before: yosys> select
    :caption: :yoscrypt:`hierarchy -top addr_gen` output
+   :name: hierarchy_output
 
 Our ``addr_gen`` circuit now looks like this:
 
@@ -113,9 +126,6 @@ Our ``addr_gen`` circuit now looks like this:
    :name: addr_gen_hier
 
    ``addr_gen`` module after :cmd:ref:`hierarchy`
-
-.. todo:: how to highlight PROC blocks? 
-   They seem to be replaced in ``show``, so the selection never matches
 
 Simple operations like ``addr + 1`` and ``addr == MAX_DATA-1`` can be extracted
 from our ``always @`` block in :ref:`addr_gen-v`. This gives us the highlighted
@@ -131,13 +141,14 @@ To handle these, let us now introduce the next command: :doc:`/cmd/proc`.
 modifying the design directly, it instead calls a series of other commands.  In
 the case of :cmd:ref:`proc`, these sub-commands work to convert the behavioral
 logic of processes into multiplexers and registers.  Let's see what happens when
-we run it.
+we run it.  For now, we will call :yoscrypt:`proc -noopt` to prevent some
+automatic optimizations which would normally happen.
 
 .. figure:: /_images/code_examples/fifo/addr_gen_proc.*
    :class: width-helper
    :name: addr_gen_proc
 
-   ``addr_gen`` module after :cmd:ref:`proc`
+   ``addr_gen`` module after :yoscrypt:`proc -noopt`
 
 There are now a few new cells from our ``always @``, which have been
 highlighted.  The ``if`` statements are now modeled with ``$mux`` cells, while
@@ -145,35 +156,44 @@ the register uses an ``$adff`` cell.  If we look at the terminal output we can
 also see all of the different ``proc_*`` commands being called.  We will look at
 each of these in more detail in :doc:`/using_yosys/synthesis/proc`.
 
-.. TODO:: intro ``opt_expr``
-   :doc:`/cmd/opt_expr`
-
-   - by default called at the end of :cmd:ref:`proc`
-   - can be disabled with ``-noopt``
-   - done here for... reasons?
-
 Notice how in the top left of :ref:`addr_gen_proc` we have a floating wire,
 generated from the initial assignment of 0 to the ``addr`` wire.  However, this
 initial assignment is not synthesizable, so this will need to be cleaned up
 before we can generate the physical hardware.  We can do this now by calling
-:cmd:ref:`clean`:
+:cmd:ref:`clean`.  We're also going to call :cmd:ref:`opt_expr` now, which would
+normally be called at the end of :cmd:ref:`proc`.  We can call both commands
+at the same time by separating them with a colon: :yoscrypt:`opt_expr; clean`.
 
 .. figure:: /_images/code_examples/fifo/addr_gen_clean.*
    :class: width-helper
    :name: addr_gen_clean
 
-   ``addr_gen`` module after :cmd:ref:`clean`
+   ``addr_gen`` module after :yoscrypt:`opt_expr; clean`
+
+You may also notice that the highlighted ``$eq`` cell input of ``255`` has
+changed to ``8'11111111``.  Constant values are presented in the format
+``<bit_width>'<bits>``, with 32-bit values instead using the decimal number.
+This indicates that the constant input has been reduced from 32-bit wide to
+8-bit wide.  This is a side-effect of running :cmd:ref:`opt_expr`, which
+performs constant folding and simple expression rewriting.    For more on why
+this happens, refer to :doc:`/using_yosys/synthesis/opt` and the :ref:`section
+on opt_expr <adv_opt_expr>`.
 
 .. note::
 
    :doc:`/cmd/clean` can also be called with two semicolons after any command,
-   for example we could have called :yoscrypt:`proc;;` instead of
-   :yoscrypt:`proc` and then :yoscrypt:`clean`.  It is generally beneficial to
-   run :cmd:ref:`clean` after each command as a quick way of removing
-   disconnected parts of the circuit which have been left over.  You may notice
-   some scripts will end each line with ``;;``.
+   for example we could have called :yoscrypt:`opt_expr;;` instead of
+   :yoscrypt:`opt_expr; clean`.  It is generally beneficial to run
+   :cmd:ref:`clean` after each command as a quick way of removing disconnected
+   parts of the circuit which have been left over.  You may notice some scripts
+   will end each line with ``;;``.
 
 .. todo:: consider a brief glossary for terms like adff
+
+.. seealso:: Advanced usage docs for
+   
+   - :doc:`/using_yosys/synthesis/proc`
+   - :doc:`/using_yosys/synthesis/opt`
 
 The full example
 ^^^^^^^^^^^^^^^^
@@ -207,7 +227,7 @@ the reasons why hierarchy should always be the first command after loading the
 design.  If we know that our design won't run into this issue, we can skip the
 ``-defer``.
 
-.. TODO:: more on why :cmd:ref:`hierarchy` is important
+.. todo:: :cmd:ref:`hierarchy` failure modes
 
 .. note::
 
@@ -225,7 +245,8 @@ Because the design schematic is quite large, we will be showing just the data
 path for the ``rdata`` output.  If you would like to see the entire design for
 yourself, you can do so with :doc:`/cmd/show`.  Note that the :cmd:ref:`show`
 command only works with a single module, so you may need to call it with
-:yoscrypt:`show fifo`.
+:yoscrypt:`show fifo`.  :ref:`show_intro` section in
+:doc:`/getting_started/scripting_intro` has more on how to use :cmd:ref:`show`.
 
 .. figure:: /_images/code_examples/fifo/rdata_proc.*
    :class: width-helper
@@ -548,6 +569,9 @@ The remaining sections each map a different type of hardware and are much more
 architecture dependent than the previous sections.  As such we will only be
 looking at each section very briefly.
 
+If you skipped calling :yoscrypt:`read_verilog -D ICE40_HX -lib -specify
++/ice40/cells_sim.v` earlier, do it now.
+
 Memory blocks
 ^^^^^^^^^^^^^
 
@@ -719,7 +743,8 @@ These commands tend to either be in the :ref:`map_cells` or after the
 Final steps
 ~~~~~~~~~~~~
 
-.. TODO:: example_synth final steps (check section and outputting)
+The next section of the iCE40 synth flow performs some sanity checking and final
+tidy up:
 
 .. literalinclude:: /cmd/synth_ice40.rst
    :language: yoscrypt
@@ -729,6 +754,61 @@ Final steps
    :name: check
    :caption: ``check`` section
 
-- :doc:`/cmd/check`
-- :doc:`/cmd/autoname`
-- :doc:`/cmd/stat`
+The new commands here are:
+
+- :doc:`/cmd/autoname`,
+- :doc:`/cmd/stat`, and
+- :doc:`/cmd/blackbox`.
+
+The output from :cmd:ref:`stat` is useful for checking resource utilization;
+providing a list of cells used in the design and the number of each, as well as
+the number of other resources used such as wires and processes.  For this
+design, the final call to :cmd:ref:`stat` should look something like the
+following:
+
+.. literalinclude:: /code_examples/fifo/fifo.stat
+   :language: doscon
+   :start-at: yosys> stat -top fifo
+
+Note that the :yoscrypt:`-top fifo` here is optional.  :cmd:ref:`stat` will
+automatically use the module with the ``top`` attribute set, which ``fifo`` was
+when we called :cmd:ref:`hierarchy`.  If no module is marked ``top``, then stats
+will be shown for each module selected.
+
+The :cmd:ref:`stat` output is also useful as a kind of sanity-check: Since we
+have already run :cmd:ref:`proc`, we wouldn't expect there to be any processes.
+We also expect ``data`` to use hard memory; if instead of an ``SB_RAM40_4K`` saw
+a high number of flip-flops being used we might suspect something was wrong.
+
+If we instead called :cmd:ref:`stat` immediately after :yoscrypt:`read_verilog
+fifo.v` we would see something very different:
+
+.. literalinclude:: /code_examples/fifo/fifo.stat
+   :language: doscon
+   :start-at: yosys> stat
+   :end-before: yosys> stat -top fifo
+
+Notice how ``fifo`` and ``addr_gen`` are listed separately, and the statistics
+for ``fifo`` show 2 ``addr_gen`` modules.  Because this is before the memory has
+been mapped, we also see that there is 1 memory with 2048 memory bits; matching
+our 8-bit wide ``data`` memory with 256 values (:math:`8*256=2048`).
+
+Synthesis output
+^^^^^^^^^^^^^^^^
+
+The iCE40 synthesis flow has the following output modes available:
+
+- :doc:`/cmd/write_blif`,
+- :doc:`/cmd/write_edif`, and
+- :doc:`/cmd/write_json`.
+
+As an example, if we called :yoscrypt:`synth_ice40 -top fifo -json fifo.json`,
+our synthesized ``fifo`` design will be output as ``fifo.json``.  We can then
+read the design back into Yosys with :cmd:ref:`read_json`, but make sure you use
+:yoscrypt:`design -reset` or open a new interactive terminal first.  The JSON
+output we get can also be loaded into `nextpnr`_ to do place and route; but that
+is beyond the scope of this documentation.
+
+.. _nextpnr: https://github.com/YosysHQ/nextpnr
+
+.. seealso:: :doc:`/cmd/synth_ice40`

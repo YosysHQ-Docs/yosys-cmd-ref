@@ -8,7 +8,7 @@ n8 [ shape=octagon, label="rst", color="black", fontcolor="black" ];
 v0 [ label="1" ];
 c12 [ shape=record, label="{{<p9> A|<p10> B}|$3\n$add|{<p11> Y}}",  ];
 v1 [ label="8'11111111" ];
-c13 [ shape=record, label="{{<p9> A|<p10> B}|$2\n$eq|{<p11> Y}}",  ];
+c13 [ shape=record, label="{{<p9> A|<p10> B}|$2\n$eq|{<p11> Y}}", color="cornflowerblue", fontcolor="cornflowerblue" ];
 c18 [ shape=record, label="{{<p14> ARST|<p15> CLK|<p16> D}|$10\n$adff|{<p17> Q}}",  ];
 v3 [ label="8'00000000" ];
 c20 [ shape=record, label="{{<p9> A|<p10> B|<p19> S}|$6\n$mux|{<p11> Y}}",  ];

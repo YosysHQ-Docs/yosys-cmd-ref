@@ -1,0 +1,110 @@
+digraph root {
+	graph [rankdir=LR,
+		remincross=true
+	];
+	node [label="\N"];
+	subgraph after {
+		graph [rankdir=LR,
+			remincross=true
+		];
+		node [color="",
+			fontcolor="",
+			label="\N",
+			shape=""
+		];
+		edge [color="",
+			fontcolor="",
+			headport="",
+			label="",
+			tailport=""
+		];
+		n1	[color=black,
+			fontcolor=black,
+			label=a,
+			shape=octagon];
+		c10	[label="{{<p6> A|<p7> B|<p8> S}|$2\n$mux|{<p9> Y}}",
+			shape=record];
+		n1:e -> c10:p8:w	[color=black,
+			fontcolor=black];
+		n2	[color=black,
+			fontcolor=black,
+			label=b,
+			shape=octagon];
+		n2:e -> c10:p7:w	[color=black,
+			fontcolor=black];
+		n3	[color=black,
+			fontcolor=black,
+			label=c,
+			shape=octagon];
+		n4	[color=black,
+			fontcolor=black,
+			label=d,
+			shape=octagon];
+		n4:e -> c10:p6:w	[color=black,
+			fontcolor=black];
+		n5	[color=black,
+			fontcolor=black,
+			label=y,
+			shape=octagon];
+		c10:p9:e -> n5:w	[color=black,
+			fontcolor=black];
+	}
+	subgraph uut {
+		graph [rankdir=LR,
+			remincross=true
+		];
+		node [color="",
+			fontcolor="",
+			label="\N",
+			shape=""
+		];
+		edge [color="",
+			fontcolor="",
+			headport="",
+			label="",
+			tailport=""
+		];
+		n2_gv1	[color=cornflowerblue,
+			fontcolor=cornflowerblue,
+			label=a,
+			shape=octagon];
+		c11	[color=cornflowerblue,
+			fontcolor=cornflowerblue,
+			label="{{<p7> A|<p8> B|<p9> S}|$1\n$mux|{<p10> Y}}",
+			shape=record];
+		n2_gv1:e -> c11:p9:w	[color=cornflowerblue,
+			fontcolor=cornflowerblue];
+		c12	[color=cornflowerblue,
+			fontcolor=cornflowerblue,
+			label="{{<p7> A|<p8> B|<p9> S}|$2\n$mux|{<p10> Y}}",
+			shape=record];
+		n2_gv1:e -> c12:p9:w	[color=cornflowerblue,
+			fontcolor=cornflowerblue];
+		n3_gv1	[color=cornflowerblue,
+			fontcolor=cornflowerblue,
+			label=b,
+			shape=octagon];
+		n3_gv1:e -> c11:p8:w	[color=cornflowerblue,
+			fontcolor=cornflowerblue];
+		n4_gv1	[color=cornflowerblue,
+			fontcolor=cornflowerblue,
+			label=c,
+			shape=octagon];
+		n4_gv1:e -> c11:p7:w	[color=cornflowerblue,
+			fontcolor=cornflowerblue];
+		n5_gv1	[color=cornflowerblue,
+			fontcolor=cornflowerblue,
+			label=d,
+			shape=octagon];
+		n5_gv1:e -> c12:p7:w	[color=cornflowerblue,
+			fontcolor=cornflowerblue];
+		n6	[color=cornflowerblue,
+			fontcolor=cornflowerblue,
+			label=y,
+			shape=octagon];
+		c11:p10:e -> c12:p8:w	[color=cornflowerblue,
+			fontcolor=cornflowerblue];
+		c12:p10:e -> n6:w	[color=cornflowerblue,
+			fontcolor=cornflowerblue];
+	}
+}

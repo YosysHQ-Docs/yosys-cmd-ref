@@ -299,7 +299,7 @@ synth_ice40 - synthesis for iCE40 FPGAs
                 ice40_wrapcarry -unwrap
                 techmap -map +/ice40/ff_map.v
                 clean
-                opt_lut -dlogic SB_CARRY:I0=1:I1=2:CI=3 -dlogic SB_CARRY:CO=3
+                opt_lut -tech ice40
 
             map_cells:
                 techmap -map +/ice40/cells_map.v    (skip if -vpr)
@@ -487,7 +487,7 @@ synth_ice40 - synthesis for iCE40 FPGAs
                 ice40_wrapcarry -unwrap
                 techmap -map +/ice40/ff_map.v
                 clean
-                opt_lut -dlogic SB_CARRY:I0=1:I1=2:CI=3 -dlogic SB_CARRY:CO=3
+                opt_lut -tech ice40
         
             map_cells:
                 techmap -map +/ice40/cells_map.v    (skip if -vpr)

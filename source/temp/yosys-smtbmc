@@ -123,6 +123,9 @@ yosys-smtbmc [options] <yosys_smt2_output>
         check if states are unique in temporal induction counter examples
         (this feature is experimental and incomplete)
 
+    --incremental
+        run in incremental mode (experimental)
+
 
     -s <solver>
         set SMT solver: z3, yices, boolector, bitwuzla, cvc4, mathsat, dummy
