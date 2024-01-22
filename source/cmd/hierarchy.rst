@@ -112,6 +112,17 @@ hierarchy - check, expand and clean up design hierarchy
 
     .. code:: yoscrypt
 
+        -nokeep_prints
+
+    ::
+
+            per default this pass sets the "keep" attribute on all modules
+            that directly or indirectly display text on the terminal.
+            This option disables this behavior.
+
+
+    .. code:: yoscrypt
+
         -nokeep_asserts
 
     ::
@@ -223,6 +234,11 @@ hierarchy - check, expand and clean up design hierarchy
         
             -nodefaults
                 do not resolve input port default values
+        
+            -nokeep_prints
+                per default this pass sets the "keep" attribute on all modules
+                that directly or indirectly display text on the terminal.
+                This option disables this behavior.
         
             -nokeep_asserts
                 per default this pass sets the "keep" attribute on all modules
