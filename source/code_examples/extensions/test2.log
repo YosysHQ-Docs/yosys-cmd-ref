@@ -1,0 +1,41 @@
+
+-- Parsing `sigmap_test.v' using frontend ` -vlog2k' --
+
+1. Executing Verilog-2005 frontend: sigmap_test.v
+Parsing Verilog input from `sigmap_test.v' to AST representation.
+Storing AST representation for module `$abstract\test'.
+Successfully finished Verilog frontend.
+
+-- Running command `hierarchy -top test; test2' --
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+3. Executing AST frontend in derive mode using pre-parsed AST for module `\test'.
+Generating RTLIL representation for module `\test'.
+
+3.1. Analyzing design hierarchy..
+Top module:  \test
+
+3.2. Analyzing design hierarchy..
+Top module:  \test
+Removing unused module `$abstract\test'.
+Removed 1 unused modules.
+0 0 0
+1 1 1
+Mapped signal x: \a
+
+4. Doing important stuff!
+Log message #0.
+Log message #1.
+Log message #2.
+Log message #3.
+Log message #4.
+Log message #5.
+Log message #6.
+Log message #7.
+Log message #8.
+Log message #9.
+
+End of script. Logfile hash: 8350de3c5a, CPU: user 0.00s system 0.00s, MEM: 9.56 MB peak
+Yosys 0.37+27 (git sha1 a7e1c6e53, ccache clang 10.0.0-4ubuntu1 -fPIC -Os)
+Time spent: 41% 1x hierarchy (0 sec), 35% 2x read_verilog (0 sec), ...

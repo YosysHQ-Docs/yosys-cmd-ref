@@ -1,0 +1,19 @@
+
+-- Parsing `absval_ref.v' using frontend ` -vlog2k' --
+
+1. Executing Verilog-2005 frontend: absval_ref.v
+Parsing Verilog input from `absval_ref.v' to AST representation.
+Storing AST representation for module `$abstract\absval_ref'.
+Successfully finished Verilog frontend.
+
+-- Running command `my_cmd foo bar' --
+Arguments to my_cmd:
+  my_cmd
+  foo
+  bar
+Modules in current design:
+  $abstract\absval_ref (0 wires, 0 cells)
+
+End of script. Logfile hash: a25069ff9d, CPU: user 0.00s system 0.00s, MEM: 9.61 MB peak
+Yosys 0.37+27 (git sha1 a7e1c6e53, ccache clang 10.0.0-4ubuntu1 -fPIC -Os)
+Time spent: 81% 2x read_verilog (0 sec), 16% 1x my_cmd (0 sec), ...

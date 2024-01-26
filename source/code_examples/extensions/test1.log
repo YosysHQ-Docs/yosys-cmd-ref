@@ -1,0 +1,46 @@
+
+-- Parsing `absval_ref.v' using frontend ` -vlog2k' --
+
+1. Executing Verilog-2005 frontend: absval_ref.v
+Parsing Verilog input from `absval_ref.v' to AST representation.
+Storing AST representation for module `$abstract\absval_ref'.
+Successfully finished Verilog frontend.
+
+-- Running command `clean; test1; dump' --
+Name of this module: absval
+
+autoidx 4
+
+module \absval
+
+  wire width 4 $auto$my_cmd.cc:41:execute$1
+
+  wire width 4 output 2 \y
+
+  wire width 4 input 1 \a
+
+  cell $mux $auto$my_cmd.cc:43:execute$3
+    parameter \WIDTH 4
+    connect \Y \y
+    connect \S \a [3]
+    connect \B $auto$my_cmd.cc:41:execute$1
+    connect \A \a
+  end
+
+  cell $neg $auto$my_cmd.cc:42:execute$2
+    parameter \Y_WIDTH 4
+    parameter \A_WIDTH 4
+    parameter \A_SIGNED 1
+    connect \Y $auto$my_cmd.cc:41:execute$1
+    connect \A \a
+  end
+end
+
+attribute \cells_not_processed 1
+attribute \src "absval_ref.v:1.1-3.10"
+module $abstract\absval_ref
+end
+
+End of script. Logfile hash: 01cda1039c, CPU: user 0.00s system 0.00s, MEM: 10.71 MB peak
+Yosys 0.37+27 (git sha1 a7e1c6e53, ccache clang 10.0.0-4ubuntu1 -fPIC -Os)
+Time spent: 53% 1x clean (0 sec), 29% 2x read_verilog (0 sec), ...
