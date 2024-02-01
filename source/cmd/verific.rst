@@ -155,6 +155,9 @@ verific - load Verilog and VHDL designs using Verific
           -extnets
             Resolve references to external nets by adding module ports as needed.
 
+          -no-split-complex-ports
+            Complex ports (structs or arrays) are not split and remain packed as a single port.
+
           -autocover
             Generate automatic cover statements for all asserts
 
@@ -457,6 +460,9 @@ verific - load Verilog and VHDL designs using Verific
         
           -extnets
             Resolve references to external nets by adding module ports as needed.
+        
+          -no-split-complex-ports
+            Complex ports (structs or arrays) are not split and remain packed as a single port.
         
           -autocover
             Generate automatic cover statements for all asserts
