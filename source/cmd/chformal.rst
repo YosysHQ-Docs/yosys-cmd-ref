@@ -55,6 +55,14 @@ chformal - change formal constraints of the design
 
     ::
 
+        Additionally chformal will operate on $check cells corresponding to the
+
+    ::
+
+        selected constraint types.
+
+    ::
+
         Exactly one of the following modes must be specified:
 
     .. code:: yoscrypt
@@ -72,7 +80,9 @@ chformal - change formal constraints of the design
 
     ::
 
-            bypass FFs that only delay the activation of a constraint
+            bypass FFs that only delay the activation of a constraint. When inputs
+            of the bypassed FFs do not remain stable between clock edges, this may
+            result in unexpected behavior.
 
 
     .. code:: yoscrypt
@@ -131,6 +141,17 @@ chformal - change formal constraints of the design
 
             change the roles of cells as indicated. these options can be combined
 
+
+    .. code:: yoscrypt
+
+        -lower
+
+    ::
+
+            convert each $check cell into an $assert, $assume, $live, $fair or
+            $cover cell. If the $check cell contains a message, also produce a
+            $print cell.
+
 .. raw:: latex
 
     \end{comment}
@@ -152,13 +173,18 @@ chformal - change formal constraints of the design
             -fair         $fair cells, representing assume(s_eventually ...)
             -cover        $cover cells, representing cover() statements
         
+            Additionally chformal will operate on $check cells corresponding to the
+            selected constraint types.
+        
         Exactly one of the following modes must be specified:
         
             -remove
                 remove the cells and thus constraints from the design
         
             -early
-                bypass FFs that only delay the activation of a constraint
+                bypass FFs that only delay the activation of a constraint. When inputs
+                of the bypassed FFs do not remain stable between clock edges, this may
+                result in unexpected behavior.
         
             -delay <N>
                 delay activation of the constraint by <N> clock cycles
@@ -177,4 +203,9 @@ chformal - change formal constraints of the design
             -live2fair
             -fair2live
                 change the roles of cells as indicated. these options can be combined
+        
+            -lower
+                convert each $check cell into an $assert, $assume, $live, $fair or
+                $cover cell. If the $check cell contains a message, also produce a
+                $print cell.
         
