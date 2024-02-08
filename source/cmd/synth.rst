@@ -92,11 +92,15 @@ synth - generic synthesis script
 
     ::
 
-            run the booth pass to convert $mul to Booth encoded multipliers
+            run the booth pass to map $mul to Booth encoded multipliers
+
+
+    .. code:: yoscrypt
+
+        -noalumacc
 
     ::
 
-        -noalumacc
             do not run 'alumacc' pass. i.e. keep arithmetic operators in
             their direct form ($add, $sub, etc.).
 
@@ -180,6 +184,7 @@ synth - generic synthesis script
                 peepopt
                 opt_clean
                 techmap -map +/cmp2lut.v -map +/cmp2lcu.v     (if -lut)
+                booth        (if -booth)
                 alumacc      (unless -noalumacc)
                 share        (unless -noshare)
                 opt
@@ -241,7 +246,8 @@ synth - generic synthesis script
                 do not run abc (as if yosys was compiled without ABC support)
         
             -booth
-                run the booth pass to convert $mul to Booth encoded multipliers
+                run the booth pass to map $mul to Booth encoded multipliers
+        
             -noalumacc
                 do not run 'alumacc' pass. i.e. keep arithmetic operators in
                 their direct form ($add, $sub, etc.).
@@ -287,6 +293,7 @@ synth - generic synthesis script
                 peepopt
                 opt_clean
                 techmap -map +/cmp2lut.v -map +/cmp2lcu.v     (if -lut)
+                booth        (if -booth)
                 alumacc      (unless -noalumacc)
                 share        (unless -noshare)
                 opt
