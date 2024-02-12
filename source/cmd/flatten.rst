@@ -34,6 +34,32 @@ flatten - flatten design
 
             Ignore the 'whitebox' attribute on cell implementations.
 
+
+    .. code:: yoscrypt
+
+        -noscopeinfo
+
+    ::
+
+            Do not create '$scopeinfo' cells that preserve attributes of cells and
+            modules that were removed during flattening. With this option, the
+            'src' attribute of a given cell is merged into all objects replacing
+            that cell, with multiple distinct 'src' locations separated by '|'.
+            Without this option these 'src' locations can be found via the
+            cell_src' and 'module_src' attribute of '$scopeinfo' cells.
+
+
+    .. code:: yoscrypt
+
+        -scopename
+
+    ::
+
+            Create 'scopename' attributes for objects with a private name. This
+            attribute records the 'hdlname' of the enclosing scope. For objects
+            with a public name the enclosing scope can be found via their
+            'hdlname' attribute.
+
 .. raw:: latex
 
     \end{comment}
@@ -54,4 +80,18 @@ flatten - flatten design
         
             -wb
                 Ignore the 'whitebox' attribute on cell implementations.
+        
+            -noscopeinfo
+                Do not create '$scopeinfo' cells that preserve attributes of cells and
+                modules that were removed during flattening. With this option, the
+                'src' attribute of a given cell is merged into all objects replacing
+                that cell, with multiple distinct 'src' locations separated by '|'.
+                Without this option these 'src' locations can be found via the
+                cell_src' and 'module_src' attribute of '$scopeinfo' cells.
+        
+            -scopename
+                Create 'scopename' attributes for objects with a private name. This
+                attribute records the 'hdlname' of the enclosing scope. For objects
+                with a public name the enclosing scope can be found via their
+                'hdlname' attribute.
         
