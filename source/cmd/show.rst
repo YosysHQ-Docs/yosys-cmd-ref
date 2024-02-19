@@ -186,6 +186,16 @@ show - generate schematics using graphviz
             exit before returning
 
 
+    .. code:: yoscrypt
+
+        -href
+
+    ::
+
+            adds href attribute to all items representing cells and wires, using
+            src attribute of origin
+
+
     ::
 
         When no <format> is specified, 'dot' is used. When no <format> and <viewer> is
@@ -279,6 +289,10 @@ show - generate schematics using graphviz
             -nobg
                 don't run viewer in the background, IE wait for the viewer tool to
                 exit before returning
+        
+            -href
+                adds href attribute to all items representing cells and wires, using
+                src attribute of origin
         
         When no <format> is specified, 'dot' is used. When no <format> and <viewer> is
         specified, 'xdot' is used to display the schematic (POSIX systems only).
