@@ -163,6 +163,16 @@ synth - generic synthesis script
             attribute on all memories).
 
 
+    .. code:: yoscrypt
+
+        -extra-map filename
+
+    ::
+
+            source extra rules from the given file to complement the default
+            mapping library in the `techmap` step. this option can be
+            repeated.
+
 
     ::
 
@@ -195,7 +205,8 @@ synth - generic synthesis script
                 opt -fast -full
                 memory_map
                 opt -full
-                techmap
+                techmap                      (unless -extra-map)
+                techmap -map +/techmap.v -map <inject>      (if -extra-map)
                 techmap -map +/gate2lut.v    (if -noabc and -lut)
                 clean; opt_lut               (if -noabc and -lut)
                 flowmap -maxlut K            (if -flowmap and -lut)
@@ -274,6 +285,10 @@ synth - generic synthesis script
                 read/write collision" (same result as setting the no_rw_check
                 attribute on all memories).
         
+            -extra-map filename
+                source extra rules from the given file to complement the default
+                mapping library in the `techmap` step. this option can be
+                repeated.
         
         The following commands are executed by this synthesis command:
         
@@ -304,7 +319,8 @@ synth - generic synthesis script
                 opt -fast -full
                 memory_map
                 opt -full
-                techmap
+                techmap                      (unless -extra-map)
+                techmap -map +/techmap.v -map <inject>      (if -extra-map)
                 techmap -map +/gate2lut.v    (if -noabc and -lut)
                 clean; opt_lut               (if -noabc and -lut)
                 flowmap -maxlut K            (if -flowmap and -lut)
