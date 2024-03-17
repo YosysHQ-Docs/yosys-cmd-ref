@@ -1,10 +1,10 @@
 digraph "test_mapped" {
 rankdir="LR";
 remincross=true;
-n1 [ shape=octagon, label="A[0]", color="black", fontcolor="black" ];
-n5 [ shape=octagon, label="A[1]", color="black", fontcolor="black" ];
-n6 [ shape=octagon, label="B", color="black", fontcolor="black" ];
-n7 [ shape=octagon, label="Y", color="black", fontcolor="black" ];
+n1 [ shape=octagon, label="A[0]", color="black", fontcolor="black"];
+n5 [ shape=octagon, label="A[1]", color="black", fontcolor="black"];
+n6 [ shape=octagon, label="B", color="black", fontcolor="black"];
+n7 [ shape=octagon, label="Y", color="black", fontcolor="black"];
 c9 [ shape=record, label="{{<p8> A|<p6> B}|$10\n$add|{<p7> Y}}",  ];
 x0 [ shape=record, style=rounded, label="<s1> 0:0 - 1:1 |0 -&gt; 0:0 ", color="black", fontcolor="black" ];
 x0:e -> c9:p6:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", fontcolor="black", style="setlinewidth(3)", label=""];

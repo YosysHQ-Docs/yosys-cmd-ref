@@ -36,6 +36,6 @@ Log message #7.
 Log message #8.
 Log message #9.
 
-End of script. Logfile hash: 8350de3c5a, CPU: user 0.00s system 0.00s, MEM: 9.56 MB peak
-Yosys 0.37+27 (git sha1 a7e1c6e53, ccache clang 10.0.0-4ubuntu1 -fPIC -Os)
-Time spent: 41% 1x hierarchy (0 sec), 35% 2x read_verilog (0 sec), ...
+End of script. Logfile hash: 8350de3c5a, CPU: user 0.00s system 0.00s, MEM: 9.46 MB peak
+Yosys 0.39+4 (git sha1 d2bf5a83a, ccache clang++ 10.0.0-4ubuntu1 -fPIC -Os)
+Time spent: 36% 1x hierarchy (0 sec), 34% 2x read_verilog (0 sec), ...

@@ -40,18 +40,15 @@ The `OSS CAD Suite`_ releases `nightly builds`_ for the following architectures:
       - Most personal Linux based computers
 
    - darwin-x64 |darwin-x64|
-      - macOS 10.14 or later with Intel CPU
+      - macOS 12 or later with Intel CPU
 
    - darwin-arm64 |darwin-arm64|
-      - macOS 11.00 or later with M1 CPU
+      - macOS 12 or later with M1/M2 CPU
 
    - windows-x64 |windows-x64|
-      - Targeted for Windows 10 and 11, but older 64-bit version of Windows 7,
-        8, or 8.1 should work
+      - Targeted for Windows 10 and 11
 
-   - linux-arm |linux-arm|
    - linux-arm64 |linux-arm64|
-   - linux-riscv64 (untested) |linux-riscv64|
 
 .. _OSS CAD Suite: https://github.com/YosysHQ/oss-cad-suite-build
 .. _nightly builds: https://github.com/YosysHQ/oss-cad-suite-build/releases/latest
@@ -60,9 +57,7 @@ The `OSS CAD Suite`_ releases `nightly builds`_ for the following architectures:
 .. |darwin-x64| image:: https://github.com/YosysHQ/oss-cad-suite-build/actions/workflows/darwin-x64.yml/badge.svg
 .. |darwin-arm64| image:: https://github.com/YosysHQ/oss-cad-suite-build/actions/workflows/darwin-arm64.yml/badge.svg
 .. |windows-x64| image:: https://github.com/YosysHQ/oss-cad-suite-build/actions/workflows/windows-x64.yml/badge.svg
-.. |linux-arm| image:: https://github.com/YosysHQ/oss-cad-suite-build/actions/workflows/linux-arm.yml/badge.svg
 .. |linux-arm64| image:: https://github.com/YosysHQ/oss-cad-suite-build/actions/workflows/linux-arm64.yml/badge.svg
-.. |linux-riscv64| image:: https://github.com/YosysHQ/oss-cad-suite-build/actions/workflows/linux-riscv64.yml/badge.svg
 
 Building from source
 ~~~~~~~~~~~~~~~~~~~~
@@ -90,14 +85,10 @@ Build prerequisites
 ^^^^^^^^^^^^^^^^^^^
 
 A C++ compiler with C++11 support is required as well as some standard tools
-such as GNU Flex, GNU Bison, Make, libffi, and Python3.6 or later.  Some
-additional tools: readline, Tcl and zlib; are optional but enabled by default
-(see ``ENABLE_*`` settings in Makefile). Xdot (graphviz) is optional unless
-using the :cmd:ref:`show` command to display schematics.
-
-.. 
-   unclear if libffi is required now or still optional
-   readme says optional, but I can't find a corresponding ENABLE_*
+such as GNU Flex, GNU Bison, Make and Python.  Some additional tools: readline,
+libffi, Tcl and zlib; are optional but enabled by default (see
+:makevar:`ENABLE_*` settings in Makefile). Graphviz and Xdot are used by the
+:cmd:ref:`show` command to display schematics.
 
 Installing all prerequisites for Ubuntu 20.04:
 
@@ -118,23 +109,32 @@ Installing all prerequisites for macOS 11 (with Homebrew):
 Running the build system
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-To configure the build system to use a specific compiler, use one of the
-following:
-
-.. code:: console
-
-   make config-clang
-   make config-gcc
-
-Then, simply run ``make`` in this directory.
+From the root `yosys` directory, call the following commands:
 
 .. code:: console
    
    make
    sudo make install
 
-Note that this also downloads, builds, and installs ABC (using yosys-abc as the
-executable name).
+This will build and then install Yosys, making it available on the command line
+as `yosys`.  Note that this also downloads, builds, and installs `ABC`_ (using
+:program:`yosys-abc` as the executable name).
+
+.. _ABC: https://github.com/berkeley-abc/abc
+
+The default compiler is ``clang``, to change between ``clang`` and ``gcc``, use
+one of the following:
+
+.. code:: console
+
+   make config-clang
+   make config-gcc
+
+To use a compiler different than the default, use:
+
+.. code:: console
+
+   make CXX="g++-11"
 
 .. seealso:: 
 
@@ -167,11 +167,12 @@ directories:
 ``kernel/``
    This directory contains all the core functionality of Yosys. This includes
    the functions and definitions for working with the RTLIL data structures
-   (``rtlil.{h|cc}``), the ``main()`` function (``driver.cc``), the internal
-   framework for generating log messages (``log.{h|cc}``), the internal
-   framework for registering and calling passes (``register.{h|cc}``), some core
-   commands that are not really passes (``select.cc``, ``show.cc``, …) and a
-   couple of other small utility libraries.
+   (:file:`rtlil.{h|cc}`), the ``main()`` function (:file:`driver.cc`), the
+   internal framework for generating log messages (:file:`log.{h|cc}`), the
+   internal framework for registering and calling passes
+   (:file:`register.{h|cc}`), some core commands that are not really passes
+   (:file:`select.cc`, :file:`show.cc`, …) and a couple of other small utility
+   libraries.
 
 ``libs/``
    Libraries packaged with Yosys builds are contained in this folder.  See
@@ -182,7 +183,7 @@ directories:
 
 ``passes/``
    This directory contains a subdirectory for each pass or group of passes. For
-   example as of this writing the directory ``passes/hierarchy/`` contains the
+   example as of this writing the directory :file:`passes/hierarchy/` contains the
    code for three passes: :cmd:ref:`hierarchy`, :cmd:ref:`submod`, and
    :cmd:ref:`uniquify`.
 
@@ -194,15 +195,16 @@ directories:
    This directory contains the suite of unit tests and regression tests used by
    Yosys.  See :doc:`/test_suites`.
 
-The top-level Makefile includes ``frontends/*/Makefile.inc``,
-``passes/*/Makefile.inc`` and ``backends/*/Makefile.inc``. So when extending
-Yosys it is enough to create a new directory in ``frontends/``, ``passes/`` or
-``backends/`` with your sources and a ``Makefile.inc``. The Yosys kernel
-automatically detects all commands linked with Yosys. So it is not needed to add
-additional commands to a central list of commands.
+The top-level Makefile includes :file:`frontends/{*}/Makefile.inc`,
+:file:`passes/{*}/Makefile.inc` and :file:`backends/{*}/Makefile.inc`. So when
+extending Yosys it is enough to create a new directory in :file:`frontends/`,
+:file:`passes/` or :file:`backends/` with your sources and a
+:file:`Makefile.inc`. The Yosys kernel automatically detects all commands linked
+with Yosys. So it is not needed to add additional commands to a central list of
+commands.
 
 Good starting points for reading example source code to learn how to write
-passes are ``passes/opt/opt_dff.cc`` and ``passes/opt/opt_merge.cc``.
+passes are :file:`passes/opt/opt_dff.cc` and :file:`passes/opt/opt_merge.cc`.
 
 See the top-level README file for a quick Getting Started guide and build
 instructions. The Yosys build is based solely on Makefiles.

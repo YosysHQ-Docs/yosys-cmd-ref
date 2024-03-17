@@ -2,10 +2,10 @@ digraph "cmos_demo" {
 label="cmos_demo";
 rankdir="LR";
 remincross=true;
-n4 [ shape=octagon, label="a", color="black", fontcolor="black" ];
-n5 [ shape=octagon, label="b", color="black", fontcolor="black" ];
-n6 [ shape=octagon, label="y[0]", color="black", fontcolor="black" ];
-n7 [ shape=octagon, label="y[1]", color="black", fontcolor="black" ];
+n4 [ shape=octagon, label="a", color="black", fontcolor="black"];
+n5 [ shape=octagon, label="b", color="black", fontcolor="black"];
+n6 [ shape=octagon, label="y[0]", color="black", fontcolor="black"];
+n7 [ shape=octagon, label="y[1]", color="black", fontcolor="black"];
 c10 [ shape=record, label="{{<p8> A}|$222\nNOT|{<p9> Y}}",  ];
 c11 [ shape=record, label="{{<p8> A}|$223\nNOT|{<p9> Y}}",  ];
 c13 [ shape=record, label="{{<p8> A|<p12> B}|$224\nNOR|{<p9> Y}}",  ];

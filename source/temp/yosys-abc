@@ -15,4 +15,4 @@ usage: ./yosys-abc [-c cmd] [-q cmd] [-C cmd] [-Q cmd] [-f script] [-h] [-o file
     -x		equivalent to '-t none -T none'
     -b		running in bridge mode
 
-UC Berkeley, ABC 1.01 (compiled Nov  1 2023 13:25:51)
+UC Berkeley, ABC 1.01 (compiled Mar 18 2024 10:40:17)

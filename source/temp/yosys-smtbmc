@@ -126,6 +126,15 @@ yosys-smtbmc [options] <yosys_smt2_output>
     --incremental
         run in incremental mode (experimental)
 
+    --track-assumes
+        track individual assumptions and report a subset of used
+        assumptions that are sufficient for the reported outcome. This
+        can be used to debug PREUNSAT failures as well as to find a
+        smaller set of sufficient assumptions.
+
+    --minimize-assumes
+        when using --track-assumes, solve for a minimal set of sufficient assumptions.
+
 
     -s <solver>
         set SMT solver: z3, yices, boolector, bitwuzla, cvc4, mathsat, dummy

@@ -13,7 +13,7 @@ connect - create or remove connections
 
     .. code:: yoscrypt
 
-        connect [-nomap] [-nounset] -set <lhs-expr> <rhs-expr>
+        connect [-nomap] [-nounset] -set <lhs-expr> <rhs-expr> [selection]
 
     ::
 
@@ -25,7 +25,7 @@ connect - create or remove connections
 
     .. code:: yoscrypt
 
-        connect [-nomap] -unset <expr>
+        connect [-nomap] -unset <expr> [selection]
 
     ::
 
@@ -34,7 +34,7 @@ connect - create or remove connections
 
     .. code:: yoscrypt
 
-        connect [-nomap] [-assert] -port <cell> <port> <expr>
+        connect [-nomap] [-assert] -port <cell> <port> <expr> [selection]
 
     ::
 
@@ -62,7 +62,7 @@ connect - create or remove connections
     ::
 
         
-            connect [-nomap] [-nounset] -set <lhs-expr> <rhs-expr>
+            connect [-nomap] [-nounset] -set <lhs-expr> <rhs-expr> [selection]
         
         Create a connection. This is equivalent to adding the statement 'assign
         <lhs-expr> = <rhs-expr>;' to the Verilog input. Per default, all existing
@@ -70,12 +70,12 @@ connect - create or remove connections
         the -nounset option.
         
         
-            connect [-nomap] -unset <expr>
+            connect [-nomap] -unset <expr> [selection]
         
         Unconnect all existing drivers for the specified expression.
         
         
-            connect [-nomap] [-assert] -port <cell> <port> <expr>
+            connect [-nomap] [-assert] -port <cell> <port> <expr> [selection]
         
         Connect the specified cell port to the specified cell port.
         

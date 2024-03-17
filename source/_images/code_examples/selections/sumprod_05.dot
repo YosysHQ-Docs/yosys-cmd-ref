@@ -2,8 +2,8 @@ digraph "sumprod" {
 label="sumprod";
 rankdir="LR";
 remincross=true;
-n2 [ shape=octagon, label="c", color="black", fontcolor="black" ];
-n3 [ shape=octagon, label="prod", color="black", fontcolor="black" ];
+n2 [ shape=octagon, label="c", color="black", fontcolor="black"];
+n3 [ shape=octagon, label="prod", color="black", fontcolor="black"];
 v0 [ label="a" ];
 v1 [ label="b" ];
 c7 [ shape=record, label="{{<p4> A|<p5> B}|$3\n$mul|{<p6> Y}}",  ];

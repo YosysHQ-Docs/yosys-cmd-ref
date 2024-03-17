@@ -2,11 +2,11 @@ digraph "memdemo" {
 label="memdemo";
 rankdir="LR";
 remincross=true;
-n4 [ shape=diamond, label="mem[0]", color="black", fontcolor="black" ];
-n5 [ shape=diamond, label="mem[1]", color="black", fontcolor="black" ];
-n6 [ shape=diamond, label="mem[2]", color="black", fontcolor="black" ];
-n7 [ shape=diamond, label="mem[3]", color="black", fontcolor="black" ];
-n8 [ shape=octagon, label="y", color="black", fontcolor="black" ];
+n4 [ shape=diamond, label="mem[0]", color="black", fontcolor="black"];
+n5 [ shape=diamond, label="mem[1]", color="black", fontcolor="black"];
+n6 [ shape=diamond, label="mem[2]", color="black", fontcolor="black"];
+n7 [ shape=diamond, label="mem[3]", color="black", fontcolor="black"];
+n8 [ shape=octagon, label="y", color="black", fontcolor="black"];
 v0 [ label="clk" ];
 c12 [ shape=record, label="{{<p9> CLK|<p10> D}|$rdreg[0]\n$dff|{<p11> Q}}",  ];
 v1 [ label="$0&#9586;s2[1:0] [1]" ];

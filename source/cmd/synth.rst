@@ -91,11 +91,15 @@ synth - generic synthesis script
 
     ::
 
-            run the booth pass to convert $mul to Booth encoded multipliers
+            run the booth pass to map $mul to Booth encoded multipliers
+
+
+    .. code:: yoscrypt
+
+        -noalumacc
 
     ::
 
-        -noalumacc
             do not run 'alumacc' pass. i.e. keep arithmetic operators in
             their direct form ($add, $sub, etc.).
 
@@ -158,6 +162,16 @@ synth - generic synthesis script
             attribute on all memories).
 
 
+    .. code:: yoscrypt
+
+        -extra-map filename
+
+    ::
+
+            source extra rules from the given file to complement the default
+            mapping library in the `techmap` step. this option can be
+            repeated.
+
 
     ::
 
@@ -179,6 +193,7 @@ synth - generic synthesis script
                 peepopt
                 opt_clean
                 techmap -map +/cmp2lut.v -map +/cmp2lcu.v     (if -lut)
+                booth        (if -booth)
                 alumacc      (unless -noalumacc)
                 share        (unless -noshare)
                 opt
@@ -189,7 +204,8 @@ synth - generic synthesis script
                 opt -fast -full
                 memory_map
                 opt -full
-                techmap
+                techmap                      (unless -extra-map)
+                techmap -map +/techmap.v -map <inject>      (if -extra-map)
                 techmap -map +/gate2lut.v    (if -noabc and -lut)
                 clean; opt_lut               (if -noabc and -lut)
                 flowmap -maxlut K            (if -flowmap and -lut)
@@ -240,7 +256,8 @@ synth - generic synthesis script
                 do not run abc (as if yosys was compiled without ABC support)
         
             -booth
-                run the booth pass to convert $mul to Booth encoded multipliers
+                run the booth pass to map $mul to Booth encoded multipliers
+        
             -noalumacc
                 do not run 'alumacc' pass. i.e. keep arithmetic operators in
                 their direct form ($add, $sub, etc.).
@@ -267,6 +284,10 @@ synth - generic synthesis script
                 read/write collision" (same result as setting the no_rw_check
                 attribute on all memories).
         
+            -extra-map filename
+                source extra rules from the given file to complement the default
+                mapping library in the `techmap` step. this option can be
+                repeated.
         
         The following commands are executed by this synthesis command:
         
@@ -286,6 +307,7 @@ synth - generic synthesis script
                 peepopt
                 opt_clean
                 techmap -map +/cmp2lut.v -map +/cmp2lcu.v     (if -lut)
+                booth        (if -booth)
                 alumacc      (unless -noalumacc)
                 share        (unless -noshare)
                 opt
@@ -296,7 +318,8 @@ synth - generic synthesis script
                 opt -fast -full
                 memory_map
                 opt -full
-                techmap
+                techmap                      (unless -extra-map)
+                techmap -map +/techmap.v -map <inject>      (if -extra-map)
                 techmap -map +/gate2lut.v    (if -noabc and -lut)
                 clean; opt_lut               (if -noabc and -lut)
                 flowmap -maxlut K            (if -flowmap and -lut)

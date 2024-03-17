@@ -41,6 +41,6 @@ attribute \src "absval_ref.v:1.1-3.10"
 module $abstract\absval_ref
 end
 
-End of script. Logfile hash: 01cda1039c, CPU: user 0.00s system 0.00s, MEM: 10.71 MB peak
-Yosys 0.37+27 (git sha1 a7e1c6e53, ccache clang 10.0.0-4ubuntu1 -fPIC -Os)
-Time spent: 53% 1x clean (0 sec), 29% 2x read_verilog (0 sec), ...
+End of script. Logfile hash: 01cda1039c, CPU: user 0.00s system 0.00s, MEM: 10.59 MB peak
+Yosys 0.39+4 (git sha1 d2bf5a83a, ccache clang++ 10.0.0-4ubuntu1 -fPIC -Os)
+Time spent: 51% 1x clean (0 sec), 28% 2x read_verilog (0 sec), ...

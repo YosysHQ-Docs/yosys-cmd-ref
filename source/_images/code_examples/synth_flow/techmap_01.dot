@@ -1,9 +1,9 @@
 digraph "test" {
 rankdir="LR";
 remincross=true;
-n3 [ shape=octagon, label="a", color="black", fontcolor="black" ];
-n4 [ shape=octagon, label="b", color="black", fontcolor="black" ];
-n5 [ shape=octagon, label="y", color="black", fontcolor="black" ];
+n3 [ shape=octagon, label="a", color="black", fontcolor="black"];
+n4 [ shape=octagon, label="b", color="black", fontcolor="black"];
+n5 [ shape=octagon, label="y", color="black", fontcolor="black"];
 c9 [ shape=record, label="{{<p6> A|<p7> B}|$2\n$add|{<p8> Y}}",  ];
 x0 [ shape=record, style=rounded, label="<s0> 15:0 - 15:0 ", color="black", fontcolor="black" ];
 x0:e -> c9:p6:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", fontcolor="black", style="setlinewidth(3)", label=""];

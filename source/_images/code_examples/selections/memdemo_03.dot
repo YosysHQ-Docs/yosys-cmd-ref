@@ -2,8 +2,8 @@ digraph "memdemo" {
 label="memdemo";
 rankdir="LR";
 remincross=true;
-n4 [ shape=octagon, label="clk", color="black", fontcolor="black" ];
-n5 [ shape=octagon, label="y", color="black", fontcolor="black" ];
+n4 [ shape=octagon, label="clk", color="black", fontcolor="black"];
+n5 [ shape=octagon, label="y", color="black", fontcolor="black"];
 c9 [ shape=record, label="{{<p6> CLK|<p7> D}|$rdreg[0]\n$dff|{<p8> Q}}",  ];
 v0 [ label="$0&#9586;s2[1:0] [1]" ];
 c14 [ shape=record, label="{{<p10> A|<p11> B|<p12> S}|$79\n$mux|{<p13> Y}}",  ];

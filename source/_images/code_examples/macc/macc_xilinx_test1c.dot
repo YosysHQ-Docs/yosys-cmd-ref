@@ -1,13 +1,13 @@
 digraph "test1" {
 rankdir="LR";
 remincross=true;
-n9 [ shape=octagon, label="a", color="black", fontcolor="black" ];
-n10 [ shape=octagon, label="b", color="black", fontcolor="black" ];
-n11 [ shape=octagon, label="c", color="black", fontcolor="black" ];
-n12 [ shape=octagon, label="d", color="black", fontcolor="black" ];
-n13 [ shape=octagon, label="e", color="black", fontcolor="black" ];
-n14 [ shape=octagon, label="f", color="black", fontcolor="black" ];
-n15 [ shape=octagon, label="y", color="black", fontcolor="black" ];
+n9 [ shape=octagon, label="a", color="black", fontcolor="black"];
+n10 [ shape=octagon, label="b", color="black", fontcolor="black"];
+n11 [ shape=octagon, label="c", color="black", fontcolor="black"];
+n12 [ shape=octagon, label="d", color="black", fontcolor="black"];
+n13 [ shape=octagon, label="e", color="black", fontcolor="black"];
+n14 [ shape=octagon, label="f", color="black", fontcolor="black"];
+n15 [ shape=octagon, label="y", color="black", fontcolor="black"];
 c19 [ shape=record, label="{{<p16> A|<p17> B}|$3\n$__add_wrapper|{<p18> Y}}",  ];
 x0 [ shape=record, style=rounded, label="0 -&gt; 47:42 |<s0> 41:0 - 41:0 ", color="black", fontcolor="black" ];
 x0:e -> c19:p16:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", fontcolor="black", style="setlinewidth(3)", label=""];

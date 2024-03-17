@@ -134,8 +134,8 @@ techmap - generic technology mapper
 
         When a port on a module in the map file has the 'techmap_autopurge' attribute
         set, and that port is not connected in the instantiation that is mapped, then
-        then a cell port connected only to such wires will be omitted in the mapped
-        version of the circuit.
+        a cell port connected only to such wires will be omitted in the mapped version
+        of the circuit.
 
         All wires in the modules from the map file matching the pattern _TECHMAP_*
         or *._TECHMAP_* are special wires that are used to pass instructions from
@@ -304,8 +304,8 @@ techmap - generic technology mapper
         
         When a port on a module in the map file has the 'techmap_autopurge' attribute
         set, and that port is not connected in the instantiation that is mapped, then
-        then a cell port connected only to such wires will be omitted in the mapped
-        version of the circuit.
+        a cell port connected only to such wires will be omitted in the mapped version
+        of the circuit.
         
         All wires in the modules from the map file matching the pattern _TECHMAP_*
         or *._TECHMAP_* are special wires that are used to pass instructions from

@@ -26,7 +26,7 @@ First, let's quickly look at the design we'll be synthesizing:
 .. literalinclude:: /code_examples/fifo/fifo.v
    :language: Verilog
    :linenos:
-   :caption: ``fifo.v``
+   :caption: :file:`fifo.v`
    :name: fifo-v
 
 .. todo:: fifo.v description
@@ -36,7 +36,7 @@ Loading the design
 
 Let's load the design into Yosys.  From the command line, we can call ``yosys
 fifo.v``.  This will open an interactive Yosys shell session and immediately
-parse the code from ``fifo.v`` and convert it into an Abstract Syntax Tree
+parse the code from :ref:`fifo-v` and convert it into an Abstract Syntax Tree
 (AST).  If you are interested in how this happens, there is more information in
 the document, :doc:`/yosys_internals/flow/verilog_frontend`.  For now, suffice
 it to say that we do this to simplify further processing of the design.  You
@@ -161,8 +161,9 @@ generated from the initial assignment of 0 to the ``addr`` wire.  However, this
 initial assignment is not synthesizable, so this will need to be cleaned up
 before we can generate the physical hardware.  We can do this now by calling
 :cmd:ref:`clean`.  We're also going to call :cmd:ref:`opt_expr` now, which would
-normally be called at the end of :cmd:ref:`proc`.  We can call both commands
-at the same time by separating them with a colon: :yoscrypt:`opt_expr; clean`.
+normally be called at the end of :cmd:ref:`proc`.  We can call both commands at
+the same time by separating them with a colon and space: :yoscrypt:`opt_expr;
+clean`.
 
 .. figure:: /_images/code_examples/fifo/addr_gen_clean.*
    :class: width-helper
@@ -183,10 +184,11 @@ on opt_expr <adv_opt_expr>`.
 
    :doc:`/cmd/clean` can also be called with two semicolons after any command,
    for example we could have called :yoscrypt:`opt_expr;;` instead of
-   :yoscrypt:`opt_expr; clean`.  It is generally beneficial to run
-   :cmd:ref:`clean` after each command as a quick way of removing disconnected
-   parts of the circuit which have been left over.  You may notice some scripts
-   will end each line with ``;;``.
+   :yoscrypt:`opt_expr; clean`.  You may notice some scripts will end each line
+   with ``;;``.  It is beneficial to run :cmd:ref:`clean` before inspecting
+   intermediate products to remove disconnected parts of the circuit which have
+   been left over, and in some cases can reduce the processing required in
+   subsequent commands.
 
 .. todo:: consider a brief glossary for terms like adff
 
@@ -199,9 +201,9 @@ The full example
 ^^^^^^^^^^^^^^^^
 
 Let's now go back and check on our full design by using :yoscrypt:`hierarchy
--check -top fifo`.  By passing the ``-check`` option there we are also
-telling the :cmd:ref:`hierarchy` command that if the design includes any
-non-blackbox modules without an implementation it should return an error.
+-check -top fifo`.  By passing the ``-check`` option there we are also telling
+the :cmd:ref:`hierarchy` command that if the design includes any non-blackbox
+modules without an implementation it should return an error.
 
 Note that if we tried to run this command now then we would get an error.  This
 is because we already removed all of the modules other than ``addr_gen``.  We
@@ -214,7 +216,7 @@ could restart our shell session, but instead let's use two new commands:
    :language: doscon
    :start-at: design -reset
    :end-before: yosys> proc
-   :caption: reloading ``fifo.v`` and running :yoscrypt:`hierarchy -check -top fifo`
+   :caption: reloading :file:`fifo.v` and running :yoscrypt:`hierarchy -check -top fifo`
 
 Notice how this time we didn't see any of those `$abstract` modules?  That's
 because when we ran ``yosys fifo.v``, the first command Yosys called was
@@ -234,11 +236,12 @@ design.  If we know that our design won't run into this issue, we can skip the
    The number before a command's output increments with each command run.  Don't
    worry if your numbers don't match ours!  The output you are seeing comes from
    the same script that was used to generate the images in this document,
-   included in the source as ``fifo.ys``. There are extra commands being run
+   included in the source as :file:`fifo.ys`. There are extra commands being run
    which you don't see, but feel free to try them yourself, or play around with
    different commands.  You can always start over with a clean slate by calling
-   ``exit`` or hitting ``ctrl+c`` (i.e. SIGINT) and re-launching the Yosys
-   interactive terminal.
+   ``exit`` or hitting :kbd:`ctrl+d` (i.e. EOF) and re-launching the Yosys
+   interactive terminal.  :kbd:`ctrl+c` (i.e. SIGINT) will also end the terminal
+   session but will return an error code rather than exiting gracefully.
 
 We can also run :cmd:ref:`proc` now to finish off the full :ref:`synth_begin`.
 Because the design schematic is quite large, we will be showing just the data
@@ -305,12 +308,17 @@ optimizations between modules which would otherwise be missed.  Let's run
 
 The pieces have moved around a bit, but we can see :ref:`addr_gen_proc` from
 earlier has replaced the ``fifo_reader`` block in :ref:`rdata_proc`.  We can
-also see that the ``addr`` output has been renamed to ``fifo_reader.addr`` and
-merged with the ``raddr`` wire feeding into the ``$memrd`` cell.  This wire
+also see that the ``addr`` output has been renamed to :file:`fifo_reader.addr`
+and merged with the ``raddr`` wire feeding into the ``$memrd`` cell.  This wire
 merging happened during the call to :cmd:ref:`clean` which we can see in the
-:ref:`flat_clean`.  Note that in an interactive terminal the outputs of
-:cmd:ref:`flatten` and :cmd:ref:`clean` will be combined into a single
-:yoterm:`yosys> flatten;;` output.
+:ref:`flat_clean`.
+
+.. note:: 
+
+   :cmd:ref:`flatten` and :cmd:ref:`clean` would normally be combined into a
+   single :yoterm:`yosys> flatten;;` output, but they appear separately here as
+   a side effect of using :cmd:ref:`echo` for generating the terminal style
+   output.
 
 Depending on the target architecture, this stage of synthesis might also see
 commands such as :cmd:ref:`tribuf` with the ``-logic`` option and
@@ -413,7 +421,7 @@ reductions are the ones affecting ``fifo.$flatten\fifo_reader.$add$fifo.v``.
 That is the ``$add`` cell incrementing the fifo_reader address.  We can look at
 the schematic and see the output of that cell has now changed.
 
-.. TODO:: pending bugfix in :cmd:ref:`wreduce` and/or :cmd:ref:`opt_clean`
+.. todo:: pending bugfix in :cmd:ref:`wreduce` and/or :cmd:ref:`opt_clean`
 
 .. figure:: /_images/code_examples/fifo/rdata_wreduce.*
    :class: width-helper
@@ -490,6 +498,8 @@ expression rewriting, the ``-fine`` option just enables more fine-grain
 optimizations.  Then we perform width reduction a final time and clear the
 selection.
 
+.. todo:: ``ice40_dsp`` is pmgen
+
 Finally we have :cmd:ref:`ice40_dsp`: similar to the :cmd:ref:`memory_dff`
 command we saw in the previous section, this merges any surrounding registers
 into the ``SB_MAC16`` cell.  This includes not just the input/output registers,
@@ -513,9 +523,10 @@ That brings us to the fourth and final part for the iCE40 synthesis flow:
    :name: synth_coarse4
 
 Where before each type of arithmetic operation had its own cell, e.g. ``$add``,
-we now want to extract these into ``$alu`` and ``$macc`` cells which can be
-mapped to hard blocks.  We do this by running :cmd:ref:`alumacc`, which we can
-see produce the following changes in our example design:
+we now want to extract these into ``$alu`` and ``$macc`` cells which can help
+identify opportunities for reusing logic.  We do this by running
+:cmd:ref:`alumacc`, which we can see produce the following changes in our
+example design:
 
 .. literalinclude:: /code_examples/fifo/fifo.out
    :language: doscon
@@ -528,6 +539,10 @@ see produce the following changes in our example design:
    :name: rdata_alumacc
 
    ``rdata`` output after :cmd:ref:`alumacc`
+
+Once these cells have been inserted, the call to :cmd:ref:`opt` can combine
+cells which are now identical but may have been missed due to e.g. the
+difference between ``$add`` and ``$sub``.
 
 The other new command in this part is :doc:`/cmd/memory`.  :cmd:ref:`memory` is
 another macro command which we examine in more detail in
@@ -551,7 +566,9 @@ one for writing (``WR_*``), as well as both ``WR_DATA`` input and ``RD_DATA``
 output.
 
 .. seealso:: Advanced usage docs for
-   :doc:`/using_yosys/synthesis/memory`
+
+   - :doc:`/using_yosys/synthesis/opt`
+   - :doc:`/using_yosys/synthesis/memory`
 
 Final note
 ^^^^^^^^^^
@@ -575,8 +592,8 @@ If you skipped calling :yoscrypt:`read_verilog -D ICE40_HX -lib -specify
 Memory blocks
 ^^^^^^^^^^^^^
 
-Mapping to hard memory blocks uses a combination of :cmd:ref:`memory_libmap`,
-:cmd:ref:`memory_map`, and :cmd:ref:`techmap`.
+Mapping to hard memory blocks uses a combination of :cmd:ref:`memory_libmap` and
+:cmd:ref:`techmap`.
 
 .. literalinclude:: /cmd/synth_ice40.rst
    :language: yoscrypt
@@ -592,15 +609,33 @@ Mapping to hard memory blocks uses a combination of :cmd:ref:`memory_libmap`,
 
    ``rdata`` output after :ref:`map_ram`
 
-:ref:`map_ram` converts the generic ``$mem_v2`` into the iCE40 ``SB_RAM40_4K``
-(highlighted). We can also see the memory address has been remapped, and the
-data bits have been reordered (or swizzled).  There is also now a ``$mux`` cell
-controlling the value of ``rdata``.  In :ref:`fifo-v` we wrote our memory as
-read-before-write, however the ``SB_RAM40_4K`` has undefined behaviour when
-reading from and writing to the same address in the same cycle.  As a result,
-extra logic is added so that the generated circuit matches the behaviour of the
-verilog.  :ref:`no_rw_check` describes how we could change our verilog to match
-our hardware instead.
+The :ref:`map_ram` converts the generic ``$mem_v2`` into the iCE40
+``SB_RAM40_4K`` (highlighted). We can also see the memory address has been
+remapped, and the data bits have been reordered (or swizzled).  There is also
+now a ``$mux`` cell controlling the value of ``rdata``.  In :ref:`fifo-v` we
+wrote our memory as read-before-write, however the ``SB_RAM40_4K`` has undefined
+behaviour when reading from and writing to the same address in the same cycle.
+As a result, extra logic is added so that the generated circuit matches the
+behaviour of the verilog.  :ref:`no_rw_check` describes how we could change our
+verilog to match our hardware instead.
+
+If we run :cmd:ref:`memory_libmap` under the :cmd:ref:`debug` command we can see
+candidates which were identified for mapping, along with the costs of each and
+what logic requires emulation.
+
+.. literalinclude:: /code_examples/fifo/fifo.libmap
+   :language: doscon
+   :lines: 2, 6-
+
+The ``$__ICE40_RAM4K_`` cell is defined in the file |techlibs/ice40/brams.txt|_,
+with the mapping to ``SB_RAM40_4K`` done by :cmd:ref:`techmap` using
+|techlibs/ice40/brams_map.v|_.  Any leftover memory cells are then converted
+into flip flops (the ``logic fallback``) with :cmd:ref:`memory_map`.
+
+.. |techlibs/ice40/brams.txt| replace:: :file:`techlibs/ice40/brams.txt`
+.. _techlibs/ice40/brams.txt: https://github.com/YosysHQ/yosys/tree/master/techlibs/ice40/brams.txt
+.. |techlibs/ice40/brams_map.v| replace:: :file:`techlibs/ice40/brams_map.v`
+.. _techlibs/ice40/brams_map.v: https://github.com/YosysHQ/yosys/tree/master/techlibs/ice40/brams_map.v
 
 .. literalinclude:: /cmd/synth_ice40.rst
    :language: yoscrypt
@@ -616,7 +651,13 @@ our hardware instead.
 
    ``rdata`` output after :ref:`map_ffram`
 
-.. TODO:: what even is this opt output
+.. note::
+
+   The visual clutter on the ``RDATA`` output port (highlighted) is an
+   unfortunate side effect of :cmd:ref:`opt_clean` on the swizzled data bits. In
+   connecting the ``$mux`` input port directly to ``RDATA`` to reduce the number
+   of wires, the ``$techmap579\data.0.0.RDATA`` wire becomes more visually
+   complex.
 
 .. seealso:: Advanced usage docs for
    
@@ -803,11 +844,11 @@ The iCE40 synthesis flow has the following output modes available:
 - :doc:`/cmd/write_json`.
 
 As an example, if we called :yoscrypt:`synth_ice40 -top fifo -json fifo.json`,
-our synthesized ``fifo`` design will be output as ``fifo.json``.  We can then
-read the design back into Yosys with :cmd:ref:`read_json`, but make sure you use
-:yoscrypt:`design -reset` or open a new interactive terminal first.  The JSON
-output we get can also be loaded into `nextpnr`_ to do place and route; but that
-is beyond the scope of this documentation.
+our synthesized ``fifo`` design will be output as :file:`fifo.json`.  We can
+then read the design back into Yosys with :cmd:ref:`read_json`, but make sure
+you use :yoscrypt:`design -reset` or open a new interactive terminal first.  The
+JSON output we get can also be loaded into `nextpnr`_ to do place and route; but
+that is beyond the scope of this documentation.
 
 .. _nextpnr: https://github.com/YosysHQ/nextpnr
 

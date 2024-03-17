@@ -3,15 +3,17 @@ Usage: ./yosys-config [--exec] [--prefix pf] args..
        ./yosys-config --build modname.so cppsources..
 
 Replacement args:
-    --cxx         clang
+    --cxx         ccache clang++
     --cxxflags    -Wall -Wextra -ggdb -I"/usr/local/share/yosys/include" \
                       -MD -MP -D_YOSYS_ -fPIC -I/usr/local/include -std=c++11 \
                       -Os -DYOSYS_ENABLE_READLINE -DYOSYS_ENABLE_PLUGINS \
                       -DYOSYS_ENABLE_GLOB -DYOSYS_ENABLE_ZLIB \
                       -I/usr/include/tcl8.6 -DYOSYS_ENABLE_TCL -DYOSYS_ENABLE_ABC \
                       -DYOSYS_ENABLE_COVER
-    --ldflags     -rdynamic
-    --ldlibs      -lstdc++ -lm -lrt -lreadline -lffi -ldl -lz -ltcl8.6 -ltclstub8.6
+    --linkflags   -rdynamic
+    --ldflags     (alias of --linkflags)
+    --libs        -lstdc++ -lm -lrt -lreadline -lffi -ldl -lz -ltcl8.6 -ltclstub8.6
+    --ldlibs      (alias of --libs)
     --bindir      /usr/local/bin
     --datdir      /usr/local/share/yosys
 
@@ -19,7 +21,7 @@ All other args are passed through as they are.
 
 Use --exec to call a command instead of generating output. Example usage:
 
-  ./yosys-config --exec --cxx --cxxflags --ldflags -o plugin.so -shared plugin.cc --ldlibs
+  ./yosys-config --exec --cxx --cxxflags --ldflags -o plugin.so -shared plugin.cc --libs
 
 The above command can be abbreviated as:
 

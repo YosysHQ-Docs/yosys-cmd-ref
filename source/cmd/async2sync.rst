@@ -25,6 +25,15 @@ async2sync - convert async FF inputs to sync circuits
         reset value in the next cycle regardless of the data-in value at the time of
         the clock edge.
 
+
+    .. code:: yoscrypt
+
+        -nolower
+
+    ::
+
+            Do not automatically run 'chformal -lower' to lower $check cells.
+
 .. raw:: latex
 
     \end{comment}
@@ -43,4 +52,7 @@ async2sync - convert async FF inputs to sync circuits
         a reset deasserts with the clock edge, then the FF output will still drive the
         reset value in the next cycle regardless of the data-in value at the time of
         the clock edge.
+        
+            -nolower
+                Do not automatically run 'chformal -lower' to lower $check cells.
         

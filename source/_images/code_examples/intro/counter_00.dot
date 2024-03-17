@@ -1,10 +1,10 @@
 digraph "counter" {
 rankdir="LR";
 remincross=true;
-n3 [ shape=octagon, label="count", color="black", fontcolor="black" ];
-n4 [ shape=octagon, label="en", color="black", fontcolor="black" ];
-n5 [ shape=octagon, label="rst", color="black", fontcolor="black" ];
-n6 [ shape=octagon, label="clk", color="black", fontcolor="black" ];
+n3 [ shape=octagon, label="count", color="black", fontcolor="black"];
+n4 [ shape=octagon, label="en", color="black", fontcolor="black"];
+n5 [ shape=octagon, label="rst", color="black", fontcolor="black"];
+n6 [ shape=octagon, label="clk", color="black", fontcolor="black"];
 v0 [ label="2'01" ];
 c10 [ shape=record, label="{{<p7> A|<p8> B}|$2\n$add|{<p9> Y}}",  ];
 p1 [shape=box, style=rounded, label="PROC $1\ncounter.v:6.2-10.26", ];

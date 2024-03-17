@@ -13,7 +13,7 @@ dfflibmap - technology mapping of flip-flops
 
     .. code:: yoscrypt
 
-        dfflibmap [-prepare] [-map-only] [-info] -liberty <file> [selection]
+        dfflibmap [-prepare] [-map-only] [-info] [-dont_use <cell_name>] -liberty <file> [selection]
 
     ::
 
@@ -35,6 +35,11 @@ dfflibmap - technology mapping of flip-flops
         list, along with their associated internal cell types, and the arguments
         that would be passed to the dfflegalize pass.  The design will not be
         changed.
+
+        When called with -dont_use, this command will not map to the specified cell
+        name as an alternative to setting the dont_use property in the Liberty file.
+        This argument can be called multiple times with different cell names. This
+        argument also supports simple glob patterns in the cell name.
 
 .. raw:: latex
 
@@ -45,7 +50,7 @@ dfflibmap - technology mapping of flip-flops
     ::
 
         
-            dfflibmap [-prepare] [-map-only] [-info] -liberty <file> [selection]
+            dfflibmap [-prepare] [-map-only] [-info] [-dont_use <cell_name>] -liberty <file> [selection]
         
         Map internal flip-flop cells to the flip-flop cells in the technology
         library specified in the given liberty file.
@@ -65,4 +70,9 @@ dfflibmap - technology mapping of flip-flops
         list, along with their associated internal cell types, and the arguments
         that would be passed to the dfflegalize pass.  The design will not be
         changed.
+        
+        When called with -dont_use, this command will not map to the specified cell
+        name as an alternative to setting the dont_use property in the Liberty file.
+        This argument can be called multiple times with different cell names. This
+        argument also supports simple glob patterns in the cell name.
         

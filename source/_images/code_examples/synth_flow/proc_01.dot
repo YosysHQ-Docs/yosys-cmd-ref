@@ -1,10 +1,10 @@
 digraph "test" {
 rankdir="LR";
 remincross=true;
-n1 [ shape=octagon, label="C", color="black", fontcolor="black" ];
-n2 [ shape=octagon, label="D", color="black", fontcolor="black" ];
-n3 [ shape=octagon, label="Q", color="black", fontcolor="black" ];
-n4 [ shape=octagon, label="R", color="black", fontcolor="black" ];
+n1 [ shape=octagon, label="C", color="black", fontcolor="black"];
+n2 [ shape=octagon, label="D", color="black", fontcolor="black"];
+n3 [ shape=octagon, label="Q", color="black", fontcolor="black"];
+n4 [ shape=octagon, label="R", color="black", fontcolor="black"];
 c7 [ shape=record, label="{{<p5> ARST|<p6> CLK|<p2> D}|$2\n$adff|{<p3> Q}}",  ];
 n1:e -> c7:p6:w [color="black", fontcolor="black", label=""];
 n2:e -> c7:p2:w [color="black", fontcolor="black", label=""];

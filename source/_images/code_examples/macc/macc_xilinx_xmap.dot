@@ -1,10 +1,10 @@
 digraph "DSP48_MACC" {
 rankdir="LR";
 remincross=true;
-n2 [ shape=octagon, label="a", color="black", fontcolor="black" ];
-n3 [ shape=octagon, label="b", color="black", fontcolor="black" ];
-n4 [ shape=octagon, label="c", color="black", fontcolor="black" ];
-n5 [ shape=octagon, label="y", color="black", fontcolor="black" ];
+n2 [ shape=octagon, label="a", color="black", fontcolor="black"];
+n3 [ shape=octagon, label="b", color="black", fontcolor="black"];
+n4 [ shape=octagon, label="c", color="black", fontcolor="black"];
+n5 [ shape=octagon, label="y", color="black", fontcolor="black"];
 c9 [ shape=record, label="{{<p6> A|<p7> B|<p8> Y}|$28\n$__add_wrapper|{}}",  ];
 c10 [ shape=record, label="{{<p6> A|<p7> B|<p8> Y}|$27\n$__mul_wrapper|{}}",  ];
 n1 [ shape=diamond, label="$27_Y" ];

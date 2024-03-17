@@ -1,10 +1,10 @@
 digraph "addr_gen" {
 rankdir="LR";
 remincross=true;
-n5 [ shape=octagon, label="addr", color="black", fontcolor="black" ];
-n6 [ shape=octagon, label="clk", color="black", fontcolor="black" ];
-n7 [ shape=octagon, label="en", color="black", fontcolor="black" ];
-n8 [ shape=octagon, label="rst", color="black", fontcolor="black" ];
+n5 [ shape=octagon, label="addr", color="black", fontcolor="black"];
+n6 [ shape=octagon, label="clk", color="black", fontcolor="black"];
+n7 [ shape=octagon, label="en", color="black", fontcolor="black"];
+n8 [ shape=octagon, label="rst", color="black", fontcolor="black"];
 v0 [ label="1" ];
 c12 [ shape=record, label="{{<p9> A|<p10> B}|$3\n$add|{<p11> Y}}",  ];
 v1 [ label="8'11111111" ];

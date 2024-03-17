@@ -68,8 +68,7 @@ write_cxxrtl - convert design to C++ RTL simulation
               wire<8> p_o_data;
 
               bool eval(performer *performer) override;
-              template<class ObserverT>
-              bool commit(ObserverT &observer);
+              virtual bool commit(observer &observer);
               bool commit() override;
 
               static std::unique_ptr<bb_p_debug>
@@ -442,8 +441,7 @@ write_cxxrtl - convert design to C++ RTL simulation
               wire<8> p_o_data;
         
               bool eval(performer *performer) override;
-              template<class ObserverT>
-              bool commit(ObserverT &observer);
+              virtual bool commit(observer &observer);
               bool commit() override;
         
               static std::unique_ptr<bb_p_debug>

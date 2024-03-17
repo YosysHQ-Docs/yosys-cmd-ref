@@ -2,11 +2,11 @@ digraph "selstage" {
 label="selstage";
 rankdir="LR";
 remincross=true;
-n3 [ shape=octagon, label="n2", color="black", fontcolor="black" ];
-n4 [ shape=octagon, label="n1", color="black", fontcolor="black" ];
-n5 [ shape=octagon, label="s2", color="black", fontcolor="black" ];
-n6 [ shape=octagon, label="s1", color="black", fontcolor="black" ];
-n7 [ shape=octagon, label="d", color="black", fontcolor="black" ];
+n3 [ shape=octagon, label="n2", color="black", fontcolor="black"];
+n4 [ shape=octagon, label="n1", color="black", fontcolor="black"];
+n5 [ shape=octagon, label="s2", color="black", fontcolor="black"];
+n6 [ shape=octagon, label="s1", color="black", fontcolor="black"];
+n7 [ shape=octagon, label="d", color="black", fontcolor="black"];
 c10 [ shape=record, label="{{<p8> A}|$32\n$reduce_bool|{<p9> Y}}",  ];
 v0 [ label="4'0000" ];
 c13 [ shape=record, label="{{<p8> A|<p11> B|<p12> S}|$33\n$mux|{<p9> Y}}",  ];

@@ -1,11 +1,11 @@
 digraph "counter" {
 rankdir="LR";
 remincross=true;
-n12 [ shape=octagon, label="clk", color="black", fontcolor="black" ];
-n13 [ shape=octagon, label="count[0]", color="black", fontcolor="black" ];
-n14 [ shape=octagon, label="count[1]", color="black", fontcolor="black" ];
-n15 [ shape=octagon, label="en", color="black", fontcolor="black" ];
-n16 [ shape=octagon, label="rst", color="black", fontcolor="black" ];
+n12 [ shape=octagon, label="clk", color="black", fontcolor="black"];
+n13 [ shape=octagon, label="count[0]", color="black", fontcolor="black"];
+n14 [ shape=octagon, label="count[1]", color="black", fontcolor="black"];
+n15 [ shape=octagon, label="en", color="black", fontcolor="black"];
+n16 [ shape=octagon, label="rst", color="black", fontcolor="black"];
 c19 [ shape=record, label="{{<p17> A}|$130\nNOT|{<p18> Y}}",  ];
 c20 [ shape=record, label="{{<p17> A}|$131\nNOT|{<p18> Y}}",  ];
 c22 [ shape=record, label="{{<p17> A|<p21> B}|$132\nNAND|{<p18> Y}}",  ];
