@@ -6,10 +6,9 @@ synth_intel - synthesis for Intel (Altera) FPGAs.
 
     \begin{comment}
 
-:code:`yosys> help synth_intel`
---------------------------------------------------------------------------------
+.. cmd:def:: synth_intel
+    :title: synthesis for Intel (Altera) FPGAs.
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

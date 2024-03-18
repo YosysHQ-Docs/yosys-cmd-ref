@@ -6,10 +6,9 @@ cover - print code coverage counters
 
     \begin{comment}
 
-:code:`yosys> help cover`
---------------------------------------------------------------------------------
+.. cmd:def:: cover
+    :title: print code coverage counters
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

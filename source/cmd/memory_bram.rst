@@ -6,10 +6,9 @@ memory_bram - map memories to block rams
 
     \begin{comment}
 
-:code:`yosys> help memory_bram`
---------------------------------------------------------------------------------
+.. cmd:def:: memory_bram
+    :title: map memories to block rams
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

@@ -6,10 +6,9 @@ synth_quicklogic - Synthesis for QuickLogic FPGAs
 
     \begin{comment}
 
-:code:`yosys> help synth_quicklogic`
---------------------------------------------------------------------------------
+.. cmd:def:: synth_quicklogic
+    :title: Synthesis for QuickLogic FPGAs
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

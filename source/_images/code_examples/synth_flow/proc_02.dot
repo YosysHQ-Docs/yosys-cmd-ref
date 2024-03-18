@@ -1,0 +1,15 @@
+digraph "test" {
+rankdir="LR";
+remincross=true;
+n1 [ shape=octagon, label="C", color="black", fontcolor="black"];
+n2 [ shape=octagon, label="D", color="black", fontcolor="black"];
+n3 [ shape=octagon, label="Q", color="black", fontcolor="black"];
+n4 [ shape=octagon, label="R", color="black", fontcolor="black"];
+n5 [ shape=octagon, label="RV", color="black", fontcolor="black"];
+c9 [ shape=record, label="{{<p6> AD|<p7> ALOAD|<p8> CLK|<p2> D}|$2\n$aldff|{<p3> Q}}",  ];
+n1:e -> c9:p8:w [color="black", fontcolor="black", label=""];
+n2:e -> c9:p2:w [color="black", fontcolor="black", label=""];
+c9:p3:e -> n3:w [color="black", fontcolor="black", label=""];
+n4:e -> c9:p7:w [color="black", fontcolor="black", label=""];
+n5:e -> c9:p6:w [color="black", fontcolor="black", label=""];
+}

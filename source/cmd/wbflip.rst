@@ -6,10 +6,9 @@ wbflip - flip the whitebox attribute
 
     \begin{comment}
 
-:code:`yosys> help wbflip`
---------------------------------------------------------------------------------
+.. cmd:def:: wbflip
+    :title: flip the whitebox attribute
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

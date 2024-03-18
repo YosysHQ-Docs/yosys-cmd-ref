@@ -6,10 +6,9 @@ eval - evaluate the circuit given an input
 
     \begin{comment}
 
-:code:`yosys> help eval`
---------------------------------------------------------------------------------
+.. cmd:def:: eval
+    :title: evaluate the circuit given an input
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

@@ -6,10 +6,9 @@ read_rtlil - read modules from RTLIL file
 
     \begin{comment}
 
-:code:`yosys> help read_rtlil`
---------------------------------------------------------------------------------
+.. cmd:def:: read_rtlil
+    :title: read modules from RTLIL file
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

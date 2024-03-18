@@ -6,10 +6,9 @@ license - print license terms
 
     \begin{comment}
 
-:code:`yosys> help license`
---------------------------------------------------------------------------------
+.. cmd:def:: license
+    :title: print license terms
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

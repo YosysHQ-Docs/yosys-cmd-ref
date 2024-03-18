@@ -6,10 +6,9 @@ opt_merge - consolidate identical cells
 
     \begin{comment}
 
-:code:`yosys> help opt_merge`
---------------------------------------------------------------------------------
+.. cmd:def:: opt_merge
+    :title: consolidate identical cells
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

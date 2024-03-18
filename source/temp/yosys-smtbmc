@@ -1,0 +1,178 @@
+yosys-smtbmc [options] <yosys_smt2_output>
+
+    -h, --help
+    	show this message
+
+    -t <num_steps>
+    -t <skip_steps>:<num_steps>
+    -t <skip_steps>:<step_size>:<num_steps>
+        default: skip_steps=0, step_size=1, num_steps=20
+
+    -g
+        generate an arbitrary trace that satisfies
+        all assertions and assumptions.
+
+    -i
+        instead of BMC run temporal induction
+
+    -c
+        instead of regular BMC run cover analysis
+
+    -m <module_name>
+        name of the top module
+
+    --smtc <constr_filename>
+        read constraints file
+
+    --cex <cex_filename>
+        read cex file as written by ABC's "write_cex -n"
+
+    --aig <prefix>
+        read AIGER map file (as written by Yosys' "write_aiger -map")
+        and AIGER witness file. The file names are <prefix>.aim for
+        the map file and <prefix>.aiw for the witness file.
+
+    --aig <aim_filename>:<aiw_filename>
+        like above, but for map files and witness files that do not
+        share a filename prefix (or use different file extensions).
+
+    --aig-noheader
+        the AIGER witness file does not include the status and
+        properties lines.
+
+    --yw <yosys_witness_filename>
+        read a Yosys witness.
+
+    --btorwit <btor_witness_filename>
+        read a BTOR witness.
+
+    --noinfo
+        only run the core proof, do not collect and print any
+        additional information (e.g. which assert failed)
+
+    --presat
+        check if the design with assumptions but without assertions
+        is SAT before checking if assertions are UNSAT. This will
+        detect if there are contradicting assumptions. In some cases
+        this will also help to "warm up" the solver, potentially
+        yielding a speedup.
+
+    --final-only
+        only check final constraints, assume base case
+
+    --assume-skipped <start_step>
+        assume asserts in skipped steps in BMC.
+        no assumptions are created for skipped steps
+        before <start_step>.
+
+    --dump-vcd <vcd_filename>
+        write trace to this VCD file
+        (hint: use 'write_smt2 -wires' for maximum
+        coverage of signals in generated VCD file)
+
+    --dump-yw <yw_filename>
+        write trace as a Yosys witness trace
+
+    --dump-vlogtb <verilog_filename>
+        write trace as Verilog test bench
+
+    --vlogtb-top <hierarchical_name>
+        use the given entity as top module for the generated
+        Verilog test bench. The <hierarchical_name> is relative
+        to the design top module without the top module name.
+
+    --dump-smtc <constr_filename>
+        write trace as constraints file
+
+    --smtc-init
+        write just the last state as initial constraint to smtc file
+
+    --smtc-top <old>[:<new>]
+        replace <old> with <new> in constraints dumped to smtc
+        file and only dump object below <old> in design hierarchy.
+
+    --noinit
+        do not assume initial conditions in state 0
+
+    --dump-all
+        when using -g or -i, create a dump file for each
+        step. The character '%' is replaced in all dump
+        filenames with the step number.
+
+    --append <num_steps>
+        add <num_steps> time steps at the end of the trace
+        when creating a counter example (this additional time
+        steps will still be constrained by assumptions)
+
+    --binary
+        dump anyconst values as raw bit strings
+
+    --keep-going
+        continue BMC after the first failed assertion and report
+        further failed assertions. To output multiple traces
+        covering all found failed assertions, the character '%' is
+        replaced in all dump filenames with an increasing number.
+        In cover mode, don't stop when a cover trace contains a failed
+        assertion.
+
+    --check-witness
+        check that the used witness file contains sufficient
+        constraints to force an assertion failure.
+
+    --detect-loops
+        check if states are unique in temporal induction counter examples
+        (this feature is experimental and incomplete)
+
+    --incremental
+        run in incremental mode (experimental)
+
+    --track-assumes
+        track individual assumptions and report a subset of used
+        assumptions that are sufficient for the reported outcome. This
+        can be used to debug PREUNSAT failures as well as to find a
+        smaller set of sufficient assumptions.
+
+    --minimize-assumes
+        when using --track-assumes, solve for a minimal set of sufficient assumptions.
+
+
+    -s <solver>
+        set SMT solver: z3, yices, boolector, bitwuzla, cvc4, mathsat, dummy
+        default: yices
+
+    -S <opt>
+        pass <opt> as command line argument to the solver
+
+    --timeout <value>
+        set the solver timeout to the specified value (in seconds).
+
+    --logic <smt2_logic>
+        use the specified SMT2 logic (e.g. QF_AUFBV)
+
+    --dummy <filename>
+        if solver is "dummy", read solver output from that file
+        otherwise: write solver output to that file
+
+    -v
+        enable debug output
+
+    --unroll
+        unroll uninterpreted functions
+
+    --noincr
+        don't use incremental solving, instead restart solver for
+        each (check-sat). This also avoids (push) and (pop).
+
+    --noprogress
+        disable timer display during solving
+        (this option is set implicitly on Windows)
+
+    --dump-smt2 <filename>
+        write smt2 statements to file
+
+    --info <smt2-info-stmt>
+        include the specified smt2 info statement in the smt2 output
+
+    --nocomments
+        strip all comments from the generated smt2 code
+

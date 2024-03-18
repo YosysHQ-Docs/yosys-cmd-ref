@@ -6,10 +6,9 @@ scratchpad - get/set values in the scratchpad
 
     \begin{comment}
 
-:code:`yosys> help scratchpad`
---------------------------------------------------------------------------------
+.. cmd:def:: scratchpad
+    :title: get/set values in the scratchpad
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

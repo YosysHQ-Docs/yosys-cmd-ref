@@ -6,10 +6,9 @@ ice40_braminit - iCE40: perform SB_RAM40_4K initialization from file
 
     \begin{comment}
 
-:code:`yosys> help ice40_braminit`
---------------------------------------------------------------------------------
+.. cmd:def:: ice40_braminit
+    :title: iCE40: perform SB_RAM40_4K initialization from file
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

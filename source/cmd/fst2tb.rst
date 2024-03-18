@@ -6,10 +6,9 @@ fst2tb - generate testbench out of fst file
 
     \begin{comment}
 
-:code:`yosys> help fst2tb`
---------------------------------------------------------------------------------
+.. cmd:def:: fst2tb
+    :title: generate testbench out of fst file
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

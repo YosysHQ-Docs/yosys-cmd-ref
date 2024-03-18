@@ -6,10 +6,9 @@ synth_sf2 - synthesis for SmartFusion2 and IGLOO2 FPGAs
 
     \begin{comment}
 
-:code:`yosys> help synth_sf2`
---------------------------------------------------------------------------------
+.. cmd:def:: synth_sf2
+    :title: synthesis for SmartFusion2 and IGLOO2 FPGAs
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

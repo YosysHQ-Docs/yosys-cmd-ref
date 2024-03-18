@@ -6,10 +6,9 @@ opt_muxtree - eliminate dead trees in multiplexer trees
 
     \begin{comment}
 
-:code:`yosys> help opt_muxtree`
---------------------------------------------------------------------------------
+.. cmd:def:: opt_muxtree
+    :title: eliminate dead trees in multiplexer trees
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

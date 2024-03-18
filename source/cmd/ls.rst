@@ -6,10 +6,9 @@ ls - list modules or objects in modules
 
     \begin{comment}
 
-:code:`yosys> help ls`
---------------------------------------------------------------------------------
+.. cmd:def:: ls
+    :title: list modules or objects in modules
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

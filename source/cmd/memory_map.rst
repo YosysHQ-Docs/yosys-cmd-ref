@@ -6,10 +6,9 @@ memory_map - translate multiport memories to basic cells
 
     \begin{comment}
 
-:code:`yosys> help memory_map`
---------------------------------------------------------------------------------
+.. cmd:def:: memory_map
+    :title: translate multiport memories to basic cells
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

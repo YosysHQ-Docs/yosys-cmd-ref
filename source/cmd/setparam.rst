@@ -6,10 +6,9 @@ setparam - set/unset parameters on objects
 
     \begin{comment}
 
-:code:`yosys> help setparam`
---------------------------------------------------------------------------------
+.. cmd:def:: setparam
+    :title: set/unset parameters on objects
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

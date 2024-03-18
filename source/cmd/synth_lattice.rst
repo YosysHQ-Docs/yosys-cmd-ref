@@ -6,10 +6,9 @@ synth_lattice - synthesis for Lattice FPGAs
 
     \begin{comment}
 
-:code:`yosys> help synth_lattice`
---------------------------------------------------------------------------------
+.. cmd:def:: synth_lattice
+    :title: synthesis for Lattice FPGAs
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

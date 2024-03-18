@@ -6,10 +6,9 @@ synth_achronix - synthesis for Achronix Speedster22i FPGAs.
 
     \begin{comment}
 
-:code:`yosys> help synth_achronix`
---------------------------------------------------------------------------------
+.. cmd:def:: synth_achronix
+    :title: synthesis for Achronix Speedster22i FPGAs.
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

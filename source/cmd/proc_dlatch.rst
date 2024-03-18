@@ -6,10 +6,9 @@ proc_dlatch - extract latches from processes
 
     \begin{comment}
 
-:code:`yosys> help proc_dlatch`
---------------------------------------------------------------------------------
+.. cmd:def:: proc_dlatch
+    :title: extract latches from processes
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

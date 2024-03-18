@@ -6,10 +6,9 @@ fmcombine - combine two instances of a cell into one
 
     \begin{comment}
 
-:code:`yosys> help fmcombine`
---------------------------------------------------------------------------------
+.. cmd:def:: fmcombine
+    :title: combine two instances of a cell into one
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

@@ -6,10 +6,9 @@ splitnets - split up multi-bit nets
 
     \begin{comment}
 
-:code:`yosys> help splitnets`
---------------------------------------------------------------------------------
+.. cmd:def:: splitnets
+    :title: split up multi-bit nets
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

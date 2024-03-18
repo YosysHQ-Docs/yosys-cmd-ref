@@ -6,10 +6,9 @@ opt_lut - optimize LUT cells
 
     \begin{comment}
 
-:code:`yosys> help opt_lut`
---------------------------------------------------------------------------------
+.. cmd:def:: opt_lut
+    :title: optimize LUT cells
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

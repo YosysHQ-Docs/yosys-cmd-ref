@@ -6,10 +6,9 @@ read_json - read JSON file
 
     \begin{comment}
 
-:code:`yosys> help read_json`
---------------------------------------------------------------------------------
+.. cmd:def:: read_json
+    :title: read JSON file
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

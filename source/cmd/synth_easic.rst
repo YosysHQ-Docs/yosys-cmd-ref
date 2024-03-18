@@ -6,10 +6,9 @@ synth_easic - synthesis for eASIC platform
 
     \begin{comment}
 
-:code:`yosys> help synth_easic`
---------------------------------------------------------------------------------
+.. cmd:def:: synth_easic
+    :title: synthesis for eASIC platform
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

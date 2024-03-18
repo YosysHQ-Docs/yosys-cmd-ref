@@ -6,10 +6,9 @@ write_cxxrtl - convert design to C++ RTL simulation
 
     \begin{comment}
 
-:code:`yosys> help write_cxxrtl`
---------------------------------------------------------------------------------
+.. cmd:def:: write_cxxrtl
+    :title: convert design to C++ RTL simulation
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

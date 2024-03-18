@@ -6,10 +6,9 @@ synth_ecp5 - synthesis for ECP5 FPGAs
 
     \begin{comment}
 
-:code:`yosys> help synth_ecp5`
---------------------------------------------------------------------------------
+.. cmd:def:: synth_ecp5
+    :title: synthesis for ECP5 FPGAs
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

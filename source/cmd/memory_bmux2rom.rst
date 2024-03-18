@@ -6,10 +6,9 @@ memory_bmux2rom - convert muxes to ROMs
 
     \begin{comment}
 
-:code:`yosys> help memory_bmux2rom`
---------------------------------------------------------------------------------
+.. cmd:def:: memory_bmux2rom
+    :title: convert muxes to ROMs
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

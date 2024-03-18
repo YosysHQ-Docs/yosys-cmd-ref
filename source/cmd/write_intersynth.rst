@@ -6,10 +6,9 @@ write_intersynth - write design to InterSynth netlist file
 
     \begin{comment}
 
-:code:`yosys> help write_intersynth`
---------------------------------------------------------------------------------
+.. cmd:def:: write_intersynth
+    :title: write design to InterSynth netlist file
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

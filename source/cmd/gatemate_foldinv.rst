@@ -6,10 +6,9 @@ gatemate_foldinv - fold inverters into Gatemate LUT trees
 
     \begin{comment}
 
-:code:`yosys> help gatemate_foldinv`
---------------------------------------------------------------------------------
+.. cmd:def:: gatemate_foldinv
+    :title: fold inverters into Gatemate LUT trees
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

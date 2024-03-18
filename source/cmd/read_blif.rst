@@ -6,10 +6,9 @@ read_blif - read BLIF file
 
     \begin{comment}
 
-:code:`yosys> help read_blif`
---------------------------------------------------------------------------------
+.. cmd:def:: read_blif
+    :title: read BLIF file
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

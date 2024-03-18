@@ -6,10 +6,9 @@ equiv_miter - extract miter from equiv circuit
 
     \begin{comment}
 
-:code:`yosys> help equiv_miter`
---------------------------------------------------------------------------------
+.. cmd:def:: equiv_miter
+    :title: extract miter from equiv circuit
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

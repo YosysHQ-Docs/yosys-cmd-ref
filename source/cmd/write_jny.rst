@@ -6,10 +6,9 @@ write_jny - generate design metadata
 
     \begin{comment}
 
-:code:`yosys> help write_jny`
---------------------------------------------------------------------------------
+.. cmd:def:: write_jny
+    :title: generate design metadata
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

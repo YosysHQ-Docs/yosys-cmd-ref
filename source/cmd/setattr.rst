@@ -6,10 +6,9 @@ setattr - set/unset attributes on objects
 
     \begin{comment}
 
-:code:`yosys> help setattr`
---------------------------------------------------------------------------------
+.. cmd:def:: setattr
+    :title: set/unset attributes on objects
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

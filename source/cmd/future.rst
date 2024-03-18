@@ -6,10 +6,9 @@ future - resolve future sampled value functions
 
     \begin{comment}
 
-:code:`yosys> help future`
---------------------------------------------------------------------------------
+.. cmd:def:: future
+    :title: resolve future sampled value functions
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

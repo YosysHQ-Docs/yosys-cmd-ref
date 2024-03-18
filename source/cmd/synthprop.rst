@@ -6,10 +6,9 @@ synthprop - synthesize SVA properties
 
     \begin{comment}
 
-:code:`yosys> help synthprop`
---------------------------------------------------------------------------------
+.. cmd:def:: synthprop
+    :title: synthesize SVA properties
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

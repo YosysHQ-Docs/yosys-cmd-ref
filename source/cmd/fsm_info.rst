@@ -6,10 +6,9 @@ fsm_info - print information on finite state machines
 
     \begin{comment}
 
-:code:`yosys> help fsm_info`
---------------------------------------------------------------------------------
+.. cmd:def:: fsm_info
+    :title: print information on finite state machines
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

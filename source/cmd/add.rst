@@ -6,10 +6,9 @@ add - add objects to the design
 
     \begin{comment}
 
-:code:`yosys> help add`
---------------------------------------------------------------------------------
+.. cmd:def:: add
+    :title: add objects to the design
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

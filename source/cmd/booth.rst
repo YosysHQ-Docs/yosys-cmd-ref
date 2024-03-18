@@ -6,10 +6,9 @@ booth - map $mul cells to Booth multipliers
 
     \begin{comment}
 
-:code:`yosys> help booth`
---------------------------------------------------------------------------------
+.. cmd:def:: booth
+    :title: map $mul cells to Booth multipliers
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

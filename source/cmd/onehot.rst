@@ -6,10 +6,9 @@ onehot - optimize $eq cells for onehot signals
 
     \begin{comment}
 
-:code:`yosys> help onehot`
---------------------------------------------------------------------------------
+.. cmd:def:: onehot
+    :title: optimize $eq cells for onehot signals
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

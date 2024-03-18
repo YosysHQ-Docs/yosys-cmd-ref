@@ -6,10 +6,9 @@ ql_dsp_macc - infer QuickLogic multiplier-accumulator DSP cells
 
     \begin{comment}
 
-:code:`yosys> help ql_dsp_macc`
---------------------------------------------------------------------------------
+.. cmd:def:: ql_dsp_macc
+    :title: infer QuickLogic multiplier-accumulator DSP cells
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

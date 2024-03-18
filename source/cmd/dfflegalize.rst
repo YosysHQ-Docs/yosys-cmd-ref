@@ -6,10 +6,9 @@ dfflegalize - convert FFs to types supported by the target
 
     \begin{comment}
 
-:code:`yosys> help dfflegalize`
---------------------------------------------------------------------------------
+.. cmd:def:: dfflegalize
+    :title: convert FFs to types supported by the target
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

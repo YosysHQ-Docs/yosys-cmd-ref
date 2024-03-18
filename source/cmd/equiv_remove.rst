@@ -6,10 +6,9 @@ equiv_remove - remove $equiv cells
 
     \begin{comment}
 
-:code:`yosys> help equiv_remove`
---------------------------------------------------------------------------------
+.. cmd:def:: equiv_remove
+    :title: remove $equiv cells
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

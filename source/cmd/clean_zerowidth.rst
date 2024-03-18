@@ -6,10 +6,9 @@ clean_zerowidth - clean zero-width connections from the design
 
     \begin{comment}
 
-:code:`yosys> help clean_zerowidth`
---------------------------------------------------------------------------------
+.. cmd:def:: clean_zerowidth
+    :title: clean zero-width connections from the design
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

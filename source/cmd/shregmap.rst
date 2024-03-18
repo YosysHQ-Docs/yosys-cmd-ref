@@ -6,10 +6,9 @@ shregmap - map shift registers
 
     \begin{comment}
 
-:code:`yosys> help shregmap`
---------------------------------------------------------------------------------
+.. cmd:def:: shregmap
+    :title: map shift registers
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

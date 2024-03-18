@@ -6,10 +6,9 @@ opt_mem_feedback - convert memory read-to-write port feedback paths to write ena
 
     \begin{comment}
 
-:code:`yosys> help opt_mem_feedback`
---------------------------------------------------------------------------------
+.. cmd:def:: opt_mem_feedback
+    :title: convert memory read-to-write port feedback paths to write enables
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

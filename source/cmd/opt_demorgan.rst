@@ -6,10 +6,9 @@ opt_demorgan - Optimize reductions with DeMorgan equivalents
 
     \begin{comment}
 
-:code:`yosys> help opt_demorgan`
---------------------------------------------------------------------------------
+.. cmd:def:: opt_demorgan
+    :title: Optimize reductions with DeMorgan equivalents
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

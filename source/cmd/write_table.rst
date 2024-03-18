@@ -6,10 +6,9 @@ write_table - write design as connectivity table
 
     \begin{comment}
 
-:code:`yosys> help write_table`
---------------------------------------------------------------------------------
+.. cmd:def:: write_table
+    :title: write design as connectivity table
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

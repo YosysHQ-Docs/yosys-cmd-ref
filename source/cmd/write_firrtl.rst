@@ -6,10 +6,9 @@ write_firrtl - write design to a FIRRTL file
 
     \begin{comment}
 
-:code:`yosys> help write_firrtl`
---------------------------------------------------------------------------------
+.. cmd:def:: write_firrtl
+    :title: write design to a FIRRTL file
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

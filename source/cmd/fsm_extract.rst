@@ -6,10 +6,9 @@ fsm_extract - extracting FSMs in design
 
     \begin{comment}
 
-:code:`yosys> help fsm_extract`
---------------------------------------------------------------------------------
+.. cmd:def:: fsm_extract
+    :title: extracting FSMs in design
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

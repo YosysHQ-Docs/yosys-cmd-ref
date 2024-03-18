@@ -6,10 +6,9 @@ write_xaiger - write design to XAIGER file
 
     \begin{comment}
 
-:code:`yosys> help write_xaiger`
---------------------------------------------------------------------------------
+.. cmd:def:: write_xaiger
+    :title: write design to XAIGER file
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

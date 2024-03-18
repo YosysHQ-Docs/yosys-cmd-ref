@@ -6,10 +6,9 @@ ltp - print longest topological path
 
     \begin{comment}
 
-:code:`yosys> help ltp`
---------------------------------------------------------------------------------
+.. cmd:def:: ltp
+    :title: print longest topological path
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

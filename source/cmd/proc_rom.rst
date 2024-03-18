@@ -6,10 +6,9 @@ proc_rom - convert switches to ROMs
 
     \begin{comment}
 
-:code:`yosys> help proc_rom`
---------------------------------------------------------------------------------
+.. cmd:def:: proc_rom
+    :title: convert switches to ROMs
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

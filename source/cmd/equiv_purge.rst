@@ -6,10 +6,9 @@ equiv_purge - purge equivalence checking module
 
     \begin{comment}
 
-:code:`yosys> help equiv_purge`
---------------------------------------------------------------------------------
+.. cmd:def:: equiv_purge
+    :title: purge equivalence checking module
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

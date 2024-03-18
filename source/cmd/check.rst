@@ -6,10 +6,9 @@ check - check for obvious problems in the design
 
     \begin{comment}
 
-:code:`yosys> help check`
---------------------------------------------------------------------------------
+.. cmd:def:: check
+    :title: check for obvious problems in the design
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

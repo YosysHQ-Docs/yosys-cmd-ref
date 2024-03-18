@@ -6,10 +6,9 @@ write_blif - write design to BLIF file
 
     \begin{comment}
 
-:code:`yosys> help write_blif`
---------------------------------------------------------------------------------
+.. cmd:def:: write_blif
+    :title: write design to BLIF file
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

@@ -6,10 +6,9 @@ fsm_map - mapping FSMs to basic logic
 
     \begin{comment}
 
-:code:`yosys> help fsm_map`
---------------------------------------------------------------------------------
+.. cmd:def:: fsm_map
+    :title: mapping FSMs to basic logic
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

@@ -6,10 +6,9 @@ write_smv - write design to SMV file
 
     \begin{comment}
 
-:code:`yosys> help write_smv`
---------------------------------------------------------------------------------
+.. cmd:def:: write_smv
+    :title: write design to SMV file
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

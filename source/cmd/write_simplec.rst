@@ -6,10 +6,9 @@ write_simplec - convert design to simple C code
 
     \begin{comment}
 
-:code:`yosys> help write_simplec`
---------------------------------------------------------------------------------
+.. cmd:def:: write_simplec
+    :title: convert design to simple C code
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

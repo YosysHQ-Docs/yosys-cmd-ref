@@ -6,10 +6,9 @@ delete - delete objects in the design
 
     \begin{comment}
 
-:code:`yosys> help delete`
---------------------------------------------------------------------------------
+.. cmd:def:: delete
+    :title: delete objects in the design
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

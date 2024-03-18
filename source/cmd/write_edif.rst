@@ -6,10 +6,9 @@ write_edif - write design to EDIF netlist file
 
     \begin{comment}
 
-:code:`yosys> help write_edif`
---------------------------------------------------------------------------------
+.. cmd:def:: write_edif
+    :title: write design to EDIF netlist file
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

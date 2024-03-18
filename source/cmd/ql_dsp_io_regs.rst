@@ -6,10 +6,9 @@ ql_dsp_io_regs - change types of QL_DSP2 depending on configuration
 
     \begin{comment}
 
-:code:`yosys> help ql_dsp_io_regs`
---------------------------------------------------------------------------------
+.. cmd:def:: ql_dsp_io_regs
+    :title: change types of QL_DSP2 depending on configuration
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

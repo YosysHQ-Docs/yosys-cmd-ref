@@ -6,10 +6,9 @@ bugpoint - minimize testcases
 
     \begin{comment}
 
-:code:`yosys> help bugpoint`
---------------------------------------------------------------------------------
+.. cmd:def:: bugpoint
+    :title: minimize testcases
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

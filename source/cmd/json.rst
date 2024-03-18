@@ -6,10 +6,9 @@ json - write design in JSON format
 
     \begin{comment}
 
-:code:`yosys> help json`
---------------------------------------------------------------------------------
+.. cmd:def:: json
+    :title: write design in JSON format
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

@@ -1,0 +1,43 @@
+
+-- Parsing `sigmap_test.v' using frontend ` -vlog2k' --
+
+1. Executing VERIFIC (loading SystemVerilog and VHDL designs using Verific).
+Built with Verific Feb24_SW_Release, released at Fri Mar  1 19:36:08 2024.
+VERIFIC-COMMENT [VERI-1482] Analyzing Verilog file 'sigmap_test.v'
+
+-- Running command `hierarchy -top test; test2' --
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+Statically elaborating the Verific parse tree.
+Elaborating all modules in library 'work'
+VERIFIC-INFO [VERI-1018] sigmap_test.v:1: compiling module 'test'
+Running rewriter 'initial-assertions'.
+Clearing rewriter list.
+VERIFIC-INFO [VERI-1018] sigmap_test.v:1: compiling module 'test'
+Importing module test.
+
+2.1. Analyzing design hierarchy..
+Top module:  \test
+
+2.2. Analyzing design hierarchy..
+Top module:  \test
+Removed 0 unused modules.
+0 0 0
+0 0 0
+Mapped signal x: \x
+
+3. Doing important stuff!
+Log message #0.
+Log message #1.
+Log message #2.
+Log message #3.
+Log message #4.
+Log message #5.
+Log message #6.
+Log message #7.
+Log message #8.
+Log message #9.
+
+End of script. Logfile hash: 42640299db, CPU: user 0.00s system 0.00s, MEM: 18.97 MB peak
+Yosys 0.39+4 (git sha1 c6795cefc, ccache clang++ 10.0.0-4ubuntu1 -fPIC -Os)
+Time spent: 62% 1x hierarchy (0 sec), 33% 1x verific (0 sec), ...

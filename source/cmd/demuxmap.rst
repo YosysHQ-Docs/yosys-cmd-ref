@@ -6,10 +6,9 @@ demuxmap - transform $demux cells to $eq + $mux cells
 
     \begin{comment}
 
-:code:`yosys> help demuxmap`
---------------------------------------------------------------------------------
+.. cmd:def:: demuxmap
+    :title: transform $demux cells to $eq + $mux cells
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

@@ -6,10 +6,9 @@ sat - solve a SAT problem in the circuit
 
     \begin{comment}
 
-:code:`yosys> help sat`
---------------------------------------------------------------------------------
+.. cmd:def:: sat
+    :title: solve a SAT problem in the circuit
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

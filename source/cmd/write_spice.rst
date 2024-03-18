@@ -6,10 +6,9 @@ write_spice - write design to SPICE netlist file
 
     \begin{comment}
 
-:code:`yosys> help write_spice`
---------------------------------------------------------------------------------
+.. cmd:def:: write_spice
+    :title: write design to SPICE netlist file
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

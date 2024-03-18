@@ -6,10 +6,9 @@ dffunmap - unmap clock enable and synchronous reset from FFs
 
     \begin{comment}
 
-:code:`yosys> help dffunmap`
---------------------------------------------------------------------------------
+.. cmd:def:: dffunmap
+    :title: unmap clock enable and synchronous reset from FFs
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

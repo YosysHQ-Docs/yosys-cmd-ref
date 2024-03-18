@@ -6,10 +6,9 @@ equiv_mark - mark equivalence checking regions
 
     \begin{comment}
 
-:code:`yosys> help equiv_mark`
---------------------------------------------------------------------------------
+.. cmd:def:: equiv_mark
+    :title: mark equivalence checking regions
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

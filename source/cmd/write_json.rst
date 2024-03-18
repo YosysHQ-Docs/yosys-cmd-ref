@@ -6,10 +6,9 @@ write_json - write design to a JSON file
 
     \begin{comment}
 
-:code:`yosys> help write_json`
---------------------------------------------------------------------------------
+.. cmd:def:: write_json
+    :title: write design to a JSON file
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

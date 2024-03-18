@@ -6,10 +6,9 @@ ql_bram_merge - Infers QuickLogic k6n10f BRAM pairs that can operate independent
 
     \begin{comment}
 
-:code:`yosys> help ql_bram_merge`
---------------------------------------------------------------------------------
+.. cmd:def:: ql_bram_merge
+    :title: Infers QuickLogic k6n10f BRAM pairs that can operate independently
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

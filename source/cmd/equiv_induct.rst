@@ -6,10 +6,9 @@ equiv_induct - proving $equiv cells using temporal induction
 
     \begin{comment}
 
-:code:`yosys> help equiv_induct`
---------------------------------------------------------------------------------
+.. cmd:def:: equiv_induct
+    :title: proving $equiv cells using temporal induction
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

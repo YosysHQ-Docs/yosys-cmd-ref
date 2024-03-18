@@ -6,10 +6,9 @@ script - execute commands from file or wire
 
     \begin{comment}
 
-:code:`yosys> help script`
---------------------------------------------------------------------------------
+.. cmd:def:: script
+    :title: execute commands from file or wire
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

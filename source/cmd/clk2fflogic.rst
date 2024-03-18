@@ -6,10 +6,9 @@ clk2fflogic - convert clocked FFs to generic $ff cells
 
     \begin{comment}
 
-:code:`yosys> help clk2fflogic`
---------------------------------------------------------------------------------
+.. cmd:def:: clk2fflogic
+    :title: convert clocked FFs to generic $ff cells
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

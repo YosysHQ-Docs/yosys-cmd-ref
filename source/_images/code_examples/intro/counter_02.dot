@@ -1,0 +1,26 @@
+digraph "counter" {
+rankdir="LR";
+remincross=true;
+n3 [ shape=octagon, label="clk", color="black", fontcolor="black"];
+n4 [ shape=octagon, label="count[0]", color="black", fontcolor="black"];
+n5 [ shape=octagon, label="count[1]", color="black", fontcolor="black"];
+n6 [ shape=octagon, label="en", color="black", fontcolor="black"];
+n7 [ shape=octagon, label="rst", color="black", fontcolor="black"];
+c13 [ shape=record, label="{{<p8> C|<p9> D|<p10> E|<p11> R}|$91\n$_SDFFE_PP0P_|{<p12> Q}}",  ];
+c14 [ shape=record, label="{{<p8> C|<p9> D|<p10> E|<p11> R}|$92\n$_SDFFE_PP0P_|{<p12> Q}}",  ];
+c17 [ shape=record, label="{{<p15> A}|$113\n$_NOT_|{<p16> Y}}",  ];
+c19 [ shape=record, label="{{<p15> A|<p18> B}|$99\n$_XOR_|{<p16> Y}}",  ];
+c17:p16:e -> c13:p9:w [color="black", fontcolor="black", label=""];
+c19:p16:e -> c14:p9:w [color="black", fontcolor="black", label=""];
+n3:e -> c13:p8:w [color="black", fontcolor="black", label=""];
+n3:e -> c14:p8:w [color="black", fontcolor="black", label=""];
+c13:p12:e -> n4:w [color="black", fontcolor="black", label=""];
+n4:e -> c17:p15:w [color="black", fontcolor="black", label=""];
+n4:e -> c19:p18:w [color="black", fontcolor="black", label=""];
+c14:p12:e -> n5:w [color="black", fontcolor="black", label=""];
+n5:e -> c19:p15:w [color="black", fontcolor="black", label=""];
+n6:e -> c13:p10:w [color="black", fontcolor="black", label=""];
+n6:e -> c14:p10:w [color="black", fontcolor="black", label=""];
+n7:e -> c13:p11:w [color="black", fontcolor="black", label=""];
+n7:e -> c14:p11:w [color="black", fontcolor="black", label=""];
+}

@@ -1,0 +1,40 @@
+
+-- Parsing `absval_ref.v' using frontend ` -vlog2k' --
+
+1. Executing VERIFIC (loading SystemVerilog and VHDL designs using Verific).
+Built with Verific Feb24_SW_Release, released at Fri Mar  1 19:36:08 2024.
+VERIFIC-COMMENT [VERI-1482] Analyzing Verilog file 'absval_ref.v'
+
+-- Running command `clean; test1; dump' --
+Name of this module: absval
+
+autoidx 4
+
+module \absval
+
+  wire width 4 $auto$my_cmd.cc:41:execute$1
+
+  wire width 4 output 2 \y
+
+  wire width 4 input 1 \a
+
+  cell $mux $auto$my_cmd.cc:43:execute$3
+    parameter \WIDTH 4
+    connect \Y \y
+    connect \S \a [3]
+    connect \B $auto$my_cmd.cc:41:execute$1
+    connect \A \a
+  end
+
+  cell $neg $auto$my_cmd.cc:42:execute$2
+    parameter \Y_WIDTH 4
+    parameter \A_WIDTH 4
+    parameter \A_SIGNED 1
+    connect \Y $auto$my_cmd.cc:41:execute$1
+    connect \A \a
+  end
+end
+
+End of script. Logfile hash: 15054a22aa, CPU: user 0.00s system 0.00s, MEM: 15.60 MB peak
+Yosys 0.39+4 (git sha1 c6795cefc, ccache clang++ 10.0.0-4ubuntu1 -fPIC -Os)
+Time spent: 47% 1x verific (0 sec), 46% 1x clean (0 sec), ...

@@ -6,10 +6,9 @@ ice40_opt - iCE40: perform simple optimizations
 
     \begin{comment}
 
-:code:`yosys> help ice40_opt`
---------------------------------------------------------------------------------
+.. cmd:def:: ice40_opt
+    :title: iCE40: perform simple optimizations
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

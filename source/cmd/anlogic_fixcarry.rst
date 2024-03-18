@@ -6,10 +6,9 @@ anlogic_fixcarry - Anlogic: fix carry chain
 
     \begin{comment}
 
-:code:`yosys> help anlogic_fixcarry`
---------------------------------------------------------------------------------
+.. cmd:def:: anlogic_fixcarry
+    :title: Anlogic: fix carry chain
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

@@ -6,10 +6,9 @@ memory - translate memories to basic cells
 
     \begin{comment}
 
-:code:`yosys> help memory`
---------------------------------------------------------------------------------
+.. cmd:def:: memory
+    :title: translate memories to basic cells
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

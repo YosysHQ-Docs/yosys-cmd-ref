@@ -6,10 +6,9 @@ attrmap - renaming attributes
 
     \begin{comment}
 
-:code:`yosys> help attrmap`
---------------------------------------------------------------------------------
+.. cmd:def:: attrmap
+    :title: renaming attributes
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

@@ -6,10 +6,9 @@ test_cell - automatically test the implementation of a cell type
 
     \begin{comment}
 
-:code:`yosys> help test_cell`
---------------------------------------------------------------------------------
+.. cmd:def:: test_cell
+    :title: automatically test the implementation of a cell type
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

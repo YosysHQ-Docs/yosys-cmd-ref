@@ -6,10 +6,9 @@ fsm_export - exporting FSMs to KISS2 files
 
     \begin{comment}
 
-:code:`yosys> help fsm_export`
---------------------------------------------------------------------------------
+.. cmd:def:: fsm_export
+    :title: exporting FSMs to KISS2 files
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

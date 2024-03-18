@@ -6,10 +6,9 @@ opt_ffinv - push inverters through FFs
 
     \begin{comment}
 
-:code:`yosys> help opt_ffinv`
---------------------------------------------------------------------------------
+.. cmd:def:: opt_ffinv
+    :title: push inverters through FFs
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

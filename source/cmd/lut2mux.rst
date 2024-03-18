@@ -6,10 +6,9 @@ lut2mux - convert $lut to $_MUX_
 
     \begin{comment}
 
-:code:`yosys> help lut2mux`
---------------------------------------------------------------------------------
+.. cmd:def:: lut2mux
+    :title: convert $lut to $_MUX_
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

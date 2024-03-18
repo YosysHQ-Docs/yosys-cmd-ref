@@ -6,10 +6,9 @@ fsm_opt - optimize finite state machines
 
     \begin{comment}
 
-:code:`yosys> help fsm_opt`
---------------------------------------------------------------------------------
+.. cmd:def:: fsm_opt
+    :title: optimize finite state machines
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

@@ -6,10 +6,9 @@ copy - copy modules in the design
 
     \begin{comment}
 
-:code:`yosys> help copy`
---------------------------------------------------------------------------------
+.. cmd:def:: copy
+    :title: copy modules in the design
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

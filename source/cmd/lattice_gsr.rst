@@ -6,10 +6,9 @@ lattice_gsr - Lattice: handle GSR
 
     \begin{comment}
 
-:code:`yosys> help lattice_gsr`
---------------------------------------------------------------------------------
+.. cmd:def:: lattice_gsr
+    :title: Lattice: handle GSR
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

@@ -1,0 +1,28 @@
+digraph "addr_gen" {
+rankdir="LR";
+remincross=true;
+n5 [ shape=octagon, label="addr", color="black", fontcolor="black"];
+n6 [ shape=octagon, label="rst", color="black", fontcolor="black"];
+n7 [ shape=octagon, label="clk", color="black", fontcolor="black"];
+n8 [ shape=octagon, label="en", color="black", fontcolor="black"];
+v0 [ label="1" ];
+c12 [ shape=record, label="{{<p9> A|<p10> B}|$3\n$add|{<p11> Y}}", color="maroon3", fontcolor="maroon3" ];
+v1 [ label="255" ];
+c13 [ shape=record, label="{{<p9> A|<p10> B}|$2\n$eq|{<p11> Y}}", color="maroon3", fontcolor="maroon3" ];
+p2 [shape=box, style=rounded, label="PROC $4\nfifo.v:0.0-0.0", color="cornflowerblue", fontcolor="cornflowerblue"];
+x4 [ shape=record, style=rounded, label="<s0> 7:0 - 7:0 ", color="black", fontcolor="black" ];
+p3 [shape=box, style=rounded, label="PROC $1\nfifo.v:12.2-20.6", color="cornflowerblue", fontcolor="cornflowerblue"];
+c12:p11:e -> x4:s0:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+c13:p11:e -> p3:w [color="black", fontcolor="black", label=""];
+p2:e -> n5:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+p3:e -> n5:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n5:e -> c12:p9:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n5:e -> c13:p9:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n5:e -> p3:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n6:e -> p3:w [color="black", fontcolor="black", label=""];
+n7:e -> p3:w [color="black", fontcolor="black", label=""];
+n8:e -> p3:w [color="black", fontcolor="black", label=""];
+v0:e -> c12:p10:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+v1:e -> c13:p10:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+x4:e -> p3:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+}

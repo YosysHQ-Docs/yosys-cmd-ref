@@ -6,10 +6,9 @@ logger - set logger properties
 
     \begin{comment}
 
-:code:`yosys> help logger`
---------------------------------------------------------------------------------
+.. cmd:def:: logger
+    :title: set logger properties
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

@@ -6,10 +6,9 @@ chparam - re-evaluate modules with new parameters
 
     \begin{comment}
 
-:code:`yosys> help chparam`
---------------------------------------------------------------------------------
+.. cmd:def:: chparam
+    :title: re-evaluate modules with new parameters
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

@@ -6,10 +6,9 @@ coolrunner2_sop - break $sop cells into ANDTERM/ORTERM cells
 
     \begin{comment}
 
-:code:`yosys> help coolrunner2_sop`
---------------------------------------------------------------------------------
+.. cmd:def:: coolrunner2_sop
+    :title: break $sop cells into ANDTERM/ORTERM cells
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

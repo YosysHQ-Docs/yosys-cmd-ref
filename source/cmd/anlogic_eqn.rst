@@ -6,10 +6,9 @@ anlogic_eqn - Anlogic: Calculate equations for luts
 
     \begin{comment}
 
-:code:`yosys> help anlogic_eqn`
---------------------------------------------------------------------------------
+.. cmd:def:: anlogic_eqn
+    :title: Anlogic: Calculate equations for luts
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

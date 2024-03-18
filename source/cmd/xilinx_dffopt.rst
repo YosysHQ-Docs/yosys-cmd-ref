@@ -6,10 +6,9 @@ xilinx_dffopt - Xilinx: optimize FF control signal usage
 
     \begin{comment}
 
-:code:`yosys> help xilinx_dffopt`
---------------------------------------------------------------------------------
+.. cmd:def:: xilinx_dffopt
+    :title: Xilinx: optimize FF control signal usage
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

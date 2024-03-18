@@ -6,10 +6,9 @@ fsm_recode - recoding finite state machines
 
     \begin{comment}
 
-:code:`yosys> help fsm_recode`
---------------------------------------------------------------------------------
+.. cmd:def:: fsm_recode
+    :title: recoding finite state machines
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

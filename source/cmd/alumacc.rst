@@ -6,10 +6,9 @@ alumacc - extract ALU and MACC cells
 
     \begin{comment}
 
-:code:`yosys> help alumacc`
---------------------------------------------------------------------------------
+.. cmd:def:: alumacc
+    :title: extract ALU and MACC cells
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

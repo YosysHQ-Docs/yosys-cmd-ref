@@ -6,10 +6,9 @@ extract_counter - Extract GreenPak4 counter cells
 
     \begin{comment}
 
-:code:`yosys> help extract_counter`
---------------------------------------------------------------------------------
+.. cmd:def:: extract_counter
+    :title: Extract GreenPak4 counter cells
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

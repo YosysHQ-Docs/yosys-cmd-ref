@@ -6,10 +6,9 @@ ql_dsp_simd - merge QuickLogic K6N10f DSP pairs to operate in SIMD mode
 
     \begin{comment}
 
-:code:`yosys> help ql_dsp_simd`
---------------------------------------------------------------------------------
+.. cmd:def:: ql_dsp_simd
+    :title: merge QuickLogic K6N10f DSP pairs to operate in SIMD mode
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

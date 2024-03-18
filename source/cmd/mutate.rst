@@ -6,10 +6,9 @@ mutate - generate or apply design mutations
 
     \begin{comment}
 
-:code:`yosys> help mutate`
---------------------------------------------------------------------------------
+.. cmd:def:: mutate
+    :title: generate or apply design mutations
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

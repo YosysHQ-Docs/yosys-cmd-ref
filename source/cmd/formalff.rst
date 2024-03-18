@@ -6,10 +6,9 @@ formalff - prepare FFs for formal
 
     \begin{comment}
 
-:code:`yosys> help formalff`
---------------------------------------------------------------------------------
+.. cmd:def:: formalff
+    :title: prepare FFs for formal
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

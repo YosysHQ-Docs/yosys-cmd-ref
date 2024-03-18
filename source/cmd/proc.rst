@@ -6,10 +6,9 @@ proc - translate processes to netlists
 
     \begin{comment}
 
-:code:`yosys> help proc`
---------------------------------------------------------------------------------
+.. cmd:def:: proc
+    :title: translate processes to netlists
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

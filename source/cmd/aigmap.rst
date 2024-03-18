@@ -6,10 +6,9 @@ aigmap - map logic to and-inverter-graph circuit
 
     \begin{comment}
 
-:code:`yosys> help aigmap`
---------------------------------------------------------------------------------
+.. cmd:def:: aigmap
+    :title: map logic to and-inverter-graph circuit
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

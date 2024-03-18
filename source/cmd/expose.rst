@@ -6,10 +6,9 @@ expose - convert internal signals to module ports
 
     \begin{comment}
 
-:code:`yosys> help expose`
---------------------------------------------------------------------------------
+.. cmd:def:: expose
+    :title: convert internal signals to module ports
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

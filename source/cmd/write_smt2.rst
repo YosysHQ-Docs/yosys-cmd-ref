@@ -6,10 +6,9 @@ write_smt2 - write design to SMT-LIBv2 file
 
     \begin{comment}
 
-:code:`yosys> help write_smt2`
---------------------------------------------------------------------------------
+.. cmd:def:: write_smt2
+    :title: write design to SMT-LIBv2 file
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

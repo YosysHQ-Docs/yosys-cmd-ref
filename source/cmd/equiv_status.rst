@@ -6,10 +6,9 @@ equiv_status - print status of equivalent checking module
 
     \begin{comment}
 
-:code:`yosys> help equiv_status`
---------------------------------------------------------------------------------
+.. cmd:def:: equiv_status
+    :title: print status of equivalent checking module
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

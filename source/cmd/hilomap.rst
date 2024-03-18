@@ -6,10 +6,9 @@ hilomap - technology mapping of constant hi- and/or lo-drivers
 
     \begin{comment}
 
-:code:`yosys> help hilomap`
---------------------------------------------------------------------------------
+.. cmd:def:: hilomap
+    :title: technology mapping of constant hi- and/or lo-drivers
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

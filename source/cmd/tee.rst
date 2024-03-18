@@ -6,10 +6,9 @@ tee - redirect command output to file
 
     \begin{comment}
 
-:code:`yosys> help tee`
---------------------------------------------------------------------------------
+.. cmd:def:: tee
+    :title: redirect command output to file
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

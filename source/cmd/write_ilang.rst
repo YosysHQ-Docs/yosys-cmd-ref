@@ -6,10 +6,9 @@ write_ilang - (deprecated) alias of write_rtlil
 
     \begin{comment}
 
-:code:`yosys> help write_ilang`
---------------------------------------------------------------------------------
+.. cmd:def:: write_ilang
+    :title: (deprecated) alias of write_rtlil
 
-.. container:: cmdref
 
 
     See `help write_rtlil`.

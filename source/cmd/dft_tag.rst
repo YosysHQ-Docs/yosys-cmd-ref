@@ -6,10 +6,9 @@ dft_tag - create tagging logic for data flow tracking
 
     \begin{comment}
 
-:code:`yosys> help dft_tag`
---------------------------------------------------------------------------------
+.. cmd:def:: dft_tag
+    :title: create tagging logic for data flow tracking
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

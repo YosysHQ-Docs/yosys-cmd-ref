@@ -6,10 +6,9 @@ proc_rmdead - eliminate dead trees in decision trees
 
     \begin{comment}
 
-:code:`yosys> help proc_rmdead`
---------------------------------------------------------------------------------
+.. cmd:def:: proc_rmdead
+    :title: eliminate dead trees in decision trees
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

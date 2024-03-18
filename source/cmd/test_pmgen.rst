@@ -6,10 +6,9 @@ test_pmgen - test pass for pmgen
 
     \begin{comment}
 
-:code:`yosys> help test_pmgen`
---------------------------------------------------------------------------------
+.. cmd:def:: test_pmgen
+    :title: test pass for pmgen
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

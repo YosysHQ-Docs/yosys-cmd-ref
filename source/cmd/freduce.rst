@@ -6,10 +6,9 @@ freduce - perform functional reduction
 
     \begin{comment}
 
-:code:`yosys> help freduce`
---------------------------------------------------------------------------------
+.. cmd:def:: freduce
+    :title: perform functional reduction
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

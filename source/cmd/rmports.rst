@@ -6,10 +6,9 @@ rmports - remove module ports with no connections
 
     \begin{comment}
 
-:code:`yosys> help rmports`
---------------------------------------------------------------------------------
+.. cmd:def:: rmports
+    :title: remove module ports with no connections
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

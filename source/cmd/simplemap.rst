@@ -6,10 +6,9 @@ simplemap - mapping simple coarse-grain cells
 
     \begin{comment}
 
-:code:`yosys> help simplemap`
---------------------------------------------------------------------------------
+.. cmd:def:: simplemap
+    :title: mapping simple coarse-grain cells
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

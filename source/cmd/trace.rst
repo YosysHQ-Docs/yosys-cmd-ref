@@ -6,10 +6,9 @@ trace - redirect command output to file
 
     \begin{comment}
 
-:code:`yosys> help trace`
---------------------------------------------------------------------------------
+.. cmd:def:: trace
+    :title: redirect command output to file
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

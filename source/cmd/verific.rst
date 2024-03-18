@@ -6,10 +6,9 @@ verific - load Verilog and VHDL designs using Verific
 
     \begin{comment}
 
-:code:`yosys> help verific`
---------------------------------------------------------------------------------
+.. cmd:def:: verific
+    :title: load Verilog and VHDL designs using Verific
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

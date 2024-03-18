@@ -6,10 +6,9 @@ setundef - replace undef values with defined constants
 
     \begin{comment}
 
-:code:`yosys> help setundef`
---------------------------------------------------------------------------------
+.. cmd:def:: setundef
+    :title: replace undef values with defined constants
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

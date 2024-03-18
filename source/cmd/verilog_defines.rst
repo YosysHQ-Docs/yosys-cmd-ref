@@ -6,10 +6,9 @@ verilog_defines - define and undefine verilog defines
 
     \begin{comment}
 
-:code:`yosys> help verilog_defines`
---------------------------------------------------------------------------------
+.. cmd:def:: verilog_defines
+    :title: define and undefine verilog defines
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

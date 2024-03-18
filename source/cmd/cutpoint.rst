@@ -6,10 +6,9 @@ cutpoint - adds formal cut points to the design
 
     \begin{comment}
 
-:code:`yosys> help cutpoint`
---------------------------------------------------------------------------------
+.. cmd:def:: cutpoint
+    :title: adds formal cut points to the design
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

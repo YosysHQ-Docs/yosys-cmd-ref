@@ -6,10 +6,9 @@ memory_memx - emulate vlog sim behavior for mem ports
 
     \begin{comment}
 
-:code:`yosys> help memory_memx`
---------------------------------------------------------------------------------
+.. cmd:def:: memory_memx
+    :title: emulate vlog sim behavior for mem ports
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

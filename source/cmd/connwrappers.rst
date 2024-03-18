@@ -6,10 +6,9 @@ connwrappers - match width of input-output port pairs
 
     \begin{comment}
 
-:code:`yosys> help connwrappers`
---------------------------------------------------------------------------------
+.. cmd:def:: connwrappers
+    :title: match width of input-output port pairs
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

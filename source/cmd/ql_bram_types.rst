@@ -6,10 +6,9 @@ ql_bram_types - Change TDP36K type to subtypes
 
     \begin{comment}
 
-:code:`yosys> help ql_bram_types`
---------------------------------------------------------------------------------
+.. cmd:def:: ql_bram_types
+    :title: Change TDP36K type to subtypes
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

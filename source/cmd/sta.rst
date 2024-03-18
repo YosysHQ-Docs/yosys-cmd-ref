@@ -6,10 +6,9 @@ sta - perform static timing analysis
 
     \begin{comment}
 
-:code:`yosys> help sta`
---------------------------------------------------------------------------------
+.. cmd:def:: sta
+    :title: perform static timing analysis
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

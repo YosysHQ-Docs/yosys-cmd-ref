@@ -6,10 +6,9 @@ fminit - set init values/sequences for formal
 
     \begin{comment}
 
-:code:`yosys> help fminit`
---------------------------------------------------------------------------------
+.. cmd:def:: fminit
+    :title: set init values/sequences for formal
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

@@ -6,10 +6,9 @@ ice40_dsp - iCE40: map multipliers
 
     \begin{comment}
 
-:code:`yosys> help ice40_dsp`
---------------------------------------------------------------------------------
+.. cmd:def:: ice40_dsp
+    :title: iCE40: map multipliers
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

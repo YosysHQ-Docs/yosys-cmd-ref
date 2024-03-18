@@ -6,10 +6,9 @@ dump - print parts of the design in RTLIL format
 
     \begin{comment}
 
-:code:`yosys> help dump`
---------------------------------------------------------------------------------
+.. cmd:def:: dump
+    :title: print parts of the design in RTLIL format
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

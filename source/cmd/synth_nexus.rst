@@ -6,10 +6,9 @@ synth_nexus - synthesis for Lattice Nexus FPGAs
 
     \begin{comment}
 
-:code:`yosys> help synth_nexus`
---------------------------------------------------------------------------------
+.. cmd:def:: synth_nexus
+    :title: synthesis for Lattice Nexus FPGAs
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

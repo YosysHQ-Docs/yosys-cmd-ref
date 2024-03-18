@@ -6,10 +6,9 @@ synth_anlogic - synthesis for Anlogic FPGAs
 
     \begin{comment}
 
-:code:`yosys> help synth_anlogic`
---------------------------------------------------------------------------------
+.. cmd:def:: synth_anlogic
+    :title: synthesis for Anlogic FPGAs
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

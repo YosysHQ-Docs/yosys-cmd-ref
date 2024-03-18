@@ -6,10 +6,9 @@ fsm - extract and optimize finite state machines
 
     \begin{comment}
 
-:code:`yosys> help fsm`
---------------------------------------------------------------------------------
+.. cmd:def:: fsm
+    :title: extract and optimize finite state machines
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

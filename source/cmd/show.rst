@@ -6,10 +6,9 @@ show - generate schematics using graphviz
 
     \begin{comment}
 
-:code:`yosys> help show`
---------------------------------------------------------------------------------
+.. cmd:def:: show
+    :title: generate schematics using graphviz
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

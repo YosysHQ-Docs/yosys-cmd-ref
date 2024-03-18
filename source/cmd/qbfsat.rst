@@ -6,10 +6,9 @@ qbfsat - solve a 2QBF-SAT problem in the circuit
 
     \begin{comment}
 
-:code:`yosys> help qbfsat`
---------------------------------------------------------------------------------
+.. cmd:def:: qbfsat
+    :title: solve a 2QBF-SAT problem in the circuit
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

@@ -6,10 +6,9 @@ printattrs - print attributes of selected objects
 
     \begin{comment}
 
-:code:`yosys> help printattrs`
---------------------------------------------------------------------------------
+.. cmd:def:: printattrs
+    :title: print attributes of selected objects
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

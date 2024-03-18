@@ -6,10 +6,9 @@ portlist - list (top-level) ports
 
     \begin{comment}
 
-:code:`yosys> help portlist`
---------------------------------------------------------------------------------
+.. cmd:def:: portlist
+    :title: list (top-level) ports
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

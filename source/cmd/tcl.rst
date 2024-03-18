@@ -6,10 +6,9 @@ tcl - execute a TCL script file
 
     \begin{comment}
 
-:code:`yosys> help tcl`
---------------------------------------------------------------------------------
+.. cmd:def:: tcl
+    :title: execute a TCL script file
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

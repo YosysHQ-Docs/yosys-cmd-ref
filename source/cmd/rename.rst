@@ -6,10 +6,9 @@ rename - rename object in the design
 
     \begin{comment}
 
-:code:`yosys> help rename`
---------------------------------------------------------------------------------
+.. cmd:def:: rename
+    :title: rename object in the design
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

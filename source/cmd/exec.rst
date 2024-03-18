@@ -6,10 +6,9 @@ exec - execute commands in the operating system shell
 
     \begin{comment}
 
-:code:`yosys> help exec`
---------------------------------------------------------------------------------
+.. cmd:def:: exec
+    :title: execute commands in the operating system shell
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

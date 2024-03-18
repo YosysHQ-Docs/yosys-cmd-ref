@@ -6,10 +6,9 @@ autoname - automatically assign names to objects
 
     \begin{comment}
 
-:code:`yosys> help autoname`
---------------------------------------------------------------------------------
+.. cmd:def:: autoname
+    :title: automatically assign names to objects
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

@@ -6,10 +6,9 @@ proc_memwr - extract memory writes from processes
 
     \begin{comment}
 
-:code:`yosys> help proc_memwr`
---------------------------------------------------------------------------------
+.. cmd:def:: proc_memwr
+    :title: extract memory writes from processes
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

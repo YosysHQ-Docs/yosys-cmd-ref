@@ -6,10 +6,9 @@ fsm_expand - expand FSM cells by merging logic into it
 
     \begin{comment}
 
-:code:`yosys> help fsm_expand`
---------------------------------------------------------------------------------
+.. cmd:def:: fsm_expand
+    :title: expand FSM cells by merging logic into it
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

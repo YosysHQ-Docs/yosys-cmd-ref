@@ -6,10 +6,9 @@ attrmvcp - move or copy attributes from wires to driving cells
 
     \begin{comment}
 
-:code:`yosys> help attrmvcp`
---------------------------------------------------------------------------------
+.. cmd:def:: attrmvcp
+    :title: move or copy attributes from wires to driving cells
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

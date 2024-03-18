@@ -6,10 +6,9 @@ dfflibmap - technology mapping of flip-flops
 
     \begin{comment}
 
-:code:`yosys> help dfflibmap`
---------------------------------------------------------------------------------
+.. cmd:def:: dfflibmap
+    :title: technology mapping of flip-flops
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt

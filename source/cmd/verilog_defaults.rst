@@ -6,10 +6,9 @@ verilog_defaults - set default options for read_verilog
 
     \begin{comment}
 
-:code:`yosys> help verilog_defaults`
---------------------------------------------------------------------------------
+.. cmd:def:: verilog_defaults
+    :title: set default options for read_verilog
 
-.. container:: cmdref
 
 
     .. code:: yoscrypt
