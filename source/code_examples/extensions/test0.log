@@ -12,6 +12,6 @@ Arguments to my_cmd:
   bar
 Modules in current design:
 
-End of script. Logfile hash: 44d624038e, CPU: user 0.00s system 0.01s, MEM: 21.75 MB peak
-Yosys 0.39+124 (git sha1 c98cdc2a4, ccache g++ 9.4.0-1ubuntu1~20.04.2 -fPIC -Os)
-Time spent: 96% 1x verific (0 sec), 3% 1x my_cmd (0 sec), ...
+End of script. Logfile hash: 44d624038e, CPU: user 0.01s system 0.00s, MEM: 22.10 MB peak
+Yosys 0.39+147 (git sha1 0a854cf4c, ccache g++ 9.4.0-1ubuntu1~20.04.2 -fPIC -Os)
+Time spent: 96% 1x verific (0 sec), 2% 1x my_cmd (0 sec), ...
