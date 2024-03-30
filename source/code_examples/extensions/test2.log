@@ -2,7 +2,7 @@
 -- Parsing `sigmap_test.v' using frontend ` -vlog2k' --
 
 1. Executing VERIFIC (loading SystemVerilog and VHDL designs using Verific).
-Built with Verific Feb24_SW_Release, released at Fri Mar  1 19:36:08 2024.
+Built with Verific Mar24_SW_Release, released at Wed Mar 27 20:32:46 2024.
 VERIFIC-COMMENT [VERI-1482] Analyzing Verilog file 'sigmap_test.v'
 
 -- Running command `hierarchy -top test; test2' --
@@ -38,6 +38,6 @@ Log message #7.
 Log message #8.
 Log message #9.
 
-End of script. Logfile hash: 42640299db, CPU: user 0.01s system 0.00s, MEM: 25.02 MB peak
-Yosys 0.39+147 (git sha1 0a854cf4c, ccache g++ 9.4.0-1ubuntu1~20.04.2 -fPIC -Os)
-Time spent: 59% 1x hierarchy (0 sec), 35% 1x verific (0 sec), ...
+End of script. Logfile hash: 734bf27bb3, CPU: user 0.01s system 0.00s, MEM: 25.69 MB peak
+Yosys 0.39+147 (git sha1 d07a55a85, ccache g++ 9.4.0-1ubuntu1~20.04.2 -fPIC -Os)
+Time spent: 58% 1x hierarchy (0 sec), 36% 1x verific (0 sec), ...

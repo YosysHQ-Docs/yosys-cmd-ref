@@ -2,7 +2,7 @@
 -- Parsing `absval_ref.v' using frontend ` -vlog2k' --
 
 1. Executing VERIFIC (loading SystemVerilog and VHDL designs using Verific).
-Built with Verific Feb24_SW_Release, released at Fri Mar  1 19:36:08 2024.
+Built with Verific Mar24_SW_Release, released at Wed Mar 27 20:32:46 2024.
 VERIFIC-COMMENT [VERI-1482] Analyzing Verilog file 'absval_ref.v'
 
 -- Running command `clean; test1; dump' --
@@ -35,6 +35,6 @@ module \absval
   end
 end
 
-End of script. Logfile hash: 15054a22aa, CPU: user 0.01s system 0.00s, MEM: 21.88 MB peak
-Yosys 0.39+147 (git sha1 0a854cf4c, ccache g++ 9.4.0-1ubuntu1~20.04.2 -fPIC -Os)
-Time spent: 50% 1x verific (0 sec), 42% 1x clean (0 sec), ...
+End of script. Logfile hash: fae4f40fd4, CPU: user 0.01s system 0.00s, MEM: 21.98 MB peak
+Yosys 0.39+147 (git sha1 d07a55a85, ccache g++ 9.4.0-1ubuntu1~20.04.2 -fPIC -Os)
+Time spent: 55% 1x clean (0 sec), 37% 1x verific (0 sec), ...
