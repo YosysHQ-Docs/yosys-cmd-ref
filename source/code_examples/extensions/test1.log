@@ -35,6 +35,6 @@ module \absval
   end
 end
 
-End of script. Logfile hash: fae4f40fd4, CPU: user 0.00s system 0.01s, MEM: 22.15 MB peak
-Yosys 0.39+149 (git sha1 94170388a, ccache g++ 9.4.0-1ubuntu1~20.04.2 -fPIC -Os)
-Time spent: 50% 1x verific (0 sec), 41% 1x clean (0 sec), ...
+End of script. Logfile hash: fae4f40fd4, CPU: user 0.01s system 0.00s, MEM: 22.77 MB peak
+Yosys 0.39+149 (git sha1 cb0771016, ccache g++ 9.4.0-1ubuntu1~20.04.2 -fPIC -Os)
+Time spent: 46% 1x clean (0 sec), 46% 1x verific (0 sec), ...
