@@ -38,6 +38,6 @@ Log message #7.
 Log message #8.
 Log message #9.
 
-End of script. Logfile hash: 734bf27bb3, CPU: user 0.01s system 0.00s, MEM: 25.23 MB peak
-Yosys 0.39+149 (git sha1 0210509de, ccache g++ 9.4.0-1ubuntu1~20.04.2 -fPIC -Os)
+End of script. Logfile hash: 734bf27bb3, CPU: user 0.00s system 0.00s, MEM: 25.48 MB peak
+Yosys 0.39+149 (git sha1 94170388a, ccache g++ 9.4.0-1ubuntu1~20.04.2 -fPIC -Os)
 Time spent: 57% 1x hierarchy (0 sec), 37% 1x verific (0 sec), ...
