@@ -33,7 +33,7 @@ verific - load Verilog and VHDL designs using Verific
         Like -sv, but define FORMAL instead of SYNTHESIS.
 
 
-            verific {-vhdl87|-vhdl93|-vhdl2k|-vhdl2008|-vhdl} <vhdl-file>..
+            verific {-vhdl87|-vhdl93|-vhdl2k|-vhdl2008|-vhdl2019|-vhdl} <vhdl-file>..
 
         Load the specified VHDL files into Verific.
 
@@ -339,7 +339,7 @@ verific - load Verilog and VHDL designs using Verific
         Like -sv, but define FORMAL instead of SYNTHESIS.
         
         
-            verific {-vhdl87|-vhdl93|-vhdl2k|-vhdl2008|-vhdl} <vhdl-file>..
+            verific {-vhdl87|-vhdl93|-vhdl2k|-vhdl2008|-vhdl2019|-vhdl} <vhdl-file>..
         
         Load the specified VHDL files into Verific.
         
