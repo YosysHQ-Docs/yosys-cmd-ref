@@ -1,3 +1,0 @@
-Can't open rules file `--help'.
-Usage: filterlib [rules-file [liberty-file]]
-   or: filterlib -verilogsim [liberty-file]
