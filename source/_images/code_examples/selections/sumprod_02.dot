@@ -1,0 +1,6 @@
+digraph "sumprod" {
+label="sumprod";
+rankdir="LR";
+remincross=true;
+n1 [ shape=octagon, label="prod", color="black", fontcolor="black"];
+}
