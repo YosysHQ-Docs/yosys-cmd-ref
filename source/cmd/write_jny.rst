@@ -50,7 +50,7 @@ write_jny - generate design metadata
     ::
 
         The JSON schema for JNY output files is located in the "jny.schema.json" file
-        which is located at "https://raw.githubusercontent.com/YosysHQ/yosys/master/misc/jny.schema.json"
+        which is located at "https://raw.githubusercontent.com/YosysHQ/yosys/main/misc/jny.schema.json"
 
 .. raw:: latex
 
@@ -75,5 +75,5 @@ write_jny - generate design metadata
                 Don't include property information in the netlist output.
         
         The JSON schema for JNY output files is located in the "jny.schema.json" file
-        which is located at "https://raw.githubusercontent.com/YosysHQ/yosys/master/misc/jny.schema.json"
+        which is located at "https://raw.githubusercontent.com/YosysHQ/yosys/main/misc/jny.schema.json"
         
