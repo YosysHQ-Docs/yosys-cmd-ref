@@ -1,3 +1,4 @@
 /build/
-/source/temp
 /source/_images/**/*.log
+/source/_images/**/*.dot
+/source/_images/**/*.aux
