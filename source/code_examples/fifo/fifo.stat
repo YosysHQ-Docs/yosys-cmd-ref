@@ -44,10 +44,10 @@ yosys> stat -top fifo
 
 === fifo ===
 
-   Number of wires:                 95
-   Number of wire bits:            264
-   Number of public wires:          95
-   Number of public wire bits:     264
+   Number of wires:                 94
+   Number of wire bits:            260
+   Number of public wires:          94
+   Number of public wire bits:     260
    Number of ports:                  7
    Number of port bits:             29
    Number of memories:               0

@@ -3,7 +3,7 @@ Usage: ./yosys-config [--exec] [--prefix pf] args..
        ./yosys-config --build modname.so cppsources..
 
 Replacement args:
-    --cxx         ccache g++
+    --cxx         ccache clang++
     --cxxflags    -Wall -Wextra -ggdb -I"/usr/local/share/yosys/include" \
                       -MD -MP -D_YOSYS_ -fPIC -I/usr/local/include -std=c++11 \
                       -Os -DYOSYS_ENABLE_READLINE -DYOSYS_ENABLE_PLUGINS \
