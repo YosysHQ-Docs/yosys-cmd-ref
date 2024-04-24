@@ -23,7 +23,7 @@ ice40_dsp - iCE40: map multipliers
 
         Pack input registers (A, B, {C,D}; with optional hold), pipeline registers
         ({F,J,K,G}, H), output registers (O -- full 32-bits or lower 16-bits only; with
-        optional hold), and post-adder into into the SB_MAC16 resource.
+        optional hold), and post-adder into the SB_MAC16 resource.
 
         Multiply-accumulate operations using the post-adder with feedback on the {C,D}
         input will be folded into the DSP. In this scenario only, resetting the
@@ -46,7 +46,7 @@ ice40_dsp - iCE40: map multipliers
         
         Pack input registers (A, B, {C,D}; with optional hold), pipeline registers
         ({F,J,K,G}, H), output registers (O -- full 32-bits or lower 16-bits only; with
-        optional hold), and post-adder into into the SB_MAC16 resource.
+        optional hold), and post-adder into the SB_MAC16 resource.
         
         Multiply-accumulate operations using the post-adder with feedback on the {C,D}
         input will be folded into the DSP. In this scenario only, resetting the

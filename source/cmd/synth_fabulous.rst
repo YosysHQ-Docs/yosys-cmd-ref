@@ -266,7 +266,7 @@ synth_fabulous - FABulous synthesis script
                 memory -nomap
                 opt_clean
 
-            map_ram:
+            map_ram:    (unless -noregfile)
                 memory_libmap -lib +/fabulous/ram_regfile.txt
                 techmap -map +/fabulous/regfile_map.v
 
@@ -281,6 +281,9 @@ synth_fabulous - FABulous synthesis script
                 opt -fast
 
             map_iopad:    (if -iopad)
+                opt -full
+                iopadmap -bits -outpad $__FABULOUS_OBUF I:PAD -inpad $__FABULOUS_IBUF O:PAD -toutpad IO_1_bidirectional_frame_config_pass ~T:I:PAD -tinoutpad IO_1_bidirectional_frame_config_pass ~T:O:I:PAD A:top    (skip if '-noiopad')
+                techmap -map +/fabulous/io_map.v
 
             map_ffs:
                 dfflegalize -cell $_DFF_P_ 0 -cell $_DLATCH_?_ x    without -complex-dff
@@ -433,7 +436,7 @@ synth_fabulous - FABulous synthesis script
                 memory -nomap
                 opt_clean
         
-            map_ram:
+            map_ram:    (unless -noregfile)
                 memory_libmap -lib +/fabulous/ram_regfile.txt
                 techmap -map +/fabulous/regfile_map.v
         
@@ -448,6 +451,9 @@ synth_fabulous - FABulous synthesis script
                 opt -fast
         
             map_iopad:    (if -iopad)
+                opt -full
+                iopadmap -bits -outpad $__FABULOUS_OBUF I:PAD -inpad $__FABULOUS_IBUF O:PAD -toutpad IO_1_bidirectional_frame_config_pass ~T:I:PAD -tinoutpad IO_1_bidirectional_frame_config_pass ~T:O:I:PAD A:top    (skip if '-noiopad')
+                techmap -map +/fabulous/io_map.v
         
             map_ffs:
                 dfflegalize -cell $_DFF_P_ 0 -cell $_DLATCH_?_ x    without -complex-dff

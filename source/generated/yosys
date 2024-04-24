@@ -100,7 +100,7 @@ Usage: ./yosys [options] [<infile> [..]]
     -V
         print version information and exit
 
-The option -S is an shortcut for calling the "synth" command, a default
+The option -S is a shortcut for calling the "synth" command, a default
 script for transforming the Verilog input to a gate-level netlist. For example:
 
     yosys -o output.blif -S input.v

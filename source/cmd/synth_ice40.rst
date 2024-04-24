@@ -264,7 +264,7 @@ synth_ice40 - synthesis for iCE40 FPGAs
                 opt_clean
 
             map_ram:
-                memory_libmap -lib +/ice40/brams.txt -lib +/ice40/spram.txt -no-auto-huge [-no-auto-huge] [-no-auto-block]    (-no-auto-huge unless -spram, -no-auto-block if -nobram)
+                memory_libmap -lib +/ice40/brams.txt -lib +/ice40/spram.txt [-no-auto-huge] [-no-auto-block]    (-no-auto-huge unless -spram, -no-auto-block if -nobram)
                 techmap -map +/ice40/brams_map.v -map +/ice40/spram_map.v
                 ice40_braminit
 
@@ -452,7 +452,7 @@ synth_ice40 - synthesis for iCE40 FPGAs
                 opt_clean
         
             map_ram:
-                memory_libmap -lib +/ice40/brams.txt -lib +/ice40/spram.txt -no-auto-huge [-no-auto-huge] [-no-auto-block]    (-no-auto-huge unless -spram, -no-auto-block if -nobram)
+                memory_libmap -lib +/ice40/brams.txt -lib +/ice40/spram.txt [-no-auto-huge] [-no-auto-block]    (-no-auto-huge unless -spram, -no-auto-block if -nobram)
                 techmap -map +/ice40/brams_map.v -map +/ice40/spram_map.v
                 ice40_braminit
         
