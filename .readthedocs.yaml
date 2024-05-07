@@ -8,8 +8,8 @@ build:
     tools:
         python: '3.11'
     jobs:
-        pre_install:
-            - export "YOSYS_VER=0.40"
+        pre_create_environment:
+            - export YOSYS_VER=0.40
 
 formats:
   - pdf
