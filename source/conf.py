@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from pathlib import Path
 import sys
 import os
 
@@ -7,38 +8,17 @@ author = 'YosysHQ GmbH'
 copyright ='2022 YosysHQ GmbH'
 
 # select HTML theme
-html_theme = 'furo'
-templates_path = ["_templates"]
-html_logo = '_static/logo.png'
-html_favicon = '_static/favico.png'
-html_css_files = ['yosyshq.css', 'custom.css']
-
-html_theme_options = {
-    "sidebar_hide_name": True,
-
-    "light_css_variables": {
-        "color-brand-primary": "#d6368f",
-        "color-brand-content": "#4b72b8",
-        "color-api-name": "#8857a3",
-        "color-api-pre-name": "#4b72b8",
-        "color-link": "#8857a3",
-    },
-
-    "dark_css_variables": {
-        "color-brand-primary": "#e488bb",
-        "color-brand-content": "#98bdff",
-        "color-api-name": "#8857a3",
-        "color-api-pre-name": "#4b72b8",
-        "color-link": "#be95d5",
-    },
-}
+html_theme = 'furo-ys'
+html_css_files = ['custom.css']
 
 # These folders are copied to the documentation's HTML output
 html_static_path = ['_static', "_images"]
 
-# code blocks style 
-pygments_style = 'colorful'
+# default to no highlight
 highlight_language = 'none'
+
+# default single quotes to attempt auto reference, or fallback to code
+default_role = 'autoref'
 
 extensions = ['sphinx.ext.autosectionlabel', 'sphinxcontrib.bibtex']
 
@@ -67,9 +47,15 @@ todo_include_todos = False
 sys.path += [os.path.dirname(__file__) + "/../"]
 extensions.append('util.cmdref')
 
-def setup(sphinx):
-	from util.RtlilLexer import RtlilLexer
-	sphinx.add_lexer("RTLIL", RtlilLexer)
+# use autodocs
+extensions.append('sphinx.ext.autodoc')
+extensions.append('util.cellref')
+cells_loc = Path(__file__).parent / 'generated'
 
-	from util.YoscryptLexer import YoscryptLexer
-	sphinx.add_lexer("yoscrypt", YoscryptLexer)
+from sphinx.application import Sphinx
+def setup(app: Sphinx) -> None:
+    from util.RtlilLexer import RtlilLexer
+    app.add_lexer("RTLIL", RtlilLexer)
+
+    from util.YoscryptLexer import YoscryptLexer
+    app.add_lexer("yoscrypt", YoscryptLexer)

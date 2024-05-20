@@ -1,0 +1,40 @@
+
+Usage: ./yosys-config [--exec] [--prefix pf] args..
+       ./yosys-config --build modname.so cppsources..
+
+Replacement args:
+    --cxx         ccache clang++
+    --cxxflags    -Wall -Wextra -ggdb -I"/usr/local/share/yosys/include" \
+                      -MD -MP -D_YOSYS_ -fPIC -I/usr/local/include -std=c++11 \
+                      -Os -DYOSYS_ENABLE_READLINE -DYOSYS_ENABLE_PLUGINS \
+                      -DYOSYS_ENABLE_GLOB -DYOSYS_ENABLE_ZLIB \
+                      -I/usr/include/tcl8.6 -DYOSYS_ENABLE_TCL -DYOSYS_ENABLE_ABC \
+                      -DVERIFIC_VHDL_SUPPORT -DYOSYSHQ_VERIFIC_EXTENSIONS \
+                      -DYOSYS_ENABLE_VERIFIC -DYOSYS_ENABLE_COVER
+    --linkflags   -rdynamic
+    --ldflags     (alias of --linkflags)
+    --libs        -lstdc++ -lm -lrt -lreadline -lffi -ldl -lz -ltcl8.6 -ltclstub8.6
+    --ldlibs      (alias of --libs)
+    --bindir      /usr/local/bin
+    --datdir      /usr/local/share/yosys
+
+All other args are passed through as they are.
+
+Use --exec to call a command instead of generating output. Example usage:
+
+  ./yosys-config --exec --cxx --cxxflags --ldflags -o plugin.so -shared plugin.cc --libs
+
+The above command can be abbreviated as:
+
+  ./yosys-config --build plugin.so plugin.cc
+
+Use --prefix to change the prefix for the special args from '--' to
+something else. Example:
+
+  ./yosys-config --prefix @ bindir: @bindir
+
+The args --bindir and --datdir can be directly followed by a slash and
+additional text. Example:
+
+  ./yosys-config --datdir/simlib.v
+

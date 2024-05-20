@@ -1,46 +1,70 @@
 
--- Parsing `absval_ref.v' using frontend ` -vlog2k' --
+-- Parsing `absval_ref.v' using frontend `verilog' --
 
 1. Executing Verilog-2005 frontend: absval_ref.v
 Parsing Verilog input from `absval_ref.v' to AST representation.
-Storing AST representation for module `$abstract\absval_ref'.
+Generating RTLIL representation for module `\absval_ref'.
 Successfully finished Verilog frontend.
 
 -- Running command `clean; test1; dump' --
+Removed 0 unused cells and 1 unused wires.
 Name of this module: absval
 
-autoidx 4
+autoidx 6
 
 module \absval
 
-  wire width 4 $auto$my_cmd.cc:41:execute$1
+  wire width 4 $auto$my_cmd.cc:41:execute$3
 
   wire width 4 output 2 \y
 
   wire width 4 input 1 \a
 
-  cell $mux $auto$my_cmd.cc:43:execute$3
+  cell $mux $auto$my_cmd.cc:43:execute$5
     parameter \WIDTH 4
     connect \Y \y
     connect \S \a [3]
-    connect \B $auto$my_cmd.cc:41:execute$1
+    connect \B $auto$my_cmd.cc:41:execute$3
     connect \A \a
   end
 
-  cell $neg $auto$my_cmd.cc:42:execute$2
+  cell $neg $auto$my_cmd.cc:42:execute$4
     parameter \Y_WIDTH 4
     parameter \A_WIDTH 4
     parameter \A_SIGNED 1
-    connect \Y $auto$my_cmd.cc:41:execute$1
+    connect \Y $auto$my_cmd.cc:41:execute$3
     connect \A \a
   end
 end
 
 attribute \cells_not_processed 1
 attribute \src "absval_ref.v:1.1-3.10"
-module $abstract\absval_ref
-end
+module \absval_ref
 
-End of script. Logfile hash: 01cda1039c, CPU: user 0.00s system 0.00s, MEM: 10.59 MB peak
-Yosys 0.39+4 (git sha1 d2bf5a83a, ccache clang++ 10.0.0-4ubuntu1 -fPIC -Os)
-Time spent: 51% 1x clean (0 sec), 28% 2x read_verilog (0 sec), ...
+  attribute \src "absval_ref.v:2.20-2.22"
+  wire width 4 signed $neg$absval_ref.v:2$1_Y
+
+  attribute \src "absval_ref.v:1.38-1.39"
+  wire width 4 input 1 signed \a
+
+  attribute \src "absval_ref.v:1.54-1.55"
+  wire width 4 output 2 \y
+
+  attribute \src "absval_ref.v:2.20-2.22"
+  cell $neg $neg$absval_ref.v:2$1
+    parameter \A_SIGNED 1
+    parameter \A_WIDTH 4
+    parameter \Y_WIDTH 4
+    connect \A \a
+    connect \Y $neg$absval_ref.v:2$1_Y
+  end
+
+  attribute \src "absval_ref.v:2.13-2.26"
+  cell $mux $ternary$absval_ref.v:2$2
+    parameter \WIDTH 4
+    connect \A \a
+    connect \B $neg$absval_ref.v:2$1_Y
+    connect \S \a [3]
+    connect \Y \y
+  end
+end

@@ -1,0 +1,17 @@
+./yosys-abc: unknown option -
+
+usage: ./yosys-abc [-c cmd] [-q cmd] [-C cmd] [-Q cmd] [-f script] [-h] [-o file] [-s] [-t type] [-T type] [-x] [-b] [file]
+    -c cmd	execute commands `cmd'
+    -q cmd	execute commands `cmd' quietly
+    -C cmd	execute commands `cmd', then continue in interactive mode
+    -Q cmd	execute commands `cmd' quietly, then continue in interactive mode
+    -F script	execute commands from a script file and echo commands
+    -f script	execute commands from a script file
+    -h		print the command usage
+    -o file	specify output filename to store the result
+    -s		do not read any initialization file
+    -t type	specify input type (blif_mv (default), blif_mvs, blif, or none)
+    -T type	specify output type (blif_mv (default), blif_mvs, blif, or none)
+    -x		equivalent to '-t none -T none'
+    -b		running in bridge mode
+

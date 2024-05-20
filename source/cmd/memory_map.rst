@@ -48,7 +48,7 @@ memory_map - translate multiport memories to basic cells
 
     ::
 
-            for -attr, ignore case of <value>.
+            for -attr, suppress case sensitivity in matching of <value>.
 
 
     .. code:: yoscrypt
@@ -104,7 +104,7 @@ memory_map - translate multiport memories to basic cells
                 to any of the values.
         
             -iattr
-                for -attr, ignore case of <value>.
+                for -attr, suppress case sensitivity in matching of <value>.
         
             -rom-only
                 only perform conversion for ROMs (memories with no write ports).

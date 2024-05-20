@@ -41,6 +41,10 @@ fsm_detect - finding FSMs in design
         This pass uses a subset of FF types to detect FSMs. Run 'opt -nosdff -nodffe'
         before this pass to prepare the design for fsm_detect.
 
+        The Verific frontend may optimize the design in a way that interferes with FSM
+        detection. Run 'verific -cfg db_infer_wide_muxes_post_elaboration 0' before
+        reading the source, and 'bmuxmap -pmux' after 'proc' for best results.
+
 .. raw:: latex
 
     \end{comment}
@@ -66,4 +70,8 @@ fsm_detect - finding FSMs in design
         
         This pass uses a subset of FF types to detect FSMs. Run 'opt -nosdff -nodffe'
         before this pass to prepare the design for fsm_detect.
+        
+        The Verific frontend may optimize the design in a way that interferes with FSM
+        detection. Run 'verific -cfg db_infer_wide_muxes_post_elaboration 0' before
+        reading the source, and 'bmuxmap -pmux' after 'proc' for best results.
         
