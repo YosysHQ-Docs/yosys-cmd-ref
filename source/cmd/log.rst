@@ -13,7 +13,12 @@ log - print text and log files
 
     .. code:: yoscrypt
 
-        log string
+        log [options] string
+
+   
+    .. code:: yoscrypt
+
+        log [ -push | -pop ]
 
     ::
 
@@ -60,6 +65,33 @@ log - print text and log files
 
             do not append a newline
 
+
+    .. code:: yoscrypt
+
+        -header
+
+    ::
+
+            log a pass header
+
+
+    .. code:: yoscrypt
+
+        -push
+
+    ::
+
+            push a new level on the pass counter
+
+
+    .. code:: yoscrypt
+
+        -push
+
+    ::
+
+            pop from the pass counter
+
 .. raw:: latex
 
     \end{comment}
@@ -69,7 +101,8 @@ log - print text and log files
     ::
 
         
-            log string
+            log [options] string
+            log [ -push | -pop ]
         
         Print the given string to the screen and/or the log file. This is useful for TCL
         scripts, because the TCL command "puts" only goes to stdout but not to
@@ -89,4 +122,13 @@ log - print text and log files
         
             -n
                 do not append a newline
+        
+            -header
+                log a pass header
+        
+            -push
+                push a new level on the pass counter
+        
+            -push
+                pop from the pass counter
         
