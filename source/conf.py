@@ -11,12 +11,6 @@ copyright ='2022 YosysHQ GmbH'
 html_theme = 'furo-ys'
 html_css_files = ['custom.css']
 
-html_theme_options = {
-    "source_repository": "https://github.com/YosysHQ/yosys/",
-    "source_branch": "krys/help_docs",
-    "source_directory": "docs/source/",
-}
-
 # These folders are copied to the documentation's HTML output
 html_static_path = ['_static', "_images"]
 
@@ -56,7 +50,7 @@ extensions.append('util.cmdref')
 # use autodocs
 extensions.append('sphinx.ext.autodoc')
 extensions.append('util.cellref')
-cells_loc = Path(__file__).parent / 'generated'
+cells_json = Path(__file__).parent / 'generated' / 'cells.json'
 
 from sphinx.application import Sphinx
 def setup(app: Sphinx) -> None:

@@ -27,9 +27,9 @@ Constant folding and simple expression rewriting - `opt_expr`
 .. todo:: unsure if this is too much detail and should be in :doc:`/yosys_internals/index`
 
 This pass performs constant folding on the internal combinational cell types
-described in :doc:`/yosys_internals/formats/cell_library`. This means a cell
-with all constant inputs is replaced with the constant value this cell drives.
-In some cases this pass can also optimize cells with some constant inputs.
+described in :doc:`/cell_gate` and :doc:`/cell_word`. This means a cell with all
+constant inputs is replaced with the constant value this cell drives. In some
+cases this pass can also optimize cells with some constant inputs.
 
 .. table:: Const folding rules for `$_AND_` cells as used in `opt_expr`.
    :name: tab:opt_expr_and
@@ -182,6 +182,8 @@ away by `opt_expr`.
 Performing DFF optimizations - `opt_dff`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. todo:: ``$_DFF_`` isn't a valid cell
+
 This pass identifies single-bit d-type flip-flops (`$_DFF_`, `$dff`, and `$adff`
 cells) with a constant data input and replaces them with a constant driver.  It
 can also merge clock enables and synchronous reset multiplexers, removing unused
@@ -194,7 +196,7 @@ Removing unused cells and wires - `opt_clean` pass
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This pass identifies unused signals and cells and removes them from the design.
-It also creates an ``\unused_bits`` attribute on wires with unused bits. This
+It also creates an ``unused_bits`` attribute on wires with unused bits. This
 attribute can be used for debugging or by other optimization passes.
 
 When to use `opt` or `clean`
