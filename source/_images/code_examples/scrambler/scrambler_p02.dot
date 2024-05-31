@@ -21,11 +21,11 @@ x5:e -> c12:p8:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black
 x6 [ shape=record, style=rounded, label="<s1> 31:17 - 14:0 |<s0> 16:0 - 16:0 ", color="black", fontcolor="black" ];
 c12:p9:e -> x6:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", fontcolor="black", style="setlinewidth(3)", label=""];
 x2:s1:e -> x3:s1:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
-n2 [ shape=point ];
-x6:s1:e -> n2:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
-n2:e -> x0:s1:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
-n2:e -> x1:s0:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
 x6:s0:e -> x0:s0:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n3 [ shape=point ];
+x6:s1:e -> n3:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n3:e -> x0:s1:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n3:e -> x1:s0:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
 n4:e -> c12:p7:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
 n4:e -> x5:s1:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
 c11:p9:e -> n5:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
