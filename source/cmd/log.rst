@@ -86,7 +86,7 @@ log - print text and log files
 
     .. code:: yoscrypt
 
-        -push
+        -pop
 
     ::
 
@@ -129,6 +129,6 @@ log - print text and log files
             -push
                 push a new level on the pass counter
         
-            -push
+            -pop
                 pop from the pass counter
         
