@@ -32,6 +32,9 @@ peepopt - collection of peephole optimizers
 
            * shiftadd - Replace A>>(B+D) with (A'>>D)>>(B) where D is constant and
                         A' is derived from A by padding or cutting inaccessible bits.
+                        Scratchpad: 'peepopt.shiftadd.max_data_multiple' (default: 2)
+                        limits the amount of padding to a multiple of the data, 
+                        to avoid high resource usage from large temporary MUX trees.
 
 .. raw:: latex
 
@@ -59,4 +62,7 @@ peepopt - collection of peephole optimizers
         
            * shiftadd - Replace A>>(B+D) with (A'>>D)>>(B) where D is constant and
                         A' is derived from A by padding or cutting inaccessible bits.
+                        Scratchpad: 'peepopt.shiftadd.max_data_multiple' (default: 2)
+                        limits the amount of padding to a multiple of the data, 
+                        to avoid high resource usage from large temporary MUX trees.
         
