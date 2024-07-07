@@ -24,13 +24,12 @@ Simulation models for the RTL cells can be found in the file
    /cell/word_mem
    /cell/word_fsm
    /cell/word_arith
+   /cell/word_logic
    /cell/word_spec
    /cell/word_formal
    /cell/word_debug
 
 .. todo:: Add information about `$slice` and `$concat` cells.
-
-.. todo:: Add information about `$lut` and `$sop` cells.
 
 .. todo:: Add information about `$alu`, `$fa`, and `$lcu` cells.
 

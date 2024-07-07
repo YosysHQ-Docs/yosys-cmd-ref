@@ -88,7 +88,7 @@ interfere with other optimizations.
    :caption: example verilog for demonstrating `opt_expr`
 
 .. figure:: /_images/code_examples/opt/opt_expr.*
-   :class: width-helper
+   :class: width-helper invert-helper
 
    Before and after `opt_expr`
 
@@ -111,7 +111,7 @@ optimizations.
    :caption: example verilog for demonstrating `opt_merge`
 
 .. figure:: /_images/code_examples/opt/opt_merge.*
-   :class: width-helper
+   :class: width-helper invert-helper
 
    Before and after `opt_merge`
 
@@ -133,7 +133,7 @@ contradiction and replaces the inner multiplexer with a constant 1, yielding the
 logic for ``y = a ? b : d``.
 
 .. figure:: /_images/code_examples/opt/opt_muxtree.*
-   :class: width-helper
+   :class: width-helper invert-helper
 
    Before and after `opt_muxtree`
 
@@ -172,7 +172,7 @@ its output to multiplexing the non-shared input signals.
    :caption: example verilog for demonstrating `opt_share`
 
 .. figure:: /_images/code_examples/opt/opt_share.*
-   :class: width-helper
+   :class: width-helper invert-helper
 
    Before and after `opt_share`
 

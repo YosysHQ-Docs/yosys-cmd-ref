@@ -5,7 +5,8 @@ import os
 
 project = 'YosysHQ Yosys'
 author = 'YosysHQ GmbH'
-copyright ='2022 YosysHQ GmbH'
+copyright ='2024 YosysHQ GmbH'
+yosys_ver = "0.42"
 
 # select HTML theme
 html_theme = 'furo-ys'
@@ -26,12 +27,18 @@ extensions = ['sphinx.ext.autosectionlabel', 'sphinxcontrib.bibtex']
 autosectionlabel_prefix_document = True
 autosectionlabel_maxdepth = 1
 
+# set version
+if os.getenv("READTHEDOCS") and os.getenv("READTHEDOCS_VERSION") == "latest":
+    release = yosys_ver + "-dev"
+else:
+    release = yosys_ver
+
 # assign figure numbers
 numfig = True
 
 bibtex_bibfiles = ['literature.bib']
-
 latex_elements = {
+        'releasename': 'Version',
         'preamble': r'''
 \usepackage{lmodern}
 \usepackage{comment}
@@ -57,5 +64,5 @@ def setup(app: Sphinx) -> None:
     from util.RtlilLexer import RtlilLexer
     app.add_lexer("RTLIL", RtlilLexer)
 
-    from util.YoscryptLexer import YoscryptLexer
+    from furo_ys.lexers.YoscryptLexer import YoscryptLexer
     app.add_lexer("yoscrypt", YoscryptLexer)

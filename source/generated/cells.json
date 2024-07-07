@@ -1,6 +1,6 @@
 {
   "version": "Yosys internal cells",
-  "generator": "Yosys 0.40+33 (git sha1 16cbd5615, ccache clang++ 10.0.0-4ubuntu1 -fPIC -Os)",
+  "generator": "Yosys 0.42+40 (git sha1 b82854123, ccache clang++ 10.0.0-4ubuntu1 -fPIC -Os)",
   "groups": {
     "arith": ["$alu", "$lcu", "$macc"],
     "binary": ["$logic_or", "$logic_and", "$pow", "$modfloor", "$divfloor", "$mod", "$div", "$mul", "$sub", "$add", "$gt", "$ge", "$nex", "$eqx", "$ne", "$eq", "$le", "$lt", "$shiftx", "$shift", "$sshr", "$sshl", "$shr", "$shl", "$xnor", "$xor", "$or", "$and"],
@@ -8,12 +8,13 @@
     "formal": ["$anyinit", "$ff", "$equiv", "$allseq", "$allconst", "$anyseq", "$anyconst", "$initstate", "$cover", "$fair", "$live", "$assume", "$assert"],
     "fsm": ["$fsm"],
     "gate_other": ["$_DLATCHSR_PPP_", "$_DLATCHSR_PPN_", "$_DLATCHSR_PNP_", "$_DLATCHSR_PNN_", "$_DLATCHSR_NPP_", "$_DLATCHSR_NPN_", "$_DLATCHSR_NNP_", "$_DLATCHSR_NNN_", "$_DLATCH_PP1_", "$_DLATCH_PP0_", "$_DLATCH_PN1_", "$_DLATCH_PN0_", "$_DLATCH_NP1_", "$_DLATCH_NP0_", "$_DLATCH_NN1_", "$_DLATCH_NN0_", "$_DLATCH_P_", "$_DLATCH_N_", "$_SDFFCE_PP1P_", "$_SDFFCE_PP1N_", "$_SDFFCE_PP0P_", "$_SDFFCE_PP0N_", "$_SDFFCE_PN1P_", "$_SDFFCE_PN1N_", "$_SDFFCE_PN0P_", "$_SDFFCE_PN0N_", "$_SDFFCE_NP1P_", "$_SDFFCE_NP1N_", "$_SDFFCE_NP0P_", "$_SDFFCE_NP0N_", "$_SDFFCE_NN1P_", "$_SDFFCE_NN1N_", "$_SDFFCE_NN0P_", "$_SDFFCE_NN0N_", "$_SDFFE_PP1P_", "$_SDFFE_PP1N_", "$_SDFFE_PP0P_", "$_SDFFE_PP0N_", "$_SDFFE_PN1P_", "$_SDFFE_PN1N_", "$_SDFFE_PN0P_", "$_SDFFE_PN0N_", "$_SDFFE_NP1P_", "$_SDFFE_NP1N_", "$_SDFFE_NP0P_", "$_SDFFE_NP0N_", "$_SDFFE_NN1P_", "$_SDFFE_NN1N_", "$_SDFFE_NN0P_", "$_SDFFE_NN0N_", "$_SDFF_PP1_", "$_SDFF_PP0_", "$_SDFF_PN1_", "$_SDFF_PN0_", "$_SDFF_NP1_", "$_SDFF_NP0_", "$_SDFF_NN1_", "$_SDFF_NN0_", "$_DFFSRE_PPPP_", "$_DFFSRE_PPPN_", "$_DFFSRE_PPNP_", "$_DFFSRE_PPNN_", "$_DFFSRE_PNPP_", "$_DFFSRE_PNPN_", "$_DFFSRE_PNNP_", "$_DFFSRE_PNNN_", "$_DFFSRE_NPPP_", "$_DFFSRE_NPPN_", "$_DFFSRE_NPNP_", "$_DFFSRE_NPNN_", "$_DFFSRE_NNPP_", "$_DFFSRE_NNPN_", "$_DFFSRE_NNNP_", "$_DFFSRE_NNNN_", "$_DFFSR_PPP_", "$_DFFSR_PPN_", "$_DFFSR_PNP_", "$_DFFSR_PNN_", "$_DFFSR_NPP_", "$_DFFSR_NPN_", "$_DFFSR_NNP_", "$_DFFSR_NNN_", "$_ALDFFE_PPP_", "$_ALDFFE_PPN_", "$_ALDFFE_PNP_", "$_ALDFFE_PNN_", "$_ALDFFE_NPP_", "$_ALDFFE_NPN_", "$_ALDFFE_NNP_", "$_ALDFFE_NNN_", "$_ALDFF_PP_", "$_ALDFF_PN_", "$_ALDFF_NP_", "$_ALDFF_NN_", "$_DFFE_PP1P_", "$_DFFE_PP1N_", "$_DFFE_PP0P_", "$_DFFE_PP0N_", "$_DFFE_PN1P_", "$_DFFE_PN1N_", "$_DFFE_PN0P_", "$_DFFE_PN0N_", "$_DFFE_NP1P_", "$_DFFE_NP1N_", "$_DFFE_NP0P_", "$_DFFE_NP0N_", "$_DFFE_NN1P_", "$_DFFE_NN1N_", "$_DFFE_NN0P_", "$_DFFE_NN0N_", "$_DFF_PP1_", "$_DFF_PP0_", "$_DFF_PN1_", "$_DFF_PN0_", "$_DFF_NP1_", "$_DFF_NP0_", "$_DFF_NN1_", "$_DFF_NN0_", "$_DFFE_PP_", "$_DFFE_PN_", "$_DFFE_NP_", "$_DFFE_NN_", "$_DFF_P_", "$_DFF_N_", "$_FF_", "$_SR_PP_", "$_SR_PN_", "$_SR_NP_", "$_SR_NN_", "$_TBUF_", "$_OAI4_", "$_AOI4_", "$_OAI3_", "$_AOI3_", "$_MUX16_", "$_MUX8_", "$_MUX4_", "$_NMUX_", "$_MUX_", "$_ORNOT_", "$_ANDNOT_", "$_XNOR_", "$_XOR_", "$_NOR_", "$_OR_", "$_NAND_", "$_AND_", "$_NOT_", "$_BUF_"],
+    "logic": ["$sop", "$lut"],
     "mem": ["$mem_v2", "$mem", "$meminit_v2", "$meminit", "$memwr_v2", "$memwr", "$memrd_v2", "$memrd"],
     "mux": ["$tribuf", "$demux", "$bmux", "$pmux", "$mux"],
     "reg": ["$dlatchsr", "$adlatch", "$dlatch", "$sdffce", "$sdffe", "$sdff", "$aldffe", "$aldff", "$adffe", "$adff", "$dffsre", "$dffsr", "$dffe", "$dff", "$sr"],
     "spec": ["$specrule", "$specify3", "$specify2"],
     "unary": ["$logic_not", "$reduce_bool", "$reduce_xnor", "$reduce_xor", "$reduce_or", "$reduce_and", "$neg", "$pos", "$not"],
-    "word_other": ["$scopeinfo", "$future_ff", "$original_tag", "$overwrite_tag", "$get_tag", "$set_tag", "$fa", "$bwmux", "$bweqx", "$concat", "$sop", "$lut", "$slice"]
+    "word_other": ["$scopeinfo", "$future_ff", "$original_tag", "$overwrite_tag", "$get_tag", "$set_tag", "$fa", "$bwmux", "$bweqx", "$concat", "$slice"]
   },
   "cells": {
     "$_ALDFFE_NNN_": {
@@ -1519,7 +1520,7 @@
     "$adff": {
       "title": "",
       "ports": "(CLK, ARST, D, Q)",
-      "source": "simlib.v:2110",
+      "source": "simlib.v:2112",
       "desc": "",
       "code": "module \\$adff (CLK, ARST, D, Q);\n    \n    parameter WIDTH = 0;\n    parameter CLK_POLARITY = 1'b1;\n    parameter ARST_POLARITY = 1'b1;\n    parameter ARST_VALUE = 0;\n    \n    input CLK, ARST;\n    input [WIDTH-1:0] D;\n    output reg [WIDTH-1:0] Q;\n    wire pos_clk = CLK == CLK_POLARITY;\n    wire pos_arst = ARST == ARST_POLARITY;\n    \n    always @(posedge pos_clk, posedge pos_arst) begin\n        if (pos_arst)\n            Q <= ARST_VALUE;\n        else\n            Q <= D;\n    end\n    \nendmodule",
       "inputs": ["\\D", "\\ARST", "\\CLK"],
@@ -1529,7 +1530,7 @@
     "$adffe": {
       "title": "",
       "ports": "(CLK, ARST, EN, D, Q)",
-      "source": "simlib.v:2185",
+      "source": "simlib.v:2187",
       "desc": "",
       "code": "module \\$adffe (CLK, ARST, EN, D, Q);\n    \n    parameter WIDTH = 0;\n    parameter CLK_POLARITY = 1'b1;\n    parameter EN_POLARITY = 1'b1;\n    parameter ARST_POLARITY = 1'b1;\n    parameter ARST_VALUE = 0;\n    \n    input CLK, ARST, EN;\n    input [WIDTH-1:0] D;\n    output reg [WIDTH-1:0] Q;\n    wire pos_clk = CLK == CLK_POLARITY;\n    wire pos_arst = ARST == ARST_POLARITY;\n    \n    always @(posedge pos_clk, posedge pos_arst) begin\n        if (pos_arst)\n            Q <= ARST_VALUE;\n        else if (EN == EN_POLARITY)\n            Q <= D;\n    end\n    \nendmodule",
       "inputs": ["\\EN", "\\D", "\\ARST", "\\CLK"],
@@ -1539,7 +1540,7 @@
     "$adlatch": {
       "title": "",
       "ports": "(EN, ARST, D, Q)",
-      "source": "simlib.v:2310",
+      "source": "simlib.v:2312",
       "desc": "",
       "code": "module \\$adlatch (EN, ARST, D, Q);\n    \n    parameter WIDTH = 0;\n    parameter EN_POLARITY = 1'b1;\n    parameter ARST_POLARITY = 1'b1;\n    parameter ARST_VALUE = 0;\n    \n    input EN, ARST;\n    input [WIDTH-1:0] D;\n    output reg [WIDTH-1:0] Q;\n    \n    always @* begin\n        if (ARST == ARST_POLARITY)\n            Q = ARST_VALUE;\n        else if (EN == EN_POLARITY)\n            Q = D;\n    end\n    \nendmodule",
       "inputs": ["\\ARST", "\\D", "\\EN"],
@@ -1549,7 +1550,7 @@
     "$aldff": {
       "title": "",
       "ports": "(CLK, ALOAD, AD, D, Q)",
-      "source": "simlib.v:2135",
+      "source": "simlib.v:2137",
       "desc": "",
       "code": "module \\$aldff (CLK, ALOAD, AD, D, Q);\n    \n    parameter WIDTH = 0;\n    parameter CLK_POLARITY = 1'b1;\n    parameter ALOAD_POLARITY = 1'b1;\n    \n    input CLK, ALOAD;\n    input [WIDTH-1:0] AD;\n    input [WIDTH-1:0] D;\n    output reg [WIDTH-1:0] Q;\n    wire pos_clk = CLK == CLK_POLARITY;\n    wire pos_aload = ALOAD == ALOAD_POLARITY;\n    \n    always @(posedge pos_clk, posedge pos_aload) begin\n        if (pos_aload)\n            Q <= AD;\n        else\n            Q <= D;\n    end\n    \nendmodule",
       "inputs": ["\\D", "\\AD", "\\ALOAD", "\\CLK"],
@@ -1559,7 +1560,7 @@
     "$aldffe": {
       "title": "",
       "ports": "(CLK, ALOAD, AD, EN, D, Q)",
-      "source": "simlib.v:2211",
+      "source": "simlib.v:2213",
       "desc": "",
       "code": "module \\$aldffe (CLK, ALOAD, AD, EN, D, Q);\n    \n    parameter WIDTH = 0;\n    parameter CLK_POLARITY = 1'b1;\n    parameter EN_POLARITY = 1'b1;\n    parameter ALOAD_POLARITY = 1'b1;\n    \n    input CLK, ALOAD, EN;\n    input [WIDTH-1:0] D;\n    input [WIDTH-1:0] AD;\n    output reg [WIDTH-1:0] Q;\n    wire pos_clk = CLK == CLK_POLARITY;\n    wire pos_aload = ALOAD == ALOAD_POLARITY;\n    \n    always @(posedge pos_clk, posedge pos_aload) begin\n        if (pos_aload)\n            Q <= AD;\n        else if (EN == EN_POLARITY)\n            Q <= D;\n    end\n    \nendmodule",
       "inputs": ["\\EN", "\\D", "\\AD", "\\ALOAD", "\\CLK"],
@@ -1569,7 +1570,7 @@
     "$allconst": {
       "title": "",
       "ports": "(Y)",
-      "source": "simlib.v:1862",
+      "source": "simlib.v:1864",
       "desc": "",
       "code": "module \\$allconst (Y);\n    \n    parameter WIDTH = 0;\n    \n    output [WIDTH-1:0] Y;\n    \n    assign Y = 'bx;\n    \nendmodule",
       "inputs": [],
@@ -1579,7 +1580,7 @@
     "$allseq": {
       "title": "",
       "ports": "(Y)",
-      "source": "simlib.v:1875",
+      "source": "simlib.v:1877",
       "desc": "",
       "code": "module \\$allseq (Y);\n    \n    parameter WIDTH = 0;\n    \n    output [WIDTH-1:0] Y;\n    \n    assign Y = 'bx;\n    \nendmodule",
       "inputs": [],
@@ -1609,7 +1610,7 @@
     "$anyconst": {
       "title": "",
       "ports": "(Y)",
-      "source": "simlib.v:1815",
+      "source": "simlib.v:1817",
       "desc": "",
       "code": "module \\$anyconst (Y);\n    \n    parameter WIDTH = 0;\n    \n    output [WIDTH-1:0] Y;\n    \n    assign Y = 'bx;\n    \nendmodule",
       "inputs": [],
@@ -1619,7 +1620,7 @@
     "$anyinit": {
       "title": "",
       "ports": "(D, Q)",
-      "source": "simlib.v:1844",
+      "source": "simlib.v:1846",
       "desc": "",
       "code": "module \\$anyinit (D, Q);\n    \n    parameter WIDTH = 0;\n    \n    input [WIDTH-1:0] D;\n    output reg [WIDTH-1:0] Q;\n    \n    initial Q <= 'bx;\n    \n    always @(`SIMLIB_GLOBAL_CLOCK) begin\n        Q <= D;\n    end\n    \nendmodule",
       "inputs": ["\\D"],
@@ -1629,7 +1630,7 @@
     "$anyseq": {
       "title": "",
       "ports": "(Y)",
-      "source": "simlib.v:1828",
+      "source": "simlib.v:1830",
       "desc": "",
       "code": "module \\$anyseq (Y);\n    \n    parameter WIDTH = 0;\n    \n    output [WIDTH-1:0] Y;\n    \n    assign Y = 'bx;\n    \nendmodule",
       "inputs": [],
@@ -1639,7 +1640,7 @@
     "$assert": {
       "title": "",
       "ports": "(A, EN)",
-      "source": "simlib.v:1734",
+      "source": "simlib.v:1736",
       "desc": "",
       "code": "module \\$assert (A, EN);\n    \n    input A, EN;\n    \n    `ifndef SIMLIB_NOCHECKS\n    always @* begin\n        if (A !== 1'b1 && EN === 1'b1) begin\n            $display(\"Assertion %m failed!\");\n            $stop;\n        end\n    end\n    `endif\n    \nendmodule",
       "inputs": ["\\EN", "\\A"],
@@ -1649,7 +1650,7 @@
     "$assume": {
       "title": "",
       "ports": "(A, EN)",
-      "source": "simlib.v:1752",
+      "source": "simlib.v:1754",
       "desc": "",
       "code": "module \\$assume (A, EN);\n    \n    input A, EN;\n    \n    `ifndef SIMLIB_NOCHECKS\n    always @* begin\n        if (A !== 1'b1 && EN === 1'b1) begin\n            $display(\"Assumption %m failed!\");\n            $stop;\n        end\n    end\n    `endif\n    \nendmodule",
       "inputs": ["\\EN", "\\A"],
@@ -1669,7 +1670,7 @@
     "$bweqx": {
       "title": "",
       "ports": "(A, B, Y)",
-      "source": "simlib.v:1696",
+      "source": "simlib.v:1698",
       "desc": "",
       "code": "module \\$bweqx (A, B, Y);\n    \n    parameter WIDTH = 0;\n    \n    input [WIDTH-1:0] A, B;\n    output [WIDTH-1:0] Y;\n    \n    genvar i;\n    generate\n        for (i = 0; i < WIDTH; i = i + 1) begin:slices\n            assign Y[i] = A[i] === B[i];\n        end\n    endgenerate\n    \nendmodule",
       "inputs": ["\\B", "\\A"],
@@ -1679,7 +1680,7 @@
     "$bwmux": {
       "title": "",
       "ports": "(A, B, S, Y)",
-      "source": "simlib.v:1714",
+      "source": "simlib.v:1716",
       "desc": "",
       "code": "module \\$bwmux (A, B, S, Y);\n    \n    parameter WIDTH = 0;\n    \n    input [WIDTH-1:0] A, B;\n    input [WIDTH-1:0] S;\n    output [WIDTH-1:0] Y;\n    \n    genvar i;\n    generate\n        for (i = 0; i < WIDTH; i = i + 1) begin:slices\n            assign Y[i] = S[i] ? B[i] : A[i];\n        end\n    endgenerate\n    \nendmodule",
       "inputs": ["\\S", "\\B", "\\A"],
@@ -1689,7 +1690,7 @@
     "$check": {
       "title": "",
       "ports": "(A, EN, TRG, ARGS)",
-      "source": "simlib.v:1929",
+      "source": "simlib.v:1931",
       "desc": "",
       "code": "module \\$check (A, EN, TRG, ARGS);\n    \n    parameter FLAVOR = \"\";\n    parameter PRIORITY = 0;\n    \n    parameter FORMAT = \"\";\n    parameter ARGS_WIDTH = 0;\n    \n    parameter TRG_ENABLE = 1;\n    parameter TRG_WIDTH = 0;\n    parameter TRG_POLARITY = 0;\n    \n    input A;\n    input EN;\n    input [TRG_WIDTH-1:0] TRG;\n    input [ARGS_WIDTH-1:0] ARGS;\n    \nendmodule",
       "inputs": ["\\TRG", "\\ARGS", "\\EN", "\\A"],
@@ -1709,7 +1710,7 @@
     "$cover": {
       "title": "",
       "ports": "(A, EN)",
-      "source": "simlib.v:1788",
+      "source": "simlib.v:1790",
       "desc": "",
       "code": "module \\$cover (A, EN);\n    \n    input A, EN;\n    \nendmodule",
       "inputs": ["\\EN", "\\A"],
@@ -1729,7 +1730,7 @@
     "$dff": {
       "title": "",
       "ports": "(CLK, D, Q)",
-      "source": "simlib.v:2002",
+      "source": "simlib.v:2004",
       "desc": "",
       "code": "module \\$dff (CLK, D, Q);\n    \n    parameter WIDTH = 0;\n    parameter CLK_POLARITY = 1'b1;\n    \n    input CLK;\n    input [WIDTH-1:0] D;\n    output reg [WIDTH-1:0] Q;\n    wire pos_clk = CLK == CLK_POLARITY;\n    \n    always @(posedge pos_clk) begin\n        Q <= D;\n    end\n    \nendmodule",
       "inputs": ["\\D", "\\CLK"],
@@ -1739,7 +1740,7 @@
     "$dffe": {
       "title": "",
       "ports": "(CLK, EN, D, Q)",
-      "source": "simlib.v:2021",
+      "source": "simlib.v:2023",
       "desc": "",
       "code": "module \\$dffe (CLK, EN, D, Q);\n    \n    parameter WIDTH = 0;\n    parameter CLK_POLARITY = 1'b1;\n    parameter EN_POLARITY = 1'b1;\n    \n    input CLK, EN;\n    input [WIDTH-1:0] D;\n    output reg [WIDTH-1:0] Q;\n    wire pos_clk = CLK == CLK_POLARITY;\n    \n    always @(posedge pos_clk) begin\n        if (EN == EN_POLARITY) Q <= D;\n    end\n    \nendmodule",
       "inputs": ["\\D", "\\EN", "\\CLK"],
@@ -1749,7 +1750,7 @@
     "$dffsr": {
       "title": "",
       "ports": "(CLK, SET, CLR, D, Q)",
-      "source": "simlib.v:2042",
+      "source": "simlib.v:2044",
       "desc": "",
       "code": "module \\$dffsr (CLK, SET, CLR, D, Q);\n    \n    parameter WIDTH = 0;\n    parameter CLK_POLARITY = 1'b1;\n    parameter SET_POLARITY = 1'b1;\n    parameter CLR_POLARITY = 1'b1;\n    \n    input CLK;\n    input [WIDTH-1:0] SET, CLR, D;\n    output reg [WIDTH-1:0] Q;\n    \n    wire pos_clk = CLK == CLK_POLARITY;\n    wire [WIDTH-1:0] pos_set = SET_POLARITY ? SET : ~SET;\n    wire [WIDTH-1:0] pos_clr = CLR_POLARITY ? CLR : ~CLR;\n    \n    genvar i;\n    generate\n        for (i = 0; i < WIDTH; i = i+1) begin:bitslices\n            always @(posedge pos_set[i], posedge pos_clr[i], posedge pos_clk)\n                if (pos_clr[i])\n                    Q[i] <= 0;\n                else if (pos_set[i])\n                    Q[i] <= 1;\n                else\n                    Q[i] <= D[i];\n        end\n    endgenerate\n    \nendmodule",
       "inputs": ["\\D", "\\CLR", "\\SET", "\\CLK"],
@@ -1759,7 +1760,7 @@
     "$dffsre": {
       "title": "",
       "ports": "(CLK, SET, CLR, EN, D, Q)",
-      "source": "simlib.v:2075",
+      "source": "simlib.v:2077",
       "desc": "",
       "code": "module \\$dffsre (CLK, SET, CLR, EN, D, Q);\n    \n    parameter WIDTH = 0;\n    parameter CLK_POLARITY = 1'b1;\n    parameter SET_POLARITY = 1'b1;\n    parameter CLR_POLARITY = 1'b1;\n    parameter EN_POLARITY = 1'b1;\n    \n    input CLK, EN;\n    input [WIDTH-1:0] SET, CLR, D;\n    output reg [WIDTH-1:0] Q;\n    \n    wire pos_clk = CLK == CLK_POLARITY;\n    wire [WIDTH-1:0] pos_set = SET_POLARITY ? SET : ~SET;\n    wire [WIDTH-1:0] pos_clr = CLR_POLARITY ? CLR : ~CLR;\n    \n    genvar i;\n    generate\n        for (i = 0; i < WIDTH; i = i+1) begin:bitslices\n            always @(posedge pos_set[i], posedge pos_clr[i], posedge pos_clk)\n                if (pos_clr[i])\n                    Q[i] <= 0;\n                else if (pos_set[i])\n                    Q[i] <= 1;\n                else if (EN == EN_POLARITY)\n                    Q[i] <= D[i];\n        end\n    endgenerate\n    \nendmodule",
       "inputs": ["\\EN", "\\D", "\\CLR", "\\SET", "\\CLK"],
@@ -1789,7 +1790,7 @@
     "$dlatch": {
       "title": "",
       "ports": "(EN, D, Q)",
-      "source": "simlib.v:2291",
+      "source": "simlib.v:2293",
       "desc": "",
       "code": "module \\$dlatch (EN, D, Q);\n    \n    parameter WIDTH = 0;\n    parameter EN_POLARITY = 1'b1;\n    \n    input EN;\n    input [WIDTH-1:0] D;\n    output reg [WIDTH-1:0] Q;\n    \n    always @* begin\n        if (EN == EN_POLARITY)\n            Q = D;\n    end\n    \nendmodule",
       "inputs": ["\\D", "\\EN"],
@@ -1799,7 +1800,7 @@
     "$dlatchsr": {
       "title": "",
       "ports": "(EN, SET, CLR, D, Q)",
-      "source": "simlib.v:2334",
+      "source": "simlib.v:2336",
       "desc": "",
       "code": "module \\$dlatchsr (EN, SET, CLR, D, Q);\n    \n    parameter WIDTH = 0;\n    parameter EN_POLARITY = 1'b1;\n    parameter SET_POLARITY = 1'b1;\n    parameter CLR_POLARITY = 1'b1;\n    \n    input EN;\n    input [WIDTH-1:0] SET, CLR, D;\n    output reg [WIDTH-1:0] Q;\n    \n    wire pos_en = EN == EN_POLARITY;\n    wire [WIDTH-1:0] pos_set = SET_POLARITY ? SET : ~SET;\n    wire [WIDTH-1:0] pos_clr = CLR_POLARITY ? CLR : ~CLR;\n    \n    genvar i;\n    generate\n        for (i = 0; i < WIDTH; i = i+1) begin:bitslices\n            always @*\n                if (pos_clr[i])\n                    Q[i] = 0;\n                else if (pos_set[i])\n                    Q[i] = 1;\n                else if (pos_en)\n                    Q[i] = D[i];\n        end\n    endgenerate\n    \nendmodule",
       "inputs": ["\\D", "\\CLR", "\\SET", "\\EN"],
@@ -1819,7 +1820,7 @@
     "$equiv": {
       "title": "",
       "ports": "(A, B, Y)",
-      "source": "simlib.v:1888",
+      "source": "simlib.v:1890",
       "desc": "",
       "code": "module \\$equiv (A, B, Y);\n    \n    input A, B;\n    output Y;\n    \n    assign Y = (A !== 1'bx && A !== B) ? 1'bx : A;\n    \n    `ifndef SIMLIB_NOCHECKS\n    always @* begin\n        if (A !== 1'bx && A !== B) begin\n            $display(\"Equivalence failed!\");\n            $stop;\n        end\n    end\n    `endif\n    \nendmodule",
       "inputs": ["\\B", "\\A"],
@@ -1849,7 +1850,7 @@
     "$fair": {
       "title": "",
       "ports": "(A, EN)",
-      "source": "simlib.v:1779",
+      "source": "simlib.v:1781",
       "desc": "",
       "code": "module \\$fair (A, EN);\n    \n    input A, EN;\n    \nendmodule",
       "inputs": ["\\EN", "\\A"],
@@ -1859,7 +1860,7 @@
     "$ff": {
       "title": "",
       "ports": "(D, Q)",
-      "source": "simlib.v:1985",
+      "source": "simlib.v:1987",
       "desc": "",
       "code": "module \\$ff (D, Q);\n    \n    parameter WIDTH = 0;\n    \n    input [WIDTH-1:0] D;\n    output reg [WIDTH-1:0] Q;\n    \n    always @(`SIMLIB_GLOBAL_CLOCK) begin\n        Q <= D;\n    end\n    \nendmodule",
       "inputs": ["\\D"],
@@ -1869,7 +1870,7 @@
     "$fsm": {
       "title": "",
       "ports": "(CLK, ARST, CTRL_IN, CTRL_OUT)",
-      "source": "simlib.v:2368",
+      "source": "simlib.v:2370",
       "desc": "",
       "code": "module \\$fsm (CLK, ARST, CTRL_IN, CTRL_OUT);\n    \n    parameter NAME = \"\";\n    \n    parameter CLK_POLARITY = 1'b1;\n    parameter ARST_POLARITY = 1'b1;\n    \n    parameter CTRL_IN_WIDTH = 1;\n    parameter CTRL_OUT_WIDTH = 1;\n    \n    parameter STATE_BITS = 1;\n    parameter STATE_NUM = 1;\n    parameter STATE_NUM_LOG2 = 1;\n    parameter STATE_RST = 0;\n    parameter STATE_TABLE = 1'b0;\n    \n    parameter TRANS_NUM = 1;\n    parameter TRANS_TABLE = 4'b0x0x;\n    \n    input CLK, ARST;\n    input [CTRL_IN_WIDTH-1:0] CTRL_IN;\n    output reg [CTRL_OUT_WIDTH-1:0] CTRL_OUT;\n    \n    wire pos_clk = CLK == CLK_POLARITY;\n    wire pos_arst = ARST == ARST_POLARITY;\n    \n    reg [STATE_BITS-1:0] state;\n    reg [STATE_BITS-1:0] state_tmp;\n    reg [STATE_BITS-1:0] next_state;\n    \n    reg [STATE_BITS-1:0] tr_state_in;\n    reg [STATE_BITS-1:0] tr_state_out;\n    reg [CTRL_IN_WIDTH-1:0] tr_ctrl_in;\n    reg [CTRL_OUT_WIDTH-1:0] tr_ctrl_out;\n    \n    integer i;\n    \n    task tr_fetch;\n        input [31:0] tr_num;\n        reg [31:0] tr_pos;\n        reg [STATE_NUM_LOG2-1:0] state_num;\n        begin\n            tr_pos = (2*STATE_NUM_LOG2+CTRL_IN_WIDTH+CTRL_OUT_WIDTH)*tr_num;\n            tr_ctrl_out = TRANS_TABLE >> tr_pos;\n            tr_pos = tr_pos + CTRL_OUT_WIDTH;\n            state_num = TRANS_TABLE >> tr_pos;\n            tr_state_out = STATE_TABLE >> (STATE_BITS*state_num);\n            tr_pos = tr_pos + STATE_NUM_LOG2;\n            tr_ctrl_in = TRANS_TABLE >> tr_pos;\n            tr_pos = tr_pos + CTRL_IN_WIDTH;\n            state_num = TRANS_TABLE >> tr_pos;\n            tr_state_in = STATE_TABLE >> (STATE_BITS*state_num);\n            tr_pos = tr_pos + STATE_NUM_LOG2;\n        end\n    endtask\n    \n    always @(posedge pos_clk, posedge pos_arst) begin\n        if (pos_arst) begin\n            state_tmp = STATE_TABLE[STATE_BITS*(STATE_RST+1)-1:STATE_BITS*STATE_RST];\n            for (i = 0; i < STATE_BITS; i = i+1)\n                if (state_tmp[i] === 1'bz)\n                    state_tmp[i] = 0;\n            state <= state_tmp;\n        end else begin\n            state_tmp = next_state;\n            for (i = 0; i < STATE_BITS; i = i+1)\n                if (state_tmp[i] === 1'bz)\n                    state_tmp[i] = 0;\n            state <= state_tmp;\n        end\n    end\n    \n    always @(state, CTRL_IN) begin\n        next_state <= STATE_TABLE[STATE_BITS*(STATE_RST+1)-1:STATE_BITS*STATE_RST];\n        CTRL_OUT <= 'bx;\n        // $display(\"---\");\n        // $display(\"Q: %b %b\", state, CTRL_IN);\n        for (i = 0; i < TRANS_NUM; i = i+1) begin\n            tr_fetch(i);\n            // $display(\"T: %b %b -> %b %b [%d]\", tr_state_in, tr_ctrl_in, tr_state_out, tr_ctrl_out, i);\n            casez ({state, CTRL_IN})\n                {tr_state_in, tr_ctrl_in}: begin\n                    // $display(\"-> %b %b <-   MATCH\", state, CTRL_IN);\n                    {next_state, CTRL_OUT} <= {tr_state_out, tr_ctrl_out};\n                end\n            endcase\n        end\n    end\n    \nendmodule",
       "inputs": ["\\CTRL_IN", "\\ARST", "\\CLK"],
@@ -1879,7 +1880,7 @@
     "$future_ff": {
       "title": "",
       "ports": "(A, Y)",
-      "source": "simlib.v:2887",
+      "source": "simlib.v:2889",
       "desc": "",
       "code": "module \\$future_ff (A, Y);\n    \n    parameter WIDTH = 0;\n    \n    input [WIDTH-1:0] A;\n    output [WIDTH-1:0] Y;\n    \n    assign Y = A;\n    \nendmodule",
       "inputs": ["\\A"],
@@ -1899,7 +1900,7 @@
     "$get_tag": {
       "title": "",
       "ports": "(A, Y)",
-      "source": "simlib.v:2846",
+      "source": "simlib.v:2848",
       "desc": "",
       "code": "module \\$get_tag (A, Y);\n    \n    parameter TAG = \"\";\n    parameter WIDTH = 0;\n    \n    input [WIDTH-1:0] A;\n    output [WIDTH-1:0] Y;\n    \n    assign Y = A;\n    \nendmodule",
       "inputs": ["\\A"],
@@ -1919,7 +1920,7 @@
     "$initstate": {
       "title": "",
       "ports": "(Y)",
-      "source": "simlib.v:1797",
+      "source": "simlib.v:1799",
       "desc": "",
       "code": "module \\$initstate (Y);\n    \n    output reg Y = 1;\n    reg [3:0] cnt = 1;\n    reg trig = 0;\n    \n    initial trig <= 1;\n    \n    always @(cnt, trig) begin\n        Y <= |cnt;\n        cnt <= cnt + |cnt;\n    end\n    \nendmodule",
       "inputs": [],
@@ -1949,7 +1950,7 @@
     "$live": {
       "title": "",
       "ports": "(A, EN)",
-      "source": "simlib.v:1770",
+      "source": "simlib.v:1772",
       "desc": "",
       "code": "module \\$live (A, EN);\n    \n    input A, EN;\n    \nendmodule",
       "inputs": ["\\EN", "\\A"],
@@ -1999,7 +2000,7 @@
     "$lut": {
       "title": "",
       "ports": "(A, Y)",
-      "source": "simlib.v:1460",
+      "source": "simlib.v:1461",
       "desc": "",
       "code": "module \\$lut (A, Y);\n    \n    parameter WIDTH = 0;\n    parameter LUT = 0;\n    \n    input [WIDTH-1:0] A;\n    output Y;\n    \n    \\$bmux #(.WIDTH(1), .S_WIDTH(WIDTH)) mux(.A(LUT[(1<<WIDTH)-1:0]), .S(A), .Y(Y));\n    \nendmodule",
       "inputs": ["\\A"],
@@ -2019,7 +2020,7 @@
     "$mem": {
       "title": "",
       "ports": "(RD_CLK, RD_EN, RD_ADDR, RD_DATA, WR_CLK, WR_EN, WR_ADDR, WR_DATA)",
-      "source": "simlib.v:2621",
+      "source": "simlib.v:2623",
       "desc": "",
       "code": "module \\$mem (RD_CLK, RD_EN, RD_ADDR, RD_DATA, WR_CLK, WR_EN, WR_ADDR, WR_DATA);\n    \n    parameter MEMID = \"\";\n    parameter signed SIZE = 4;\n    parameter signed OFFSET = 0;\n    parameter signed ABITS = 2;\n    parameter signed WIDTH = 8;\n    parameter signed INIT = 1'bx;\n    \n    parameter signed RD_PORTS = 1;\n    parameter RD_CLK_ENABLE = 1'b1;\n    parameter RD_CLK_POLARITY = 1'b1;\n    parameter RD_TRANSPARENT = 1'b1;\n    \n    parameter signed WR_PORTS = 1;\n    parameter WR_CLK_ENABLE = 1'b1;\n    parameter WR_CLK_POLARITY = 1'b1;\n    \n    input [RD_PORTS-1:0] RD_CLK;\n    input [RD_PORTS-1:0] RD_EN;\n    input [RD_PORTS*ABITS-1:0] RD_ADDR;\n    output reg [RD_PORTS*WIDTH-1:0] RD_DATA;\n    \n    input [WR_PORTS-1:0] WR_CLK;\n    input [WR_PORTS*WIDTH-1:0] WR_EN;\n    input [WR_PORTS*ABITS-1:0] WR_ADDR;\n    input [WR_PORTS*WIDTH-1:0] WR_DATA;\n    \n    reg [WIDTH-1:0] memory [SIZE-1:0];\n    \n    integer i, j;\n    reg [WR_PORTS-1:0] LAST_WR_CLK;\n    reg [RD_PORTS-1:0] LAST_RD_CLK;\n    \n    function port_active;\n        input clk_enable;\n        input clk_polarity;\n        input last_clk;\n        input this_clk;\n        begin\n            casez ({clk_enable, clk_polarity, last_clk, this_clk})\n                4'b0???: port_active = 1;\n                4'b1101: port_active = 1;\n                4'b1010: port_active = 1;\n                default: port_active = 0;\n            endcase\n        end\n    endfunction\n    \n    initial begin\n        for (i = 0; i < SIZE; i = i+1)\n            memory[i] = INIT >>> (i*WIDTH);\n    end\n    \n    always @(RD_CLK, RD_ADDR, RD_DATA, WR_CLK, WR_EN, WR_ADDR, WR_DATA) begin\n    `ifdef SIMLIB_MEMDELAY\n        #`SIMLIB_MEMDELAY;\n    `endif\n        for (i = 0; i < RD_PORTS; i = i+1) begin\n            if (!RD_TRANSPARENT[i] && RD_CLK_ENABLE[i] && RD_EN[i] && port_active(RD_CLK_ENABLE[i], RD_CLK_POLARITY[i], LAST_RD_CLK[i], RD_CLK[i])) begin\n                // $display(\"Read from %s: addr=%b data=%b\", MEMID, RD_ADDR[i*ABITS +: ABITS],  memory[RD_ADDR[i*ABITS +: ABITS] - OFFSET]);\n                RD_DATA[i*WIDTH +: WIDTH] <= memory[RD_ADDR[i*ABITS +: ABITS] - OFFSET];\n            end\n        end\n    \n        for (i = 0; i < WR_PORTS; i = i+1) begin\n            if (port_active(WR_CLK_ENABLE[i], WR_CLK_POLARITY[i], LAST_WR_CLK[i], WR_CLK[i]))\n                for (j = 0; j < WIDTH; j = j+1)\n                    if (WR_EN[i*WIDTH+j]) begin\n                        // $display(\"Write to %s: addr=%b data=%b\", MEMID, WR_ADDR[i*ABITS +: ABITS], WR_DATA[i*WIDTH+j]);\n                        memory[WR_ADDR[i*ABITS +: ABITS] - OFFSET][j] = WR_DATA[i*WIDTH+j];\n                    end\n        end\n    \n        for (i = 0; i < RD_PORTS; i = i+1) begin\n            if ((RD_TRANSPARENT[i] || !RD_CLK_ENABLE[i]) && port_active(RD_CLK_ENABLE[i], RD_CLK_POLARITY[i], LAST_RD_CLK[i], RD_CLK[i])) begin\n                // $display(\"Transparent read from %s: addr=%b data=%b\", MEMID, RD_ADDR[i*ABITS +: ABITS],  memory[RD_ADDR[i*ABITS +: ABITS] - OFFSET]);\n                RD_DATA[i*WIDTH +: WIDTH] <= memory[RD_ADDR[i*ABITS +: ABITS] - OFFSET];\n            end\n        end\n    \n        LAST_RD_CLK <= RD_CLK;\n        LAST_WR_CLK <= WR_CLK;\n    end\n    \nendmodule",
       "inputs": ["\\WR_DATA", "\\WR_ADDR", "\\WR_EN", "\\WR_CLK", "\\RD_ADDR", "\\RD_EN", "\\RD_CLK"],
@@ -2029,7 +2030,7 @@
     "$mem_v2": {
       "title": "",
       "ports": "(RD_CLK, RD_EN, RD_ARST, RD_SRST, RD_ADDR, RD_DATA, WR_CLK, WR_EN, WR_ADDR, WR_DATA)",
-      "source": "simlib.v:2710",
+      "source": "simlib.v:2712",
       "desc": "",
       "code": "module \\$mem_v2 (RD_CLK, RD_EN, RD_ARST, RD_SRST, RD_ADDR, RD_DATA, WR_CLK, WR_EN, WR_ADDR, WR_DATA);\n    \n    parameter MEMID = \"\";\n    parameter signed SIZE = 4;\n    parameter signed OFFSET = 0;\n    parameter signed ABITS = 2;\n    parameter signed WIDTH = 8;\n    parameter signed INIT = 1'bx;\n    \n    parameter signed RD_PORTS = 1;\n    parameter RD_CLK_ENABLE = 1'b1;\n    parameter RD_CLK_POLARITY = 1'b1;\n    parameter RD_TRANSPARENCY_MASK = 1'b0;\n    parameter RD_COLLISION_X_MASK = 1'b0;\n    parameter RD_WIDE_CONTINUATION = 1'b0;\n    parameter RD_CE_OVER_SRST = 1'b0;\n    parameter RD_ARST_VALUE = 1'b0;\n    parameter RD_SRST_VALUE = 1'b0;\n    parameter RD_INIT_VALUE = 1'b0;\n    \n    parameter signed WR_PORTS = 1;\n    parameter WR_CLK_ENABLE = 1'b1;\n    parameter WR_CLK_POLARITY = 1'b1;\n    parameter WR_PRIORITY_MASK = 1'b0;\n    parameter WR_WIDE_CONTINUATION = 1'b0;\n    \n    input [RD_PORTS-1:0] RD_CLK;\n    input [RD_PORTS-1:0] RD_EN;\n    input [RD_PORTS-1:0] RD_ARST;\n    input [RD_PORTS-1:0] RD_SRST;\n    input [RD_PORTS*ABITS-1:0] RD_ADDR;\n    output reg [RD_PORTS*WIDTH-1:0] RD_DATA;\n    \n    input [WR_PORTS-1:0] WR_CLK;\n    input [WR_PORTS*WIDTH-1:0] WR_EN;\n    input [WR_PORTS*ABITS-1:0] WR_ADDR;\n    input [WR_PORTS*WIDTH-1:0] WR_DATA;\n    \n    reg [WIDTH-1:0] memory [SIZE-1:0];\n    \n    integer i, j, k;\n    reg [WR_PORTS-1:0] LAST_WR_CLK;\n    reg [RD_PORTS-1:0] LAST_RD_CLK;\n    \n    function port_active;\n        input clk_enable;\n        input clk_polarity;\n        input last_clk;\n        input this_clk;\n        begin\n            casez ({clk_enable, clk_polarity, last_clk, this_clk})\n                4'b0???: port_active = 1;\n                4'b1101: port_active = 1;\n                4'b1010: port_active = 1;\n                default: port_active = 0;\n            endcase\n        end\n    endfunction\n    \n    initial begin\n        for (i = 0; i < SIZE; i = i+1)\n            memory[i] = INIT >>> (i*WIDTH);\n        RD_DATA = RD_INIT_VALUE;\n    end\n    \n    always @(RD_CLK, RD_ARST, RD_ADDR, RD_DATA, WR_CLK, WR_EN, WR_ADDR, WR_DATA) begin\n    `ifdef SIMLIB_MEMDELAY\n        #`SIMLIB_MEMDELAY;\n    `endif\n        for (i = 0; i < RD_PORTS; i = i+1) begin\n            if (RD_CLK_ENABLE[i] && RD_EN[i] && port_active(RD_CLK_ENABLE[i], RD_CLK_POLARITY[i], LAST_RD_CLK[i], RD_CLK[i])) begin\n                // $display(\"Read from %s: addr=%b data=%b\", MEMID, RD_ADDR[i*ABITS +: ABITS],  memory[RD_ADDR[i*ABITS +: ABITS] - OFFSET]);\n                RD_DATA[i*WIDTH +: WIDTH] <= memory[RD_ADDR[i*ABITS +: ABITS] - OFFSET];\n    \n                for (j = 0; j < WR_PORTS; j = j+1) begin\n                    if (RD_TRANSPARENCY_MASK[i*WR_PORTS + j] && port_active(WR_CLK_ENABLE[j], WR_CLK_POLARITY[j], LAST_WR_CLK[j], WR_CLK[j]) && RD_ADDR[i*ABITS +: ABITS] == WR_ADDR[j*ABITS +: ABITS])\n                        for (k = 0; k < WIDTH; k = k+1)\n                            if (WR_EN[j*WIDTH+k])\n                                RD_DATA[i*WIDTH+k] <= WR_DATA[j*WIDTH+k];\n                    if (RD_COLLISION_X_MASK[i*WR_PORTS + j] && port_active(WR_CLK_ENABLE[j], WR_CLK_POLARITY[j], LAST_WR_CLK[j], WR_CLK[j]) && RD_ADDR[i*ABITS +: ABITS] == WR_ADDR[j*ABITS +: ABITS])\n                        for (k = 0; k < WIDTH; k = k+1)\n                            if (WR_EN[j*WIDTH+k])\n                                RD_DATA[i*WIDTH+k] <= 1'bx;\n                end\n            end\n        end\n    \n        for (i = 0; i < WR_PORTS; i = i+1) begin\n            if (port_active(WR_CLK_ENABLE[i], WR_CLK_POLARITY[i], LAST_WR_CLK[i], WR_CLK[i]))\n                for (j = 0; j < WIDTH; j = j+1)\n                    if (WR_EN[i*WIDTH+j]) begin\n                        // $display(\"Write to %s: addr=%b data=%b\", MEMID, WR_ADDR[i*ABITS +: ABITS], WR_DATA[i*WIDTH+j]);\n                        memory[WR_ADDR[i*ABITS +: ABITS] - OFFSET][j] = WR_DATA[i*WIDTH+j];\n                    end\n        end\n    \n        for (i = 0; i < RD_PORTS; i = i+1) begin\n            if (!RD_CLK_ENABLE[i]) begin\n                // $display(\"Combinatorial read from %s: addr=%b data=%b\", MEMID, RD_ADDR[i*ABITS +: ABITS],  memory[RD_ADDR[i*ABITS +: ABITS] - OFFSET]);\n                RD_DATA[i*WIDTH +: WIDTH] <= memory[RD_ADDR[i*ABITS +: ABITS] - OFFSET];\n            end\n        end\n    \n        for (i = 0; i < RD_PORTS; i = i+1) begin\n            if (RD_SRST[i] && port_active(RD_CLK_ENABLE[i], RD_CLK_POLARITY[i], LAST_RD_CLK[i], RD_CLK[i]) && (RD_EN[i] || !RD_CE_OVER_SRST[i]))\n                RD_DATA[i*WIDTH +: WIDTH] <= RD_SRST_VALUE[i*WIDTH +: WIDTH];\n            if (RD_ARST[i])\n                RD_DATA[i*WIDTH +: WIDTH] <= RD_ARST_VALUE[i*WIDTH +: WIDTH];\n        end\n    \n        LAST_RD_CLK <= RD_CLK;\n        LAST_WR_CLK <= WR_CLK;\n    end\n    \nendmodule",
       "inputs": ["\\WR_DATA", "\\WR_ADDR", "\\WR_EN", "\\WR_CLK", "\\RD_ADDR", "\\RD_SRST", "\\RD_ARST", "\\RD_EN", "\\RD_CLK"],
@@ -2039,7 +2040,7 @@
     "$meminit": {
       "title": "",
       "ports": "(ADDR, DATA)",
-      "source": "simlib.v:2572",
+      "source": "simlib.v:2574",
       "desc": "",
       "code": "module \\$meminit (ADDR, DATA);\n    \n    parameter MEMID = \"\";\n    parameter ABITS = 8;\n    parameter WIDTH = 8;\n    parameter WORDS = 1;\n    \n    parameter PRIORITY = 0;\n    \n    input [ABITS-1:0] ADDR;\n    input [WORDS*WIDTH-1:0] DATA;\n    \n    initial begin\n        if (MEMID != \"\") begin\n            $display(\"ERROR: Found non-simulatable instance of $meminit!\");\n            $finish;\n        end\n    end\n    \nendmodule",
       "inputs": ["\\DATA", "\\ADDR"],
@@ -2049,7 +2050,7 @@
     "$meminit_v2": {
       "title": "",
       "ports": "(ADDR, DATA, EN)",
-      "source": "simlib.v:2596",
+      "source": "simlib.v:2598",
       "desc": "",
       "code": "module \\$meminit_v2 (ADDR, DATA, EN);\n    \n    parameter MEMID = \"\";\n    parameter ABITS = 8;\n    parameter WIDTH = 8;\n    parameter WORDS = 1;\n    \n    parameter PRIORITY = 0;\n    \n    input [ABITS-1:0] ADDR;\n    input [WORDS*WIDTH-1:0] DATA;\n    input [WIDTH-1:0] EN;\n    \n    initial begin\n        if (MEMID != \"\") begin\n            $display(\"ERROR: Found non-simulatable instance of $meminit_v2!\");\n            $finish;\n        end\n    end\n    \nendmodule",
       "inputs": ["\\EN", "\\DATA", "\\ADDR"],
@@ -2059,7 +2060,7 @@
     "$memrd": {
       "title": "",
       "ports": "(CLK, EN, ADDR, DATA)",
-      "source": "simlib.v:2463",
+      "source": "simlib.v:2465",
       "desc": "",
       "code": "module \\$memrd (CLK, EN, ADDR, DATA);\n    \n    parameter MEMID = \"\";\n    parameter ABITS = 8;\n    parameter WIDTH = 8;\n    \n    parameter CLK_ENABLE = 0;\n    parameter CLK_POLARITY = 0;\n    parameter TRANSPARENT = 0;\n    \n    input CLK, EN;\n    input [ABITS-1:0] ADDR;\n    output [WIDTH-1:0] DATA;\n    \n    initial begin\n        if (MEMID != \"\") begin\n            $display(\"ERROR: Found non-simulatable instance of $memrd!\");\n            $finish;\n        end\n    end\n    \nendmodule",
       "inputs": ["\\ADDR", "\\EN", "\\CLK"],
@@ -2069,7 +2070,7 @@
     "$memrd_v2": {
       "title": "",
       "ports": "(CLK, EN, ARST, SRST, ADDR, DATA)",
-      "source": "simlib.v:2488",
+      "source": "simlib.v:2490",
       "desc": "",
       "code": "module \\$memrd_v2 (CLK, EN, ARST, SRST, ADDR, DATA);\n    \n    parameter MEMID = \"\";\n    parameter ABITS = 8;\n    parameter WIDTH = 8;\n    \n    parameter CLK_ENABLE = 0;\n    parameter CLK_POLARITY = 0;\n    parameter TRANSPARENCY_MASK = 0;\n    parameter COLLISION_X_MASK = 0;\n    parameter ARST_VALUE = 0;\n    parameter SRST_VALUE = 0;\n    parameter INIT_VALUE = 0;\n    parameter CE_OVER_SRST = 0;\n    \n    input CLK, EN, ARST, SRST;\n    input [ABITS-1:0] ADDR;\n    output [WIDTH-1:0] DATA;\n    \n    initial begin\n        if (MEMID != \"\") begin\n            $display(\"ERROR: Found non-simulatable instance of $memrd_v2!\");\n            $finish;\n        end\n    end\n    \nendmodule",
       "inputs": ["\\ADDR", "\\SRST", "\\ARST", "\\EN", "\\CLK"],
@@ -2079,7 +2080,7 @@
     "$memwr": {
       "title": "",
       "ports": "(CLK, EN, ADDR, DATA)",
-      "source": "simlib.v:2519",
+      "source": "simlib.v:2521",
       "desc": "",
       "code": "module \\$memwr (CLK, EN, ADDR, DATA);\n    \n    parameter MEMID = \"\";\n    parameter ABITS = 8;\n    parameter WIDTH = 8;\n    \n    parameter CLK_ENABLE = 0;\n    parameter CLK_POLARITY = 0;\n    parameter PRIORITY = 0;\n    \n    input CLK;\n    input [WIDTH-1:0] EN;\n    input [ABITS-1:0] ADDR;\n    input [WIDTH-1:0] DATA;\n    \n    initial begin\n        if (MEMID != \"\") begin\n            $display(\"ERROR: Found non-simulatable instance of $memwr!\");\n            $finish;\n        end\n    end\n    \nendmodule",
       "inputs": ["\\DATA", "\\ADDR", "\\EN", "\\CLK"],
@@ -2089,7 +2090,7 @@
     "$memwr_v2": {
       "title": "",
       "ports": "(CLK, EN, ADDR, DATA)",
-      "source": "simlib.v:2544",
+      "source": "simlib.v:2546",
       "desc": "",
       "code": "module \\$memwr_v2 (CLK, EN, ADDR, DATA);\n    \n    parameter MEMID = \"\";\n    parameter ABITS = 8;\n    parameter WIDTH = 8;\n    \n    parameter CLK_ENABLE = 0;\n    parameter CLK_POLARITY = 0;\n    parameter PORTID = 0;\n    parameter PRIORITY_MASK = 0;\n    \n    input CLK;\n    input [WIDTH-1:0] EN;\n    input [ABITS-1:0] ADDR;\n    input [WIDTH-1:0] DATA;\n    \n    initial begin\n        if (MEMID != \"\") begin\n            $display(\"ERROR: Found non-simulatable instance of $memwr_v2!\");\n            $finish;\n        end\n    end\n    \nendmodule",
       "inputs": ["\\DATA", "\\ADDR", "\\EN", "\\CLK"],
@@ -2189,7 +2190,7 @@
     "$original_tag": {
       "title": "",
       "ports": "(A, Y)",
-      "source": "simlib.v:2873",
+      "source": "simlib.v:2875",
       "desc": "",
       "code": "module \\$original_tag (A, Y);\n    \n    parameter TAG = \"\";\n    parameter WIDTH = 0;\n    \n    input [WIDTH-1:0] A;\n    output [WIDTH-1:0] Y;\n    \n    assign Y = A;\n    \nendmodule",
       "inputs": ["\\A"],
@@ -2199,7 +2200,7 @@
     "$overwrite_tag": {
       "title": "",
       "ports": "(A, SET, CLR)",
-      "source": "simlib.v:2860",
+      "source": "simlib.v:2862",
       "desc": "",
       "code": "module \\$overwrite_tag (A, SET, CLR);\n    \n    parameter TAG = \"\";\n    parameter WIDTH = 0;\n    \n    input [WIDTH-1:0] A;\n    input [WIDTH-1:0] SET;\n    input [WIDTH-1:0] CLR;\n    \nendmodule",
       "inputs": ["\\CLR", "\\SET", "\\A"],
@@ -2239,7 +2240,7 @@
     "$print": {
       "title": "",
       "ports": "(EN, TRG, ARGS)",
-      "source": "simlib.v:1909",
+      "source": "simlib.v:1911",
       "desc": "",
       "code": "module \\$print (EN, TRG, ARGS);\n    \n    parameter PRIORITY = 0;\n    \n    parameter FORMAT = \"\";\n    parameter ARGS_WIDTH = 0;\n    \n    parameter TRG_ENABLE = 1;\n    parameter TRG_WIDTH = 0;\n    parameter TRG_POLARITY = 0;\n    \n    input EN;\n    input [TRG_WIDTH-1:0] TRG;\n    input [ARGS_WIDTH-1:0] ARGS;\n    \nendmodule",
       "inputs": ["\\TRG", "\\ARGS", "\\EN"],
@@ -2299,7 +2300,7 @@
     "$scopeinfo": {
       "title": "",
       "ports": "()",
-      "source": "simlib.v:2901",
+      "source": "simlib.v:2903",
       "desc": "",
       "code": "module \\$scopeinfo ();\n    \n    parameter TYPE = \"\";\n    \nendmodule",
       "inputs": [],
@@ -2309,7 +2310,7 @@
     "$sdff": {
       "title": "",
       "ports": "(CLK, SRST, D, Q)",
-      "source": "simlib.v:2160",
+      "source": "simlib.v:2162",
       "desc": "",
       "code": "module \\$sdff (CLK, SRST, D, Q);\n    \n    parameter WIDTH = 0;\n    parameter CLK_POLARITY = 1'b1;\n    parameter SRST_POLARITY = 1'b1;\n    parameter SRST_VALUE = 0;\n    \n    input CLK, SRST;\n    input [WIDTH-1:0] D;\n    output reg [WIDTH-1:0] Q;\n    wire pos_clk = CLK == CLK_POLARITY;\n    wire pos_srst = SRST == SRST_POLARITY;\n    \n    always @(posedge pos_clk) begin\n        if (pos_srst)\n            Q <= SRST_VALUE;\n        else\n            Q <= D;\n    end\n    \nendmodule",
       "inputs": ["\\D", "\\SRST", "\\CLK"],
@@ -2319,7 +2320,7 @@
     "$sdffce": {
       "title": "",
       "ports": "(CLK, SRST, EN, D, Q)",
-      "source": "simlib.v:2263",
+      "source": "simlib.v:2265",
       "desc": "",
       "code": "module \\$sdffce (CLK, SRST, EN, D, Q);\n    \n    parameter WIDTH = 0;\n    parameter CLK_POLARITY = 1'b1;\n    parameter EN_POLARITY = 1'b1;\n    parameter SRST_POLARITY = 1'b1;\n    parameter SRST_VALUE = 0;\n    \n    input CLK, SRST, EN;\n    input [WIDTH-1:0] D;\n    output reg [WIDTH-1:0] Q;\n    wire pos_clk = CLK == CLK_POLARITY;\n    wire pos_srst = SRST == SRST_POLARITY;\n    \n    always @(posedge pos_clk) begin\n        if (EN == EN_POLARITY) begin\n            if (pos_srst)\n                Q <= SRST_VALUE;\n            else\n                Q <= D;\n        end\n    end\n    \nendmodule",
       "inputs": ["\\EN", "\\D", "\\SRST", "\\CLK"],
@@ -2329,7 +2330,7 @@
     "$sdffe": {
       "title": "",
       "ports": "(CLK, SRST, EN, D, Q)",
-      "source": "simlib.v:2237",
+      "source": "simlib.v:2239",
       "desc": "",
       "code": "module \\$sdffe (CLK, SRST, EN, D, Q);\n    \n    parameter WIDTH = 0;\n    parameter CLK_POLARITY = 1'b1;\n    parameter EN_POLARITY = 1'b1;\n    parameter SRST_POLARITY = 1'b1;\n    parameter SRST_VALUE = 0;\n    \n    input CLK, SRST, EN;\n    input [WIDTH-1:0] D;\n    output reg [WIDTH-1:0] Q;\n    wire pos_clk = CLK == CLK_POLARITY;\n    wire pos_srst = SRST == SRST_POLARITY;\n    \n    always @(posedge pos_clk) begin\n        if (pos_srst)\n            Q <= SRST_VALUE;\n        else if (EN == EN_POLARITY)\n            Q <= D;\n    end\n    \nendmodule",
       "inputs": ["\\EN", "\\D", "\\SRST", "\\CLK"],
@@ -2339,7 +2340,7 @@
     "$set_tag": {
       "title": "",
       "ports": "(A, SET, CLR, Y)",
-      "source": "simlib.v:2830",
+      "source": "simlib.v:2832",
       "desc": "",
       "code": "module \\$set_tag (A, SET, CLR, Y);\n    \n    parameter TAG = \"\";\n    parameter WIDTH = 0;\n    \n    input [WIDTH-1:0] A;\n    input [WIDTH-1:0] SET;\n    input [WIDTH-1:0] CLR;\n    output [WIDTH-1:0] Y;\n    \n    assign Y = A;\n    \nendmodule",
       "inputs": ["\\CLR", "\\SET", "\\A"],
@@ -2399,7 +2400,7 @@
     "$sop": {
       "title": "",
       "ports": "(A, Y)",
-      "source": "simlib.v:1475",
+      "source": "simlib.v:1477",
       "desc": "",
       "code": "module \\$sop (A, Y);\n    \n    parameter WIDTH = 0;\n    parameter DEPTH = 0;\n    parameter TABLE = 0;\n    \n    input [WIDTH-1:0] A;\n    output reg Y;\n    \n    integer i, j;\n    reg match;\n    \n    always @* begin\n        Y = 0;\n        for (i = 0; i < DEPTH; i=i+1) begin\n            match = 1;\n            for (j = 0; j < WIDTH; j=j+1) begin\n                if (TABLE[2*WIDTH*i + 2*j + 0] && A[j]) match = 0;\n                if (TABLE[2*WIDTH*i + 2*j + 1] && !A[j]) match = 0;\n            end\n            if (match) Y = 1;\n        end\n    end\n    \nendmodule",
       "inputs": ["\\A"],
@@ -2409,7 +2410,7 @@
     "$specify2": {
       "title": "",
       "ports": "(EN, SRC, DST)",
-      "source": "simlib.v:1519",
+      "source": "simlib.v:1521",
       "desc": "",
       "code": "module \\$specify2 (EN, SRC, DST);\n    \n    parameter FULL = 0;\n    parameter SRC_WIDTH = 1;\n    parameter DST_WIDTH = 1;\n    \n    parameter SRC_DST_PEN = 0;\n    parameter SRC_DST_POL = 0;\n    \n    parameter T_RISE_MIN = 0;\n    parameter T_RISE_TYP = 0;\n    parameter T_RISE_MAX = 0;\n    \n    parameter T_FALL_MIN = 0;\n    parameter T_FALL_TYP = 0;\n    parameter T_FALL_MAX = 0;\n    \n    input EN;\n    input [SRC_WIDTH-1:0] SRC;\n    input [DST_WIDTH-1:0] DST;\n    \n    localparam SD = SRC_DST_PEN ? (SRC_DST_POL ? 1 : 2) : 0;\n    \n    `ifdef SIMLIB_SPECIFY\n    specify\n        if (EN && SD==0 && !FULL) (SRC  => DST) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && SD==0 &&  FULL) (SRC  *> DST) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && SD==1 && !FULL) (SRC +=> DST) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && SD==1 &&  FULL) (SRC +*> DST) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && SD==2 && !FULL) (SRC -=> DST) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && SD==2 &&  FULL) (SRC -*> DST) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n    endspecify\n    `endif\n    \nendmodule",
       "inputs": ["\\DST", "\\SRC", "\\EN"],
@@ -2419,7 +2420,7 @@
     "$specify3": {
       "title": "",
       "ports": "(EN, SRC, DST, DAT)",
-      "source": "simlib.v:1558",
+      "source": "simlib.v:1560",
       "desc": "",
       "code": "module \\$specify3 (EN, SRC, DST, DAT);\n    \n    parameter FULL = 0;\n    parameter SRC_WIDTH = 1;\n    parameter DST_WIDTH = 1;\n    \n    parameter EDGE_EN = 0;\n    parameter EDGE_POL = 0;\n    \n    parameter SRC_DST_PEN = 0;\n    parameter SRC_DST_POL = 0;\n    \n    parameter DAT_DST_PEN = 0;\n    parameter DAT_DST_POL = 0;\n    \n    parameter T_RISE_MIN = 0;\n    parameter T_RISE_TYP = 0;\n    parameter T_RISE_MAX = 0;\n    \n    parameter T_FALL_MIN = 0;\n    parameter T_FALL_TYP = 0;\n    parameter T_FALL_MAX = 0;\n    \n    input EN;\n    input [SRC_WIDTH-1:0] SRC;\n    input [DST_WIDTH-1:0] DST, DAT;\n    \n    localparam ED = EDGE_EN     ? (EDGE_POL    ? 1 : 2) : 0;\n    localparam SD = SRC_DST_PEN ? (SRC_DST_POL ? 1 : 2) : 0;\n    localparam DD = DAT_DST_PEN ? (DAT_DST_POL ? 1 : 2) : 0;\n    \n    `ifdef SIMLIB_SPECIFY\n    specify\n        // DD=0\n    \n        if (EN && DD==0 && SD==0 && ED==0 && !FULL) (        SRC  => (DST  : DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==0 && SD==0 && ED==0 &&  FULL) (        SRC  *> (DST  : DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==0 && SD==0 && ED==1 && !FULL) (posedge SRC  => (DST  : DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==0 && SD==0 && ED==1 &&  FULL) (posedge SRC  *> (DST  : DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==0 && SD==0 && ED==2 && !FULL) (negedge SRC  => (DST  : DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==0 && SD==0 && ED==2 &&  FULL) (negedge SRC  *> (DST  : DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n    \n        if (EN && DD==0 && SD==1 && ED==0 && !FULL) (        SRC +=> (DST  : DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==0 && SD==1 && ED==0 &&  FULL) (        SRC +*> (DST  : DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==0 && SD==1 && ED==1 && !FULL) (posedge SRC +=> (DST  : DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==0 && SD==1 && ED==1 &&  FULL) (posedge SRC +*> (DST  : DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==0 && SD==1 && ED==2 && !FULL) (negedge SRC +=> (DST  : DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==0 && SD==1 && ED==2 &&  FULL) (negedge SRC +*> (DST  : DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n    \n        if (EN && DD==0 && SD==2 && ED==0 && !FULL) (        SRC -=> (DST  : DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==0 && SD==2 && ED==0 &&  FULL) (        SRC -*> (DST  : DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==0 && SD==2 && ED==1 && !FULL) (posedge SRC -=> (DST  : DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==0 && SD==2 && ED==1 &&  FULL) (posedge SRC -*> (DST  : DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==0 && SD==2 && ED==2 && !FULL) (negedge SRC -=> (DST  : DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==0 && SD==2 && ED==2 &&  FULL) (negedge SRC -*> (DST  : DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n    \n        // DD=1\n    \n        if (EN && DD==1 && SD==0 && ED==0 && !FULL) (        SRC  => (DST +: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==1 && SD==0 && ED==0 &&  FULL) (        SRC  *> (DST +: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==1 && SD==0 && ED==1 && !FULL) (posedge SRC  => (DST +: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==1 && SD==0 && ED==1 &&  FULL) (posedge SRC  *> (DST +: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==1 && SD==0 && ED==2 && !FULL) (negedge SRC  => (DST +: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==1 && SD==0 && ED==2 &&  FULL) (negedge SRC  *> (DST +: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n    \n        if (EN && DD==1 && SD==1 && ED==0 && !FULL) (        SRC +=> (DST +: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==1 && SD==1 && ED==0 &&  FULL) (        SRC +*> (DST +: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==1 && SD==1 && ED==1 && !FULL) (posedge SRC +=> (DST +: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==1 && SD==1 && ED==1 &&  FULL) (posedge SRC +*> (DST +: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==1 && SD==1 && ED==2 && !FULL) (negedge SRC +=> (DST +: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==1 && SD==1 && ED==2 &&  FULL) (negedge SRC +*> (DST +: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n    \n        if (EN && DD==1 && SD==2 && ED==0 && !FULL) (        SRC -=> (DST +: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==1 && SD==2 && ED==0 &&  FULL) (        SRC -*> (DST +: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==1 && SD==2 && ED==1 && !FULL) (posedge SRC -=> (DST +: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==1 && SD==2 && ED==1 &&  FULL) (posedge SRC -*> (DST +: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==1 && SD==2 && ED==2 && !FULL) (negedge SRC -=> (DST +: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==1 && SD==2 && ED==2 &&  FULL) (negedge SRC -*> (DST +: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n    \n        // DD=2\n    \n        if (EN && DD==2 && SD==0 && ED==0 && !FULL) (        SRC  => (DST -: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==2 && SD==0 && ED==0 &&  FULL) (        SRC  *> (DST -: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==2 && SD==0 && ED==1 && !FULL) (posedge SRC  => (DST -: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==2 && SD==0 && ED==1 &&  FULL) (posedge SRC  *> (DST -: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==2 && SD==0 && ED==2 && !FULL) (negedge SRC  => (DST -: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==2 && SD==0 && ED==2 &&  FULL) (negedge SRC  *> (DST -: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n    \n        if (EN && DD==2 && SD==1 && ED==0 && !FULL) (        SRC +=> (DST -: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==2 && SD==1 && ED==0 &&  FULL) (        SRC +*> (DST -: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==2 && SD==1 && ED==1 && !FULL) (posedge SRC +=> (DST -: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==2 && SD==1 && ED==1 &&  FULL) (posedge SRC +*> (DST -: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==2 && SD==1 && ED==2 && !FULL) (negedge SRC +=> (DST -: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==2 && SD==1 && ED==2 &&  FULL) (negedge SRC +*> (DST -: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n    \n        if (EN && DD==2 && SD==2 && ED==0 && !FULL) (        SRC -=> (DST -: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==2 && SD==2 && ED==0 &&  FULL) (        SRC -*> (DST -: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==2 && SD==2 && ED==1 && !FULL) (posedge SRC -=> (DST -: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==2 && SD==2 && ED==1 &&  FULL) (posedge SRC -*> (DST -: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==2 && SD==2 && ED==2 && !FULL) (negedge SRC -=> (DST -: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n        if (EN && DD==2 && SD==2 && ED==2 &&  FULL) (negedge SRC -*> (DST -: DAT)) = (T_RISE_MIN:T_RISE_TYP:T_RISE_MAX, T_FALL_MIN:T_FALL_TYP:T_FALL_MAX);\n    endspecify\n    `endif\n    \nendmodule",
       "inputs": ["\\DAT", "\\DST", "\\SRC", "\\EN"],
@@ -2429,7 +2430,7 @@
     "$specrule": {
       "title": "",
       "ports": "(EN_SRC, EN_DST, SRC, DST)",
-      "source": "simlib.v:1667",
+      "source": "simlib.v:1669",
       "desc": "",
       "code": "module \\$specrule (EN_SRC, EN_DST, SRC, DST);\n    \n    parameter TYPE = \"\";\n    parameter T_LIMIT = 0;\n    parameter T_LIMIT2 = 0;\n    \n    parameter SRC_WIDTH = 1;\n    parameter DST_WIDTH = 1;\n    \n    parameter SRC_PEN = 0;\n    parameter SRC_POL = 0;\n    \n    parameter DST_PEN = 0;\n    parameter DST_POL = 0;\n    \n    input EN_SRC, EN_DST;\n    input [SRC_WIDTH-1:0] SRC;\n    input [DST_WIDTH-1:0] DST;\n    \n    `ifdef SIMLIB_SPECIFY\n    specify\n        // TBD\n    endspecify\n    `endif\n    \nendmodule",
       "inputs": ["\\DST", "\\SRC", "\\EN_DST", "\\EN_SRC"],
@@ -2439,7 +2440,7 @@
     "$sr": {
       "title": "",
       "ports": "(SET, CLR, Q)",
-      "source": "simlib.v:1952",
+      "source": "simlib.v:1954",
       "desc": "",
       "code": "module \\$sr (SET, CLR, Q);\n    \n    parameter WIDTH = 0;\n    parameter SET_POLARITY = 1'b1;\n    parameter CLR_POLARITY = 1'b1;\n    \n    input [WIDTH-1:0] SET, CLR;\n    output reg [WIDTH-1:0] Q;\n    \n    wire [WIDTH-1:0] pos_set = SET_POLARITY ? SET : ~SET;\n    wire [WIDTH-1:0] pos_clr = CLR_POLARITY ? CLR : ~CLR;\n    \n    genvar i;\n    generate\n        for (i = 0; i < WIDTH; i = i+1) begin:bitslices\n            always @*\n                if (pos_clr[i])\n                    Q[i] <= 0;\n                else if (pos_set[i])\n                    Q[i] <= 1;\n        end\n    endgenerate\n    \nendmodule",
       "inputs": ["\\CLR", "\\SET"],
@@ -2479,7 +2480,7 @@
     "$tribuf": {
       "title": "",
       "ports": "(A, EN, Y)",
-      "source": "simlib.v:1504",
+      "source": "simlib.v:1506",
       "desc": "",
       "code": "module \\$tribuf (A, EN, Y);\n    \n    parameter WIDTH = 0;\n    \n    input [WIDTH-1:0] A;\n    input EN;\n    output [WIDTH-1:0] Y;\n    \n    assign Y = EN ? A : 'bz;\n    \nendmodule",
       "inputs": ["\\EN", "\\A"],

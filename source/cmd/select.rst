@@ -102,6 +102,16 @@ select - modify and view the list of selected objects
 
     .. code:: yoscrypt
 
+        -assert-mod-count N
+
+    ::
+
+            do not modify the current selection. instead assert that the given
+            selection contains exactly N modules (partially or fully selected).
+
+
+    .. code:: yoscrypt
+
         -assert-count N
 
     ::
@@ -394,6 +404,10 @@ select - modify and view the list of selected objects
                 do not modify the current selection. instead assert that the given
                 selection is non-empty. i.e. produce an error if no object or module
                 matching the selection is found.
+        
+            -assert-mod-count N
+                do not modify the current selection. instead assert that the given
+                selection contains exactly N modules (partially or fully selected).
         
             -assert-count N
                 do not modify the current selection. instead assert that the given

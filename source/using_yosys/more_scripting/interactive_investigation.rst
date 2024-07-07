@@ -55,7 +55,7 @@ is shown.
    ``xdot example_first.dot`` etc.
 
 .. figure:: /_images/code_examples/show/example_first.*
-   :class: width-helper
+   :class: width-helper invert-helper
    
    Output of the first `show` command in :numref:`example_ys`
 
@@ -87,7 +87,7 @@ The `proc` command transforms the process from the first diagram into a
 multiplexer and a d-type flip-flop, which brings us to the second diagram:
 
 .. figure:: /_images/code_examples/show/example_second.*
-   :class: width-helper
+   :class: width-helper invert-helper
    
    Output of the second `show` command in :numref:`example_ys`
 
@@ -109,7 +109,7 @@ In this script we directly call `opt` as the next step, which finally leads us
 to the third diagram: 
 
 .. figure:: /_images/code_examples/show/example_third.*
-   :class: width-helper
+   :class: width-helper invert-helper
    :name: example_out
    
    Output of the third `show` command in :ref:`example_ys`
@@ -136,7 +136,7 @@ that operate on wide integers, it also introduces some additional complexity
 when the individual bits of of a signal vector are accessed.
 
 .. figure:: /_images/code_examples/show/splice.*
-   :class: width-helper
+   :class: width-helper invert-helper
    :name: splice_dia
 
    Output of ``yosys -p 'prep -top splice_demo; show' splice.v``
@@ -164,7 +164,7 @@ Gate level netlists
 mapped to a cell library:
 
 .. figure:: /_images/code_examples/show/cmos_00.*
-   :class: width-helper
+   :class: width-helper invert-helper
    :name: first_pitfall
 
    A half-adder built from simple CMOS gates, demonstrating common pitfalls when 
@@ -184,7 +184,7 @@ column. Secondly the two-bit vector ``y`` requires breakout-boxes for its
 individual bits, resulting in an unnecessary complex diagram.
 
 .. figure:: /_images/code_examples/show/cmos_01.*
-   :class: width-helper
+   :class: width-helper invert-helper
    :name: second_pitfall
 
    Effects of `splitnets` command and of providing a cell library on design in
@@ -353,10 +353,10 @@ reorganizing a module in Yosys and checking the resulting circuit.
    :end-before: cd ..
 
 .. figure:: /_images/code_examples/scrambler/scrambler_p01.*
-    :class: width-helper
+    :class: width-helper invert-helper
 
 .. figure:: /_images/code_examples/scrambler/scrambler_p02.*
-    :class: width-helper
+    :class: width-helper invert-helper
 
 Analyzing the resulting circuit with :doc:`/cmd/eval`:
 
@@ -437,7 +437,7 @@ if the circuit under investigation is encapsulated in a separate module.
 Recall the ``memdemo`` design from :ref:`advanced_logic_cones`:
 
 .. figure:: /_images/code_examples/selections/memdemo_00.*
-   :class: width-helper
+   :class: width-helper invert-helper
    
    ``memdemo``
 
@@ -458,18 +458,18 @@ name of the new cell in the current module. The resulting circuits are shown
 below.
 
 .. figure:: /_images/code_examples/selections/submod_02.*
-   :class: width-helper
+   :class: width-helper invert-helper
    
    ``outstage``
 
 .. figure:: /_images/code_examples/selections/submod_03.*
-   :class: width-helper
+   :class: width-helper invert-helper
    :name: selstage
    
    ``selstage``
 
 .. figure:: /_images/code_examples/selections/submod_01.*
-   :class: width-helper
+   :class: width-helper invert-helper
    
    ``scramble``
 

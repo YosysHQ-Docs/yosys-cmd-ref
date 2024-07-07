@@ -106,7 +106,7 @@ synth_efinix - synthesis for Efinix FPGAs
                 synth -run coarse
 
             map_ram:
-                memory_libmap -lib +/efinix/brams.txt
+                memory_libmap -lib +/efinix/brams.txt [-no-auto-block]    (-no-auto-block if -nobram)
                 techmap -map +/efinix/brams_map.v
 
             map_ffram:
@@ -206,7 +206,7 @@ synth_efinix - synthesis for Efinix FPGAs
                 synth -run coarse
         
             map_ram:
-                memory_libmap -lib +/efinix/brams.txt
+                memory_libmap -lib +/efinix/brams.txt [-no-auto-block]    (-no-auto-block if -nobram)
                 techmap -map +/efinix/brams_map.v
         
             map_ffram:

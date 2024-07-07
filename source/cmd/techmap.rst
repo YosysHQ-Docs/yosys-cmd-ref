@@ -228,6 +228,10 @@ techmap - generic technology mapper
         new wire alias to be created and named as above but with the `_TECHMAP_REPLACE_'
         prefix also substituted.
 
+        A cell with the type _TECHMAP_PLACEHOLDER_ in the map file will have its type
+        changed to the content of the techmap_chtype attribute. This allows for choosing
+        the cell type dynamically.
+
         See 'help extract' for a pass that does the opposite thing.
 
         See 'help flatten' for a pass that does flatten the design (which is
@@ -397,6 +401,10 @@ techmap - generic technology mapper
         Similarly, a wire named in the form `_TECHMAP_REPLACE_.<suffix>` will cause a
         new wire alias to be created and named as above but with the `_TECHMAP_REPLACE_'
         prefix also substituted.
+        
+        A cell with the type _TECHMAP_PLACEHOLDER_ in the map file will have its type
+        changed to the content of the techmap_chtype attribute. This allows for choosing
+        the cell type dynamically.
         
         See 'help extract' for a pass that does the opposite thing.
         

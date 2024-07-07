@@ -135,7 +135,6 @@ yosys-smtbmc [options] <yosys_smt2_output>
     --minimize-assumes
         when using --track-assumes, solve for a minimal set of sufficient assumptions.
 
-
     -s <solver>
         set SMT solver: z3, yices, boolector, bitwuzla, cvc4, mathsat, dummy
         default: yices
@@ -152,6 +151,9 @@ yosys-smtbmc [options] <yosys_smt2_output>
     --dummy <filename>
         if solver is "dummy", read solver output from that file
         otherwise: write solver output to that file
+
+    --smt2-option <option>=<value>
+        enable an SMT-LIBv2 option.
 
     -v
         enable debug output

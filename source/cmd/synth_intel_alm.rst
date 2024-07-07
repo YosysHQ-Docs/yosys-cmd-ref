@@ -37,19 +37,6 @@ synth_intel_alm - synthesis for ALM-based Intel (Altera) FPGAs.
 
             target one of:
             "cyclonev"    - Cyclone V (default)
-            "arriav"      - Arria V (non-GZ)
-            "cyclone10gx" - Cyclone 10GX
-
-
-    .. code:: yoscrypt
-
-        -vqm <file>
-
-    ::
-
-            write the design to the specified Verilog Quartus Mapping File. Writing
-            of an output file is omitted if this parameter is not specified. Implies
-            -quartus.
 
 
     .. code:: yoscrypt
@@ -60,15 +47,6 @@ synth_intel_alm - synthesis for ALM-based Intel (Altera) FPGAs.
 
             do not flatten design before synthesis; useful for per-module area
             statistics
-
-
-    .. code:: yoscrypt
-
-        -quartus
-
-    ::
-
-            output a netlist using Quartus cells instead of MISTRAL_* cells
 
 
     .. code:: yoscrypt
@@ -183,7 +161,7 @@ synth_intel_alm - synthesis for ALM-based Intel (Altera) FPGAs.
                 techmap -map +/intel_alm/common/bram_<bram_type>_map.v
 
             map_lutram:    (skip if -nolutram)
-                memory_bram -rules +/intel_alm/common/lutram_mlab.txt    (for Cyclone V / Cyclone 10GX)
+                memory_bram -rules +/intel_alm/common/lutram_mlab.txt    (for Cyclone V)
 
             map_ffram:
                 memory_map
@@ -212,15 +190,6 @@ synth_intel_alm - synthesis for ALM-based Intel (Altera) FPGAs.
                 check
                 blackbox =A:whitebox
 
-            quartus:
-                rename -hide w:*[* w:*]*
-                setundef -zero
-                hilomap -singleton -hicell __MISTRAL_VCC Q -locell __MISTRAL_GND Q
-                techmap -D <family> -map +/intel_alm/common/quartus_rename.v
-
-            vqm:
-                write_verilog -attr2comment -defparam -nohex -decimal <file-name>
-
 .. raw:: latex
 
     \end{comment}
@@ -240,20 +209,10 @@ synth_intel_alm - synthesis for ALM-based Intel (Altera) FPGAs.
             -family <family>
                 target one of:
                 "cyclonev"    - Cyclone V (default)
-                "arriav"      - Arria V (non-GZ)
-                "cyclone10gx" - Cyclone 10GX
-        
-            -vqm <file>
-                write the design to the specified Verilog Quartus Mapping File. Writing
-                of an output file is omitted if this parameter is not specified. Implies
-                -quartus.
         
             -noflatten
                 do not flatten design before synthesis; useful for per-module area
                 statistics
-        
-            -quartus
-                output a netlist using Quartus cells instead of MISTRAL_* cells
         
             -dff
                 pass DFFs to ABC to perform sequential logic optimisations
@@ -323,7 +282,7 @@ synth_intel_alm - synthesis for ALM-based Intel (Altera) FPGAs.
                 techmap -map +/intel_alm/common/bram_<bram_type>_map.v
         
             map_lutram:    (skip if -nolutram)
-                memory_bram -rules +/intel_alm/common/lutram_mlab.txt    (for Cyclone V / Cyclone 10GX)
+                memory_bram -rules +/intel_alm/common/lutram_mlab.txt    (for Cyclone V)
         
             map_ffram:
                 memory_map
@@ -351,13 +310,4 @@ synth_intel_alm - synthesis for ALM-based Intel (Altera) FPGAs.
                 stat
                 check
                 blackbox =A:whitebox
-        
-            quartus:
-                rename -hide w:*[* w:*]*
-                setundef -zero
-                hilomap -singleton -hicell __MISTRAL_VCC Q -locell __MISTRAL_GND Q
-                techmap -D <family> -map +/intel_alm/common/quartus_rename.v
-        
-            vqm:
-                write_verilog -attr2comment -defparam -nohex -decimal <file-name>
         
