@@ -136,6 +136,15 @@ test_cell - automatically test the implementation of a cell type
 
     .. code:: yoscrypt
 
+        -noopt
+
+    ::
+
+            do not opt tecchmapped design
+
+
+    .. code:: yoscrypt
+
         -edges
 
     ::
@@ -159,6 +168,17 @@ test_cell - automatically test the implementation of a cell type
     ::
 
             create a Verilog test bench to test simlib and write_verilog
+
+    ::
+
+        -bloat {factor}
+            increase cell size limits b{factor} times where possible
+
+    ::
+
+        -check_cost
+            check if the estimated cell cost is a valid upper bound for
+            the techmapped cell count 
 
 .. raw:: latex
 
@@ -215,6 +235,9 @@ test_cell - automatically test the implementation of a cell type
             -noeval
                 do not check const-eval models
         
+            -noopt
+                do not opt tecchmapped design
+        
             -edges
                 test cell edges db creator against sat-based implementation
         
@@ -223,4 +246,9 @@ test_cell - automatically test the implementation of a cell type
         
             -vlog {filename}
                 create a Verilog test bench to test simlib and write_verilog
+            -bloat {factor}
+                increase cell size limits b{factor} times where possible
+            -check_cost
+                check if the estimated cell cost is a valid upper bound for
+                the techmapped cell count 
         
